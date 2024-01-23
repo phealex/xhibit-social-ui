@@ -24,13 +24,17 @@ function App() {
           element: <div>Home</div>,
         },
         {
-          path: "/about",
-          element: <div>About</div>,
+          path: "/projects",
+          element: <div>Projects</div>,
         },
         {
-          path: "/contact",
-          element: <div>Contact</div>,
+          path: "/jobs",
+          element: <div>Jobs</div>,
         },
+        {
+          path: "/about",
+          element: <div>About</div>,
+        }
       ],
     },
   ]);
