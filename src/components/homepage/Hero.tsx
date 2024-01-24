@@ -57,7 +57,7 @@ const Hero: FC = () => {
                   </div>
                 </div>
               </div>
-              <div className=""></div>
+              <div className=" bg-hero-glow  flex-1 w-full h-full"></div>
             </div>
           </div>
         </div>

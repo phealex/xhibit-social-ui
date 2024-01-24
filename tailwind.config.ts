@@ -62,6 +62,7 @@ module.exports = {
       },
       backgroundImage: {
         "noise-background": "url('/assets/noiseBackground.svg')",
+        "hero-glow": "url(/assets/heroGlow.svg)"
       },
 
       borderRadius: {
