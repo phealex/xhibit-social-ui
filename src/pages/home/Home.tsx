@@ -1,8 +1,11 @@
+import { Hero } from '@/components'
 import React, { FC } from 'react'
 
 const Home: FC = () => {
   return (
-    <div>Home</div>
+    <div>
+        <Hero />
+    </div>
   )
 }
 

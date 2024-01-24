@@ -102,7 +102,7 @@ const Navbar: FC = () => {
                 Hire Talent
               </Button>
             </div>
-            <Button className="text-white font-Jakarta bg-primary_blue hover:bg-primary_blue rounded-[5px] font-medium text-base px-5 py-[10px]">
+            <Button className="text-white font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-5 py-[10px]">
               Log In
             </Button>
           </div>
@@ -138,7 +138,7 @@ const Navbar: FC = () => {
                         Hire Talent
                       </Button>
                     </div>
-                    <Button className="text-white font-Jakarta bg-primary_blue hover:bg-primary_blue rounded-[5px] font-medium text-base px-8 py-[10px]">
+                    <Button className="text-white font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-8 py-[10px]">
                       Log In
                     </Button>
                   </div>
@@ -171,7 +171,7 @@ const Navbar: FC = () => {
                     <SheetClose>Hire Talent</SheetClose>
                   </Button>
                 </div>
-                <Button className="text-white w-1/2 font-Jakarta bg-primary_blue hover:bg-primary_blue rounded-[5px] font-medium text-base px-5 py-[10px]">
+                <Button className="text-white w-1/2 font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-5 py-[10px]">
                   <SheetClose>Log In</SheetClose>
                 </Button>
               </div>

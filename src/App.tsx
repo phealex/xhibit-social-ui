@@ -1,6 +1,7 @@
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css'
-import { Navbar } from './components';
+import { Navbar } from '@/components';
+import Home from './pages/home/Home';
 
 
 
@@ -21,7 +22,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <div>Home</div>,
+          element: <Home />,
         },
         {
           path: "/projects",

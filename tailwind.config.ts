@@ -60,6 +60,9 @@ module.exports = {
         home_border_gradient_color_2: "rgba(102,205,237,1)",
         primary_blue: "#0085FF",
       },
+      backgroundImage: {
+        "noise-background": "url('/assets/noiseBackground.svg')",
+      },
 
       borderRadius: {
         lg: "var(--radius)",
