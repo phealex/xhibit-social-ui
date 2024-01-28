@@ -1,8 +1,6 @@
-import Logo from './Icon.svg';
+import Logo from "./Icon.svg";
+import HeroGlow from "./heroGlow.svg";
+import Hawkins from "./hawkins.png";
+import Alexander from "./alexander.svg";
 
-
-
-export {
-    Logo,
-
-}
+export { Logo, HeroGlow, Hawkins, Alexander };

@@ -1,14 +1,15 @@
-import { Search, Sparkles, Star } from "lucide-react";
-import React, { FC } from "react";
+import { Minus, Search, Sparkles, Star } from "lucide-react";
+import { FC } from "react";
 import { Button } from "../ui/button";
+import { Alexander, Hawkins } from "@/assets";
 
 const Hero: FC = () => {
   return (
-    <div className="flex flex-col">
-      <main className="h-screen">
+    <div className="flex flex-col ">
+      <main className="">
         <div className=" bg-noise-background bg-no-repeat w-full h-full">
           <div className="bg-full h-full bg-home_gradient ">
-            <div className="w-[90%] gap-5 mx-auto flex items-center flex-col md:flex-row py-[50px] sm:py-[30px] h-full lg:my-auto">
+            <div className="w-[90%] gap-2 lg:gap-5 mx-auto flex items-center md:items-start flex-col md:flex-row py-[50px] sm:py-[30px] h-full lg:my-auto">
               <div className="flex flex-col w-full gap-[30px] lg:gap-[40px] md:w-[65%] lg:w-[60%] ">
                 <h1 className=" font-Jakarta font-normal text-center sm:text-left text-[42px] leading-[48px] md:text-[58px] lg:text-[70px] md:leading-[70px] lg:leading-[98px] text-white">
                   Recruit top tech experts <br /> Drive innovation, swiftly.
@@ -57,11 +58,47 @@ const Hero: FC = () => {
                   </div>
                 </div>
               </div>
-              <div className=" bg-hero-glow  flex-1 w-full h-full"></div>
+              <div className="relative bg-hero-glow bg-no-repeat bg-contain bg-center flex-1 py-10 md:py-5  w-full sm:w-4/6 md:w-[80%] ">
+                <div className="relative ">
+                  <div className="flex w-full  justify-start">
+                    <div className="flex flex-col gap-1 items-center">
+                      <p className=" font-Jakarta text-[16px] font-medium flex flex-col gap-0.5  text-white/90">
+                        Guy Hawkins
+                        <span className="text-[13px] font-light text-white/70">
+                          Software Engineer
+                        </span>
+                      </p>
+                      <img src={Hawkins} alt="" className="" />
+                    </div>
+                  </div>
+                  <div className="flex w-full gap-2 justify-end">
+                    <div className="flex flex-col gap-1 items-center">
+                      <img src={Alexander} alt="" className="" />
+                      <p className=" font-Jakarta text-[16px] font-medium flex flex-col gap-0.5  text-white/90">
+                        Leslie Alexander
+                        <span className="text-[13px] font-light text-white/70">
+                          Talent Manager, IBM
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </main>
+      <div className=" bg-sub-hero h-[300px] bg-contain lg:bg-cover bg-no-repeat w-full -mt-10 ">
+        <div className="flex w-full gap-2 items-center">
+          <Minus className=" text-home_border_gradient_color_1 flex shrink" />
+          <h1 className="flex shrink-0 font-Jakarta text-[25px] font-medium leading-9">
+          Trusted by foremost global corporations
+          </h1>
+          <Minus className=" text-home_border_gradient_color_2 flex shrink" />
+
+        </div>
+        <div className=""></div>
+      </div>
     </div>
   );
 };

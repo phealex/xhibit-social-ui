@@ -61,8 +61,9 @@ module.exports = {
         primary_blue: "#0085FF",
       },
       backgroundImage: {
-        "noise-background": "url('/assets/noiseBackground.svg')",
-        "hero-glow": "url(/assets/heroGlow.svg)"
+        "noise-background": "url('./assets/noiseBackground.svg')",
+        "hero-glow": "url(./assets/heroGlow.svg)",
+        "sub-hero" : "url(./assets/curveRectangle.svg)",
       },
 
       borderRadius: {
