@@ -1,7 +1,15 @@
-import { Minus, Search, Sparkles, Star } from "lucide-react";
+import { Search, Sparkles, Star } from "lucide-react";
 import { FC } from "react";
 import { Button } from "../ui/button";
-import { Alexander, Hawkins } from "@/assets";
+import {
+  Airbnb,
+  Alexander,
+  Binance,
+  Flutterwave,
+  Google,
+  Hawkins,
+  Tesla,
+} from "@/assets";
 
 const Hero: FC = () => {
   return (
@@ -88,16 +96,22 @@ const Hero: FC = () => {
           </div>
         </div>
       </main>
-      <div className=" bg-sub-hero h-[300px] bg-contain lg:bg-cover bg-no-repeat w-full -mt-10 ">
-        <div className="flex w-full gap-2 items-center">
-          <Minus className=" text-home_border_gradient_color_1 flex shrink" />
-          <h1 className="flex shrink-0 font-Jakarta text-[25px] font-medium leading-9">
-          Trusted by foremost global corporations
+      <div className=" bg-sub-hero  bg-contain lg:bg-cover bg-no-repeat flex flex-col gap-1 md:gap-7 py-[7px] md:py-[40px] lg:py-[80px] justify-center items-center w-full mx-auto -mt-10 ">
+        <div className="flex w-[90%] gap-5 items-center">
+          <div className=" bg-home_border_gradient_color_1 h-[2px] w-full shrink"></div>
+          <h1 className="flex shrink-0 font-Jakarta text-[13px] md:text-[25px] font-medium text-white leading-9">
+            Trusted by foremost global corporations
           </h1>
-          <Minus className=" text-home_border_gradient_color_2 flex shrink" />
+          <div className=" bg-home_border_gradient_color_2 h-[2px] w-full shrink"></div>
 
         </div>
-        <div className=""></div>
+        <div className="flex items-center w-[90%] justify-between ">
+          <img src={Airbnb} alt="icon" className=" h-[15px] md:h-[30px] w-[18%]" />
+          <img src={Google} alt="icon" className=" h-[15px] md:h-[30px] w-[18%]" />
+          <img src={Flutterwave} alt="icon" className=" h-[15px] md:h-[30px] w-[18%]" />
+          <img src={Binance} alt="icon" className=" h-[15px] md:h-[30px] w-[18%]" />
+          <img src={Tesla} alt="icon" className=" h-[15px] md:h-[30px] w-[18%]" />
+        </div>
       </div>
     </div>
   );
