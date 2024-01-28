@@ -96,7 +96,7 @@ const Hero: FC = () => {
           </div>
         </div>
       </main>
-      <div className=" bg-sub-hero  bg-contain lg:bg-cover bg-no-repeat flex flex-col gap-1 md:gap-7 py-[7px] md:py-[40px] lg:py-[80px] justify-center items-center w-full mx-auto -mt-10 ">
+      <div className=" bg-sub-hero  bg-cover lg:bg-cover bg-no-repeat flex flex-col gap-1 md:gap-7 py-[7px] md:py-[40px] lg:py-[80px] justify-center items-center w-full mx-auto -mt-10 ">
         <div className="flex w-[90%] gap-5 items-center">
           <div className=" bg-home_border_gradient_color_1 h-[2px] w-full shrink"></div>
           <h1 className="flex shrink-0 font-Jakarta text-[13px] md:text-[25px] font-medium text-white leading-9">

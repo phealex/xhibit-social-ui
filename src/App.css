@@ -18,3 +18,8 @@
   padding: 11px;
   box-sizing: border-box;
 }
+
+
+.rectangle-clip-path {
+  clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 75%, 0% 100%);
+}
