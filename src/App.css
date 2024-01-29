@@ -1,6 +1,11 @@
 .home_gradient_border {
-  background-image: radial-gradient(circle at 100% 100%, 0, 4px, transparent 4px) 0%
-      0%/9px 9px no-repeat,
+  background-image: radial-gradient(
+        circle at 100% 100%,
+        0,
+        4px,
+        transparent 4px
+      )
+      0% 0%/9px 9px no-repeat,
     radial-gradient(circle at 0 100%, 0, 4px, transparent 4px) 100% 0%/9px 9px
       no-repeat,
     radial-gradient(circle at 100% 0, 0, 4px, transparent 4px) 0% 100%/9px 9px
@@ -19,7 +24,10 @@
   box-sizing: border-box;
 }
 
-
-.rectangle-clip-path {
+.rectangle-upper-clip-path {
   clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 75%, 0% 100%);
+}
+
+.rectangle-lower-clip-path {
+  clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 100%);
 }

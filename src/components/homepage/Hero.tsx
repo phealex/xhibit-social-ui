@@ -16,7 +16,7 @@ const Hero: FC = () => {
     <div className="flex flex-col ">
       <main className="">
         <div className=" bg-noise-background bg-no-repeat w-full h-full">
-          <div className="bg-full h-full bg-home_gradient ">
+          <div className="bg-full h-full bg-home_gradient pb-10 ">
             <div className="w-[90%] gap-2 lg:gap-5 mx-auto flex items-center md:items-start flex-col md:flex-row py-[50px] sm:py-[30px] h-full lg:my-auto">
               <div className="flex flex-col w-full gap-[30px] lg:gap-[40px] md:w-[65%] lg:w-[60%] ">
                 <h1 className=" font-Jakarta font-normal text-center sm:text-left text-[42px] leading-[48px] md:text-[58px] lg:text-[70px] md:leading-[70px] lg:leading-[98px] text-white">
