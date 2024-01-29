@@ -16,6 +16,9 @@ import Skills from "./skills.svg";
 import UnderlineCurve from "./underlinecurve.svg";
 import Nguyen from "./nguyen.svg";
 import Project from "./project.svg";
+import Sparkle from "./sparkle.svg";
+import Star from "./star.svg";
+import Solar from "./solar.svg";
 
 export {
   Logo,
@@ -36,4 +39,7 @@ export {
   UnderlineCurve,
   Nguyen,
   Project,
+  Sparkle,
+  Star,
+  Solar,
 };

@@ -7,6 +7,9 @@ import {
   Nguyen,
   Project,
   Skills,
+  Solar,
+  Sparkle,
+  Star,
 } from "@/assets";
 
 export const features: {
@@ -142,3 +145,26 @@ export const projects: {
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
   },
 ];
+
+
+export const welcome: {
+  img: string,
+  title: string,
+  description: string
+}[] = [
+  {
+    img: Star,
+    title: "80% Faster hiring",
+    description: "No more back and forth finding the right qualified candidates"
+  },
+  {
+    img: Sparkle,
+    title: "Decrease spending",
+    description:"Find the right candidates and pay cheaper than market price"
+  },
+  {
+    img: Solar,
+    title: "Top 0.1% candidates",
+    description:"Find the right candidates and pay cheaper than market price"
+  }
+]
