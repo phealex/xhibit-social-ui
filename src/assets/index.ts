@@ -13,6 +13,27 @@ import Brainstorm from "./brainstorm.svg";
 import Customize from "./customize.svg";
 import Diversity from "./diversity.svg";
 import Skills from "./skills.svg";
+import UnderlineCurve from "./underlinecurve.svg";
+import Nguyen from "./nguyen.svg";
+import Project from "./project.svg";
 
-export { Logo, HeroGlow, Hawkins, Alexander, Airbnb, Google, Flutterwave, Binance, Tesla, HelpingHands, BrainCircuit, Brainstorm, Customize, Diversity, Skills};
- 
+export {
+  Logo,
+  HeroGlow,
+  Hawkins,
+  Alexander,
+  Airbnb,
+  Google,
+  Flutterwave,
+  Binance,
+  Tesla,
+  HelpingHands,
+  BrainCircuit,
+  Brainstorm,
+  Customize,
+  Diversity,
+  Skills,
+  UnderlineCurve,
+  Nguyen,
+  Project,
+};

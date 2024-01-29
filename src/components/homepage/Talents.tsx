@@ -3,38 +3,7 @@ import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import { features } from "@/constants";
 import { Card } from "../ui/card";
-
-const SVGLine = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="259"
-      height="16"
-      viewBox="0 0 259 16"
-      fill="none"
-    >
-      <path
-        d="M2.14689 13.9987C46.6856 7.23155 88.3011 4.45569 133.218 3.63079C166.412 3.0212 203.253 1.64382 236.126 5.46115C242.71 5.83476 248.725 7.08991 256.089 8.53943"
-        stroke="url(#paint0_linear_2104_17274)"
-        stroke-width="4"
-        stroke-linecap="round"
-      />
-      <defs>
-        <linearGradient
-          id="paint0_linear_2104_17274"
-          x1="19.5"
-          y1="1.33594"
-          x2="52.9592"
-          y2="91.5207"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stop-color="#6ED4FE" />
-          <stop offset="1" stop-color="#788DFA" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
+import { UnderlineCurve } from "@/assets";
 
 const Talents: FC = () => {
   return (
@@ -50,7 +19,7 @@ const Talents: FC = () => {
                 Shaping the future of talent
                 <span className=" md:hidden">{""} sourcing</span>
               </h1>
-              <SVGLine />
+              <img src={UnderlineCurve} alt="" className="" />
 
               <h1 className=" hidden md:flex font-Jakarta text-white font-bold  text-[42px] leading-10">
                 sourcing
@@ -69,7 +38,7 @@ const Talents: FC = () => {
             <ArrowRight className=" text-white text-[20px]" />
           </Button>
         </div>
-        <div className="rectangle-lower-clip-path bg-[#8E9FAA] rounded-sm pt-[170px] pb-10 px-3 flex flex-col gap-[30px] md:flex-row md:flex-wrap md:justify-around -mt-24 lg:-mt-16 z-10 "> 
+        <div className="rectangle-lower-clip-path bg-[#8E9FAA] rounded-sm pt-[170px] pb-10 px-3 flex flex-col gap-[30px] md:flex-row md:flex-wrap md:justify-around -mt-24 lg:-mt-16 z-10 ">
           {features.map((feature, index) => (
             <Card
               key={index}

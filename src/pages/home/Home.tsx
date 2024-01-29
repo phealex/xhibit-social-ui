@@ -1,4 +1,4 @@
-import { Hero, HomeTalent } from '@/components'
+import { Hero, HomeProjects, HomeTalent } from '@/components'
 import React, { FC } from 'react'
 
 const Home: FC = () => {
@@ -6,6 +6,7 @@ const Home: FC = () => {
     <div>
         <Hero />
         <HomeTalent />
+        <HomeProjects />
     </div>
   )
 }
