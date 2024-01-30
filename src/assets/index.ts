@@ -20,6 +20,7 @@ import Sparkle from "./sparkle.svg";
 import Star from "./star.svg";
 import Solar from "./solar.svg";
 import Kayla from "./kayla.svg";
+import Coinbase from './coinbase.svg'
 
 export {
   Logo,
@@ -44,4 +45,5 @@ export {
   Star,
   Solar,
   Kayla,
+  Coinbase
 };

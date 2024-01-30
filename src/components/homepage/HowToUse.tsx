@@ -2,8 +2,9 @@ import { howToUse } from "@/constants";
 import { HiSparkles } from "react-icons/hi";
 import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
+import { FC } from "react";
 
-const HowToUse = () => {
+const HowToUse: FC = () => {
   return (
     <div className="w-[90%] mx-auto flex flex-col gap-[50px]">
       <div className="flex gap-1 mx-auto items-start font-Jakarta text-[16px] font-bold leading-normal text-center text-white md:text-[42px] md:font-bold md:leading-[48px]">

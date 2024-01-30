@@ -1,6 +1,7 @@
 import {
   BrainCircuit,
   Brainstorm,
+  Coinbase,
   Customize,
   Diversity,
   HelpingHands,
@@ -204,29 +205,94 @@ export const reviews: {
   },
 ];
 
-
 export const howToUse: {
   title: string;
   list: string[];
   buttonText: string;
   buttonIcon?: IconType;
-}[] =[
+}[] = [
   {
     title: "For recruiters",
     list: [
       "Sign up today, and skip the hassle  and hire the best talent.",
       "Hire faster with curated talents.",
-      "View client testimonials, sample projects and more before you hire a talent."
+      "View client testimonials, sample projects and more before you hire a talent.",
     ],
     buttonText: "Hire talents",
-    buttonIcon: HiSparkles
+    buttonIcon: HiSparkles,
   },
   {
     title: "For talents",
     list: [
       "Sign up and join a thriving community of highly-skilled tech talent.",
-      "With our standout 0% talent fee, you're in the driver's seat. Define your worth, and relish every single cent."
+      "With our standout 0% talent fee, you're in the driver's seat. Define your worth, and relish every single cent.",
     ],
     buttonText: "Sign Up",
-  }
-]
+  },
+];
+
+export const topOffers: {
+  img: string;
+  title: string;
+  rating: number;
+  skills: string[];
+  category: "Talent" | "Job";
+  companyName?: string;
+  jobType?: "Remote" | "On-site" | "Hybrid";
+  pay?: string;
+}[] = [
+  {
+    img: Kayla,
+    title: "Mobile app developer with expertise in iOS and Android platforms.",
+    rating: 3,
+    skills: ["Node.js", "JavaScript", "SQL", "IOS"],
+    category: "Talent",
+  },
+  {
+    img: Coinbase,
+
+    title: "Product Designer (UX/UI) summer internship.",
+    rating: 3,
+    skills: ["Prototyping", "Figma", "Research"],
+    category: "Job",
+    companyName: "Coinbase",
+    jobType: "Remote",
+    pay: "$20.00 per hour",
+  },
+  {
+    img: Kayla,
+    title: "Mobile app developer with expertise in iOS and Android platforms.",
+    rating: 3,
+    skills: ["Node.js", "JavaScript", "SQL", "IOS"],
+    category: "Talent",
+  },
+  {
+    img: Coinbase,
+
+    title: "Product Designer (UX/UI) summer internship.",
+    rating: 3,
+    skills: ["Prototyping", "Figma", "Research"],
+    category: "Job",
+    companyName: "Coinbase",
+    jobType: "Remote",
+    pay: "$20.00 per hour",
+  },
+  {
+    img: Kayla,
+    title: "Mobile app developer with expertise in iOS and Android platforms.",
+    rating: 3,
+    skills: ["Node.js", "JavaScript", "SQL", "IOS"],
+    category: "Talent",
+  },
+  {
+    img: Coinbase,
+
+    title: "Product Designer (UX/UI) summer internship.",
+    rating: 3,
+    skills: ["Prototyping", "Figma", "Research"],
+    category: "Job",
+    companyName: "Coinbase",
+    jobType: "Remote",
+    pay: "$20.00 per hour",
+  },
+];
