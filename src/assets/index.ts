@@ -19,6 +19,7 @@ import Project from "./project.svg";
 import Sparkle from "./sparkle.svg";
 import Star from "./star.svg";
 import Solar from "./solar.svg";
+import Kayla from "./kayla.svg";
 
 export {
   Logo,
@@ -42,4 +43,5 @@ export {
   Sparkle,
   Star,
   Solar,
+  Kayla,
 };

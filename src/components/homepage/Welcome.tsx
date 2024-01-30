@@ -17,7 +17,7 @@ const Welcome: FC = () => {
           Every part of your hiring process is now supercharged
         </p>
       </div>
-      <div className=" bg-hero-glow bg-center bg-contain flex flex-col gap-6 ">
+      <div className=" bg-hero-glow bg-center bg-contain flex flex-col gap-6 lg:flex-row ">
         {welcome.map((item, index) => (
           <div className="relative p-0.5 w-full " key={index}>
             <div className="absolute inset-0 bg-gradient-to-r from-home_border_gradient_color_1 to-home_border_gradient_color_2  rounded-lg"></div>

@@ -4,6 +4,7 @@ import {
   Customize,
   Diversity,
   HelpingHands,
+  Kayla,
   Nguyen,
   Project,
   Skills,
@@ -11,6 +12,8 @@ import {
   Sparkle,
   Star,
 } from "@/assets";
+import { IconType } from "react-icons";
+import { HiSparkles } from "react-icons/hi";
 
 export const features: {
   img: string;
@@ -146,25 +149,84 @@ export const projects: {
   },
 ];
 
-
 export const welcome: {
-  img: string,
-  title: string,
-  description: string
+  img: string;
+  title: string;
+  description: string;
 }[] = [
   {
     img: Star,
     title: "80% Faster hiring",
-    description: "No more back and forth finding the right qualified candidates"
+    description:
+      "No more back and forth finding the right qualified candidates",
   },
   {
     img: Sparkle,
     title: "Decrease spending",
-    description:"Find the right candidates and pay cheaper than market price"
+    description: "Find the right candidates and pay cheaper than market price",
   },
   {
     img: Solar,
     title: "Top 0.1% candidates",
-    description:"Find the right candidates and pay cheaper than market price"
+    description: "Find the right candidates and pay cheaper than market price",
+  },
+];
+
+export const reviews: {
+  img: string;
+  text: string;
+  highlightText: string;
+  user: string;
+}[] = [
+  {
+    img: Kayla,
+    text: "Within a week of interviewing, I realized Arc brought me a lot of high-quality developers. They’ve been some of the",
+    highlightText: "best hires we’ve ever made.",
+    user: "@berrykhan CEO Okra",
+  },
+  {
+    img: Kayla,
+    text: "Within a week of interviewing, I realized Arc brought me a lot of high-quality developers. They’ve been some of the",
+    highlightText: "best hires we’ve ever made.",
+    user: "@berrykhan CEO Okra",
+  },
+  {
+    img: Kayla,
+    text: "Within a week of interviewing, I realized Arc brought me a lot of high-quality developers. They’ve been some of the",
+    highlightText: "best hires we’ve ever made.",
+    user: "@berrykhan CEO Okra",
+  },
+  {
+    img: Kayla,
+    text: "Within a week of interviewing, I realized Arc brought me a lot of high-quality developers. They’ve been some of the",
+    highlightText: "best hires we’ve ever made.",
+    user: "@berrykhan CEO Okra",
+  },
+];
+
+
+export const howToUse: {
+  title: string;
+  list: string[];
+  buttonText: string;
+  buttonIcon?: IconType;
+}[] =[
+  {
+    title: "For recruiters",
+    list: [
+      "Sign up today, and skip the hassle  and hire the best talent.",
+      "Hire faster with curated talents.",
+      "View client testimonials, sample projects and more before you hire a talent."
+    ],
+    buttonText: "Hire talents",
+    buttonIcon: HiSparkles
+  },
+  {
+    title: "For talents",
+    list: [
+      "Sign up and join a thriving community of highly-skilled tech talent.",
+      "With our standout 0% talent fee, you're in the driver's seat. Define your worth, and relish every single cent."
+    ],
+    buttonText: "Sign Up",
   }
 ]
