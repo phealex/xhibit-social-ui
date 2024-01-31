@@ -17,7 +17,7 @@ const TopOffers: FC = () => {
           tech talents
         </span>
       </h1>
-      <div className="flex gap-5 overflow-x-scroll">
+      <div className="flex gap-5 lg:gap-10 overflow-x-scroll">
         {topOffers.map((offer, index) => (
           <div
             className="relative p-0.5   mt-10 shrink-0 w-[361px] h-[383px] "
@@ -104,12 +104,15 @@ const TopOffers: FC = () => {
                                 return index < offer.rating ? (
                                   <Star
                                     size={15}
+                                    key={index}
                                     fill="#FFC107"
                                     className="text-[#FFC107] text-[12px]"
                                   />
                                 ) : (
                                   <Star
                                     size={15}
+                                    key={index}
+
                                     fill="#FFFFFF33"
                                     className="text-[#FFFFFF33] text-[12px]"
                                   />

@@ -6,3 +6,4 @@ export {default as HomeWelcome} from "./homepage/Welcome"
 export {default as HomeReviews } from "./homepage/Reviews"
 export {default as HomeHowToUse} from "./homepage/HowToUse"
 export {default as HomeTopOffers} from "./homepage/TopOffers"
+export {default as HomeTestimonial} from './homepage/Testimonial'
