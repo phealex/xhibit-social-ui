@@ -23,6 +23,7 @@ import Kayla from "./kayla.svg";
 import Coinbase from './coinbase.svg';
 import Jerome from "./Jerome.svg";
 import Thunderbolt from "./Thunderbolt.svg"
+import Software from './software.jpg'
 
 export {
   Logo,
@@ -49,5 +50,6 @@ export {
   Kayla,
   Coinbase,
   Jerome,
-  Thunderbolt
+  Thunderbolt, 
+  Software
 };

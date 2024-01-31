@@ -31,3 +31,8 @@
 .rectangle-lower-clip-path {
   clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 100%);
 }
+
+
+.hexagon-clip-path {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}

@@ -9,12 +9,17 @@ import {
   Nguyen,
   Project,
   Skills,
+  Software,
   Solar,
   Sparkle,
   Star,
 } from "@/assets";
+import { Cpu, Database, Globe, Kanban, LucideIcon, Network, NotebookPen } from "lucide-react";
 import { IconType } from "react-icons";
+import { FaCode, FaGlobe } from "react-icons/fa";
+import { FiPenTool } from "react-icons/fi";
 import { HiSparkles } from "react-icons/hi";
+import { IoLogoAngular, IoLogoApple } from "react-icons/io";
 
 export const features: {
   img: string;
@@ -299,4 +304,67 @@ export const topOffers: {
 
 export const findingTopTalents : string[] = [
   "Diverse tech talent from over 170+ countries", "4,000 remote tech talents world wide", "Full-time and freelance hiring", "World wide talent sourcing"
+]
+
+export const categories: {
+  img: string;
+  title: string;
+  icon: IconType | LucideIcon
+
+}[] =[
+  {
+    img: Software,
+    title: "UI/UX Designer",
+    icon: FiPenTool,
+  },
+  {
+    img: Software,
+    title: "Full Stack",
+    icon: Cpu,
+  },
+  {
+    img: Software,
+    title: "Data Analyst",
+    icon: Database,
+  },
+  {
+    img: Software,
+    title: "Technical Writer",
+    icon: NotebookPen,
+  },
+  {
+    img: Software,
+    title: "Android Dev",
+    icon: IoLogoAngular,
+  },
+  {
+    img: Software,
+    title: "Web Dev",
+    icon: FaCode,
+  },
+  {
+    img: Software,
+    title: "IOS Dev",
+    icon: IoLogoApple,
+  },
+  {
+    img: Software,
+    title: "Dev Ops",
+    icon: FaGlobe,
+  },
+  {
+    img: Software,
+    title: "Project Mgt",
+    icon: Kanban,
+  },
+  {
+    img: Software,
+    title: "Blockchain Dev",
+    icon: Network,
+  },
+  {
+    img: Software,
+    title: "Software Dev",
+    icon: Globe,
+  },
 ]
