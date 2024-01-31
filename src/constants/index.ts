@@ -296,3 +296,7 @@ export const topOffers: {
     pay: "$20.00 per hour",
   },
 ];
+
+export const findingTopTalents : string[] = [
+  "Diverse tech talent from over 170+ countries", "4,000 remote tech talents world wide", "Full-time and freelance hiring", "World wide talent sourcing"
+]

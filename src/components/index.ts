@@ -7,3 +7,4 @@ export {default as HomeReviews } from "./homepage/Reviews"
 export {default as HomeHowToUse} from "./homepage/HowToUse"
 export {default as HomeTopOffers} from "./homepage/TopOffers"
 export {default as HomeTestimonial} from './homepage/Testimonial'
+export {default as HomeCategories} from './homepage/Categories'
