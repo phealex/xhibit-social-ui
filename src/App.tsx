@@ -2,6 +2,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css'
 import { Footer, Navbar } from '@/components';
 import Home from './pages/home/Home';
+import Projects from './pages/projects/Projects';
 
 
 
@@ -27,7 +28,7 @@ function App() {
         },
         {
           path: "/projects",
-          element: <div>Projects</div>,
+          element: <Projects />,
         },
         {
           path: "/jobs",

@@ -9,3 +9,4 @@ export {default as HomeHowToUse} from "./homepage/HowToUse"
 export {default as HomeTopOffers} from "./homepage/TopOffers"
 export {default as HomeTestimonial} from './homepage/Testimonial'
 export {default as HomeCategories} from './homepage/Categories'
+export {default as ProjectCard} from "./homepage/ProjectCard"

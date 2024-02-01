@@ -24,6 +24,7 @@ import Coinbase from './coinbase.svg';
 import Jerome from "./Jerome.svg";
 import Thunderbolt from "./Thunderbolt.svg"
 import Software from './software.jpg'
+import ProjectGear from './projectGear.svg'
 
 export {
   Logo,
@@ -51,5 +52,6 @@ export {
   Coinbase,
   Jerome,
   Thunderbolt, 
-  Software
+  Software,
+  ProjectGear
 };
