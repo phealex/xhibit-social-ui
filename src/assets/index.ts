@@ -25,6 +25,8 @@ import Jerome from "./Jerome.svg";
 import Thunderbolt from "./Thunderbolt.svg"
 import Software from './software.jpg'
 import ProjectGear from './projectGear.svg'
+import JobsHero1 from "./jobsHero1.svg"
+import JobsHero2 from "./jobsHero2.svg"
 
 export {
   Logo,
@@ -53,5 +55,7 @@ export {
   Jerome,
   Thunderbolt, 
   Software,
-  ProjectGear
+  ProjectGear,
+  JobsHero1,
+  JobsHero2
 };

@@ -466,3 +466,139 @@ export const footerSocialIcons: {
     link: "/"
   }
 ]
+
+
+export const whosHiring: {
+  img: string;
+  companyName: string;
+  desc: string;
+  industry: string;
+  companySize: string;
+  openJobs: number;
+}[] = [
+  {
+    img: Coinbase,
+    companyName: "Coinbase, New York",
+    desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
+    industry: "Blockchain",
+    companySize: "100-500",
+    openJobs: 5,
+  },
+  {
+    img: Coinbase,
+    companyName: "Coinbase, New York",
+    desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
+    industry: "Blockchain",
+    companySize: "100-500",
+    openJobs: 5,
+  },
+  {
+    img: Coinbase,
+    companyName: "Coinbase, New York",
+    desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
+    industry: "Blockchain",
+    companySize: "100-500",
+    openJobs: 5,
+  },
+  {
+    img: Coinbase,
+    companyName: "Coinbase, New York",
+    desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
+    industry: "Blockchain",
+    companySize: "100-500",
+    openJobs: 5,
+  },
+]
+
+
+export const foundJobs: {
+  logo: string,
+  name: string,
+  role: string,
+  pay: string;
+  location: string;
+  jobType: string;
+  minDuration:string;
+  contractType: string;
+  skills: {
+    skill: string;
+    stared: boolean;
+  }[];
+  goodMatch: boolean;
+}[] = [
+  {
+    logo: Coinbase,
+    name: "Coinbase",
+    role: "Product Designer (UX/UI) summer internship",
+    pay: "NGN 120K - 170K/monthly",
+    location: "Lagos, Nigeria",
+    jobType: "Remote only",
+    minDuration: "Min 10 hr a week",
+    contractType: "Freelance",
+    skills: [
+      {
+        skill: "User research",
+        stared: true,
+      },
+      {
+        skill: "Wireframe",
+        stared: true,
+      },
+      {
+        skill: "Design system",
+        stared: false,
+      },
+    ],
+    goodMatch: true
+  },
+  {
+    logo: Coinbase,
+    name: "Coinbase",
+    role: "Product Designer (UX/UI) summer internship",
+    pay: "NGN 120K - 170K/monthly",
+    location: "Lagos, Nigeria",
+    jobType: "Remote only",
+    minDuration: "Min 10 hr a week",
+    contractType: "Freelance",
+    skills: [
+      {
+        skill: "User research",
+        stared: true,
+      },
+      {
+        skill: "Wireframe",
+        stared: true,
+      },
+      {
+        skill: "Design system",
+        stared: false,
+      },
+    ],
+    goodMatch: true
+  }, 
+  {
+    logo: Coinbase,
+    name: "Coinbase",
+    role: "Product Designer (UX/UI) summer internship",
+    pay: "NGN 120K - 170K/monthly",
+    location: "Lagos, Nigeria",
+    jobType: "Remote only",
+    minDuration: "Min 10 hr a week",
+    contractType: "Freelance",
+    skills: [
+      {
+        skill: "User research",
+        stared: true,
+      },
+      {
+        skill: "Wireframe",
+        stared: true,
+      },
+      {
+        skill: "Design system",
+        stared: false,
+      },
+    ],
+    goodMatch: false
+  }
+]
