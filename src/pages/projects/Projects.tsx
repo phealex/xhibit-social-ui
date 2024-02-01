@@ -3,27 +3,40 @@ import { ProjectCard } from "@/components";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/constants";
 import { ArrowRight } from "lucide-react";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 const Projects: FC = () => {
+
+  const [cardToShow, setCardToShow] = useState<number>(4)
+
+  useEffect(() => {
+    if(window.innerWidth > 768){
+      setCardToShow(8)
+    } else if (window.innerWidth > 414){
+      setCardToShow(6)
+    } else {
+      setCardToShow(4)
+    }
+  }, [])
+
   return (
     <div className=" bg-home_gradient w-full">
       <div className="flex flex-col gap-10 w-[90%]  mx-auto py-[80px]">
         <section className=" flex flex-col gap-10 w-full">
-          <div className="flex flex-col gap-5 items-center">
-            <h1 className=" font-Jakarta text-[31px] font-semibold leading-[44px] text-white text-center">
+        <h1 className=" font-Jakarta text-[31px] md:w-3/5  font-semibold leading-[44px] text-white text-center md:text-left">
               Discover inspiring{" "}
               <span className=" text-primary_blue">projects</span> curated by
               exceptional talents
             </h1>
+          <div className="flex flex-col md:flex-row-reverse gap-5 items-center md:items-start">
+           
             <img
               src={ProjectGear}
               alt=""
-              className=" w-[300px]  h-[300px]  mx-auto"
+              className=" w-[300px]  h-[300px]  mx-auto md:-mt-[130px]"
             />
-          </div>
           <div className="flex gap-5 flex-col">
-            <p className=" font-Jakarta text-[20px] font-normal leading-7 text-white/80 text-center">
+            <p className=" font-Jakarta text-[20px] font-normal leading-7 text-white/80 text-center md:text-left">
               At XHIBIT, we're dedicated to showcasing a diverse array of
               captivating projects meticulously curated by exceptionally
               talented individuals. Our platform celebrates creativity and
@@ -33,7 +46,7 @@ const Projects: FC = () => {
               groundbreaking projects and immerse yourself in the world of
               creativity and brilliance.
             </p>
-            <div className="flex justify-between items-center gap-5">
+            <div className="flex justify-between md:justify-start items-center gap-5">
               <div className="flex gap-2 pr-5 flex-col border-r border-r-white/30 ">
                 <p className=" font-Jakarta text-[16px]  font-medium leading-4 text-white">
                   300k+
@@ -57,6 +70,8 @@ const Projects: FC = () => {
               <ArrowRight className=" ml-2" size={20} />
             </Button>
           </div>
+          </div>
+
         </section>
         <section className="flex gap-5 flex-col">
           <h1 className=" font-Jakarta text-[31px] leading-[44px] font-medium">
@@ -84,7 +99,7 @@ const Projects: FC = () => {
               </Button>
             </div>
             <div className="flex flex-col md:flex-row md:flex-wrap gap-5 lg:gap-10  ">
-              {projects.slice(0, 4).map((project, index) => (
+              {projects.slice(0, cardToShow).map((project, index) => (
                 <ProjectCard key={index} project={project} />
               ))}
             </div>
