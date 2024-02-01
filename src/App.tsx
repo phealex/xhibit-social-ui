@@ -1,6 +1,6 @@
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css'
-import { Navbar } from '@/components';
+import { Footer, Navbar } from '@/components';
 import Home from './pages/home/Home';
 
 
@@ -11,6 +11,7 @@ function App() {
       <div className="">
         <Navbar />
         <Outlet />
+        <Footer />
        </div>
     );
   };

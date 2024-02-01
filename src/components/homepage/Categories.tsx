@@ -4,7 +4,7 @@ import { FC } from "react";
 
 const Categories: FC = () => {
   return (
-    <div className="w-[90%] mx-auto py-10 flex flex-col gap-[50px] items-center ">
+    <div className="w-[90%] mx-auto py-10 pb-[80px] flex flex-col gap-[50px] items-center ">
       <div className="flex flex-col gap-5">
         <div className="flex gap-1 flex-col font-Jakarta text-center text-white items-center text-[16px] md:text-[42px] font-bold leading-normal">
           Find top talents to hire today

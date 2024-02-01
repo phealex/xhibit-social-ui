@@ -16,7 +16,8 @@ import {
 } from "@/assets";
 import { Cpu, Database, Globe, Kanban, LucideIcon, Network, NotebookPen } from "lucide-react";
 import { IconType } from "react-icons";
-import { FaCode, FaGlobe } from "react-icons/fa";
+import { FaCode, FaFacebook, FaGlobe } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { FiPenTool } from "react-icons/fi";
 import { HiSparkles } from "react-icons/hi";
 import { IoLogoAngular, IoLogoApple } from "react-icons/io";
@@ -367,4 +368,101 @@ export const categories: {
     title: "Software Dev",
     icon: Globe,
   },
+]
+
+
+export const footerLinks: {
+  title: string;
+  list: {
+    text: string;
+    link: string;
+  }[];
+}[] = [
+  {
+    title: "Product",
+    list: [
+      {
+        text: "Overview",
+        link: "/overview",
+      }, {
+        text: "Explore jobs",
+        link: "/jobs",
+      },{
+        text: "Projects",
+        link: "/projects",
+      }, {
+        text: "Pricing",
+        link: "/pricing",
+      }, {
+        text: "Career",
+        link: "/career",
+      }, 
+    ]
+  },
+  {
+    title: "XHIBIT",
+    list: [
+      {
+        text: "About us",
+        link: "/about",
+      }, {
+        text: "Hire talents",
+        link: "/talents",
+      },{
+        text: "Contact",
+        link: "/contact",
+      }, {
+        text: "Blog",
+        link: "/blog",
+      }, {
+        text: "FAQ",
+        link: "/faq",
+      }, 
+    ]
+  },
+  {
+    title: "Socials",
+    list: [
+      {
+        text: "Twitter",
+        link: "/",
+      }, {
+        text: "LinkedIn",
+        link: "/",
+      },{
+        text: "Facebook",
+        link: "/",
+      }, {
+        text: "GitHub",
+        link: "/",
+      }, {
+        text: "Discord",
+        link: "/",
+      }, 
+    ]
+  }, 
+]
+
+
+export const footerSocialIcons: {
+  icon: IconType;
+  link: string;
+}[] =[
+  {
+    icon: FaXTwitter,
+    link: "/"
+  }, {
+    icon: FaLinkedinIn, 
+    link: "/"
+  }, 
+  {
+    icon: FaFacebook, 
+    link: "/"
+  }, {
+    icon: FaGithub, 
+    link: "/"
+  }, {
+    icon: FaDiscord, 
+    link: "/"
+  }
 ]
