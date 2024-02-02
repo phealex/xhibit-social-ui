@@ -1,6 +1,7 @@
 import {
   Airbnb,
   Binance,
+  Dart,
   Flutterwave,
   Google,
   JobsHero1,
@@ -69,7 +70,11 @@ const Jobs: FC = () => {
       <div className="flex flex-col gap-10 w-[90%]  mx-auto py-[80px]">
         <section className="flex flex-col gap-10 lg:gap-[100px]">
           <div className="flex flex-col md:flex-row gap-[60px] md:gap-[30px] justify-center  items-center">
-            <img src={JobsHero1} alt="" className="h-[300px] md:w-[100px] lg:w-[307px]" />
+            <img
+              src={JobsHero1}
+              alt=""
+              className="h-[300px] md:w-[100px] lg:w-[307px]"
+            />
             <div className=" flex flex-col gap-[30px] justify-center items-center ">
               <div className="flex gap-[15px] flex-col">
                 <p className=" font-Jakarta text-white text-[16px] leading-normal font-normal text-center uppercase">
@@ -84,7 +89,11 @@ const Jobs: FC = () => {
                 <ArrowRightIcon className="w-[20px] h-[20px] text-white" />
               </Button>
             </div>
-            <img src={JobsHero2} alt="" className="h-[300px] md:w-[100px] lg:w-[307px]" />
+            <img
+              src={JobsHero2}
+              alt=""
+              className="h-[300px] md:w-[100px] lg:w-[307px]"
+            />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-5 items-center">
@@ -243,7 +252,6 @@ const Jobs: FC = () => {
                       <FormItem className=" hidden md:flex items-center gap-1 border border-white active:border-home_border_gradient_color_2 hover:border-home_border_gradient_color_2 rounded-lg px-2 ">
                         <VscOrganization className="w-[25px] h-[25px] text-white" />
                         <Select
-                          className=""
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
@@ -355,7 +363,7 @@ const Jobs: FC = () => {
                 key={index}
                 className=" min-w-fit max-w-full bg-white border-2 hover:border-home_border_gradient_color_2"
               >
-                <CardContent className="!p-2 flex gap-2 ">
+                <CardContent className="p-2 flex gap-2 lg:p-6 ">
                   <img
                     src={item.logo}
                     alt=""
@@ -391,33 +399,52 @@ const Jobs: FC = () => {
                         </p>
                       </div>
                       <div className="flex gap-2 flex-wrap">
-                        {
-                          item.skills.map((skill, index) => (
-                            <Badge key={index} className={`flex gap-3 rounded-[20px] rounded-br-[0px] ${
-                              skill.stared ? "text-primary_blue bg-primary_blue/5 " : " bg-dark_green/50  text-dark_green"
-                            }`}>
-                              {
-                                skill.stared && <span className="text-primary_blue">
-                                  <Star fill="rgb(0,133,255)" className="w-[15px] h-[15px] text-primary_blue" />
-                                </span>
-                              }
-                              {skill.skill}
-                            </Badge>
-                            ))
-                        }
+                        {item.skills.map((skill, index) => (
+                          <Badge
+                            key={index}
+                            className={`flex gap-3 rounded-[20px] rounded-br-[0px] ${
+                              skill.stared
+                                ? "text-primary_blue bg-primary_blue/5 "
+                                : " bg-dark_green/50  text-dark_green"
+                            }`}
+                          >
+                            {skill.stared && (
+                              <span className="text-primary_blue">
+                                <Star
+                                  fill="rgb(0,133,255)"
+                                  className="w-[15px] h-[15px] text-primary_blue"
+                                />
+                              </span>
+                            )}
+                            {skill.skill}
+                          </Badge>
+                        ))}
                       </div>
                     </div>
                     <div className="flex justify-between items-center md:flex-col-reverse ">
-                      <Button className=" bg-primary_blue text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue">
-                        View job
-                      </Button>
+                      <p className="ml-auto hidden lg:flex font-Jakarta text-[13px] font-medium text-red-400">
+                        1 week ago
+                      </p>
+                      <div className="flex gap-5">
+                        <Button className="hidden lg:flex bg-transparent text-dark_green/50 border border-dark_green/50 p-4 hover:bg-transparent hover:text-dark_green/50 hover:border-dark-green/50">
+                          Sign in to apply
+                        </Button>
+
+                        <Button className=" bg-primary_blue text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue">
+                          View job
+                        </Button>
+                      </div>
+
                       <div className="flex gap-1 items-center">
-                      <Button className=" text-primary_blue bg-transparent hover:bg-transparent outline-none border-none flex gap-2 ">
-                        {/* <img src={Sparkle} alt="" className=" h-[18px]  w-[18px] " /> */}
-                        <SparkleIcon fill='rgba(117,89,229,1)' className="w-[18px] h-[18px] text-home_border_gradient_color_1 " />
-                        Actively hiring
-                      </Button>
-                      <Bookmark className="w-[20px] h-[20px] text-dark_green/50" />
+                        <Button className=" text-primary_blue bg-transparent hover:bg-transparent outline-none border-none flex gap-2 ">
+                          {/* <img src={Sparkle} alt="" className=" h-[18px]  w-[18px] " /> */}
+                          <SparkleIcon
+                            fill="rgba(117,89,229,1)"
+                            className="w-[18px] h-[18px] text-home_border_gradient_color_1 "
+                          />
+                          Actively hiring
+                        </Button>
+                        <Bookmark className="w-[20px] h-[20px] text-dark_green/50" />
                       </div>
                     </div>
                   </div>
@@ -426,7 +453,24 @@ const Jobs: FC = () => {
             ))}
           </div>
         </section>
-        <section className=""></section>
+        <section className="flex p-[30px] rounded-[10px] border  items-center flex-col gap-[50px] md:flex-row border-dark_green/50  ">
+          <img src={Dart} alt="" className="w-[300px] h-[300px] rounded-md" />
+          <div className="flex flex-col gap-[30px] items-center md:items-start lg:w-[60%]">
+            <div className="flex flex-col gap-5">
+              <h1 className=" font-Jakarta text-[35px] lg:text-[42px] text-center font-medium leading-[48px] text-white md:text-left ">
+                Get started today
+              </h1>
+              <p className=" font-Jakarta text-[20px] font-normal leading-[28px] text-center text-white md:text-left">
+                Empower your job hunt: Seamless one-click applications and
+                connections with visionary founders and recruiters eager for
+                your unique skills
+              </p>
+            </div>
+            <Button className=" bg-primary_blue text-white p-6 border-none hover:bg-white hover:text-primary_blue border hover:border-primary_blue outline-none">
+              Get Started
+            </Button>
+          </div>
+        </section>
       </div>
     </div>
   );

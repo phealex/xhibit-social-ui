@@ -20,13 +20,14 @@ import Sparkle from "./sparkle.svg";
 import Star from "./star.svg";
 import Solar from "./solar.svg";
 import Kayla from "./kayla.svg";
-import Coinbase from './coinbase.svg';
+import Coinbase from "./coinbase.svg";
 import Jerome from "./Jerome.svg";
-import Thunderbolt from "./Thunderbolt.svg"
-import Software from './software.jpg'
-import ProjectGear from './projectGear.svg'
-import JobsHero1 from "./jobsHero1.svg"
-import JobsHero2 from "./jobsHero2.svg"
+import Thunderbolt from "./Thunderbolt.svg";
+import Software from "./software.jpg";
+import ProjectGear from "./projectGear.svg";
+import JobsHero1 from "./jobsHero1.svg";
+import JobsHero2 from "./jobsHero2.svg";
+import Dart from "./dart.svg";
 
 export {
   Logo,
@@ -53,9 +54,10 @@ export {
   Kayla,
   Coinbase,
   Jerome,
-  Thunderbolt, 
+  Thunderbolt,
   Software,
   ProjectGear,
   JobsHero1,
-  JobsHero2
+  JobsHero2,
+  Dart,
 };
