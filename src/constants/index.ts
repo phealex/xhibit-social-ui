@@ -602,3 +602,57 @@ export const foundJobs: {
     goodMatch: false
   }
 ]
+
+
+
+export const PricingData: {
+  title: string;
+  price: number;
+  desc: string;
+  features: string[];
+  bgColor: string;
+  hasBorder: boolean; 
+}[] = [
+  {
+    title: "Personal",
+    price: 19,
+    desc: "All the basic features to boost your freelance career",
+    features: [
+      "Full Access to XHIBIT",
+      "100 GB Free Storage", 
+      "Unlimited Visitors",
+      "10 Agents",
+      "Lice Chat Support",
+    ],
+    bgColor: "[#323C45]/30",
+    hasBorder: false
+  },
+  {
+    title: "Professional",
+    price: 49,
+    desc: "All the basic features to boost your freelance career",
+    features: [
+      "Full Access to XHIBIT",
+      "100 GB Free Storage", 
+      "Unlimited Visitors",
+      "10 Agents",
+      "Lice Chat Support",
+    ],
+    bgColor: "[#18181B]",
+    hasBorder: true
+  },
+  {
+    title: "Business",
+    price: 99,
+    desc: "All the basic features to boost your freelance career",
+    features: [
+      "Full Access to XHIBIT",
+      "100 GB Free Storage", 
+      "Unlimited Visitors",
+      "10 Agents",
+      "Lice Chat Support",
+    ],
+    bgColor: "[#18181B]",
+    hasBorder: false
+  },
+]

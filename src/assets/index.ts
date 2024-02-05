@@ -28,6 +28,9 @@ import ProjectGear from "./projectGear.svg";
 import JobsHero1 from "./jobsHero1.svg";
 import JobsHero2 from "./jobsHero2.svg";
 import Dart from "./dart.svg";
+import AboutConf from './about.svg'
+import JeromeSingature from './JeromeSignature.svg'
+import Teamwork from './teamwork.jpg'
 
 export {
   Logo,
@@ -60,4 +63,7 @@ export {
   JobsHero1,
   JobsHero2,
   Dart,
+  AboutConf, 
+  JeromeSingature,
+  Teamwork
 };

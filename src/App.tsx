@@ -4,6 +4,7 @@ import { Footer, Navbar } from '@/components';
 import Home from './pages/home/Home';
 import Projects from './pages/projects/Projects';
 import Jobs from './pages/jobs/Jobs';
+import About from './pages/about/About';
 
 
 
@@ -37,7 +38,7 @@ function App() {
         },
         {
           path: "/about",
-          element: <div>About</div>,
+          element: <About />,
         }
       ],
     },
