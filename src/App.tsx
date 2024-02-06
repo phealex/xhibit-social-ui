@@ -13,6 +13,7 @@ import About from "./pages/about/About";
 import Pricing from "./pages/pricing/Pricing";
 import { useEffect } from "react";
 import Career from "./pages/career/Career";
+import FAQ from "./pages/faq/FAQ";
 
 function App() {
   const HomeLayout = () => {
@@ -58,7 +59,11 @@ function App() {
         {
           path: "/career",
           element: <Career />,
-        }
+        },
+        {
+          path: "/faq",
+          element: <FAQ />,
+        },
       ],
     },
   ]);

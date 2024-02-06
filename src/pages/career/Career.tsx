@@ -6,7 +6,7 @@ const Career: FC = () => {
     <div className=" bg-home_gradient w-full py-[50px]">
       <div className="flex flex-col gap-[100px] w-[90%]  mx-auto">
         <div className="flex justify-between md:justify-center md:gap-5">
-          <h1 className="text-[31px] font-Jakarta text-white leading-[44px] lg:text-[64px] lg:leading-[90px] font-semibold">
+          <h1 className="text-[31px] font-Jakarta text-white leading-[44px] lg:text-[64px] lg:leading-[90px] font-semibold lg:my-auto">
             XHIBIT
           </h1>
           <Separator orientation="vertical" className=" text-white " />

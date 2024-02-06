@@ -656,3 +656,30 @@ export const PricingData: {
     hasBorder: false
   },
 ]
+
+
+export const faqHeaders: string[] = [
+  "About XHIBIT", "Getting onboard XHIBIT", "Project and Services", "Payments"
+]
+
+export const faqData: {
+  question: string;
+  answer: string;
+}[] = [
+  {
+    question: "What is XHIBIT?",
+    answer: "XHIBIT is a platform that connects tech talents with companies looking to hire. We provide a seamless experience for both parties, ensuring that the hiring process is smooth and efficient."
+  },
+  {
+    question: "How do I get started on XHIBIT?",
+    answer: "Getting started on XHIBIT is easy. Simply sign up and create a profile. Once your profile is complete, you can start applying for jobs or posting projects. If you’re a company looking to hire, you can start posting jobs and sourcing talent right away."
+  },
+  {
+    question: "How do I post a project on XHIBIT?",
+    answer: "Posting a project on XHIBIT is simple. Once you’re signed in, navigate to the “Projects” tab and click on “Post a Project.” Fill in the required details and submit your project. Once your project is live, you can start receiving proposals from talented freelancers."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept all major credit and debit cards, as well as PayPal. If you have any questions about payment methods, feel free to reach out to our support team."
+  },
+]
