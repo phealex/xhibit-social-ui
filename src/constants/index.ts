@@ -624,7 +624,7 @@ export const PricingData: {
       "10 Agents",
       "Lice Chat Support",
     ],
-    bgColor: "[#323C45]/30",
+    bgColor: "rgba(50, 60, 69, 0.30",
     hasBorder: false
   },
   {
@@ -638,7 +638,7 @@ export const PricingData: {
       "10 Agents",
       "Lice Chat Support",
     ],
-    bgColor: "[#18181B]",
+    bgColor: "#18181B",
     hasBorder: true
   },
   {
@@ -652,7 +652,7 @@ export const PricingData: {
       "10 Agents",
       "Lice Chat Support",
     ],
-    bgColor: "[#18181B]",
+    bgColor: "#18181B",
     hasBorder: false
   },
 ]
