@@ -1,4 +1,4 @@
-import { Logo, OverviewNote } from "@/assets";
+import { Logo, OverviewNote, OverviewSearch } from "@/assets";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -103,7 +103,7 @@ const Overview: FC = () => {
             </div>
           </div>
           <div className="flex flex-col lg:flex-row-reverse">
-            <img src={OverviewNote} alt="" className="lg:w-1/2" />
+            <img src={OverviewSearch} alt="" className="lg:w-1/2" />
             <div className="flex flex-col gap-[30px]">
               <div className="flex flex-col gap-[10px]">
                 <h1 className="text-[16px] md:text-[31px] md:leading-[44px] text-white font-Jakarta font-semibold ">

@@ -32,6 +32,8 @@ import AboutConf from './about.svg'
 import JeromeSingature from './JeromeSignature.svg'
 import Teamwork from './teamwork.jpg'
 import OverviewNote from './overviewNote.svg'
+import OverviewSearch from './overviewSearch.svg'
+import Support from './support.svg'
 
 export {
   Logo,
@@ -67,5 +69,7 @@ export {
   AboutConf, 
   JeromeSingature,
   Teamwork,
-  OverviewNote
+  OverviewNote,
+  OverviewSearch,
+  Support
 };

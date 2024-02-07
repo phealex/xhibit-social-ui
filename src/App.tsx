@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import Career from "./pages/career/Career";
 import FAQ from "./pages/faq/FAQ";
 import Overview from "./pages/overview/Overview";
+import Contact from "./pages/contact/Contact";
 
 function App() {
   const HomeLayout = () => {
@@ -69,6 +70,10 @@ function App() {
           path: "/overview",
           element: <Overview />,
         },
+        {
+          path: "/contact",
+          element: <Contact />
+        }
       ],
     },
   ]);
