@@ -1,0 +1,125 @@
+import { WavingHand } from "@/assets";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { loginFromSchema } from "@/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { FC, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+const Login: FC = () => {
+
+  const [showPassword, setShowPassword] = useState<boolean>(false)
+
+    const form = useForm<z.infer<typeof loginFromSchema>>({
+        resolver: zodResolver(loginFromSchema),
+        defaultValues: {
+            email: "",
+            password: ""
+        }
+    })
+
+    function onSubmit(values: z.infer<typeof loginFromSchema>){
+      console.log(values)
+    }
+  return (
+    <div className="w-full flex  bg-white">
+      <div className="hidden lg:flex"></div>
+      <div className="flex flex-col  gap-[50px] py-[50px] w-[90%] mx-auto ">
+        <div className="flex items-center flex-col gap-[10px] w-full">
+          <h1 className=" text-dark_green font-Jakarta font-bold text-[25px] leading-9 text-center flex gap-3">
+            Welcome back
+            <img src={WavingHand} alt="" className="w-6 h-6" />
+          </h1>
+          <p className=" font-Jakarta text-[16px] text-dark_green/70 text-center">
+            We've missed you! Please sign in to catch up on what you've missed
+          </p>
+        </div>
+        <div className="flex gap-[30px] flex-col">
+        <Form {...form} >
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[30px]">
+            <div className="flex flex-col gap-5">
+              <FormField control={form.control}
+              name="email"
+              render={({field}) => (
+                <FormItem>
+                  <FormLabel className=" font-Jakarta text-[16px] font-medium text-dark_green">
+                    Email
+                  </FormLabel>
+                  <FormControl>
+                    <Input className=" !bg-transparent px-3 py-5 font-Jakarta text-[16px] text-dark_green/50 border border-dark_green/50 outline-none active:border-home_border_gradient_color_2 hover:border-home_border_gradient_color_2  rounded-[5px] " type="email" placeholder="email@example.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+
+
+              <FormField control={form.control}
+              name="password"
+              render={({field}) => (
+                <FormItem>
+                  <FormLabel className=" font-Jakarta text-[16px] font-medium text-dark_green">
+                    Password
+                  </FormLabel>
+                  <FormControl>
+                    <div className="border border-dark_green/50 active:border-home_border_gradient_colo hover:border-home_border_gradient_color_2 r_1 flex items-center rounded-[5px] ">
+                    <Input className=" !bg-transparent px-3 py-5 font-Jakarta text-[16px] text-dark_green/50 outline-none border-none active:bg-transparent " type={
+                      showPassword ? "text" : "password"
+                    } placeholder="********" {...field} />
+                    <div  onClick={() => {
+                      setShowPassword(!showPassword)
+                    }} className="mr-2">
+                    
+                    {
+                      !showPassword ? (
+                        <EyeOffIcon size={15} className=" text-dark_green/50 " /> 
+                        ) : (
+                          <EyeIcon size={15} className=" text-dark_green/50 " />
+                          )
+                        }
+                      </div>
+                      </div>
+
+                  </FormControl>
+                  <FormMessage />
+                  <FormDescription className=" font-Jakarta text-[16px] w-full text-dark_green text-right">
+                    Forget password?
+                  </FormDescription>
+                </FormItem>
+              )} />
+            </div>
+
+            <div className="flex flex-col gap-5">
+              <Button className=" bg-primary_blue hover:bg-primary_blue py-3 w-full font-Jakarta text-[16px] text-center ">
+                Log In
+              </Button>
+              <div className="flex gap-1 mx-auto items-center">
+                <p className="text-[16px] from-dark_green font-normal ">
+                  New to XHIBIT? 
+                </p>
+                <p className="text-[16px] text-primary_blue underline font-normal ">
+                  Create an account
+                </p>
+              </div>
+
+            </div>
+            
+          </form>
+
+        </Form>
+
+
+          <div className="">
+
+          </div>
+          <div className=""></div>
+          <div className=""></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

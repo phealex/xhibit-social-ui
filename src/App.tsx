@@ -16,6 +16,7 @@ import Career from "./pages/career/Career";
 import FAQ from "./pages/faq/FAQ";
 import Overview from "./pages/overview/Overview";
 import Contact from "./pages/contact/Contact";
+import Login from "./pages/login/Login";
 
 function App() {
   const HomeLayout = () => {
@@ -32,6 +33,15 @@ function App() {
       </div>
     );
   };
+
+  const AuthLayout = () => {
+
+    return (
+      <div className="">
+        <Outlet />
+      </div>
+    )
+  }
 
   const router = createBrowserRouter([
     {
@@ -73,9 +83,19 @@ function App() {
         {
           path: "/contact",
           element: <Contact />
-        }
+        },
       ],
     },
+    {
+      path: "/auth",
+      element: <AuthLayout />,
+      children: [
+        {
+          path: "login",
+          element: <Login />
+        }
+      ]
+    }
   ]);
 
   return <RouterProvider router={router} />;

@@ -41,3 +41,13 @@ export const contactFormSchema = z.object({
     message: "You must agree to the terms and conditions",
   }),
 });
+
+
+export const loginFromSchema = z.object({
+  email: z.string().email({
+    message: "Please provide a valid email"
+  }),
+  password: z.string().min(8, {
+    message: "Password must be at least 8 characters"
+  })
+})

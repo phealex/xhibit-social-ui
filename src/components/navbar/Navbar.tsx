@@ -102,9 +102,11 @@ const Navbar: FC = () => {
                 Hire Talent
               </Button>
             </div>
+            <Link to={"/auth/login"}>
             <Button className="text-white font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-5 py-[10px]">
               Log In
             </Button>
+            </Link>
           </div>
         </nav>
         <div className="  bg-gradient-to-r from-home_border_gradient_color_1 to-home_border_gradient_color_2 tr w-full h-[1px]"></div>
@@ -138,9 +140,11 @@ const Navbar: FC = () => {
                         Hire Talent
                       </Button>
                     </div>
+                    <Link to={"/auth/login"}>
                     <Button className="text-white font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-8 py-[10px]">
                       Log In
                     </Button>
+                    </Link>
                   </div>
                 )}
               </div>
@@ -171,9 +175,11 @@ const Navbar: FC = () => {
                     <SheetClose>Hire Talent</SheetClose>
                   </Button>
                 </div>
+                <Link to={"/auth/login"}>
                 <Button className="text-white w-1/2 font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-5 py-[10px]">
                   <SheetClose>Log In</SheetClose>
                 </Button>
+                </Link>
               </div>
             )}
           </SheetContent>

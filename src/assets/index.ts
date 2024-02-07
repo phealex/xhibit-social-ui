@@ -34,6 +34,7 @@ import Teamwork from './teamwork.jpg'
 import OverviewNote from './overviewNote.svg'
 import OverviewSearch from './overviewSearch.svg'
 import Support from './support.svg'
+import WavingHand from "./wavingHand.svg"
 
 export {
   Logo,
@@ -71,5 +72,6 @@ export {
   Teamwork,
   OverviewNote,
   OverviewSearch,
-  Support
+  Support,
+  WavingHand
 };
