@@ -1,8 +1,10 @@
 import {
   BrainCircuit,
   Brainstorm,
+  Chris,
   Coinbase,
   Customize,
+  Devon,
   Diversity,
   HelpingHands,
   Kayla,
@@ -695,4 +697,49 @@ export const carouselData: string[] = [
   "I appreciate the emphasis on privacy. It's reassuring to have a job search platform that respects my confidentiality.",
   "The platform's simplicity and user-friendly interface make job hunting less daunting. It's like a breath of fresh air in the world of online job searches.",
 
-] 
+]
+
+
+export const loginQuotes: {
+  quote: string;
+  img: string;
+  name: string;
+  role: string;
+}[] = [
+  {
+    quote: "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
+    img: Chris,
+    name: "Chris Hodger",
+    role: "CEO Muncheez"
+  },
+  {
+    quote: "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
+    img: Devon,
+    name: "Devon Lane",
+    role: "Senior Backend Dev"
+  },
+  {
+    quote: "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
+    img: Chris,
+    name: "Chris Hodger",
+    role: "CEO Muncheez"
+  },
+  {
+    quote: "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
+    img: Devon,
+    name: "Devon Lane",
+    role: "Senior Backend Dev"
+  },
+  {
+    quote: "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
+    img: Chris,
+    name: "Chris Hodger",
+    role: "CEO Muncheez"
+  },
+  {
+    quote: "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
+    img: Devon,
+    name: "Devon Lane",
+    role: "Senior Backend Dev"
+  }
+]

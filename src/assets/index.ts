@@ -35,6 +35,9 @@ import OverviewNote from './overviewNote.svg'
 import OverviewSearch from './overviewSearch.svg'
 import Support from './support.svg'
 import WavingHand from "./wavingHand.svg"
+import Chris from "./Chris.svg"
+import Devon from "./Devon.svg"
+import LoginMap from "./loginMap.png"
 
 export {
   Logo,
@@ -73,5 +76,8 @@ export {
   OverviewNote,
   OverviewSearch,
   Support,
-  WavingHand
+  WavingHand,
+  Chris,
+  Devon,
+  LoginMap
 };
