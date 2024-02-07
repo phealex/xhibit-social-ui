@@ -31,6 +31,7 @@ import Dart from "./dart.svg";
 import AboutConf from './about.svg'
 import JeromeSingature from './JeromeSignature.svg'
 import Teamwork from './teamwork.jpg'
+import OverviewNote from './overviewNote.svg'
 
 export {
   Logo,
@@ -65,5 +66,6 @@ export {
   Dart,
   AboutConf, 
   JeromeSingature,
-  Teamwork
+  Teamwork,
+  OverviewNote
 };

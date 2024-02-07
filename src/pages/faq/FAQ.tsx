@@ -1,10 +1,15 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { faqData, faqHeaders } from "@/constants";
 import { FC, useState } from "react";
 
 const FAQ: FC = () => {
-    const [activeHeader, setActiveHeader] = useState(faqHeaders[0]);
+  const [activeHeader, setActiveHeader] = useState(faqHeaders[0]);
   return (
     <div className=" bg-home_gradient w-full py-[50px]">
       <div className="w-[90%] mx-auto flex flex-col gap-[100px]">
@@ -19,41 +24,41 @@ const FAQ: FC = () => {
           </p>
         </div>
         <div className="flex flex-col gap-[55px] ">
-            <div className="flex gap-5 items-center overflow-x-scroll ">
-                {
-                    faqHeaders.map((header, index) => (
-                        <Button
-                            key={index}
-                            className={`font-Jakarta text-[16px] font-medium text-white py-2 px-3 border-none outline-none hover:border-none hover:outline-none ${
-                                activeHeader === header ? " bg-primary_blue rounded-[23px] hover:bg-primary_blue " : " bg-transparent hover:bg-transparent"
-                            }`}
-                            onClick={() => setActiveHeader(header)}
-                        >
-                            {header}
-                        </Button>
-
-                    ))
-                }
-            </div>
-            <Accordion type="single" collapsible >
-                {
-                    faqData.map((data, index) => (
-                        <AccordionItem key={index} title={data.question} value={data.question}> 
-                        <AccordionTrigger className="font-Jakarta text-left text-[20px] font-medium leading-7 text-white">
-                            {/* <p > */}
-                                {data.question}
-                            {/* </p> */}
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            <p className="font-Jakarta text-[16px] font-light leading-7 text-white/80">
-                                {data.answer}
-                            </p>
-                        </AccordionContent>
-                        </AccordionItem>
-                    ))
-                }
-
-            </Accordion>
+          <div className="flex gap-5 items-center overflow-x-scroll ">
+            {faqHeaders.map((header, index) => (
+              <Button
+                key={index}
+                className={`font-Jakarta text-[16px] font-medium text-white py-2 px-3 border-none outline-none hover:border-none hover:outline-none ${
+                  activeHeader === header
+                    ? " bg-primary_blue rounded-[23px] hover:bg-primary_blue "
+                    : " bg-transparent hover:bg-transparent"
+                }`}
+                onClick={() => setActiveHeader(header)}
+              >
+                {header}
+              </Button>
+            ))}
+          </div>
+          <Accordion type="single" collapsible>
+            {faqData.map((data, index) => (
+              <AccordionItem
+                key={index}
+                title={data.question}
+                value={data.question}
+              >
+                <AccordionTrigger className="font-Jakarta text-left text-[20px] font-medium leading-7 text-white hover:no-underline">
+                  {/* <p > */}
+                  {data.question}
+                  {/* </p> */}
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="font-Jakarta text-[16px] font-light leading-7 text-white/80">
+                    {data.answer}
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </div>

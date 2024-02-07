@@ -14,6 +14,7 @@ import Pricing from "./pages/pricing/Pricing";
 import { useEffect } from "react";
 import Career from "./pages/career/Career";
 import FAQ from "./pages/faq/FAQ";
+import Overview from "./pages/overview/Overview";
 
 function App() {
   const HomeLayout = () => {
@@ -63,6 +64,10 @@ function App() {
         {
           path: "/faq",
           element: <FAQ />,
+        },
+        {
+          path: "/overview",
+          element: <Overview />,
         },
       ],
     },

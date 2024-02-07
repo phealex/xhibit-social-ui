@@ -683,3 +683,16 @@ export const faqData: {
     answer: "We accept all major credit and debit cards, as well as PayPal. If you have any questions about payment methods, feel free to reach out to our support team."
   },
 ]
+
+
+export const carouselData: string[] = [
+  "The personalized job filters made my search incredibly efficient. It's like the website knew exactly what I was looking for",
+  "Applying with just one click saved me so much time. No more tedious application processes – just quick and easy",
+  "I appreciate the emphasis on privacy. It's reassuring to have a job search platform that respects my confidentiality.",
+  "The platform's simplicity and user-friendly interface make job hunting less daunting. It's like a breath of fresh air in the world of online job searches.",
+  "The personalized job filters made my search incredibly efficient. It's like the website knew exactly what I was looking for",
+  "Applying with just one click saved me so much time. No more tedious application processes – just quick and easy",
+  "I appreciate the emphasis on privacy. It's reassuring to have a job search platform that respects my confidentiality.",
+  "The platform's simplicity and user-friendly interface make job hunting less daunting. It's like a breath of fresh air in the world of online job searches.",
+
+] 
