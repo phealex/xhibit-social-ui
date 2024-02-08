@@ -5,7 +5,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import "./App.css";
-import { Footer, Navbar } from "@/components";
+import { AuthLayoutSider, Footer, Navbar } from "@/components";
 import Home from "./pages/home/Home";
 import Projects from "./pages/projects/Projects";
 import Jobs from "./pages/jobs/Jobs";
@@ -37,7 +37,8 @@ function App() {
   const AuthLayout = () => {
 
     return (
-      <div className="">
+      <div className="w-full flex  bg-white lg:h-screen">
+        <AuthLayoutSider />
         <Outlet />
       </div>
     )
