@@ -758,3 +758,70 @@ export const registrationCategories :{
     desc: "Hiring talents"
   }
 ]
+
+
+export const disciplines: {
+  title: string;
+  key: string;
+}[] =[
+  {
+    title: "Front End",
+    key: "front-end"
+  },
+  {
+    title: "Back End",
+    key: "back-end"
+  },
+  {
+    title: "Full Stack",
+    key: "full-stack"
+  },
+  {
+    title: "Mobile-iOS",
+    key: "mobile-ios"
+  },
+  {
+    title: "Mobile-Android",
+    key: "mobile-android"
+  },{
+    title: "Mobile-Hybrid",
+    key: "mobile-hybrid"
+  },
+  {
+    title: "DevOps",
+    key: "devops"
+  },
+  {
+    title: "Software Dev",
+    key: "software-dev"
+  },
+  {
+    title: "Data Science",
+    key: "data-science"
+  },
+  {
+    title: "Data Engineering",
+    key: "data-engineering"
+  },
+  {
+    title: "IT/Support",
+    key: "it-support"
+  },
+  {
+    title: "Blockchain",
+    key: "blockchain"
+  },
+  {
+    title: "Quality Assurance",
+    key: "quality-assurance"
+  },
+  {
+    title: "Security",
+    key: "security"
+  },
+  {
+    title: "Other",
+    key: "other"
+  }
+
+]

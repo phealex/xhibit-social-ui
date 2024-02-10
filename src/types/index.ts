@@ -56,7 +56,7 @@ export interface RegisterDataType {
 }
 
 export const jobProfileRegisterSchema = z.object({
-  disciple: z.string({
+  discipline: z.string({
     required_error: "Please select a discipline to continue",
   }),
   experience: z.enum(["junior", "mid", "senior"], {
@@ -151,3 +151,8 @@ export const linkSocialAccountSchema = z.object({
   behance: z.string().optional(),
   others: z.string().optional(),
 });
+
+
+export interface formControlProps {
+  form: any;
+}
