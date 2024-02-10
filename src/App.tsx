@@ -17,6 +17,7 @@ import FAQ from "./pages/faq/FAQ";
 import Overview from "./pages/overview/Overview";
 import Contact from "./pages/contact/Contact";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 function App() {
   const HomeLayout = () => {
@@ -94,6 +95,10 @@ function App() {
         {
           path: "login",
           element: <Login />
+        },
+        {
+          path: "register",
+          element: <Register />
         }
       ]
     }

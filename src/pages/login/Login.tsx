@@ -18,6 +18,7 @@ import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGithub, FaLinkedinIn, } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 const Login: FC = () => {
@@ -37,6 +38,11 @@ const Login: FC = () => {
     console.log(values);
   }
 
+  const navigate = useNavigate()
+  function handleForgetPassword(){
+    navigate("/auth/password_reset")
+
+  }
  
   return (
       <div className="py-[50px] md:py-[100px] w-[90%] md:w-[75%] lg:w-1/2 mx-auto">
@@ -115,9 +121,11 @@ const Login: FC = () => {
                           </div>
                         </FormControl>
                         <FormMessage />
-                        <FormDescription className=" font-Jakarta cursor-pointer text-[16px] w-full text-dark_green text-right">
+                        
+                        <FormDescription onClick={handleForgetPassword} className=" font-Jakarta cursor-pointer text-[16px] w-full text-dark_green text-right">
                           Forget password?
                         </FormDescription>
+                    
                       </FormItem>
                     )}
                   />
@@ -131,9 +139,11 @@ const Login: FC = () => {
                     <p className="text-[16px] from-dark_green font-normal ">
                       New to XHIBIT?
                     </p>
-                    <p className="text-[16px] text-primary_blue underline font-normal ">
+                   
+                    <p onClick={() => navigate("/auth/register")} className="text-[16px] cursor-pointer text-primary_blue underline font-normal ">
                       Create an account
                     </p>
+                 
                   </div>
                 </div>
               </form>

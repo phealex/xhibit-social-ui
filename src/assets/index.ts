@@ -38,6 +38,12 @@ import WavingHand from "./wavingHand.svg"
 import Chris from "./Chris.svg"
 import Devon from "./Devon.svg"
 import LoginMap from "./loginMap.png"
+import user1 from "./user1.svg"
+import user2 from "./user2.svg"
+import user3 from "./user3.svg"
+import user4 from "./user4.svg"
+
+
 
 export {
   Logo,
@@ -79,5 +85,9 @@ export {
   WavingHand,
   Chris,
   Devon,
-  LoginMap
+  LoginMap,
+  user1,
+  user2, 
+  user3, 
+  user4
 };

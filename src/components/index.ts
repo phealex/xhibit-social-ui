@@ -11,3 +11,4 @@ export {default as HomeTestimonial} from './homepage/Testimonial'
 export {default as HomeCategories} from './homepage/Categories'
 export {default as ProjectCard} from "./homepage/ProjectCard"
 export {default as AuthLayoutSider} from "./auth/AuthLayoutSider"
+export {default as Category} from "./auth/Category"

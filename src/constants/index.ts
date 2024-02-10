@@ -743,3 +743,18 @@ export const loginQuotes: {
     role: "Senior Backend Dev"
   }
 ]
+
+
+export const registrationCategories :{
+  title: string;
+  desc: string
+}[] =[
+  {
+    title: "I am a talent",
+    desc: "Looking for work"
+  }, 
+  {
+    title: "I am a company",
+    desc: "Hiring talents"
+  }
+]
