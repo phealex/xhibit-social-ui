@@ -1,20 +1,9 @@
-import { Category } from "@/components";
-import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
+import { Category, JobProfile } from "@/components";
 import { Separator } from "@/components/ui/separator";
 import { useMultiStepForm } from "@/hooks";
-import {
-  RegisterDataType,
-  jobProfileRegisterSchema,
-  linkSocialAccountSchema,
-  talentDetailsRegisterSchema,
-  verifyEmailSchema,
-} from "@/types";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { RegisterDataType } from "@/types";
 import { CheckCircle2, ChevronLeftSquare } from "lucide-react";
-import { FC, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { FC, useState } from "react";
 
 const Register: FC = () => {
   const pageTitles: string[] = [
@@ -28,11 +17,6 @@ const Register: FC = () => {
 
   const [registerData, setRegisterData] = useState<RegisterDataType>();
 
-  const [schema, setSchema] = useState<any>();
-
-  const { step, prev, next, currentStep, isFirstStep, isLastStep } =
-    useMultiStepForm([<Category />]);
-
   function handleNext() {
     if (isLastStep) {
       return;
@@ -41,26 +25,12 @@ const Register: FC = () => {
     next();
   }
 
-  const form = useForm<z.infer<typeof schema>>({
-    resolver: zodResolver(schema),
-  });
+  const { step, prev, next, currentStep, isFirstStep, isLastStep } =
+    useMultiStepForm([
+      <Category handleNext={handleNext} />,
+      <JobProfile handleNext={handleNext} />,
+    ]);
 
-  function onSubmit(data: z.infer<typeof schema>) {
-    console.log(data);
-    handleNext();
-  }
-
-  useEffect(() => {
-    if (currentStep === 1) {
-      setSchema(jobProfileRegisterSchema);
-    } else if (currentStep === 2) {
-      setSchema(talentDetailsRegisterSchema);
-    } else if (currentStep === 3) {
-      setSchema(verifyEmailSchema);
-    } else if (currentStep === 4) {
-      setSchema(linkSocialAccountSchema);
-    }
-  }, []);
   return (
     <div className="py-[50px] md:py-[100px] w-[90%] md:w-[75%] lg:w-1/2 mx-auto min-h-screen">
       <div className=" h-full flex flex-col  gap-[50px] w-full lg:w-[80%] mx-auto ">
@@ -95,24 +65,7 @@ const Register: FC = () => {
             ))}
           </div>
         </div>
-        <div className="w-full">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-              <div className="flex flex-col gap-[50px]">
-
-              {step}
-
-              <Button
-                type="submit"
-                // onClick={handleNext}
-                className=" w-full  py-4 bg-primary_blue text-white hover:bg-primary_blue hover:text-white font-Jakarta text-[16px] font-medium rounded-md"
-                >
-                Next
-              </Button>
-                </div>
-            </form>
-          </Form>
-        </div>
+        <div className="w-full">{step}</div>
       </div>
     </div>
   );

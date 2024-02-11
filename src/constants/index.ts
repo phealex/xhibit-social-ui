@@ -825,3 +825,22 @@ export const disciplines: {
   }
 
 ]
+
+
+export const experienceLevel : {
+  key: string ;
+  title: string;
+}[] =[
+  {
+    key: "junior",
+    title: "Junior (1-3 yrs)"
+  },
+  {
+    key: "mid",
+    title: "Mid-level (3-5 yrs)"
+  },
+  {
+    key: "senior",
+    title: "Senior (5+ yrs)"
+  }
+]

@@ -62,7 +62,7 @@ export const jobProfileRegisterSchema = z.object({
   experience: z.enum(["junior", "mid", "senior"], {
     required_error: "Select an experience level to continue",
   }),
-  skills: z.array(z.string()).nonempty(),
+  // skills: z.array(z.string()).nonempty(),
 });
 
 export const talentDetailsRegisterSchema = z.object({
@@ -152,7 +152,6 @@ export const linkSocialAccountSchema = z.object({
   others: z.string().optional(),
 });
 
-
-export interface formControlProps {
-  form: any;
+export interface handleNextProps {
+  handleNext: () => void;
 }

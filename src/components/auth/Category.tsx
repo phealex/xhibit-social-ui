@@ -2,8 +2,12 @@ import { FC } from "react";
 import JoinBanner from "./JoinBanner";
 import { registrationCategories } from "@/constants";
 import { Card, CardContent } from "../ui/card";
+import { Button } from "../ui/button";
+import { handleNextProps } from "@/types";
 
-const Category: FC = () => {
+const Category: FC<handleNextProps> = ({
+  handleNext
+}) => {
   return (
     <div className=" w-full flex flex-col gap-[50px] ">
       <JoinBanner />
@@ -24,6 +28,12 @@ const Category: FC = () => {
           </Card>
         ))}
       </div>
+      <Button
+                onClick={() => handleNext()}
+                className=" w-full  py-4 bg-primary_blue text-white hover:bg-primary_blue hover:text-white font-Jakarta text-[16px] font-medium rounded-md"
+              >
+                Next
+              </Button>
     </div>
   );
 };
