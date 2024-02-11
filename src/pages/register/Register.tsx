@@ -1,4 +1,4 @@
-import { Category, JobProfile } from "@/components";
+import { Category, JobProfile, TalentDetails } from "@/components";
 import { Separator } from "@/components/ui/separator";
 import { useMultiStepForm } from "@/hooks";
 import { RegisterDataType } from "@/types";
@@ -29,6 +29,7 @@ const Register: FC = () => {
     useMultiStepForm([
       <Category handleNext={handleNext} />,
       <JobProfile handleNext={handleNext} />,
+      <TalentDetails handleNext={handleNext} />,
     ]);
 
   return (

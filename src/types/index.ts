@@ -75,22 +75,30 @@ export const talentDetailsRegisterSchema = z.object({
   email: z
     .string({
       invalid_type_error: "Email is required",
+      required_error: "Please provide your email to continue"
     })
     .email({
       message: "Provide a valid mail to continue",
     }),
-  password: z.string().trim().min(8, {
-    message: "Password is required",
+  password: z.string({
+    required_error: "Password is required",
+  }).trim().min(10, {
+    message: "Password does not meet requirements",
   }),
   phoneNumber: z
-    .string()
+    .string({
+      required_error:"Please provide a valid phone number",
+      invalid_type_error: "Please provide a valid phone number",
+    })
     .min(11, {
       message: "Phone number is required",
     })
     .max(11, {
       message: "Invalid lenght",
     }),
-  terms: z.boolean().refine((value) => value === true, {
+  terms: z.boolean({
+    required_error: "You must agree to the terms and conditions",
+  }).refine((value) => value === true, {
     message: "You must agree to the terms and conditions",
   }),
 });
