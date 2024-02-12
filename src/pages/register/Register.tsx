@@ -1,4 +1,9 @@
-import { Category, JobProfile, TalentDetails } from "@/components";
+import {
+  Category,
+  JobProfile,
+  TalentDetails,
+  Verification,
+} from "@/components";
 import { Separator } from "@/components/ui/separator";
 import { useMultiStepForm } from "@/hooks";
 import { RegisterDataType } from "@/types";
@@ -30,6 +35,7 @@ const Register: FC = () => {
       <Category handleNext={handleNext} />,
       <JobProfile handleNext={handleNext} />,
       <TalentDetails handleNext={handleNext} />,
+      <Verification handleNext={handleNext} handleSubmit={() => {}} />,
     ]);
 
   return (

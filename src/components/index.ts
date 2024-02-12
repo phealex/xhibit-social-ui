@@ -14,3 +14,4 @@ export {default as AuthLayoutSider} from "./auth/AuthLayoutSider"
 export {default as Category} from "./auth/Category"
 export {default as JobProfile} from "./auth/JobProfile"
 export {default as TalentDetails} from "./auth/TalentDetails"
+export {default as Verification} from './auth/Verification'
