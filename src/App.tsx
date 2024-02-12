@@ -38,7 +38,7 @@ function App() {
   const AuthLayout = () => {
 
     return (
-      <div className="w-full flex  bg-white lg:h-screen">
+      <div className="w-full flex  bg-white lg:min-h-screen">
         <AuthLayoutSider />
         <Outlet />
       </div>

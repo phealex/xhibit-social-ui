@@ -19,7 +19,7 @@ const AuthLayoutSider: FC = () => {
         return () => clearInterval(changeQuote);
       }, []);
   return (
-    <div className="hidden lg:flex w-1/2 bg-[#060D11] h-full">
+    <div className="hidden lg:flex w-1/2 bg-[#060D11] min-h-full">
     <div className="w-[80%] mx-auto space-y-5 p-3">
       <div className="flex gap-2">
         <img src={Logo} alt="" className="h-7 w-7" />

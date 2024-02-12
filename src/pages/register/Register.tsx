@@ -1,6 +1,7 @@
 import {
   Category,
   JobProfile,
+  LinkSocials,
   TalentDetails,
   Verification,
 } from "@/components";
@@ -36,6 +37,7 @@ const Register: FC = () => {
       <JobProfile handleNext={handleNext} />,
       <TalentDetails handleNext={handleNext} />,
       <Verification handleNext={handleNext} handleSubmit={() => {}} />,
+      <LinkSocials handleNext={handleNext} />,
     ]);
 
   return (

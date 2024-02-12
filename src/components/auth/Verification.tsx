@@ -16,7 +16,7 @@ import { Input } from "../ui/input";
 
 interface VerificationProps extends handleNextProps {
   // handleSubmit: (data: z.infer<typeof verifyEmailSchema>) => void;
-  handleSubmit: () => void
+  handleSubmit: () => void;
 }
 const Verification: FC<VerificationProps> = ({ handleNext, handleSubmit }) => {
   const form = useForm<z.infer<typeof verifyEmailSchema>>({
@@ -61,6 +61,7 @@ const Verification: FC<VerificationProps> = ({ handleNext, handleSubmit }) => {
 
                 <FormControl>
                   <Input
+                    
                     className="h-[54px] outline-none border border-dark_green/50 active:outline-none"
                     autoComplete="false"
                     placeholder="0-0-0-0"

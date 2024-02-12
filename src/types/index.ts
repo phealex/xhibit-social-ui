@@ -132,7 +132,7 @@ export const recruiterDetailsRegisterSchema = z.object({
 
 export const verifyEmailSchema = z.object({
   emailOtp: z
-    .number({
+    .string({
       invalid_type_error: "Invalid code",
     })
     .min(4, {
@@ -142,7 +142,7 @@ export const verifyEmailSchema = z.object({
       message: "Invalid code",
     }),
   phoneOtp: z
-    .number({
+    .string({
       invalid_type_error: "Invalid code",
     })
     .min(4, {
