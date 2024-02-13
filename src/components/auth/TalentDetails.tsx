@@ -1,4 +1,4 @@
-import { handleNextProps, talentDetailsRegisterSchema } from "@/types";
+import { handleNextProps, userDetailsRegisterSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
@@ -17,12 +17,12 @@ import { Input } from "../ui/input";
 import { Checkbox } from "../ui/checkbox";
 import { Link } from "react-router-dom";
 
-const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
-  const form = useForm<z.infer<typeof talentDetailsRegisterSchema>>({
-    resolver: zodResolver(talentDetailsRegisterSchema),
+const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
+  const form = useForm<z.infer<typeof userDetailsRegisterSchema>>({
+    resolver: zodResolver(userDetailsRegisterSchema),
   });
 
-  function onSubmit(data: z.infer<typeof talentDetailsRegisterSchema>) {
+  function onSubmit(data: z.infer<typeof userDetailsRegisterSchema>) {
     console.log(data);
     handleNext();
   }
@@ -31,9 +31,11 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
       <JoinBanner />
       <Form {...form}>
         <form
+          autoComplete="off"
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-[30px]"
         >
+         
           <FormField
             control={form.control}
             name="firstName"
@@ -85,7 +87,7 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
-                  Email
+                  {type === "talent" ? "Email" : "Business email ID"}
                 </FormLabel>
 
                 <FormControl>
@@ -133,14 +135,16 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
-                  Enter your Whatsapp phone number
+                  {type === "talent"
+                    ? "   Enter your Whatsapp phone number"
+                    : "Contact number"}
                 </FormLabel>
 
                 <FormControl>
                   <Input
                     className="h-[54px] outline-none border border-dark_green/50 active:outline-none"
                     autoComplete="false"
-                    placeholder="Enter your first name"
+                    placeholder="+234"
                     {...field}
                   />
                 </FormControl>

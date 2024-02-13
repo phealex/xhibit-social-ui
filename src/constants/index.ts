@@ -16,6 +16,7 @@ import {
   Sparkle,
   Star,
 } from "@/assets";
+import { RegisterDataType } from "@/types";
 import { Cpu, Database, Globe, Kanban, LucideIcon, Network, NotebookPen } from "lucide-react";
 import { IconType } from "react-icons";
 import { FaCode, FaFacebook, FaGlobe } from "react-icons/fa";
@@ -746,14 +747,17 @@ export const loginQuotes: {
 
 
 export const registrationCategories :{
+  key: RegisterDataType["userType"];
   title: string;
-  desc: string
+  desc: string;
 }[] =[
   {
+    key: "talent",
     title: "I am a talent",
     desc: "Looking for work"
   }, 
   {
+    key: "recruiter",
     title: "I am a company",
     desc: "Hiring talents"
   }
@@ -842,5 +846,24 @@ export const experienceLevel : {
   {
     key: "senior",
     title: "Senior (5+ yrs)"
+  }
+]
+
+
+export const jobRoleTypes: {
+  key: string ;
+  title: string;
+}[] =[
+  {
+    key: "contractor",
+    title: "Contractor"
+  },
+  {
+    key: "full-time",
+    title: "Full-time Employment"
+  },
+  {
+    key: "any",
+    title: "Any"
   }
 ]

@@ -62,10 +62,13 @@ export const jobProfileRegisterSchema = z.object({
   experience: z.enum(["junior", "mid", "senior"], {
     required_error: "Select an experience level to continue",
   }),
+  roleType: z.enum(["contractor", "full-time", "any"], {
+    required_error: "Select an option to continue",
+  }),
   // skills: z.array(z.string()).nonempty(),
 });
 
-export const talentDetailsRegisterSchema = z.object({
+export const userDetailsRegisterSchema = z.object({
   firstName: z.string({
     required_error: "Provide your first name to continue",
   }),
@@ -75,60 +78,37 @@ export const talentDetailsRegisterSchema = z.object({
   email: z
     .string({
       invalid_type_error: "Email is required",
-      required_error: "Please provide your email to continue"
+      required_error: "Please provide your email to continue",
     })
     .email({
       message: "Provide a valid mail to continue",
     }),
-  password: z.string({
-    required_error: "Password is required",
-  }).trim().min(10, {
-    message: "Password does not meet requirements",
-  }),
+  password: z
+    .string({
+      required_error: "Password is required",
+    })
+    .trim()
+    .min(10, {
+      message: "Password does not meet requirements",
+    }),
   phoneNumber: z
     .string({
-      required_error:"Please provide a valid phone number",
+      required_error: "Please provide a valid phone number",
       invalid_type_error: "Please provide a valid phone number",
     })
     .min(11, {
       message: "Phone number is required",
-    })
-    .max(11, {
-      message: "Invalid lenght",
     }),
-  terms: z.boolean({
-    required_error: "You must agree to the terms and conditions",
-  }).refine((value) => value === true, {
-    message: "You must agree to the terms and conditions",
-  }),
+  terms: z
+    .boolean({
+      required_error: "You must agree to the terms and conditions",
+    })
+    .refine((value) => value === true, {
+      message: "You must agree to the terms and conditions",
+    }),
 });
 
-export const recruiterDetailsRegisterSchema = z.object({
-  companyName: z.string({
-    required_error: "Company name is required",
-  }),
-  email: z
-    .string({
-      invalid_type_error: "Email is required",
-    })
-    .email({
-      message: "Provide a valid mail to continue",
-    }),
-  password: z.string().trim().min(8, {
-    message: "Password is required",
-  }),
-  phoneNumber: z
-    .string()
-    .min(11, {
-      message: "Phone number is required",
-    })
-    .max(11, {
-      message: "Invalid lenght",
-    }),
-  terms: z.boolean().refine((value) => value === true, {
-    message: "You must agree to the terms and conditions",
-  }),
-});
+
 
 export const verifyEmailSchema = z.object({
   emailOtp: z
@@ -162,4 +142,5 @@ export const linkSocialAccountSchema = z.object({
 
 export interface handleNextProps {
   handleNext: () => void;
+  type: RegisterDataType["userType"] | undefined;
 }

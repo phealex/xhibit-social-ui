@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import JoinBanner from "./JoinBanner";
 import {
   Form,
@@ -16,22 +16,36 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { disciplines, experienceLevel } from "@/constants";
+import { disciplines, experienceLevel, jobRoleTypes } from "@/constants";
 import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 
-const JobProfile: FC<handleNextProps> = ({ handleNext }) => {
-  const form = useForm<z.infer<typeof jobProfileRegisterSchema>>({
-    resolver: zodResolver(jobProfileRegisterSchema),
+const JobProfile: FC<handleNextProps> = ({ handleNext, type }) => {
+  const [schema, setSchema] = useState<z.ZodType<any, any>>(
+    jobProfileRegisterSchema.omit({ roleType: true })
+  );
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
   });
 
-  function onSubmit(data: z.infer<typeof jobProfileRegisterSchema>) {
+  function onSubmit(data: z.infer<typeof schema>) {
     console.log(data);
     handleNext();
   }
+
+  useEffect(() => {
+    if (type) {
+      if (type === "talent") {
+        setSchema(jobProfileRegisterSchema.omit({ roleType: true }));
+      } else {
+        setSchema(jobProfileRegisterSchema.omit({ discipline: true }));
+      }
+    }
+  }, [type]);
+
   return (
     <div className="flex flex-col gap-[50px]">
       <JoinBanner />
@@ -40,39 +54,86 @@ const JobProfile: FC<handleNextProps> = ({ handleNext }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-[30px]"
         >
-          <FormField
-            control={form.control}
-            name="discipline"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">Discipline</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
+          {type === "talent" ? (
+            <FormField
+              control={form.control}
+              name="discipline"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
+                    Discipline
+                  </FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="h-14">
+                        <SelectValue
+                          className=" font-Jakarta  font-normal text-[16px] text-dark_green/50 "
+                          placeholder="Select a discipline"
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent className="rounded-[20px] flex flex-col gap-[10px]">
+                      {disciplines.map((discipline, index) => (
+                        <SelectItem
+                          className=" font-Jakarta font-normal text-[16px] text-dark_green"
+                          key={index}
+                          value={discipline.key}
+                        >
+                          {discipline.title}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          ) : (
+            <FormField
+              control={form.control}
+              name="roleType"
+              render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
+                    What tech talent role are you looking for?
+                  </FormLabel>
                   <FormControl>
-                    <SelectTrigger className="h-14">
-                      <SelectValue className=" font-Jakarta  font-normal text-[16px] text-dark_green/50 " placeholder="Select a discipline" />
-                    </SelectTrigger>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="flex flex-col md:flex-row gap-[13px]"
+                    >
+                      {jobRoleTypes.map((roleType, index) => (
+                        <FormItem
+                          key={index}
+                          className="flex items-center space-x-3 space-y-0"
+                        >
+                          <FormControl>
+                            <RadioGroupItem value={roleType.key} />
+                          </FormControl>
+                          <FormLabel className="font-normal font-Jakarta text-[16px] text-dark_green ">
+                            {roleType.title}
+                          </FormLabel>
+                        </FormItem>
+                      ))}
+                    </RadioGroup>
                   </FormControl>
-                  <SelectContent className="rounded-[20px] flex flex-col gap-[10px]">
-                    {disciplines.map((discipline, index) => (
-                      <SelectItem className=" font-Jakarta font-normal text-[16px] text-dark_green" key={index} value={discipline.key}>
-                        {discipline.title}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
           <FormField
             control={form.control}
             name="experience"
             render={({ field }) => (
               <FormItem className="space-y-3">
-                <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">Experience</FormLabel>
+                <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
+                  Experience
+                </FormLabel>
                 <FormControl>
                   <RadioGroup
                     onValueChange={field.onChange}

@@ -60,7 +60,8 @@ module.exports = {
         home_border_gradient_color_2: "rgba(102,205,237,1)",
         primary_blue: "#0085FF",
         dark_green: "#323C45",
-        home_grey: "#8E9FAA"
+        home_grey: "#8E9FAA",
+        light_green: "#4DBB9B"
       },
       backgroundImage: {
         "noise-background": "url('./assets/noiseBackground.svg')",
