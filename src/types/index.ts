@@ -140,7 +140,27 @@ export const linkSocialAccountSchema = z.object({
   others: z.string().optional(),
 });
 
+export const resetPasswordSchema = z.object({
+  emailOrPhone: z.string({
+    invalid_type_error: "Invalid email or phone number",
+    required_error: "Please provide a valid email or phone number",
+  }),
+  otp: z.array(z.string()).nonempty(),
+  newPassword:z.string().refine(value => 
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value),
+    {
+      message: "Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long",
+    }
+  ),
+  confirmPassword: z.string().refine(value => 
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value),
+    {
+      message: "Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long",
+    }
+  ),
+})
+
 export interface handleNextProps {
   handleNext: () => void;
-  type: RegisterDataType["userType"] | undefined;
+  type?: RegisterDataType["userType"] | undefined;
 }

@@ -18,6 +18,7 @@ import Overview from "./pages/overview/Overview";
 import Contact from "./pages/contact/Contact";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import PasswordReset from "./pages/passwordReset/PasswordReset";
 
 function App() {
   const HomeLayout = () => {
@@ -36,14 +37,13 @@ function App() {
   };
 
   const AuthLayout = () => {
-
     return (
       <div className="w-full flex  bg-white lg:min-h-screen">
         <AuthLayoutSider />
         <Outlet />
       </div>
-    )
-  }
+    );
+  };
 
   const router = createBrowserRouter([
     {
@@ -84,7 +84,7 @@ function App() {
         },
         {
           path: "/contact",
-          element: <Contact />
+          element: <Contact />,
         },
       ],
     },
@@ -94,14 +94,18 @@ function App() {
       children: [
         {
           path: "login",
-          element: <Login />
+          element: <Login />,
         },
         {
           path: "register",
-          element: <Register />
-        }
-      ]
-    }
+          element: <Register />,
+        },
+        {
+          path: "password-reset",
+          element: <PasswordReset />,
+        },
+      ],
+    },
   ]);
 
   return <RouterProvider router={router} />;
