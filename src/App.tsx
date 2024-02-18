@@ -5,7 +5,12 @@ import {
   useLocation,
 } from "react-router-dom";
 import "./App.css";
-import { AuthLayoutSider, Footer, Navbar } from "@/components";
+import {
+  AuthLayoutSider,
+  Footer,
+  Navbar,
+  TalentFeedNavbar,
+} from "@/components";
 import Home from "./pages/home/Home";
 import Projects from "./pages/projects/Projects";
 import Jobs from "./pages/jobs/Jobs";
@@ -19,6 +24,7 @@ import Contact from "./pages/contact/Contact";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import PasswordReset from "./pages/passwordReset/PasswordReset";
+import TalentFeed from "./pages/talentFeed/TalentFeed";
 
 function App() {
   const HomeLayout = () => {
@@ -47,9 +53,12 @@ function App() {
 
   const TalentFeedLayout = () => {
     return (
-      <Outlet />
-    )
-  }
+      <>
+        <TalentFeedNavbar />
+        <Outlet />
+      </>
+    );
+  };
 
   const router = createBrowserRouter([
     {
@@ -115,8 +124,13 @@ function App() {
     {
       path: "/talent",
       element: <TalentFeedLayout />,
-      children: []
-    }
+      children: [
+        {
+          path: "",
+          element: <TalentFeed />,
+        },
+      ],
+    },
   ]);
 
   return <RouterProvider router={router} />;

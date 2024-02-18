@@ -24,6 +24,9 @@ import { FaDiscord, FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { FiPenTool } from "react-icons/fi";
 import { HiSparkles } from "react-icons/hi";
 import { IoLogoAngular, IoLogoApple } from "react-icons/io";
+import { MdRssFeed } from "react-icons/md";
+import {BiBriefcase} from "react-icons/bi"
+import { RiBriefcase3Line, RiWalletLine } from "react-icons/ri";
 
 export const features: {
   img: string;
@@ -866,4 +869,33 @@ export const jobRoleTypes: {
     key: "any",
     title: "Any"
   }
+]
+
+
+export const talentFeedHeaders: {
+  title: string;
+  icon: IconType;
+  link: string;
+}[] = [
+  {
+    title: "Feeds",
+    icon: MdRssFeed,
+    link: "/"
+  },
+  {
+    title: "Jobs",
+    icon: BiBriefcase,
+    link: "/jobs"
+  },
+  {
+    title: "Projects",
+    icon: RiBriefcase3Line,
+    link: "/projects"
+  },
+  {
+    title: "Wallet",
+    icon: RiWalletLine,
+    link: "/wallet"
+  },
+  
 ]
