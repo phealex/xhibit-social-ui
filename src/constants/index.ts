@@ -880,22 +880,22 @@ export const talentFeedHeaders: {
   {
     title: "Feeds",
     icon: MdRssFeed,
-    link: "/"
+    link: ""
   },
   {
     title: "Jobs",
     icon: BiBriefcase,
-    link: "/jobs"
+    link: "jobs"
   },
   {
     title: "Projects",
     icon: RiBriefcase3Line,
-    link: "/projects"
+    link: "projects"
   },
   {
     title: "Wallet",
     icon: RiWalletLine,
-    link: "/wallet"
+    link: "wallet"
   },
   
 ]
