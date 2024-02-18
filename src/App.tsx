@@ -45,6 +45,12 @@ function App() {
     );
   };
 
+  const TalentFeedLayout = () => {
+    return (
+      <Outlet />
+    )
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -106,6 +112,11 @@ function App() {
         },
       ],
     },
+    {
+      path: "/talent",
+      element: <TalentFeedLayout />,
+      children: []
+    }
   ]);
 
   return <RouterProvider router={router} />;

@@ -17,3 +17,6 @@ export {default as TalentDetails} from "./auth/TalentDetails"
 export {default as Verification} from './auth/Verification'
 export {default as LinkSocials} from './auth/LinkSocials'
 export {default as ResetForm} from './auth/ResetForm'
+export {default as NewPassword} from './auth/NewPassword'
+export {default as ResetOTP} from './auth/ResetOTP'
+export {default as ResetDone} from './auth/ResetDone'
