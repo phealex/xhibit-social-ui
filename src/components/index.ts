@@ -21,3 +21,5 @@ export {default as NewPassword} from './auth/NewPassword'
 export {default as ResetOTP} from './auth/ResetOTP'
 export {default as ResetDone} from './auth/ResetDone'
 export {default as TalentFeedNavbar} from "./talentFeed/TalentFeedNavbar"
+export {default as TalentFeedFooter} from './talentFeed/TalentFeedFooter'
+export {default as NewPost} from "./talentFeed/NewPost"

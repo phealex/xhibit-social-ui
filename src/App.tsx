@@ -9,6 +9,7 @@ import {
   AuthLayoutSider,
   Footer,
   Navbar,
+  TalentFeedFooter,
   TalentFeedNavbar,
 } from "@/components";
 import Home from "./pages/home/Home";
@@ -56,6 +57,7 @@ function App() {
       <>
         <TalentFeedNavbar />
         <Outlet />
+        <TalentFeedFooter />
       </>
     );
   };

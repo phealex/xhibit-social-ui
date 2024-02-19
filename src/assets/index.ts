@@ -42,6 +42,8 @@ import user1 from "./user1.svg"
 import user2 from "./user2.svg"
 import user3 from "./user3.svg"
 import user4 from "./user4.svg"
+import Dmitry from "./Dmitry.svg"
+import uploadMedia from "./uploadMedia.svg"
 
 
 
@@ -89,5 +91,7 @@ export {
   user1,
   user2, 
   user3, 
-  user4
+  user4,
+  Dmitry,
+  uploadMedia
 };
