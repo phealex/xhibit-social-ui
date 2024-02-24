@@ -2,6 +2,7 @@ import { LoginMap, Logo } from "@/assets";
 import { loginQuotes } from "@/constants";
 import { FC, useEffect, useState } from "react"
 import { FaQuoteLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const AuthLayoutSider: FC = () => {
@@ -21,12 +22,12 @@ const AuthLayoutSider: FC = () => {
   return (
     <div className="hidden lg:flex w-1/2 bg-[#060D11] min-h-full">
     <div className="w-[80%] mx-auto space-y-5 p-3">
-      <div className="flex gap-2">
+      <Link to={'/'} className="flex gap-2">
         <img src={Logo} alt="" className="h-7 w-7" />
         <p className=" font-Jakarta font-normal text-[20px] leading-7 text-white">
           The Xhibit
         </p>
-      </div>
+      </Link>
       <div className="flex flex-col gap-[20px] w-full">
         <p className=" font-Jakarta text-[31px] leading-[44px] text-white/70 text-center w-full">
           We don’t just recruit... we help build your dream team

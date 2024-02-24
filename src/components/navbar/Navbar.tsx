@@ -96,12 +96,12 @@ const Navbar: FC = () => {
             </div>
           </div>
           <div className="flex items-center gap-[49px]">
-            <div className="relative p-0.5 hidden sm:flex">
+          <Link to={"/auth/login"}  className="relative p-0.5 hidden sm:flex">
               <div className="absolute inset-0 bg-gradient-to-r from-home_border_gradient_color_1 to-home_border_gradient_color_2  rounded-lg"></div>
               <Button className="text-white relative bg-home_gradient hover:bg-transparent font-Jakarta font-medium text-base  rounded-[5px] px-5 py-[10px]  shadow-xl shadow-home_border_gradient">
                 Hire Talent
               </Button>
-            </div>
+            </Link>
             <Link to={"/auth/login"}>
             <Button className="text-white font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-5 py-[10px]">
               Log In
@@ -134,12 +134,12 @@ const Navbar: FC = () => {
                 {showMdSidebar && (
                   <div className="flex items-center gap-5">
                   
-                    <div className="relative p-0.5">
+                    <Link to={"/auth/login"} className="relative p-0.5">
                       <div className="absolute inset-0 bg-gradient-to-r from-home_border_gradient_color_1 to-home_border_gradient_color_2  rounded-lg"></div>
                       <Button className="text-white relative bg-home_gradient hover:bg-transparent font-Jakarta font-medium text-base  rounded-[5px] px-5 py-[10px]  shadow-xl shadow-home_border_gradient">
                         Hire Talent
                       </Button>
-                    </div>
+                    </Link>
                     <Link to={"/auth/login"}>
                     <Button className="text-white font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-8 py-[10px]">
                       Log In
@@ -169,14 +169,14 @@ const Navbar: FC = () => {
             </div>
             {showSmSidebar && (
               <div className="flex items-center gap-4">
-                <div className="relative p-0.5 w-1/2">
+                <Link to={"/auth/login"} className="relative p-0.5 w-1/2">
                   <div className="absolute inset-0 bg-gradient-to-r from-home_border_gradient_color_1 to-home_border_gradient_color_2  rounded-lg"></div>
                   <Button className="text-white w-full relative bg-home_gradient hover:bg-transparent font-Jakarta font-medium text-base  rounded-[5px] px-5 py-[10px]  shadow-xl shadow-home_border_gradient">
                     <SheetClose>Hire Talent</SheetClose>
                   </Button>
-                </div>
-                <Link to={"/auth/login"}>
-                <Button className="text-white w-1/2 font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base px-5 py-[10px]">
+                </Link>
+                <Link to={"/auth/login"} className=" w-1/2 px-5 py-[10px]">
+                <Button className="text-white  font-Jakarta bg-primary_blue hover:text-primary_blue hover:bg-white border-primary_blue border  rounded-[5px] font-medium text-base ">
                   <SheetClose>Log In</SheetClose>
                 </Button>
                 </Link>

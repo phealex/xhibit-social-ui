@@ -11,6 +11,7 @@ import { useMultiStepForm } from "@/hooks";
 import { RegisterDataType } from "@/types";
 import { CheckCircle2, ChevronLeftSquare } from "lucide-react";
 import { FC, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register: FC = () => {
   const pageTitles: string[] = [
@@ -30,6 +31,8 @@ const Register: FC = () => {
     "Link your socials",
     "Done",
   ];
+
+  const navigate = useNavigate();
 
   const { toast } = useToast();
 
@@ -62,6 +65,9 @@ const Register: FC = () => {
         description:
           "You have successfully registered, you will be redirected to your feeds page",
       });
+      setTimeout(() => {
+        navigate("/talent");
+      }, 2000);
     }
   }, [completed, toast]);
 
@@ -73,7 +79,6 @@ const Register: FC = () => {
             className={`text-[24px] text-dark_green rounded-md ${
               isFirstStep || completed ? "cursor-not-allowed" : "cursor-pointer"
             }`}
-            
             onClick={() => {
               !isFirstStep && !completed && prev();
             }}
