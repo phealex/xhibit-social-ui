@@ -44,7 +44,14 @@ import user3 from "./user3.svg"
 import user4 from "./user4.svg"
 import Dmitry from "./Dmitry.svg"
 import uploadMedia from "./uploadMedia.svg"
-
+import Theresa from "./Theresa.svg"
+import XhibitAd from "./xhibitAd.svg"
+import MaskAd from "./maskAd.svg"
+import Like from "./Like.svg"
+import Comment from "./Comment.svg"
+import Share from "./Share.svg"
+import UserBanner from "./UserBanner.svg"
+import FigmaProject from "./FigmaProject.svg"
 
 
 export {
@@ -93,5 +100,13 @@ export {
   user3, 
   user4,
   Dmitry,
-  uploadMedia
+  uploadMedia,
+  Theresa,
+  XhibitAd,
+  MaskAd,
+  Like,
+  Comment,
+  Share,
+  UserBanner,
+  FigmaProject
 };

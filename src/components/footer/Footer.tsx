@@ -4,6 +4,7 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
 const Footer: FC = () => {
+  
   return (
     <div className="pt-[80px] bg-home_gradient flex flex-col gap-8 lg:justify-between w-full   ">
       <section className="flex gap-10 flex-col pt-10 lg:py-[60px] lg:flex-row  ">

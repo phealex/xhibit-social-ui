@@ -23,3 +23,11 @@ export {default as ResetDone} from './auth/ResetDone'
 export {default as TalentFeedNavbar} from "./talentFeed/TalentFeedNavbar"
 export {default as TalentFeedFooter} from './talentFeed/TalentFeedFooter'
 export {default as NewPost} from "./talentFeed/NewPost"
+export {default as UserCard} from "./talentFeed/UserCard"
+export {default as UserProjects} from "./talentFeed/UserProjects"
+export {default as UserSkills} from "./talentFeed/UserSkills"
+export {default as UserTools} from "./talentFeed/UserTools"
+export {default as UserExperience} from "./talentFeed/UserExperience"
+export {default as UserPosts} from "./talentFeed/UserPosts"
+export {default as Links} from "./talentFeed/Links"
+export {default as JobCard} from "./jobs/JobCard"

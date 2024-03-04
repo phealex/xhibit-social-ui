@@ -8,6 +8,7 @@ import {
   Diversity,
   HelpingHands,
   Kayla,
+  MaskAd,
   Nguyen,
   Project,
   Skills,
@@ -15,9 +16,19 @@ import {
   Solar,
   Sparkle,
   Star,
+  Theresa,
+  XhibitAd,
 } from "@/assets";
-import { RegisterDataType } from "@/types";
-import { Cpu, Database, Globe, Kanban, LucideIcon, Network, NotebookPen } from "lucide-react";
+import { JobType, RegisterDataType, TalentFeedPost } from "@/types";
+import {
+  Cpu,
+  Database,
+  Globe,
+  Kanban,
+  LucideIcon,
+  Network,
+  NotebookPen,
+} from "lucide-react";
 import { IconType } from "react-icons";
 import { FaCode, FaFacebook, FaGlobe } from "react-icons/fa";
 import { FaDiscord, FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
@@ -25,7 +36,7 @@ import { FiPenTool } from "react-icons/fi";
 import { HiSparkles } from "react-icons/hi";
 import { IoLogoAngular, IoLogoApple } from "react-icons/io";
 import { MdRssFeed } from "react-icons/md";
-import {BiBriefcase} from "react-icons/bi"
+import { BiBriefcase } from "react-icons/bi";
 import { RiBriefcase3Line, RiWalletLine } from "react-icons/ri";
 
 export const features: {
@@ -309,16 +320,18 @@ export const topOffers: {
   },
 ];
 
-export const findingTopTalents : string[] = [
-  "Diverse tech talent from over 170+ countries", "4,000 remote tech talents world wide", "Full-time and freelance hiring", "World wide talent sourcing"
-]
+export const findingTopTalents: string[] = [
+  "Diverse tech talent from over 170+ countries",
+  "4,000 remote tech talents world wide",
+  "Full-time and freelance hiring",
+  "World wide talent sourcing",
+];
 
 export const categories: {
   img: string;
   title: string;
-  icon: IconType | LucideIcon
-
-}[] =[
+  icon: IconType | LucideIcon;
+}[] = [
   {
     img: Software,
     title: "UI/UX Designer",
@@ -374,8 +387,7 @@ export const categories: {
     title: "Software Dev",
     icon: Globe,
   },
-]
-
+];
 
 export const footerLinks: {
   title: string;
@@ -390,20 +402,24 @@ export const footerLinks: {
       {
         text: "Overview",
         link: "/overview",
-      }, {
+      },
+      {
         text: "Explore jobs",
         link: "/jobs",
-      },{
+      },
+      {
         text: "Projects",
         link: "/projects",
-      }, {
+      },
+      {
         text: "Pricing",
         link: "/pricing",
-      }, {
+      },
+      {
         text: "Career",
         link: "/career",
-      }, 
-    ]
+      },
+    ],
   },
   {
     title: "XHIBIT",
@@ -411,20 +427,24 @@ export const footerLinks: {
       {
         text: "About us",
         link: "/about",
-      }, {
+      },
+      {
         text: "Hire talents",
         link: "/talents",
-      },{
+      },
+      {
         text: "Contact",
         link: "/contact",
-      }, {
+      },
+      {
         text: "Blog",
         link: "/blog",
-      }, {
+      },
+      {
         text: "FAQ",
         link: "/faq",
-      }, 
-    ]
+      },
+    ],
   },
   {
     title: "Socials",
@@ -432,47 +452,52 @@ export const footerLinks: {
       {
         text: "Twitter",
         link: "/",
-      }, {
+      },
+      {
         text: "LinkedIn",
         link: "/",
-      },{
+      },
+      {
         text: "Facebook",
         link: "/",
-      }, {
+      },
+      {
         text: "GitHub",
         link: "/",
-      }, {
+      },
+      {
         text: "Discord",
         link: "/",
-      }, 
-    ]
-  }, 
-]
-
+      },
+    ],
+  },
+];
 
 export const footerSocialIcons: {
   icon: IconType;
   link: string;
-}[] =[
+}[] = [
   {
     icon: FaXTwitter,
-    link: "/"
-  }, {
-    icon: FaLinkedinIn, 
-    link: "/"
-  }, 
+    link: "/",
+  },
   {
-    icon: FaFacebook, 
-    link: "/"
-  }, {
-    icon: FaGithub, 
-    link: "/"
-  }, {
-    icon: FaDiscord, 
-    link: "/"
-  }
-]
-
+    icon: FaLinkedinIn,
+    link: "/",
+  },
+  {
+    icon: FaFacebook,
+    link: "/",
+  },
+  {
+    icon: FaGithub,
+    link: "/",
+  },
+  {
+    icon: FaDiscord,
+    link: "/",
+  },
+];
 
 export const whosHiring: {
   img: string;
@@ -514,24 +539,9 @@ export const whosHiring: {
     companySize: "100-500",
     openJobs: 5,
   },
-]
+];
 
-
-export const foundJobs: {
-  logo: string,
-  name: string,
-  role: string,
-  pay: string;
-  location: string;
-  jobType: string;
-  minDuration:string;
-  contractType: string;
-  skills: {
-    skill: string;
-    stared: boolean;
-  }[];
-  goodMatch: boolean;
-}[] = [
+export const foundJobs: JobType[] = [
   {
     logo: Coinbase,
     name: "Coinbase",
@@ -555,7 +565,7 @@ export const foundJobs: {
         stared: false,
       },
     ],
-    goodMatch: true
+    goodMatch: true,
   },
   {
     logo: Coinbase,
@@ -580,8 +590,8 @@ export const foundJobs: {
         stared: false,
       },
     ],
-    goodMatch: true
-  }, 
+    goodMatch: true,
+  },
   {
     logo: Coinbase,
     name: "Coinbase",
@@ -605,11 +615,9 @@ export const foundJobs: {
         stared: false,
       },
     ],
-    goodMatch: false
-  }
-]
-
-
+    goodMatch: false,
+  },
+];
 
 export const PricingData: {
   title: string;
@@ -617,7 +625,7 @@ export const PricingData: {
   desc: string;
   features: string[];
   bgColor: string;
-  hasBorder: boolean; 
+  hasBorder: boolean;
 }[] = [
   {
     title: "Personal",
@@ -625,13 +633,13 @@ export const PricingData: {
     desc: "All the basic features to boost your freelance career",
     features: [
       "Full Access to XHIBIT",
-      "100 GB Free Storage", 
+      "100 GB Free Storage",
       "Unlimited Visitors",
       "10 Agents",
       "Lice Chat Support",
     ],
     bgColor: "rgba(50, 60, 69, 0.30",
-    hasBorder: false
+    hasBorder: false,
   },
   {
     title: "Professional",
@@ -639,13 +647,13 @@ export const PricingData: {
     desc: "All the basic features to boost your freelance career",
     features: [
       "Full Access to XHIBIT",
-      "100 GB Free Storage", 
+      "100 GB Free Storage",
       "Unlimited Visitors",
       "10 Agents",
       "Lice Chat Support",
     ],
     bgColor: "#18181B",
-    hasBorder: true
+    hasBorder: true,
   },
   {
     title: "Business",
@@ -653,20 +661,22 @@ export const PricingData: {
     desc: "All the basic features to boost your freelance career",
     features: [
       "Full Access to XHIBIT",
-      "100 GB Free Storage", 
+      "100 GB Free Storage",
       "Unlimited Visitors",
       "10 Agents",
       "Lice Chat Support",
     ],
     bgColor: "#18181B",
-    hasBorder: false
+    hasBorder: false,
   },
-]
-
+];
 
 export const faqHeaders: string[] = [
-  "About XHIBIT", "Getting onboard XHIBIT", "Project and Services", "Payments"
-]
+  "About XHIBIT",
+  "Getting onboard XHIBIT",
+  "Project and Services",
+  "Payments",
+];
 
 export const faqData: {
   question: string;
@@ -674,22 +684,25 @@ export const faqData: {
 }[] = [
   {
     question: "What is XHIBIT?",
-    answer: "XHIBIT is a platform that connects tech talents with companies looking to hire. We provide a seamless experience for both parties, ensuring that the hiring process is smooth and efficient."
+    answer:
+      "XHIBIT is a platform that connects tech talents with companies looking to hire. We provide a seamless experience for both parties, ensuring that the hiring process is smooth and efficient.",
   },
   {
     question: "How do I get started on XHIBIT?",
-    answer: "Getting started on XHIBIT is easy. Simply sign up and create a profile. Once your profile is complete, you can start applying for jobs or posting projects. If you’re a company looking to hire, you can start posting jobs and sourcing talent right away."
+    answer:
+      "Getting started on XHIBIT is easy. Simply sign up and create a profile. Once your profile is complete, you can start applying for jobs or posting projects. If you’re a company looking to hire, you can start posting jobs and sourcing talent right away.",
   },
   {
     question: "How do I post a project on XHIBIT?",
-    answer: "Posting a project on XHIBIT is simple. Once you’re signed in, navigate to the “Projects” tab and click on “Post a Project.” Fill in the required details and submit your project. Once your project is live, you can start receiving proposals from talented freelancers."
+    answer:
+      "Posting a project on XHIBIT is simple. Once you’re signed in, navigate to the “Projects” tab and click on “Post a Project.” Fill in the required details and submit your project. Once your project is live, you can start receiving proposals from talented freelancers.",
   },
   {
     question: "What payment methods do you accept?",
-    answer: "We accept all major credit and debit cards, as well as PayPal. If you have any questions about payment methods, feel free to reach out to our support team."
+    answer:
+      "We accept all major credit and debit cards, as well as PayPal. If you have any questions about payment methods, feel free to reach out to our support team.",
   },
-]
-
+];
 
 export const carouselData: string[] = [
   "The personalized job filters made my search incredibly efficient. It's like the website knew exactly what I was looking for",
@@ -700,9 +713,7 @@ export const carouselData: string[] = [
   "Applying with just one click saved me so much time. No more tedious application processes – just quick and easy",
   "I appreciate the emphasis on privacy. It's reassuring to have a job search platform that respects my confidentiality.",
   "The platform's simplicity and user-friendly interface make job hunting less daunting. It's like a breath of fresh air in the world of online job searches.",
-
-]
-
+];
 
 export const loginQuotes: {
   quote: string;
@@ -711,166 +722,167 @@ export const loginQuotes: {
   role: string;
 }[] = [
   {
-    quote: "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
+    quote:
+      "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
     img: Chris,
     name: "Chris Hodger",
-    role: "CEO Muncheez"
+    role: "CEO Muncheez",
   },
   {
-    quote: "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
+    quote:
+      "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
     img: Devon,
     name: "Devon Lane",
-    role: "Senior Backend Dev"
+    role: "Senior Backend Dev",
   },
   {
-    quote: "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
+    quote:
+      "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
     img: Chris,
     name: "Chris Hodger",
-    role: "CEO Muncheez"
+    role: "CEO Muncheez",
   },
   {
-    quote: "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
+    quote:
+      "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
     img: Devon,
     name: "Devon Lane",
-    role: "Senior Backend Dev"
+    role: "Senior Backend Dev",
   },
   {
-    quote: "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
+    quote:
+      "Exceptional service! XHIBIT helped me discover an array of opportunities. A game-changer for tech talent.",
     img: Chris,
     name: "Chris Hodger",
-    role: "CEO Muncheez"
+    role: "CEO Muncheez",
   },
   {
-    quote: "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
+    quote:
+      "Effortless and efficient. XHIBIT connects you with the best tech companies and simplifies the hiring process. Highly recommended.",
     img: Devon,
     name: "Devon Lane",
-    role: "Senior Backend Dev"
-  }
-]
+    role: "Senior Backend Dev",
+  },
+];
 
-
-export const registrationCategories :{
+export const registrationCategories: {
   key: RegisterDataType["userType"];
   title: string;
   desc: string;
-}[] =[
+}[] = [
   {
     key: "talent",
     title: "I am a talent",
-    desc: "Looking for work"
-  }, 
+    desc: "Looking for work",
+  },
   {
     key: "recruiter",
     title: "I am a company",
-    desc: "Hiring talents"
-  }
-]
-
+    desc: "Hiring talents",
+  },
+];
 
 export const disciplines: {
   title: string;
   key: string;
-}[] =[
+}[] = [
   {
     title: "Front End",
-    key: "front-end"
+    key: "front-end",
   },
   {
     title: "Back End",
-    key: "back-end"
+    key: "back-end",
   },
   {
     title: "Full Stack",
-    key: "full-stack"
+    key: "full-stack",
   },
   {
     title: "Mobile-iOS",
-    key: "mobile-ios"
+    key: "mobile-ios",
   },
   {
     title: "Mobile-Android",
-    key: "mobile-android"
-  },{
+    key: "mobile-android",
+  },
+  {
     title: "Mobile-Hybrid",
-    key: "mobile-hybrid"
+    key: "mobile-hybrid",
   },
   {
     title: "DevOps",
-    key: "devops"
+    key: "devops",
   },
   {
     title: "Software Dev",
-    key: "software-dev"
+    key: "software-dev",
   },
   {
     title: "Data Science",
-    key: "data-science"
+    key: "data-science",
   },
   {
     title: "Data Engineering",
-    key: "data-engineering"
+    key: "data-engineering",
   },
   {
     title: "IT/Support",
-    key: "it-support"
+    key: "it-support",
   },
   {
     title: "Blockchain",
-    key: "blockchain"
+    key: "blockchain",
   },
   {
     title: "Quality Assurance",
-    key: "quality-assurance"
+    key: "quality-assurance",
   },
   {
     title: "Security",
-    key: "security"
+    key: "security",
   },
   {
     title: "Other",
-    key: "other"
-  }
+    key: "other",
+  },
+];
 
-]
-
-
-export const experienceLevel : {
-  key: string ;
+export const experienceLevel: {
+  key: string;
   title: string;
-}[] =[
+}[] = [
   {
     key: "junior",
-    title: "Junior (1-3 yrs)"
+    title: "Junior (1-3 yrs)",
   },
   {
     key: "mid",
-    title: "Mid-level (3-5 yrs)"
+    title: "Mid-level (3-5 yrs)",
   },
   {
     key: "senior",
-    title: "Senior (5+ yrs)"
-  }
-]
-
+    title: "Senior (5+ yrs)",
+  },
+];
 
 export const jobRoleTypes: {
-  key: string ;
+  key: string;
   title: string;
-}[] =[
+}[] = [
   {
     key: "contractor",
-    title: "Contractor"
+    title: "Contractor",
   },
   {
     key: "full-time",
-    title: "Full-time Employment"
+    title: "Full-time Employment",
   },
   {
     key: "any",
-    title: "Any"
-  }
-]
-
+    title: "Any",
+  },
+];
 
 export const talentFeedHeaders: {
   title: string;
@@ -880,22 +892,198 @@ export const talentFeedHeaders: {
   {
     title: "Feeds",
     icon: MdRssFeed,
-    link: ""
+    link: "",
   },
   {
     title: "Jobs",
     icon: BiBriefcase,
-    link: "jobs"
+    link: "jobs",
   },
   {
     title: "Projects",
     icon: RiBriefcase3Line,
-    link: "projects"
+    link: "projects",
   },
   {
     title: "Wallet",
     icon: RiWalletLine,
-    link: "wallet"
+    link: "wallet",
   },
-  
+];
+
+export const talentFeedPosts: TalentFeedPost[] = [
+  {
+    user: "Theresa Steward",
+    userImage: Theresa,
+    userRole: "iOS developer",
+    time: "2h",
+    content:
+      "What did the Dursleys care if Harry lost his place on the House Quidditch team because he hadn’t practiced all summer? What was it to the Dursleys if Harry went back to school without any of his homework done? The Dursleys were what wizards called Muggles (not a drop of magical blood in their veins).What did the Dursleys care if Harry lost his place on the House Quidditch team because he hadn’t practiced all summer? What was it to the Dursleys if Harry went back to school without any of his homework done? The Dursleys were what wizards called Muggles (not a drop of magical blood in their veins).What did the Dursleys care if Harry lost his place on the House Quidditch team because he hadn’t practiced all summer? What was it to the Dursleys if Harry went back to school without any of his homework done? The Dursleys were what wizards called Muggles (not a drop of magical blood in their veins).",
+    likes: 42,
+    comments: 12,
+    commentsList: [
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment:
+          "This seems like you dodged a bullet. There's no way any interview process should go on for 51 days",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment:
+          "This seems like you dodged a bullet. There's no way any interview process should go on for 51 days",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment:
+          "This seems like you dodged a bullet. There's no way any interview process should go on for 51 days",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+    ],
+    likedBy: ["Ted Bell", "Chris Hodger", "Devon Lane"],
+  },
+  {
+    user: "Theresa Steward",
+    userImage: Theresa,
+    userRole: "iOS developer",
+    time: "12h",
+    content: " There is some new guidelines for iOS developers",
+    likes: 42,
+    comments: 12,
+    commentsList: [
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment: "Awesome",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment: "Thanks for sharing this",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment:
+          "This seems like you dodged a bullet. There's no way any interview process should go on for 51 days",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+    ],
+    headline: "High rated post from your feed",
+    files: [
+      {
+        title: "iOS 11 guidelines for UX/UI designers",
+        type: "PDF",
+        size: "2.5MB",
+      },
+      {
+        title: "iOS 11 guidelines for UX/UI designers",
+        type: "PDF",
+        size: "2.5MB",
+      }
+    ]
+  },
+  {
+    user: "Theresa Steward",
+    userImage: Theresa,
+    userRole: "iOS developer",
+    time: "2h",
+    content:
+      "What did the Dursleys care if Harry lost his place on the House Quidditch team because he hadn’t practiced all summer? What was it to the Dursleys if Harry went back to school without any of his homework done? The Dursleys were what wizards called Muggles (not a drop of magical blood in their veins).What did the Dursleys care if Harry lost his place on the House Quidditch team because he hadn’t practiced all summer? What was it to the Dursleys if Harry went back to school without any of his homework done? The Dursleys were what wizards called Muggles (not a drop of magical blood in their veins).What did the Dursleys care if Harry lost his place on the House Quidditch team because he hadn’t practiced all summer? What was it to the Dursleys if Harry went back to school without any of his homework done? The Dursleys were what wizards called Muggles (not a drop of magical blood in their veins).",
+    likes: 42,
+    comments: 12,
+    commentsList: [
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment:
+          "This seems like you dodged a bullet. There's no way any interview process should go on for 51 days",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment:
+          "This seems like you dodged a bullet. There's no way any interview process should go on for 51 days",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment:
+          "This seems like you dodged a bullet. There's no way any interview process should go on for 51 days",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+    ],
+    likedBy: ["Ted Bell", "Chris Hodger", "Devon Lane", "Theresa Steward", "Ted Bell", "Chris Hodger", "Devon Lane", "Theresa Steward"],
+  },
+ 
+];
+
+
+export const talentFeedAd: TalentFeedPost[] =[
+  {
+    user: "Aws Training & Certification",
+    userImage: XhibitAd,
+    userRole: "Promoted",
+    content: "Learn how to integrate Machine Learning and AI into tools and applications with this free learning plan.💡📈",
+    likes: 42,
+    comments: 12,
+    commentsList: [
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment: "Awesome",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment: "Thanks for sharing this",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+      {
+        user: "Theresa Steward",
+        userImage: Theresa,
+        comment:
+          "This seems like you dodged a bullet. There's no way any interview process should go on for 51 days",
+        time: "2h",
+        likes: 2,
+        userRole: "iOS developer",
+      },
+    ],
+    img: MaskAd,
+    imgTitle: "Upskill for the AI future with XHIBIT training",
+    imgDesc: "Get started",
+    imgAlt: "Earn a certificate with XHIBIT on Machine Learning",
+    imgLink: "www.xhibit.com",
+  },
 ]

@@ -167,3 +167,64 @@ export interface handleNextProps {
   handleNext: () => void;
   type?: RegisterDataType["userType"] | undefined;
 }
+
+
+export interface TalentFeedPost {
+  user: string;
+  userImage: string;
+  userRole: string;
+  time?: string;
+  content: string;
+  likes: number;
+  comments: number;
+  commentsList: {
+    user: string;
+    userImage: string;
+    userRole: string;
+    time: string;
+    comment: string;
+    likes: number;
+    img?: string;
+  }[];
+  img?: string;
+  imgTitle?: string;
+  imgDesc?: string;
+  imgAlt?: string;
+  imgLink?: string;
+  likedBy?: string[];
+  headline?: string;
+  files?: {
+    title: string;
+    type: string;
+    size: string;
+  }[];
+}
+
+
+export const CommentFormSchema = z.object({
+  comment: z
+    .string()
+    .min(10, {
+      message: "Comment must be at least 10 characters.",
+    })
+    .max(160, {
+      message: "Comment must not be longer than 300 characters.",
+    }),
+})
+
+
+export interface JobType {
+  logo: string;
+  name: string;
+  role: string;
+  pay: string;
+  location: string;
+  jobType: string;
+  minDuration: string;
+  contractType: string;
+  skills: {
+    skill: string;
+    stared: boolean;
+  }[];
+  goodMatch: boolean;
+}

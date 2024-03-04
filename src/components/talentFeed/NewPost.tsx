@@ -41,7 +41,7 @@ const NewPost: FC = () => {
           <div className="flex flex-col gap-5">
             <Textarea
               placeholder="Share whats on your mind"
-              className=" min-h-72 outline-none ring-transparent"
+              className=" min-h-72 outline-none ring-transparent focus-visible:ring-transparent"
             />
             <div className="flex justify-between">
               <div className="flex gap-[30px] items-center">
