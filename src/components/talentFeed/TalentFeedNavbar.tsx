@@ -6,10 +6,11 @@ import { Link, useLocation } from "react-router-dom";
 import { Input } from "../ui/input";
 import { HiBell, HiOutlineLogout } from "react-icons/hi";
 import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "../ui/hover-card";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { FaEnvelope } from "react-icons/fa";
 import { Separator } from "../ui/separator";
 
@@ -19,7 +20,7 @@ const TalentFeedNavbar: FC = () => {
 
   
   return (
-    <div className=" bg-[#F2F9FF] lg:bg-white w-full h-[100px] sticky top-0 left-0 right-0 border-b border-home_border_gradient_color_2">
+    <div className=" bg-[#F2F9FF] lg:bg-white w-full h-[100px] sticky z-50 top-0 left-0 right-0 border-b border-home_border_gradient_color_2">
       <div className="w-[90%] md:w-[80%] flex flex-row-reverse md:flex-row  justify-between gap-5 md:gap-[50px] items-center py-5 mx-auto ">
         <HiBell className="text-dark_green/70 text-[24px] cursor-pointer flex md:hidden" />
 
@@ -52,17 +53,17 @@ const TalentFeedNavbar: FC = () => {
         <div className="flex gap-6 items-center ">
           <FaEnvelope className="text-dark_green/70 w-6 h-6 cursor-pointer hidden lg:flex" />
           <HiBell className="text-dark_green/70 w-6 h-6 cursor-pointer hidden md:flex" />
-          <HoverCard openDelay={1}>
-            <HoverCardTrigger className=" bgw lg:bg-[#F7F7F7] cursor-pointer flex items-center gap-2 rounded-[30px] p-3 ">
+          <DropdownMenu>
+            <DropdownMenuTrigger className=" bgw lg:bg-[#F7F7F7] cursor-pointer flex items-center gap-2 rounded-[30px] p-3 ">
               <img
                 src={Dmitry}
                 alt=""
                 className=" rounded-[100%] object-cover w-8 h-8"
               />
               <ChevronDown className="text-dark_green/70 text-[25px]  " />
-            </HoverCardTrigger>
-            <HoverCardContent className=" bg-white rounded !p-0  flex flex-col gap-5">
-              <div className="flex flex-col gap-5 p-5">
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="max-w-[290px] bg-white rounded !p-0  flex flex-col gap-5">
+              <DropdownMenuItem className="  !focus:bg-transparent flex flex-col gap-5 p-5">
                 <div className="flex items-center gap-[10px] flex-col">
                   <img
                     src={Dmitry}
@@ -79,14 +80,14 @@ const TalentFeedNavbar: FC = () => {
                       offers.
                     </p>
                   </div>
-                  <h1 className=" font-Jakarta text-base cursor-pointer hover:underline hover:underline-offset-1 font-semibold text-center text-dark_green ">
+                  <Link to={"/talent/profile"} className=" font-Jakarta text-base cursor-pointer hover:underline hover:underline-offset-1 font-semibold text-center text-dark_green ">
                     View my profile
-                  </h1>
+                  </Link>
                 </div>
                 <div className=""></div>
-              </div>
+              </DropdownMenuItem>
               <Separator className=" text-[#F4F4F4]" />
-              <div className=" flex p-5 flex-col gap-5">
+              <DropdownMenuItem className=" flex p-5 flex-col gap-5">
                 <Link
                   to={"/work"}
                   className=" font-Jakarta text-sm text-dark_green "
@@ -105,14 +106,14 @@ const TalentFeedNavbar: FC = () => {
                 >
                   Settings
                 </Link>
-              </div>
+              </DropdownMenuItem>
               <Separator className=" text-[#F4F4F4]" />
-              <div className="flex gap-2 p-5 cursor-pointer items-center font-Jakarta text-sm text-[#E75F51] ">
+              <DropdownMenuItem className="flex gap-2 p-5 cursor-pointer items-center font-Jakarta text-sm text-[#E75F51] ">
                 Log out
                 <HiOutlineLogout className=" w-5 h-5" />
-              </div>
-            </HoverCardContent>
-          </HoverCard>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </div>

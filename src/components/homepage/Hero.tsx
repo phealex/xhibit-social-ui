@@ -50,11 +50,12 @@ const Hero: FC = () => {
                     </p>
                     <div className="flex gap-2">
                       <div className="flex gap-0.5">
-                        <Star fill="#FFC107" className=" h-[24px] w-[24px] " />
-                        <Star fill="#FFC107" className="h-[24px] w-[24px] " />
-                        <Star fill="#FFC107" className="h-[24px] w-[24px] " />
-                        <Star fill="#FFC107" className="h-[24px] w-[24px] " />
-                        <Star fill="#FFC107" className="h-[24px] w-[24px] " />
+                        {
+                          Array(5).fill(0).map((_, index) => (
+                            <Star fill="#FFC107" key={index} className=" h-[24px] w-[24px] " />
+                          ))
+                        }
+                        
                       </div>
                       <p className=" font-Jakarta text-[13px] sm:text-[16px]  font-medium sm:font-normal text-white leading-6">
                         4.1/5

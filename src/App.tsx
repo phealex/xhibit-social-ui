@@ -26,6 +26,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import PasswordReset from "./pages/passwordReset/PasswordReset";
 import TalentFeed from "./pages/talentFeed/TalentFeed";
+import TalentProfile from "./pages/talentProfile/TalentProfile";
 
 function App() {
   const HomeLayout = () => {
@@ -54,11 +55,13 @@ function App() {
 
   const TalentFeedLayout = () => {
     return (
-      <>
+      <div className="">
+
         <TalentFeedNavbar />
         <Outlet />
         <TalentFeedFooter />
-      </>
+      </div>
+      
     );
   };
 
@@ -131,6 +134,10 @@ function App() {
           path: "",
           element: <TalentFeed />,
         },
+        {
+          path: "profile",
+          element: <TalentProfile />,
+        }
       ],
     },
   ]);

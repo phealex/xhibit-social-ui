@@ -7,7 +7,7 @@ const TalentFeedFooter: FC = () => {
   const path = useLocation().pathname.split("/")[0];
 
   return (
-    <div className=" bg-white p-5 md:px-10 flex justify-between items-center lg:hidden sticky bottom-0 left-0 right-0 ">
+    <div className=" bg-white p-5 md:px-10 z-[99]  flex justify-between items-center lg:hidden sticky bottom-0 left-0 right-0 ">
       {talentFeedHeaders.map((header, index) => (
         <Link
           to={`/talent/${header.link}`}

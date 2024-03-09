@@ -228,3 +228,21 @@ export interface JobType {
   }[];
   goodMatch: boolean;
 }
+
+
+export const SetAvailabilitySchema = z.object({
+  status: z.enum(["open", "not open"], {
+    required_error: "Select an option to continue",
+  }),
+  type: z.enum(["full-time", "part-time", "contract", "internship"], {
+    required_error: "Select an option to continue",
+  }),
+});
+
+
+export const bioFormSchema = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  city: z.string(),
+  website: z.string().url(),
+})
