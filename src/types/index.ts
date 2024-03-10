@@ -260,3 +260,16 @@ export const headlineFormScheme = z.object({
   }), 
 
 })
+
+export const roleFormSchema = z.object({
+  title: z.string({
+    required_error: "Role must be provided"
+  }),
+  roles: z.array(z.string()).optional(),
+  experience: z.string({
+    required_error: "Experience must be provided"
+  }),
+  language: z.string({
+    required_error: "Please select a language.",
+  }),
+})

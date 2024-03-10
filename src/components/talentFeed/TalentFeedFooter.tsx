@@ -12,7 +12,7 @@ const TalentFeedFooter: FC = () => {
         <Link
           to={`/talent/${header.link}`}
           key={index}
-          className={`font-Jakarta flex items-center gap-2 uppercase flex-col text-base ${
+          className={`font-Jakarta flex items-center gap-2 uppercase flex-col text-[13px] ${
             header.link === path
               ? " text-primary_blue border-b-2 border-b-primary_blue pb-1  "
               : "text-dark_green/70"
@@ -23,7 +23,7 @@ const TalentFeedFooter: FC = () => {
         </Link>
       ))}
       <div
-        className={`font-Jakarta flex items-center gap-2 uppercase flex-col text-base ${
+        className={`font-Jakarta flex items-center gap-2 uppercase flex-col text-[13px] ${
           "message" === path
             ? " text-primary_blue border-b-2 border-b-primary_blue pb-1  "
             : "text-dark_green/70"

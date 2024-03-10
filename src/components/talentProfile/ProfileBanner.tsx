@@ -113,7 +113,7 @@ const ProfileBanner: FC = () => {
       </div>
       <div className="flex flex-col md:flex-row gap-[30px] items-center bg-white px-4">
         <div className="flex gap-4 items-center">
-          <div className="-mt-10 bg-white rounded-full p-4 z-10 flex shrink-0 h-[180px] w-[180px]">
+          <div className="-mt-10 bg-white rounded-full p-4 z-10 flex shrink-0 h-[100px] w-[100px] md:h-[180px] md:w-[180px]">
             <div className="relative rounded-full w-full bg-dark_green/70 h-full">
               {userImage ? (
                 <img
@@ -141,7 +141,7 @@ const ProfileBanner: FC = () => {
                 onChange={handleUserImageSelect}
               />
               <Dialog>
-                <DialogTrigger className=" px-3 py-1 mx-auto bg-white w-fit absolute bottom-0 left-0 right-0 font-Jakarta font-medium text-[13px] leading-6 text-dark_green shadow-xl ">
+                <DialogTrigger className=" px-3 py-1 mx-auto bg-white w-fit absolute top-[90%] md:bottom-0 left-0 right-0 font-Jakarta font-medium text-[9px] md:text-[13px]  text-dark_green shadow-xl ">
                   Set work availability
                 </DialogTrigger>
                 <DialogContent className="flex flex-col gap-[50px]">
@@ -260,8 +260,8 @@ const ProfileBanner: FC = () => {
               </Dialog>
             </div>
           </div>
-          <div className="flex md:hidden items-start gap-2 ">
-            <p className=" font-Jakarta text-[20px] font-semibold  text-dark_green">
+          <div className="flex md:hidden items-center md:items-start gap-2 ">
+            <p className=" font-Jakarta text-[13px] lg:text-[16px] font-semibold  text-dark_green">
               Dmirty Kargaev
             </p>
             <Dialog>
@@ -491,7 +491,7 @@ const ProfileBanner: FC = () => {
               </DialogContent>
             </Dialog>
           </div>
-          <div className="flex gap-2 md:gap-4">
+          <div className="flex gap-2 md:gap-4 overflow-x-scroll hide-scrollbar hide-scrollbar::-webkit-scrollbar">
             <Dialog>
               <DialogTrigger>
                 <Button className="p-1 md:p-2 flex gap-2 items-center bg-transparent hover:bg-transparent md:border border-dark_green rounded-[5px] ">
@@ -723,10 +723,10 @@ const ProfileBanner: FC = () => {
             </Dialog>
 
             <Dialog>
-              <DialogTrigger>
+              <DialogTrigger className=" hidden md:flex">
                 <Button className="p-2 flex gap-2 items-center bg-transparent hover:bg-transparent md:border border-dark_green rounded-[5px] ">
                   <MdOutlineCloudUpload className=" w-[20px] h-[20px] text-dark_green" />
-                  <p className=" font-Jakarta text-[13px] lg:text-[16px]   font-normal  text-dark_green">
+                  <p className=" font-Jakarta text-[10px]  md:text-[13px] lg:text-[16px] font-normal  text-dark_green">
                     Upload Resume
                   </p>
                 </Button>
