@@ -246,3 +246,17 @@ export const bioFormSchema = z.object({
   city: z.string(),
   website: z.string().url(),
 })
+
+export const headlineFormScheme = z.object({
+  headline: z.string({
+    required_error: "Headline must be provided"
+  }).max(50, {
+    message: "Maximum character length exceeded" 
+  }),
+  bio: z.string({
+    required_error: "Bio must be provided"
+  }).max(1000, {
+    message: "Maximum character length exceeded" 
+  }), 
+
+})

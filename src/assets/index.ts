@@ -52,6 +52,12 @@ import Comment from "./Comment.svg"
 import Share from "./Share.svg"
 import UserBanner from "./UserBanner.svg"
 import FigmaProject from "./FigmaProject.svg"
+import tools from './tools.svg' 
+import certification from "./Certification.svg"
+import projects from "./projects.svg"
+import search from './search.svg'
+import role from "./role.svg"
+import headline from "./headline.svg"
 
 
 export {
@@ -108,5 +114,11 @@ export {
   Comment,
   Share,
   UserBanner,
-  FigmaProject
+  FigmaProject,
+  tools,
+  certification,
+  projects,
+  search,
+  role,
+  headline
 };

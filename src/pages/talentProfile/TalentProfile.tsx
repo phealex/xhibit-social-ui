@@ -1,4 +1,4 @@
-import { ProfileBanner } from "@/components"
+import { Headline, ProfileBanner } from "@/components"
 import { FC } from "react"
 
 const TalentProfile: FC = () => {
@@ -10,7 +10,7 @@ const TalentProfile: FC = () => {
         </section>
         <section className="flex flex-1 flex-col gap-10 w-full">
             <ProfileBanner />
-            <div className=""></div>
+            <Headline />
             <div className=""></div>
             <div className=""></div>
             <div className=""></div>
