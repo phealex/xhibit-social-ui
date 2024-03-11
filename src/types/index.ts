@@ -318,3 +318,64 @@ export const skillFormSchema = z.object({
     message: "Minimum of 3 skills must be highlighted"
   }),
 })
+
+export const projectFormSchema = z.object({
+  name: z.string({
+    required_error: "Title must be provided"
+  }),
+  url: z.string({
+    required_error: "Description must be provided"
+  }).url(),
+  technologies: z.array(z.object({
+    label: z.string(),
+    value: z.string()
+  })).optional(),
+  image: z.object({
+    type: z.string().nonempty('A file is required'),
+    size: z.number().max(2000000, 'File size should be less than 2MB'),
+    name: z.string().nonempty(),
+  }),
+  description: z.string({
+    required_error: "Description must be provided"
+  }),
+})
+
+
+export const certificationFormSchema = z.object({
+  name: z.string({
+    required_error: "Title must be provided"
+  }),
+  issuer: z.string({
+    required_error: "Issuer must be provided"
+  }),
+  url: z.string({
+    required_error: "URL must be provided"
+  }).url(),
+  year: z.string({
+    required_error: "Year must be provided"
+  }).min(4, {
+    message: "Year must be valid"
+  }).max(4, {
+    message: "Year must be valid"
+  }),
+})
+
+
+export const educationFormSchema = z.object({
+  school: z.string({
+    required_error: "School must be provided"
+  }),
+  degree: z.string({
+    required_error: "Degree must be provided"
+  }),
+  field: z.string({
+    required_error: "Field of study must be provided"
+  }),
+  year: z.string({
+    required_error: "Year must be provided"
+  }).min(4, {
+    message: "Year must be valid"
+  }).max(4, {
+    message: "Year must be valid"
+  }),
+})
