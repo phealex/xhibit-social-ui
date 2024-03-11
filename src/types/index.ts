@@ -262,14 +262,59 @@ export const headlineFormScheme = z.object({
 })
 
 export const roleFormSchema = z.object({
-  title: z.string({
-    required_error: "Role must be provided"
+  title: z.object({
+    label: z.string(),
+    value: z.string()
   }),
   roles: z.array(z.string()).optional(),
   experience: z.string({
     required_error: "Experience must be provided"
   }),
-  language: z.string({
-    required_error: "Please select a language.",
+})
+
+
+export const experienceFormSchema = z.object({
+  company: z.string({
+    required_error: "Company must be provided"
+  }),
+  title: z.string({
+    required_error: "Job title must be provided"
+  }),
+  // technologies: z.array(z.string()).optional(),
+  // technologies: z.string().nonempty('A technology must be selected'),
+  technologies: z.array(z.object({
+    label: z.string(),
+    value: z.string()
+  })).optional(),
+  startMonth: z.string({
+    required_error: "Start month must be provided"
+  }),
+  startYear: z.string({
+    required_error: "Start month must be provided"
+  }),
+  endMonth: z.string({
+    required_error: "End month must be provided"
+  }).optional(),
+  endYear: z.string({
+    required_error: "End month must be provided"
+  }).optional(),
+  current: z.boolean().default(false),
+  description: z.string({
+    required_error: "Description must be provided"
+  })
+})
+
+export const skillFormSchema = z.object({
+  skills: z.array(z.object({
+    label: z.string(),
+    value: z.string()
+  })).min(5, {
+    message: "Minimum of 5 skills must be selected"
+  }),
+ highlighted: z.array(z.object({
+    label: z.string(),
+    value: z.string()
+  })).min(3, {
+    message: "Minimum of 3 skills must be highlighted"
   }),
 })

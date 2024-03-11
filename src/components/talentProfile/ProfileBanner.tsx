@@ -111,7 +111,7 @@ const ProfileBanner: FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row gap-[30px] items-center bg-white px-4">
+      <div className="flex flex-col md:flex-row gap-[30px] h-1/2 items-center bg-white px-4">
         <div className="flex gap-4 items-center">
           <div className="-mt-10 bg-white rounded-full p-4 z-10 flex shrink-0 h-[100px] w-[100px] md:h-[180px] md:w-[180px]">
             <div className="relative rounded-full w-full bg-dark_green/70 h-full">

@@ -1,4 +1,4 @@
-import { Headline, ProfileBanner, Role } from "@/components"
+import { Experience, Headline, ProfileBanner, Role, Skills } from "@/components"
 import { FC } from "react"
 
 const TalentProfile: FC = () => {
@@ -12,8 +12,8 @@ const TalentProfile: FC = () => {
             <ProfileBanner />
             <Headline />
             <Role />
-            <div className=""></div>
-            <div className=""></div>
+            <Experience />
+            <Skills />
             <div className=""></div>
             <div className=""></div>
             <div className=""></div>
