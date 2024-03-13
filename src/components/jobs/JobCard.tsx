@@ -57,7 +57,7 @@ const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
                   className={`flex gap-3 rounded-[20px] rounded-br-[0px] ${
                     skill.stared
                       ? "text-primary_blue bg-primary_blue/5 hover:bg-primary_blue/5 "
-                      : " bg-dark_green/50 hover:bg-dark_green/50  text-dark_green"
+                      : " bg-dark_green/10 hover:bg-dark_green/1`0  text-dark_green"
                   }`}
                 >
                   {skill.stared && (

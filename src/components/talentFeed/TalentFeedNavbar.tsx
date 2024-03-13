@@ -15,7 +15,7 @@ import { FaEnvelope } from "react-icons/fa";
 import { Separator } from "../ui/separator";
 
 const TalentFeedNavbar: FC = () => {
-  const path = useLocation().pathname.split("/")[0];
+  const path = useLocation().pathname.split("/")[2]
   // console.log(path)
 
   

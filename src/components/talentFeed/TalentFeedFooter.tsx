@@ -4,7 +4,7 @@ import { FaEnvelope } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
 const TalentFeedFooter: FC = () => {
-  const path = useLocation().pathname.split("/")[0];
+  const path = useLocation().pathname.split("/")[2];
 
   return (
     <div className=" bg-white p-5 md:px-10 z-[99]  flex justify-between items-center lg:hidden sticky bottom-0 left-0 right-0 ">

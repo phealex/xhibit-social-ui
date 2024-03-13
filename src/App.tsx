@@ -27,6 +27,7 @@ import Register from "./pages/register/Register";
 import PasswordReset from "./pages/passwordReset/PasswordReset";
 import TalentFeed from "./pages/talentFeed/TalentFeed";
 import TalentProfile from "./pages/talentProfile/TalentProfile";
+import TalentJobs from "./pages/talentJobs/TalentJobs";
 
 function App() {
   const HomeLayout = () => {
@@ -137,6 +138,10 @@ function App() {
         {
           path: "profile",
           element: <TalentProfile />,
+        },
+        {
+          path: "jobs",
+          element: <TalentJobs />,
         }
       ],
     },
