@@ -390,3 +390,15 @@ export const toolsFormSchema = z.object({
     required_error: "Select an option to continue",
   })
 })
+
+type views=  "browse" | "applied" | "saved" | "resume" | "interview" | "startup" | "industries" | "blog";
+
+export interface JobsDisplayState {
+  // showBrowseJobs: boolean;
+  // setShowBrowseJobs: (value: boolean) => void;
+  viewToShow: views
+  setViewToShow: (value: views) => void;
+  showJobDetails: boolean;
+  setShowJobDetails: (value: boolean) => void;
+
+}

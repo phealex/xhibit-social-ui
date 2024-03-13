@@ -32,7 +32,7 @@ const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
                 {job.pay}
               </p>
             </div>
-            <div className="flex justify-between gap-5 items-center flex-wrap">
+            <div className="flex md:justify-between gap-2 md:gap-5 items-center flex-wrap">
               <p className=" font-Jakarta text-[13px] items-center  font-normal flex gap-2 text-dark_green/50">
                 <MapPinIcon className="w-[15px] h-[15px] text-dark_green/50" />
                 {job.location}{" "}
