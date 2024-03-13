@@ -1,6 +1,6 @@
 import { Dmitry, Logo } from "@/assets";
 import { talentFeedHeaders } from "@/constants";
-import { ChevronDown, Search } from "lucide-react";
+import { ChevronDown, ListFilter, Search } from "lucide-react";
 import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Input } from "../ui/input";
@@ -13,6 +13,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { FaEnvelope } from "react-icons/fa";
 import { Separator } from "../ui/separator";
+import { cn } from "@/lib/utils";
+import { Sheet, SheetContent, SheetHeader, SheetOverlay, SheetTrigger } from "../ui/sheet";
+import { Filter } from "..";
 
 const TalentFeedNavbar: FC = () => {
   const path = useLocation().pathname.split("/")[2]
@@ -53,8 +56,9 @@ const TalentFeedNavbar: FC = () => {
         <div className="flex gap-6 items-center ">
           <FaEnvelope className="text-dark_green/70 w-6 h-6 cursor-pointer hidden lg:flex" />
           <HiBell className="text-dark_green/70 w-6 h-6 cursor-pointer hidden md:flex" />
+          
           <DropdownMenu>
-            <DropdownMenuTrigger className=" bgw lg:bg-[#F7F7F7] cursor-pointer flex items-center gap-2 rounded-[30px] p-3 ">
+            <DropdownMenuTrigger className={cn(" bgw lg:bg-[#F7F7F7] cursor-pointer flex items-center gap-2 rounded-[30px] p-3 ", path === "jobs" && " hidden lg:flex")}>
               <img
                 src={Dmitry}
                 alt=""
@@ -114,6 +118,26 @@ const TalentFeedNavbar: FC = () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+
+          {
+            path === "jobs" && (
+              <Sheet>
+                <SheetTrigger className=" lg:hidden">
+                  <ListFilter className="h-6 w-6 text-dark_green" />
+                </SheetTrigger>
+                <SheetOverlay>
+                  <SheetContent className="flex flex-col gap-5 bg-accent_blue">
+                    <SheetHeader className=" w-full bg-white p-3 text-center font-Jakarta font-medium text-[25px] leading-9 text-dark_green">
+                      Filter
+                    </SheetHeader>
+                    <Separator />
+                    <Filter className="flex flex-col gap-5 justify-start items-start" />
+                    
+                  </SheetContent>
+                </SheetOverlay>
+              </Sheet>
+            )
+          }
         </div>
       </div>
     </div>

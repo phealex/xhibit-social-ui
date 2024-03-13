@@ -58,6 +58,7 @@ import projects from "./projects.svg"
 import search from './search.svg'
 import role from "./role.svg"
 import headline from "./headline.svg"
+import empty from "./empty.svg"
 
 
 export {
@@ -120,5 +121,6 @@ export {
   projects,
   search,
   role,
-  headline
+  headline,
+  empty
 };
