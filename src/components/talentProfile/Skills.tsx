@@ -23,7 +23,6 @@ import {
   FormMessage,
 } from "../ui/form";
 
-
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Select from "react-select";
@@ -43,27 +42,29 @@ const Skill: FC = () => {
     "Swift",
     "Kotlin",
   ];
-  
+
   const options: {
     label: string;
     value: string;
   }[] = techUsed.map((tech) => ({ label: tech, value: tech }));
-  
 
   const handleSkillClick = (skill: string) => {
-
-    const newSkills = selectedSkills.includes(skill) ? selectedSkills.filter((s) => s !== skill) : [...selectedSkills, skill];
+    const newSkills = selectedSkills.includes(skill)
+      ? selectedSkills.filter((s) => s !== skill)
+      : [...selectedSkills, skill];
     setSelectedSkills(newSkills);
     const findSkill = options.filter((s) => newSkills.includes(s.value));
     form.setValue("skills", findSkill);
   };
 
   const handleHighlightedSkillClick = (skill: string) => {
-    const newSkills = highlightedSkills.includes(skill) ? highlightedSkills.filter((s) => s !== skill) : [...highlightedSkills, skill];
+    const newSkills = highlightedSkills.includes(skill)
+      ? highlightedSkills.filter((s) => s !== skill)
+      : [...highlightedSkills, skill];
     setHighlightedSkills(newSkills);
     const findSkill = options.filter((s) => newSkills.includes(s.value));
     form.setValue("highlighted", findSkill);
-  }
+  };
   const form = useForm<z.infer<typeof skillFormSchema>>({
     resolver: zodResolver(skillFormSchema),
   });
@@ -97,7 +98,8 @@ const Skill: FC = () => {
                 Skill 🪄
               </DialogTitle>
               <DialogDescription className=" text-left w-[90%] font-Jakarta text-[16px] font-normal text-dark_green/70">
-                Include a minimum of five skills and highlight three to four as your top skills.
+                Include a minimum of five skills and highlight three to four as
+                your top skills.
               </DialogDescription>
             </DialogHeader>
             <Form {...form}>
@@ -170,7 +172,7 @@ const Skill: FC = () => {
                   )}
                 />
 
-<FormField
+                <FormField
                   control={form.control}
                   name="highlighted"
                   render={({ field }) => (
@@ -182,22 +184,31 @@ const Skill: FC = () => {
                       </FormLabel>
                       <FormControl>
                         <div className="flex flex-col gap-1">
-                          {form.watch("skills") && form.watch("skills")?.map((skill, index) => (
-                            <Button
-                              key={index}
-                              type="button"
-                              onClick={() => handleHighlightedSkillClick(skill.value)}
-                              className={` font-Jakarta flex items-center gap-2 text-[10px] h-5 md:text-[16px] font-medium text-dark_green bg-transparent hover:bg-transparent !p-0 !m-0 w-fit 
+                          {form.watch("skills") &&
+                            form.watch("skills")?.map((skill, index) => (
+                              <Button
+                                key={index}
+                                type="button"
+                                onClick={() =>
+                                  handleHighlightedSkillClick(skill.value)
+                                }
+                                className={` font-Jakarta flex items-center gap-2 text-[10px] h-5 md:text-[16px] font-medium text-dark_green bg-transparent hover:bg-transparent !p-0 !m-0 w-fit 
                                 `}
-                            >
-                              {highlightedSkills.includes(skill.value) ? (
-                                <Star size={12} className="text-[8px] md:text-[16px] text-primary_blue " />
-                              ) : (
-                                <Star size={12} className="text-[8px] md:text-[16px] text-dark_green" />
-                              )}
-                            {""}  {skill.value}
-                            </Button>
-                          ))}
+                              >
+                                {highlightedSkills.includes(skill.value) ? (
+                                  <Star
+                                    size={12}
+                                    className="text-[8px] md:text-[16px] text-primary_blue "
+                                  />
+                                ) : (
+                                  <Star
+                                    size={12}
+                                    className="text-[8px] md:text-[16px] text-dark_green"
+                                  />
+                                )}
+                                {""} {skill.value}
+                              </Button>
+                            ))}
                           <Input
                             // placeholder="Software Engineer"
                             // className="focus-visible:ring-transparent outline-none"

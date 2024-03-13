@@ -329,7 +329,7 @@ export const projectFormSchema = z.object({
   technologies: z.array(z.object({
     label: z.string(),
     value: z.string()
-  })).optional(),
+  })),
   image: z.object({
     type: z.string().nonempty('A file is required'),
     size: z.number().max(2000000, 'File size should be less than 2MB'),
@@ -378,4 +378,15 @@ export const educationFormSchema = z.object({
   }).max(4, {
     message: "Year must be valid"
   }),
+})
+
+
+export const toolsFormSchema = z.object({
+  tool: z.object({
+    label: z.string(),
+    value: z.string()
+  }),
+  level: z.enum(["basic", "intermediate", "advanced", "master"], {
+    required_error: "Select an option to continue",
+  })
 })
