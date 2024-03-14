@@ -542,7 +542,8 @@ export const whosHiring: {
 ];
 
 export const foundJobs: JobType[] = [
-  {
+  { 
+    id: "900834",
     logo: Coinbase,
     name: "Coinbase",
     role: "Product Designer (UX/UI) summer internship",
@@ -567,7 +568,8 @@ export const foundJobs: JobType[] = [
     ],
     goodMatch: true,
   },
-  {
+  { 
+    id: "926816",
     logo: Coinbase,
     name: "Coinbase",
     role: "Product Designer (UX/UI) summer internship",
@@ -592,7 +594,8 @@ export const foundJobs: JobType[] = [
     ],
     goodMatch: true,
   },
-  {
+  { 
+    id: "911187",
     logo: Coinbase,
     name: "Coinbase",
     role: "Product Designer (UX/UI) summer internship",

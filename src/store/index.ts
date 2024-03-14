@@ -7,4 +7,6 @@ export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     setShowJobDetails: (showJobDetails) => set({ showJobDetails }),
     viewToShow: 'browse',
     setViewToShow: (viewToShow) => set({ viewToShow }),
+    jobToShowId: null,
+    setJobToShowId: (jobToShowId) => set({jobToShowId})
 }))

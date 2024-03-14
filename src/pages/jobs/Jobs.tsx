@@ -355,7 +355,7 @@ const Jobs: FC = () => {
           </div>
           <div className="flex gap-5 flex-col ">
             {foundJobs.map((job, index) => (
-              <JobCard key={index} job={job} />
+              <JobCard key={index} job={job} showSignIn={true} />
            
             ))}
           </div>

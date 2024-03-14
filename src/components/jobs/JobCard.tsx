@@ -6,6 +6,8 @@ import { PiBagSimple } from "react-icons/pi";
 import { Button } from "../ui/button";
 import { JobType } from "@/types";
 import { Badge } from "../ui/badge";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useJobsDisplay } from "@/store";
 
 interface JobCardProps {
   job: JobType;
@@ -13,6 +15,14 @@ interface JobCardProps {
 }
 
 const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
+  const path = useLocation().pathname.split("/")[2];
+
+  const navigate = useNavigate();
+
+  const setJobToShowId = useJobsDisplay((state) => state.setJobToShowId);
+
+  const setShowJobDetails = useJobsDisplay((state) => state.setShowJobDetails);
+
   return (
     <Card className=" min-w-fit max-w-full bg-white border-2 hover:border-home_border_gradient_color_2">
       <CardContent className="p-2 flex gap-2 lg:p-6 ">
@@ -79,12 +89,23 @@ const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
             </p>
             <div className="flex gap-5">
               {showSignIn && (
-                <Button className="hidden lg:flex bg-transparent text-dark_green/50 border border-dark_green/50 p-4 hover:bg-transparent hover:text-dark_green/50 hover:border-dark-green/50">
-                  Sign in to apply
-                </Button>
+                <Link to={"/auth/login"}>
+                  <Button className="hidden lg:flex bg-transparent text-dark_green/50 border border-dark_green/50 p-4 hover:bg-transparent hover:text-dark_green/50 hover:border-dark-green/50">
+                    Sign in to apply
+                  </Button>
+                </Link>
               )}
 
-              <Button className=" bg-primary_blue text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue">
+              <Button
+                onClick={() => {
+                  setShowJobDetails(true);
+                  setJobToShowId(job.id)
+                 if(path !== "jobs") {
+                  navigate("/talent/jobs")
+                 }
+                }}
+                className=" bg-primary_blue text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue"
+              >
                 View job
               </Button>
             </div>

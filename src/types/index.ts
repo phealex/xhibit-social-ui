@@ -214,6 +214,7 @@ export const CommentFormSchema = z.object({
 
 
 export interface JobType {
+  id: string;
   logo: string;
   name: string;
   role: string;
@@ -400,5 +401,7 @@ export interface JobsDisplayState {
   setViewToShow: (value: views) => void;
   showJobDetails: boolean;
   setShowJobDetails: (value: boolean) => void;
+  jobToShowId: string | null;
+  setJobToShowId: (value: string) => void; 
 
 }
