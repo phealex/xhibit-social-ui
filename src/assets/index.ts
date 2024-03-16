@@ -59,6 +59,10 @@ import search from './search.svg'
 import role from "./role.svg"
 import headline from "./headline.svg"
 import empty from "./empty.svg"
+import instagram from "./instagram.svg"
+import linkedin from "./linkedin.svg"
+import twitter from "./twitter.svg"
+import facebook from "./facebook.svg"
 
 
 export {
@@ -122,5 +126,9 @@ export {
   search,
   role,
   headline,
-  empty
+  empty,
+  instagram,
+  linkedin,
+  twitter,
+  facebook
 };
