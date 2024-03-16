@@ -6,7 +6,7 @@ import { PiBagSimple } from "react-icons/pi";
 import { Button } from "../ui/button";
 import { JobType } from "@/types";
 import { Badge } from "../ui/badge";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useJobsDisplay } from "@/store";
 
 interface JobCardProps {
@@ -15,13 +15,11 @@ interface JobCardProps {
 }
 
 const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
-  const path = useLocation().pathname.split("/")[2];
 
   const navigate = useNavigate();
 
-  const setJobToShowId = useJobsDisplay((state) => state.setJobToShowId);
 
-  const setShowJobDetails = useJobsDisplay((state) => state.setShowJobDetails);
+  const setDetailsToShow = useJobsDisplay((state) => state.setDetailsToShow);
 
   return (
     <Card className=" min-w-fit max-w-full bg-white border-2 hover:border-home_border_gradient_color_2">
@@ -98,11 +96,13 @@ const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
 
               <Button
                 onClick={() => {
-                  setShowJobDetails(true);
-                  setJobToShowId(job.id)
-                 if(path !== "jobs") {
-                  navigate("/talent/jobs")
-                 }
+                
+                  if(window.innerWidth <= 768) {
+                    setDetailsToShow("info")
+                  }
+             
+                  navigate(`/talent/jobs/${job.id}`)
+                
                 }}
                 className=" bg-primary_blue text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue"
               >

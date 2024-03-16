@@ -46,6 +46,11 @@ function App() {
   };
 
   const AuthLayout = () => {
+    const path = useLocation().pathname;
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [path]);
     return (
       <div className="w-full flex  bg-white lg:min-h-screen">
         <AuthLayoutSider />
@@ -55,6 +60,11 @@ function App() {
   };
 
   const TalentFeedLayout = () => {
+    const path = useLocation().pathname;
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [path]);
     return (
       <div className="">
 
@@ -140,7 +150,7 @@ function App() {
           element: <TalentProfile />,
         },
         {
-          path: "jobs",
+          path: "jobs/:id?",
           element: <TalentJobs />,
         }
       ],

@@ -393,6 +393,7 @@ export const toolsFormSchema = z.object({
 })
 
 type views=  "browse" | "applied" | "saved" | "resume" | "interview" | "startup" | "industries" | "blog";
+type JobDetailsView = "info" | "details" | "company"
 
 export interface JobsDisplayState {
   // showBrowseJobs: boolean;
@@ -402,6 +403,9 @@ export interface JobsDisplayState {
   showJobDetails: boolean;
   setShowJobDetails: (value: boolean) => void;
   jobToShowId: string | null;
-  setJobToShowId: (value: string) => void; 
+  setJobToShowId: (value: string | null) => void; 
+  detailsToShow: JobDetailsView;
+  setDetailsToShow: (value: JobDetailsView) => void;
+
 
 }
