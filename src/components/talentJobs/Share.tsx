@@ -23,7 +23,17 @@ const Share: FC<Props> = ({className}) => {
             Share
         </p>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className=' max-h-[400px] max-w-[500px] flex justify-center p-6 flex-col'>
+            <h1 className=" font-Jakarta font-medium text-[25px] leading-9">
+                Share this job
+            </h1>
+            <div className="h-[54px] p-3 flex items-center border border-[#8e9faa] ">
+                <p className=" font-Jakarta font-normal text-base text-dark_green">
+                    {
+                        window.location.href
+                    }
+                </p>
+            </div>
 
         </DialogContent>
     </Dialog>

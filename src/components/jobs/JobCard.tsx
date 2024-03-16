@@ -7,7 +7,6 @@ import { Button } from "../ui/button";
 import { JobType } from "@/types";
 import { Badge } from "../ui/badge";
 import { Link, useNavigate } from "react-router-dom";
-import { useJobsDisplay } from "@/store";
 
 interface JobCardProps {
   job: JobType;
@@ -19,7 +18,6 @@ const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
   const navigate = useNavigate();
 
 
-  const setDetailsToShow = useJobsDisplay((state) => state.setDetailsToShow);
 
   return (
     <Card className=" min-w-fit max-w-full bg-white border-2 hover:border-home_border_gradient_color_2">
@@ -96,11 +94,6 @@ const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
 
               <Button
                 onClick={() => {
-                
-                  if(window.innerWidth <= 768) {
-                    setDetailsToShow("info")
-                  }
-             
                   navigate(`/talent/jobs/${job.id}`)
                 
                 }}

@@ -35,19 +35,30 @@ const TalentJobs: FC = () => {
   const navigate = useNavigate();
 
   const {toast} = useToast()
+
+  
+  const setDetailsToShow = useJobsDisplay((state) => state.setDetailsToShow);
+
   useEffect(() => {
     if(id) {
 
       const job = foundJobs.find((job) => job.id === id);
       if(job) {
         useJobsDisplay.setState({ showJobDetails: true, jobToShowId: id });
+          
+        if(window.innerWidth <= 768) {
+          setDetailsToShow("info")
+        }
         setJob(job)
         return
       } else {
         toast({
           title: "Job not found"
         })
-        navigate("/talent/jobs")
+        setTimeout(() => {
+
+          navigate("/talent/jobs")
+        }, 2000)
 
       }
     }
