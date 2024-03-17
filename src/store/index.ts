@@ -11,4 +11,8 @@ export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     setJobToShowId: (jobToShowId) => set({jobToShowId}),
     detailsToShow: "details",
     setDetailsToShow: (detailsToShow) => set({detailsToShow}),
+    isApplying: false,
+    setIsApplying: (isApplying) => set({isApplying}),
+    isApplied: false,
+    setIsApplied: (isApplied) => set({isApplied}),
 }))

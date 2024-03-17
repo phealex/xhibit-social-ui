@@ -43,19 +43,19 @@ const Share: FC<Props> = ({ className }) => {
                 })
 
             }}>
-              <div className="flex gap-2 w-fit">
-                <Copy className=" h-5 w-5 text-dark_green/70" />
-                <p className=" hidden md:flex font-Jakarta font-medium text-base text-dark_green">
+              <div className="flex gap-2 w-fit cursor-pointer group">
+                <Copy className=" h-5 w-5 text-dark_green/70 group-hover:text-primary_blue" />
+                <p className=" hidden md:flex font-Jakarta font-medium text-base text-dark_green group-hover:text-primary_blue">
                   Copy link
                 </p>
               </div>
             </CopyToClipboard>
           </div>
           <div className="flex gap-[25px] flex-wrap">
-            <img src={facebook} alt="" className=" h-10 w-10" />
-            <img src={instagram} alt="" className=" h-10 w-10" />
-            <img src={twitter} alt="" className=" h-10 w-10" />
-            <img src={linkedin} alt="" className=" h-10 w-10" />
+            <img src={facebook} alt="" className=" h-10 w-10 cursor-pointer" />
+            <img src={instagram} alt="" className=" h-10 w-10 cursor-pointer" />
+            <img src={twitter} alt="" className=" h-10 w-10 cursor-pointer" />
+            <img src={linkedin} alt="" className=" h-10 w-10 cursor-pointer" />
 
           </div>
         </DialogContent>

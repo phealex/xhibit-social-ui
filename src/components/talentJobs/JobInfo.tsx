@@ -17,6 +17,9 @@ interface Props {
 
 const JobInfo: FC<Props> = ({ job }) => {
     const detailsToShow = useJobsDisplay((store) => store.detailsToShow)
+    const setIsApplying = useJobsDisplay((store) => store.setIsApplying)
+  const isApplying = useJobsDisplay((state) => state.isApplying);
+
   return (
     <div className={cn(" w-full md:w-[45%] lg:w-[30%] flex gap-5 flex-col ", detailsToShow !== "info" && window.innerWidth <= 768 ? " hidden" : "flex"  )}>
          <Share className=" flex md:hidden" />
@@ -164,12 +167,16 @@ const JobInfo: FC<Props> = ({ job }) => {
         </div>
 
         <div className="flex gap-5 items-center mx-auto">
-          <Button className=" bg-primary_blue flex gap-2 items-center text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue">
+          <Button onClick={() => {
+            setIsApplying(true)
+          }}
+          disabled={isApplying} 
+          className=" bg-primary_blue gap-2 items-center text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue px-[60px] flex flex-shrink">
             Apply
             <Sparkles />
           </Button>
 
-          <Button className="bg-transparent text-dark_green/50 border border-dark_green/50 p-4 hover:bg-transparent hover:text-dark_green/50 hover:border-dark-green/50">
+          <Button className="bg-transparent  text-dark_green/50 border border-dark_green/50 p-4 hover:bg-transparent hover:text-dark_green/50 hover:border-dark-green/50 px-[60px] flex flex-shrink">
             Save
           </Button>
         </div>

@@ -406,6 +406,10 @@ export interface JobsDisplayState {
   setJobToShowId: (value: string | null) => void; 
   detailsToShow: JobDetailsView;
   setDetailsToShow: (value: JobDetailsView) => void;
+  isApplying: boolean;
+  setIsApplying: (value: boolean) => void;
+  isApplied: boolean;
+  setIsApplied: (value: boolean) => void;
 
 
 }
