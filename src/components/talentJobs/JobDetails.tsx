@@ -1,6 +1,6 @@
 import { JobType } from "@/types";
 import { FC } from "react";
-import { Applying, CompanyInfo, JobDescription, JobInfo, Share } from "..";
+import { Applied, Applying, CompanyInfo, JobDescription, JobInfo, Share } from "..";
 import { Separator } from "../ui/separator";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
@@ -18,6 +18,7 @@ const JobDetails: FC<JobDetailsProps> = ({ job }) => {
   const detailsToShow = useJobsDisplay((state) => state.detailsToShow);
   const navigate = useNavigate();
   const isApplying = useJobsDisplay((state) => state.isApplying);
+  const isApplied = useJobsDisplay((state) => state.isApplied);
 
   return (
     <div className="flex flex-row w-full gap-5 bg-white container py-4 ">
@@ -77,6 +78,11 @@ const JobDetails: FC<JobDetailsProps> = ({ job }) => {
             }
           </div>
         )}
+        {
+          isApplied && (
+            <Applied />
+          )
+        }
       </div>
     </div>
   );

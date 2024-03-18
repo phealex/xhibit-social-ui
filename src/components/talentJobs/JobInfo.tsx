@@ -171,12 +171,12 @@ const JobInfo: FC<Props> = ({ job }) => {
             setIsApplying(true)
           }}
           disabled={isApplying} 
-          className=" bg-primary_blue gap-2 items-center text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue px-[60px] flex flex-shrink">
+          className=" bg-primary_blue gap-2 items-center text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue px-[30px] md:px-[60px] flex flex-shrink">
             Apply
             <Sparkles />
           </Button>
 
-          <Button className="bg-transparent  text-dark_green/50 border border-dark_green/50 p-4 hover:bg-transparent hover:text-dark_green/50 hover:border-dark-green/50 px-[60px] flex flex-shrink">
+          <Button className="bg-transparent  text-dark_green/50 border border-dark_green/50 p-4 hover:bg-transparent hover:text-dark_green/50 hover:border-dark-green/50 px-[30px] md:px-[60px] flex flex-shrink">
             Save
           </Button>
         </div>

@@ -12,6 +12,7 @@ import { Separator } from "@/components/ui/separator";
 import { foundJobs } from "@/constants";
 import {
   Discover,
+  Interview,
   JobCard,
   JobDetails,
   RecentlyViewed,
@@ -79,8 +80,9 @@ const TalentJobs: FC = () => {
             <Discover />
           </section>
           <section className="flex flex-1 flex-col gap-5 w-full">
-            {viewToShow === "browse" && (
-              <>
+            {
+              {
+                browse:  <>
                 <div className="flex w-full items-center">
                   <Separator className=" flex flex-1 flex-shrink w-full bg-dark_green/10" />
                   <div className="flex gap-1 items-center">
@@ -112,13 +114,15 @@ const TalentJobs: FC = () => {
                 <Button className=" bg-transparent hover:bg-transparent text-dark_green hover:text-dark_green mx-auto w-fit p-3 rounded-3xl border border-dark_green">
                   Load More
                 </Button>
-              </>
-            )}
+              </>,
+              saved: <Records title="Saved" />,
+              applied: <Records title="Applied" jobs={foundJobs.slice(0, 2)} />,
+              interview: <Interview />
 
-            {viewToShow === "saved" && <Records title="Saved" />}
-            {viewToShow === "applied" && (
-              <Records title="Applied" jobs={foundJobs.slice(0, 2)} />
-            )}
+              }[viewToShow]
+            }
+           
+            
           </section>
         </div>
       )}

@@ -53,3 +53,6 @@ export {default as Share} from "./talentJobs/Share"
 export {default as JobDescription} from "./talentJobs/JobDescription"
 export {default as CompanyInfo} from "./talentJobs/CompanyInfo"
 export {default as Applying} from "./talentJobs/Applying"
+export {default as Applied} from "./talentJobs/Applied"
+export {default as Interview} from "./talentJobs/Interview"
+
