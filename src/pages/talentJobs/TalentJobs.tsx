@@ -18,6 +18,7 @@ import {
   RecentlyViewed,
   Records,
   Resources,
+  Startups,
   TalentJobsNav,
 } from "@/components";
 import { Button } from "@/components/ui/button";
@@ -117,7 +118,8 @@ const TalentJobs: FC = () => {
               </>,
               saved: <Records title="Saved" />,
               applied: <Records title="Applied" jobs={foundJobs.slice(0, 2)} />,
-              interview: <Interview />
+              interview: <Interview />,
+              startup: <Startups />,
 
               }[viewToShow]
             }

@@ -19,7 +19,7 @@ import {
   Theresa,
   XhibitAd,
 } from "@/assets";
-import { JobType, RegisterDataType, TalentFeedPost } from "@/types";
+import { HiringCompanyType, JobType, RegisterDataType, TalentFeedPost } from "@/types";
 import {
   Cpu,
   Database,
@@ -499,14 +499,39 @@ export const footerSocialIcons: {
   },
 ];
 
-export const whosHiring: {
-  img: string;
-  companyName: string;
-  desc: string;
-  industry: string;
-  companySize: string;
-  openJobs: number;
-}[] = [
+export const whosHiring: HiringCompanyType[] = [
+  {
+    img: Coinbase,
+    companyName: "Coinbase, New York",
+    desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
+    industry: "Blockchain",
+    companySize: "100-500",
+    openJobs: 5,
+  },
+  {
+    img: Coinbase,
+    companyName: "Coinbase, New York",
+    desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
+    industry: "Blockchain",
+    companySize: "100-500",
+    openJobs: 5,
+  },
+  {
+    img: Coinbase,
+    companyName: "Coinbase, New York",
+    desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
+    industry: "Blockchain",
+    companySize: "100-500",
+    openJobs: 5,
+  },
+  {
+    img: Coinbase,
+    companyName: "Coinbase, New York",
+    desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
+    industry: "Blockchain",
+    companySize: "100-500",
+    openJobs: 5,
+  },
   {
     img: Coinbase,
     companyName: "Coinbase, New York",

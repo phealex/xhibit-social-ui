@@ -413,3 +413,13 @@ export interface JobsDisplayState {
 
 
 }
+
+
+export interface HiringCompanyType {
+  img: string;
+  companyName: string;
+  desc: string;
+  industry: string;
+  companySize: string;
+  openJobs: number;
+}

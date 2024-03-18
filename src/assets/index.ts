@@ -64,6 +64,7 @@ import linkedin from "./linkedin.svg"
 import twitter from "./twitter.svg"
 import facebook from "./facebook.svg"
 import interview from "./interview.svg"
+import startups from "./startups.svg"
 
 
 export {
@@ -132,5 +133,6 @@ export {
   linkedin,
   twitter,
   facebook,
-  interview
+  interview,
+  startups
 };

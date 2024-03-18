@@ -9,7 +9,6 @@ import {
   Tesla,
 } from "@/assets";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -30,19 +29,16 @@ import { jobSearchFormSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   ArrowRightIcon,
-  ChevronRightIcon,
   MapPinIcon,
   SearchIcon,
 } from "lucide-react";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
-import { FaPeopleGroup } from "react-icons/fa6";
 import { PiBagSimple } from "react-icons/pi";
-import { RiHomeOfficeLine } from "react-icons/ri";
 import { z } from "zod";
 import { VscOrganization } from "react-icons/vsc";
 import { MdOutlineVerified } from "react-icons/md";
-import { JobCard } from "@/components";
+import { HiringCompanyCard, JobCard } from "@/components";
 
 const Jobs: FC = () => {
   const form = useForm<z.infer<typeof jobSearchFormSchema>>({
@@ -133,65 +129,8 @@ const Jobs: FC = () => {
             Who's hiring
           </h1>
           <div className="flex p-[45px] md:justify-center border border-[#8E9FAA]/50 flex-col md:flex-row md:flex-wrap rounded-[25px] gap-[34px] ">
-            {whosHiring.map((item, index) => (
-              <Card
-                key={index}
-                className=" max-w-fit md:w-[43%] border-2 hover:shadow-md hover:shadow-home_border_gradient_color_2  hover:border-home_border_gradient_color_2 "
-              >
-                <CardContent className="flex flex-col gap-5 !p-6  ">
-                  <div className="flex gap-[10px]  flex-col">
-                    <div className="flex gap-2 items-center">
-                      <img
-                        src={item.img}
-                        alt=""
-                        className=" w-[60px] h-[60px]"
-                      />
-                      <p className=" font-Jakarta text-[16px] font-normal leading-normal text-dark_green">
-                        {item.companyName}
-                      </p>
-                    </div>
-                    <p className=" font-Jakarta text-[13px] items-center font-normal text-justify text-dark_green ">
-                      {item.desc}
-                    </p>
-                  </div>
-                  <div className="flex gap-[14px] flex-col">
-                    <div className="flex gap-1 flex-row">
-                      <p className="flex gap-1">
-                        <RiHomeOfficeLine className="w-[15px] h-[15px] text-dark_green" />
-                        <span className=" font-Jakarta text-[13px] items-center font-normal text-dark_green ">
-                          Industry:
-                        </span>
-                      </p>
-                      <p className=" font-Jakarta text-[13px] items-center  font-medium text-dark_green">
-                        {item.industry}
-                      </p>
-                    </div>
-                    <div className="flex gap-1 flex-row">
-                      <p className="flex gap-1">
-                        <FaPeopleGroup className="w-[15px] h-[15px] text-dark_green" />
-                        <span className=" font-Jakarta text-[13px] items-center font-normal text-dark_green ">
-                          Company size:
-                        </span>
-                      </p>
-                      <p className=" font-Jakarta text-[13px] items-center  font-medium text-dark_green">
-                        {item.companySize}
-                      </p>
-                    </div>
-                    <div className="flex gap-1 flex-row">
-                      <p className="flex gap-1">
-                        <PiBagSimple className="w-[15px] h-[15px] text-dark_green" />
-                        <span className=" font-Jakarta text-[13px] items-center font-normal text-dark_green ">
-                          Open jobs:
-                        </span>
-                      </p>
-                      <p className=" font-Jakarta text-[13px] items-center  font-medium text-dark_green">
-                        {item.openJobs}
-                      </p>
-                    </div>
-                    <ChevronRightIcon className="w-[15px] h-[15px] text-dark_green flex ml-auto justify-end" />
-                  </div>
-                </CardContent>
-              </Card>
+            {whosHiring.slice(0,4).map((item, index) => (
+           <HiringCompanyCard key={index} company={item} />
             ))}
           </div>
         </section>
