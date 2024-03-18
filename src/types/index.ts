@@ -410,16 +410,31 @@ export interface JobsDisplayState {
   setIsApplying: (value: boolean) => void;
   isApplied: boolean;
   setIsApplied: (value: boolean) => void;
+  showStartupProfile: boolean;
+  startupProfileId: string | null;
 
 
 }
 
 
 export interface HiringCompanyType {
+  id: string;
   img: string;
   companyName: string;
   desc: string;
   industry: string;
   companySize: string;
   openJobs: number;
+}
+
+
+export interface StartupProfile {
+  id: string;
+  name: string;
+  industry: string;
+  investor: string;
+  funding: string;
+  description: string;
+  image: string;
+  url: string;
 }

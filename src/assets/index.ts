@@ -65,6 +65,10 @@ import twitter from "./twitter.svg"
 import facebook from "./facebook.svg"
 import interview from "./interview.svg"
 import startups from "./startups.svg"
+import coinbaseProject from "./coinbaseProject.svg"
+import aisight from "./aisight.svg"
+import soundhound from "./soundhound.svg"
+import peopleai from "./peopleai.svg"
 
 
 export {
@@ -134,5 +138,9 @@ export {
   twitter,
   facebook,
   interview,
-  startups
+  startups,
+  coinbaseProject,
+  aisight,
+  soundhound,
+  peopleai
 };

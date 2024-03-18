@@ -18,8 +18,17 @@ import {
   Star,
   Theresa,
   XhibitAd,
+  aisight,
+  peopleai,
+  soundhound,
 } from "@/assets";
-import { HiringCompanyType, JobType, RegisterDataType, TalentFeedPost } from "@/types";
+import {
+  HiringCompanyType,
+  JobType,
+  RegisterDataType,
+  StartupProfile,
+  TalentFeedPost,
+} from "@/types";
 import {
   Cpu,
   Database,
@@ -501,6 +510,7 @@ export const footerSocialIcons: {
 
 export const whosHiring: HiringCompanyType[] = [
   {
+    id: "33775",
     img: Coinbase,
     companyName: "Coinbase, New York",
     desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
@@ -509,6 +519,7 @@ export const whosHiring: HiringCompanyType[] = [
     openJobs: 5,
   },
   {
+    id: "31766",
     img: Coinbase,
     companyName: "Coinbase, New York",
     desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
@@ -517,6 +528,7 @@ export const whosHiring: HiringCompanyType[] = [
     openJobs: 5,
   },
   {
+    id: "11117",
     img: Coinbase,
     companyName: "Coinbase, New York",
     desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
@@ -525,6 +537,7 @@ export const whosHiring: HiringCompanyType[] = [
     openJobs: 5,
   },
   {
+    id: "73593",
     img: Coinbase,
     companyName: "Coinbase, New York",
     desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
@@ -533,6 +546,7 @@ export const whosHiring: HiringCompanyType[] = [
     openJobs: 5,
   },
   {
+    id: "70154",
     img: Coinbase,
     companyName: "Coinbase, New York",
     desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
@@ -541,6 +555,7 @@ export const whosHiring: HiringCompanyType[] = [
     openJobs: 5,
   },
   {
+    id: "74104",
     img: Coinbase,
     companyName: "Coinbase, New York",
     desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
@@ -549,6 +564,7 @@ export const whosHiring: HiringCompanyType[] = [
     openJobs: 5,
   },
   {
+    id: "17701",
     img: Coinbase,
     companyName: "Coinbase, New York",
     desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
@@ -557,6 +573,7 @@ export const whosHiring: HiringCompanyType[] = [
     openJobs: 5,
   },
   {
+    id: "66222",
     img: Coinbase,
     companyName: "Coinbase, New York",
     desc: "Coinbase is a prominent cryptocurrency exchange platform that facilitates the buying, selling...",
@@ -567,7 +584,7 @@ export const whosHiring: HiringCompanyType[] = [
 ];
 
 export const foundJobs: JobType[] = [
-  { 
+  {
     id: "900834",
     logo: Coinbase,
     name: "Coinbase",
@@ -593,7 +610,7 @@ export const foundJobs: JobType[] = [
     ],
     goodMatch: true,
   },
-  { 
+  {
     id: "926816",
     logo: Coinbase,
     name: "Coinbase",
@@ -619,7 +636,7 @@ export const foundJobs: JobType[] = [
     ],
     goodMatch: true,
   },
-  { 
+  {
     id: "911187",
     logo: Coinbase,
     name: "Coinbase",
@@ -1026,8 +1043,8 @@ export const talentFeedPosts: TalentFeedPost[] = [
         title: "iOS 11 guidelines for UX/UI designers",
         type: "PDF",
         size: "2.5MB",
-      }
-    ]
+      },
+    ],
   },
   {
     user: "Theresa Steward",
@@ -1067,18 +1084,26 @@ export const talentFeedPosts: TalentFeedPost[] = [
         userRole: "iOS developer",
       },
     ],
-    likedBy: ["Ted Bell", "Chris Hodger", "Devon Lane", "Theresa Steward", "Ted Bell", "Chris Hodger", "Devon Lane", "Theresa Steward"],
+    likedBy: [
+      "Ted Bell",
+      "Chris Hodger",
+      "Devon Lane",
+      "Theresa Steward",
+      "Ted Bell",
+      "Chris Hodger",
+      "Devon Lane",
+      "Theresa Steward",
+    ],
   },
- 
 ];
 
-
-export const talentFeedAd: TalentFeedPost[] =[
+export const talentFeedAd: TalentFeedPost[] = [
   {
     user: "Aws Training & Certification",
     userImage: XhibitAd,
     userRole: "Promoted",
-    content: "Learn how to integrate Machine Learning and AI into tools and applications with this free learning plan.💡📈",
+    content:
+      "Learn how to integrate Machine Learning and AI into tools and applications with this free learning plan.💡📈",
     likes: 42,
     comments: 12,
     commentsList: [
@@ -1114,4 +1139,40 @@ export const talentFeedAd: TalentFeedPost[] =[
     imgAlt: "Earn a certificate with XHIBIT on Machine Learning",
     imgLink: "www.xhibit.com",
   },
-]
+];
+
+export const topStartups: StartupProfile[] = [
+  {
+    id: "",
+    name: "AiSight.ai",
+    industry: "AI",
+    investor: " Bill and Melinda Gates Foundation",
+    funding: "Undisclosed",
+    description:
+      "AiSight offers a data analytics platform that allows users to create customized surveys, track performance, and get insights like underperforming sales routes or population clusters not served by your products. The firm also uses machine learning to analyze satellite images, which helps with collecting data like population density. It’s particularly helpful for conducting research in remote areas and developing countries",
+    image: aisight,
+    url: "www.aiSight.ai",
+  },
+  {
+    id: "",
+    name: "SoundHound",
+    industry: "AI",
+    investor: " Bracker Capital",
+    funding: "$351m",
+    description:
+      "SoundHound’s voice AI platform allows brands to create customized conversational assistants using their desired language, tone, and messaging. For example, a restaurant can create a voice assistant for automated phone ordering, while a car manufacturer can use it for an in-car voice assistant.",
+    image: soundhound,
+    url: "www.soundhound.com",
+  },
+  {
+    id: "",
+    name: "People.ai",
+    industry: "AI",
+    investor: " Y Combinator, Andreessen Horowitz, Lightspeed Ventures",
+    funding: "$200m",
+    description:
+      "This company’s AI-powered revenue platform for enterprise teams in sales, marketing, and customer service can help businesses analyze revenue opportunities. People.ai documents customer contacts, activity, and customer engagement, providing companies with actionable insights to help drive business growth.",
+    image: peopleai,
+    url: "www.people.ai",
+  },
+];

@@ -15,4 +15,6 @@ export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     setIsApplying: (isApplying) => set({isApplying}),
     isApplied: false,
     setIsApplied: (isApplied) => set({isApplied}),
+    showStartupProfile: false,
+    startupProfileId: null,
 }))
