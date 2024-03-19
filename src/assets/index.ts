@@ -18,7 +18,7 @@ import Nguyen from "./nguyen.svg";
 import Project from "./project.svg";
 import Sparkle from "./Sparkle.svg";
 import Star from "./Star.svg";
-import Solar from "./solar.svg";
+import Solar from "./Solar.svg";
 import Kayla from "./kayla.svg";
 import Coinbase from "./coinbase.svg";
 import Jerome from "./Jerome.svg";
