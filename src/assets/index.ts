@@ -13,7 +13,7 @@ import Brainstorm from "./brainstorm.svg";
 import Customize from "./customize.svg";
 import Diversity from "./diversity.svg";
 import Skills from "./skills.svg";
-import UnderlineCurve from "./underlinecurve.svg";
+import UnderlineCurve from "./UnderlineCurve.svg";
 import Nguyen from "./nguyen.svg";
 import Project from "./project.svg";
 import Sparkle from "./sparkle.svg";
