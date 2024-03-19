@@ -4,7 +4,7 @@ import Hawkins from "./Hawkins.png";
 import Alexander from "./Alexander.svg";
 import Airbnb from "./Airbnb.svg";
 import Google from "./Google.svg";
-import Flutterwave from "./flutterwave.svg";
+import Flutterwave from "./Flutterwave.svg";
 import Binance from "./Binance.svg";
 import Tesla from "./Tesla.svg";
 import HelpingHands from "./hands-helping.svg";
