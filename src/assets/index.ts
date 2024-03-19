@@ -16,7 +16,7 @@ import Skills from "./skills.svg";
 import UnderlineCurve from "./UnderlineCurve.svg";
 import Nguyen from "./nguyen.svg";
 import Project from "./project.svg";
-import Sparkle from "./sparkle.svg";
+import Sparkle from "./Sparkle.svg";
 import Star from "./star.svg";
 import Solar from "./solar.svg";
 import Kayla from "./kayla.svg";
