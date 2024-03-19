@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { ArrowRight, Star } from 'lucide-react'

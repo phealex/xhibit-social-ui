@@ -1,6 +1,6 @@
 import { handleNextProps, linkSocialAccountSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { FC } from "react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {

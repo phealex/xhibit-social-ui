@@ -1,5 +1,5 @@
 import { UnderlineCurve } from "@/assets";
-import React, { FC } from "react";
+import { FC } from "react";
 import { Card, CardContent } from "../ui/card";
 import { welcome } from "@/constants";
 

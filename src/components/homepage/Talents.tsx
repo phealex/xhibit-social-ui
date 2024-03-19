@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import { features } from "@/constants";

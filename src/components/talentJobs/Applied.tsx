@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Dialog, DialogContent } from "../ui/dialog";
 import { foundJobs } from "@/constants";
 import { Check } from "lucide-react";

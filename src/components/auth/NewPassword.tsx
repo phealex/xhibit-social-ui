@@ -13,7 +13,6 @@ import { handleNextProps, resetPasswordSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { useNavigate } from "react-router-dom";
 
 const NewPassword: FC<handleNextProps> = ({ handleNext }) => {
   const schema = resetPasswordSchema.pick({
@@ -29,7 +28,6 @@ const NewPassword: FC<handleNextProps> = ({ handleNext }) => {
     handleNext();
   }
 
-  const navigate = useNavigate();
   return (
     <div className=" h-full w-[90%] mx-auto flex flex-col justify-center items-center gap-[50px]">
       <div className="flex flex-col items-center gap-[10px] ">

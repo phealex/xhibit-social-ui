@@ -1,6 +1,6 @@
 import { Sparkle, facebook, instagram, linkedin, twitter } from "@/assets";
 import { Copy, Share2 } from "lucide-react";
-import React, { FC } from "react";
+import { FC } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { cn } from "@/lib/utils";
 import CopyToClipboard from "react-copy-to-clipboard";
