@@ -3,7 +3,7 @@ import HeroGlow from "./heroGlow.svg";
 import Hawkins from "./Hawkins.png";
 import Alexander from "./Alexander.svg";
 import Airbnb from "./Airbnb.svg";
-import Google from "./google.svg";
+import Google from "./Google.svg";
 import Flutterwave from "./flutterwave.svg";
 import Binance from "./Binance.svg";
 import Tesla from "./Tesla.svg";
