@@ -17,7 +17,7 @@ import UnderlineCurve from "./UnderlineCurve.svg";
 import Nguyen from "./nguyen.svg";
 import Project from "./project.svg";
 import Sparkle from "./Sparkle.svg";
-import Star from "./star.svg";
+import Star from "./Star.svg";
 import Solar from "./solar.svg";
 import Kayla from "./kayla.svg";
 import Coinbase from "./coinbase.svg";
