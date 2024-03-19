@@ -1,6 +1,6 @@
 import Logo from "./Icon.svg";
 import HeroGlow from "./heroGlow.svg";
-import Hawkins from "./hawkins.png";
+import Hawkins from "./Hawkins.png";
 import Alexander from "./alexander.svg";
 import Airbnb from "./airbnb.svg";
 import Google from "./google.svg";
