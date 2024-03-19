@@ -69,6 +69,8 @@ import coinbaseProject from "./coinbaseProject.svg"
 import aisight from "./aisight.svg"
 import soundhound from "./soundhound.svg"
 import peopleai from "./peopleai.svg"
+import blog from "./blog.svg"
+import blogImage from "./blogImg.svg"
 
 
 export {
@@ -142,5 +144,7 @@ export {
   coinbaseProject,
   aisight,
   soundhound,
-  peopleai
+  peopleai,
+  blog,
+  blogImage
 };

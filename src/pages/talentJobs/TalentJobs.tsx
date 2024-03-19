@@ -11,7 +11,9 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { foundJobs } from "@/constants";
 import {
+  Blogs,
   Discover,
+  Industry,
   Interview,
   JobCard,
   JobDetails,
@@ -120,7 +122,8 @@ const TalentJobs: FC = () => {
               applied: <Records title="Applied" jobs={foundJobs.slice(0, 2)} />,
               interview: <Interview />,
               startup: <Startups />,
-
+              industries: <Industry />,
+              blog: <Blogs />,
               }[viewToShow]
             }
            

@@ -1,7 +1,9 @@
 import { startups } from "@/assets";
+import { topStartups } from "@/constants";
 import { FC } from "react";
+import { EmergingStartup } from "..";
 
-const Interview: FC = () => {
+const Industry: FC = () => {
   return (
     <div className="flex flex-col gap-[50px]  ">
       <div className="flex gap-[60px] items-center justify-between ">
@@ -26,11 +28,13 @@ const Interview: FC = () => {
       </div>
       <div className=" flex flex-col gap-11 w-full">
         {
-            
+            topStartups.map((startup, index) => (
+                <EmergingStartup key={index} startup={startup} index={index} />
+            ))
         }
       </div>
     </div>
   );
 };
 
-export default Interview;
+export default Industry;

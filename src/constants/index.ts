@@ -19,10 +19,12 @@ import {
   Theresa,
   XhibitAd,
   aisight,
+  blogImage,
   peopleai,
   soundhound,
 } from "@/assets";
 import {
+  BlogType,
   HiringCompanyType,
   JobType,
   RegisterDataType,
@@ -1175,4 +1177,66 @@ export const topStartups: StartupProfile[] = [
     image: peopleai,
     url: "www.people.ai",
   },
+];
+
+export const blogPosts: BlogType[] = [
+  {
+    id: "9591979",
+    title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
+    author: "Stephen Jones",
+    img: blogImage,
+    date: "Dec 17, 2023",
+    content:
+      "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
+  },
+  {
+    id: "7678283",
+    title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
+    author: "Stephen Jones",
+    img: blogImage,
+    date: "Dec 17, 2023",
+    content:
+      "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
+  },  {
+    id: "1352144",
+    title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
+    author: "Stephen Jones",
+    img: blogImage,
+    date: "Dec 17, 2023",
+    content:
+      "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
+  },  {
+    id: "3687077",
+    title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
+    author: "Stephen Jones",
+    img: blogImage,
+    date: "Dec 17, 2023",
+    content:
+      "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
+  },  {
+    id: "665566",
+    title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
+    author: "Stephen Jones",
+    img: blogImage,
+    date: "Dec 17, 2023",
+    content:
+      "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
+  },  {
+    id: "9297381",
+    title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
+    author: "Stephen Jones",
+    img: blogImage,
+    date: "Dec 17, 2023",
+    content:
+      "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
+  },  {
+    id: "1897350",
+    title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
+    author: "Stephen Jones",
+    img: blogImage,
+    date: "Dec 17, 2023",
+    content:
+      "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
+  },
+
 ];

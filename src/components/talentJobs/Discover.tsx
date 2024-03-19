@@ -15,10 +15,12 @@ const Discover: FC = () => {
           Discover
         </CardHeader>
         <Separator />
-        <div   onClick={() => {
+        <div   className="flex flex-col gap-5">
+          <div 
+           onClick={() => {
             setViewToShow("startup");
-          }} className="flex flex-col gap-5">
-          <div className={cn("flex gap-2 items-center font-Jakarta font-normal text-base cursor-pointer", viewToShow === "startup" && "text-primary_blue")}>
+          }}
+          className={cn("flex gap-2 items-center font-Jakarta font-normal text-base cursor-pointer", viewToShow === "startup" && "text-primary_blue")}>
             Startups
           </div>
           <div   onClick={() => {

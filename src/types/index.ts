@@ -412,6 +412,8 @@ export interface JobsDisplayState {
   setIsApplied: (value: boolean) => void;
   showStartupProfile: boolean;
   startupProfileId: string | null;
+  showBlogDetails: boolean;
+  blogToShowId: number | null; 
 
 
 }
@@ -437,4 +439,14 @@ export interface StartupProfile {
   description: string;
   image: string;
   url: string;
+}
+
+
+export interface BlogType {
+  id: string;
+  title: string;
+  author: string;
+  img: string;
+  date: string;
+  content: string;
 }
