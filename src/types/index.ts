@@ -485,3 +485,9 @@ export const ReportMessageSchema = z.object({
   }),
 })
  
+type chatCategory = "message" | "archived"
+
+export interface MessageDisplayState {
+  chatToShow: string | null;
+  chatCategoryToShow: chatCategory
+}

@@ -22,16 +22,17 @@ const TalentFeedFooter: FC = () => {
           {header.title}
         </Link>
       ))}
-      <div
+      <Link
+          to={`/talent/messages`}
         className={`font-Jakarta flex items-center gap-2 uppercase flex-col text-[13px] ${
-          "message" === path
+          "messages" === path
             ? " text-primary_blue border-b-2 border-b-primary_blue pb-1  "
             : "text-dark_green/70"
         }`}
       >
         <FaEnvelope className=" w-6 h-6" />
         Message
-      </div>
+      </Link>
     </div>
   );
 };

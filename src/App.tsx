@@ -28,6 +28,7 @@ import PasswordReset from "./pages/passwordReset/PasswordReset";
 import TalentFeed from "./pages/talentFeed/TalentFeed";
 import TalentProfile from "./pages/talentProfile/TalentProfile";
 import TalentJobs from "./pages/talentJobs/TalentJobs";
+import Messages from "./pages/messages/Messages";
 
 function App() {
   const HomeLayout = () => {
@@ -152,7 +153,12 @@ function App() {
         {
           path: "jobs/:id?",
           element: <TalentJobs />,
+        },
+        {
+          path: "messages",
+          element: <Messages />,
         }
+
       ],
     },
   ]);

@@ -6,7 +6,6 @@ import {
   HoverCardTrigger,
 } from "../ui/hover-card";
 import { MoreHorizontal } from "lucide-react";
-import { Card, CardContent } from "../ui/card";
 import {
   Dialog,
   DialogClose,
@@ -26,6 +25,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useMessagesDisplay } from "@/store";
 
 interface Props {
   chat: ChatType;
@@ -40,14 +40,16 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
     console.log(data);
   }
   return (
-    <div className="w-[322px] p-2 flex flex-col gap-1 bg-white">
-      <p className=" font-Jakarta font-normal text-[10px] leading-4 text-dark_green/70">
+    <div className="w-[322px] p-2 flex flex-col gap-1 bg-white cursor-pointer hover:bg-accent_blue" onClick={() => {
+      useMessagesDisplay.setState({chatToShow: chat.id})  
+    }}>
+      <p className=" font-Jakarta font-normal text-[10px] leading-4 text-dark_green/70  ml-auto">
         {chat.lastMessageTime}
       </p>
       <div className="flex justify-between items-center">
         <div className="flex gap-1 items-center">
           <img src={chat.userImage} alt="" className=" h-[30px] w-[30px]" />
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-2">
             <p className=" font-Jakarta flex items-center gap-2 font-medium text-[13px] leading-4 text-dark_green">
               {chat.user}
               {chat?.type && (
@@ -60,13 +62,11 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
           </div>
         </div>
         {showMore && (
-          <HoverCard>
+          <HoverCard openDelay={0.000001}>
             <HoverCardTrigger asChild>
               <MoreHorizontal size={24} />
             </HoverCardTrigger>
-            <HoverCardContent>
-              <Card>
-                <CardContent className="p-4 bg-white flex flex-col items-center gap-3 justify-center">
+            <HoverCardContent className="p-4 bg-white flex flex-col items-center gap-5 justify-center w-20">
                   <Dialog>
                     <DialogTrigger className=" font-Jakarta font-medium text-[13px] leading-4 text-dark_green">
                       Archive
@@ -76,7 +76,7 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
                         <p className=" font-Jakarta font-semibold text-[13px] lg:text-[25px] leading-9 text-dark_green">
                           Archive Conversation
                         </p>
-                        <p className=" font-Jakarta font-normal text-[13px] leading-4 text-dark_green/70">
+                        <p className=" font-Jakarta font-normal text-[13px] leading-4 text-dark_green/70 text-center">
                           Are you sure to want to archive this conversation?
                           Note that any files that you've sent in this thread
                           will be archived.{" "}
@@ -85,14 +85,14 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
                       <div className="flex items-center gap-[50px]">
                         <Button
                           type="submit"
-                          className=" w-[77px] h-10 bg-accent_red font-Jakarta text-base text-white font-medium "
+                          className=" w-[77px] h-10 bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
                         >
                           Confirm
                         </Button>
                         <DialogClose>
                           <Button
                             type="submit"
-                            className=" w-[77px] h-10 bg-accent_red font-Jakarta text-base text-white font-medium "
+                            className=" w-[77px] h-10 bg-transparent hover:bg-transparent font-Jakarta text-base text-dark_green/70 font-medium "
                           >
                             Cancel
                           </Button>
@@ -110,7 +110,7 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
                         <p className=" font-Jakarta font-semibold text-[13px] lg:text-[25px] leading-9 text-dark_green">
                           Report message
                         </p>
-                        <p className=" font-Jakarta font-normal text-[13px] leading-4 text-dark_green/70">
+                        <p className=" font-Jakarta font-normal text-[13px] leading-4 text-dark_green/70 text-center">
                           Please review our Community Guidelines for additional
                           information about what is and isn't permitted on
                           XHIBIT.
@@ -182,14 +182,14 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
                           <div className="flex items-center gap-[50px]">
                             <Button
                               type="submit"
-                              className=" w-[77px] h-10 bg-accent_red font-Jakarta text-base text-white font-medium "
+                              className=" w-[77px] h-10 bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
                             >
                               Confirm
                             </Button>
                             <DialogClose>
                               <Button
                                 type="submit"
-                                className=" w-[77px] h-10 bg-accent_red font-Jakarta text-base text-white font-medium "
+                                className=" w-[77px] h-10 bg-transparent hover:bg-transparent font-Jakarta text-base text-dark_green/70 font-medium "
                               >
                                 Cancel
                               </Button>
@@ -209,7 +209,7 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
                         <p className=" font-Jakarta font-semibold text-[13px] lg:text-[25px] leading-9 text-dark_green">
                           Delete conversation
                         </p>
-                        <p className=" font-Jakarta font-normal text-[13px] leading-4 text-dark_green/70">
+                        <p className=" font-Jakarta font-normal text-[13px] leading-4 text-dark_green/70 text-center">
                           Are you sure to want to permanently delete this
                           conversation? Note that any files that you've sent in
                           this thread will be permanently deleted.{" "}
@@ -218,14 +218,14 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
                       <div className="flex items-center gap-[50px]">
                         <Button
                           type="submit"
-                          className=" w-[77px] h-10 bg-accent_red font-Jakarta text-base text-white font-medium "
+                          className=" w-[77px] h-10  bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
                         >
                           Confirm
                         </Button>
                         <DialogClose>
                           <Button
                             type="submit"
-                            className=" w-[77px] h-10 bg-accent_red font-Jakarta text-base text-white font-medium "
+                            className=" w-[77px] h-10 bg-transparent hover:bg-transparent font-Jakarta text-base text-dark_green/70 font-medium "
                           >
                             Cancel
                           </Button>
@@ -233,8 +233,6 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
                       </div>
                     </DialogContent>
                   </Dialog>
-                </CardContent>
-              </Card>
             </HoverCardContent>
           </HoverCard>
         )}

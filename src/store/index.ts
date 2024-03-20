@@ -1,4 +1,4 @@
-import { JobsDisplayState } from '@/types'
+import { JobsDisplayState, MessageDisplayState } from '@/types'
 import { create } from 'zustand'
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     // showBrowseJobs: true,
@@ -19,4 +19,12 @@ export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     startupProfileId: null,
     showBlogDetails: false,
     blogToShowId: null,
+}))
+
+
+
+export const useMessagesDisplay = create<MessageDisplayState>()((set) => ({
+    chatToShow: null,
+    setChatToShow: (chatToShow) => set({chatToShow}),
+    chatCategoryToShow: "message"
 }))

@@ -1,8 +1,8 @@
 import { Dmitry, Logo } from "@/assets";
-import { talentFeedHeaders } from "@/constants";
+import { chatData, talentFeedHeaders } from "@/constants";
 import { ChevronDown, ListFilter, Search } from "lucide-react";
 import { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Input } from "../ui/input";
 import { HiBell, HiOutlineLogout } from "react-icons/hi";
 import {
@@ -10,24 +10,37 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import { FaEnvelope } from "react-icons/fa";
 import { Separator } from "../ui/separator";
 import { cn } from "@/lib/utils";
-import { Sheet, SheetContent, SheetHeader, SheetOverlay, SheetTrigger } from "../ui/sheet";
-import { Filter } from "..";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetOverlay,
+  SheetTrigger,
+} from "../ui/sheet";
+import { Filter, MessageCard } from "..";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "../ui/hover-card";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const TalentFeedNavbar: FC = () => {
-  const path = useLocation().pathname.split("/")[2]
-  // console.log(path)
+  const path = useLocation().pathname.split("/")[2];
 
-  
+  // console.log(path);
+
+  const navigate = useNavigate();
   return (
     <div className=" bg-[#F2F9FF] lg:bg-white w-full h-[100px] sticky z-50 top-0 left-0 right-0 border-b border-home_border_gradient_color_2">
       <div className="w-[90%] md:w-[80%] flex flex-row-reverse md:flex-row  justify-between gap-5 md:gap-[50px] items-center py-5 mx-auto ">
         <HiBell className="text-dark_green/70 text-[24px] cursor-pointer flex md:hidden" />
 
-        <Link to={'/'} className="hidden md:flex">
+        <Link to={"/"} className="hidden md:flex">
           <img src={Logo} alt="" className=" h-[50px]  w-[50px]" />
         </Link>
         <div className=" hidden lg:flex gap-10 flex-row">
@@ -53,12 +66,63 @@ const TalentFeedNavbar: FC = () => {
             className=" border-none outline-none bg-transparent ring-transparent w-full"
           />
         </div>
-        <div className="flex gap-6 items-center ">
-          <FaEnvelope className="text-dark_green/70 w-6 h-6 cursor-pointer hidden lg:flex" />
+        <div className="flex gap-6 items-center relative ">
+        {
+              path === "messages" || path === "jobs" ? (
+                <FaEnvelope className="text-dark_green/70 w-6 h-6 cursor-pointer hidden lg:flex" 
+               onClick={() => {
+                navigate("/talent/messages");
+              }}
+              />
+
+              ) : (
+
+         
+          <HoverCard openDelay={0.001} >
+            <HoverCardTrigger>
+              <FaEnvelope className="text-dark_green/70 w-6 h-6 cursor-pointer hidden lg:flex" 
+               onClick={() => {
+                navigate("/talent/messages");
+              }}
+              />
+            </HoverCardTrigger>
+         
+            <HoverCardContent
+              className="flex flex-col gap-5 bg-white !z-[99]  w-fit"
+              onClick={() => {
+                navigate("/talent/messages");
+              }}
+            >
+              <div className=" bg-primary_blue rounded-md">
+                <div className="flex p-3 py-2 items-center gap-2">
+                  <Avatar>
+                    <AvatarImage src={Dmitry} alt="User" />
+                    <AvatarFallback>DM</AvatarFallback>
+                  </Avatar>
+                  <p className=" font-Jakarta text-[13px]  leading-4 font-medium text-white">
+                    My messages
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-5">
+                {chatData.map((chat, index) => (
+                  <MessageCard chat={chat} key={index} />
+                ))}
+              </div>
+            </HoverCardContent>
+              
+          </HoverCard>
+              )}
+
           <HiBell className="text-dark_green/70 w-6 h-6 cursor-pointer hidden md:flex" />
-          
+
           <DropdownMenu>
-            <DropdownMenuTrigger className={cn(" bgw lg:bg-[#F7F7F7] cursor-pointer flex items-center gap-2 rounded-[30px] p-3 ", path === "jobs" && " hidden lg:flex")}>
+            <DropdownMenuTrigger
+              className={cn(
+                " bgw lg:bg-[#F7F7F7] cursor-pointer flex items-center gap-2 rounded-[30px] p-3 ",
+                path === "jobs" && " hidden lg:flex"
+              )}
+            >
               <img
                 src={Dmitry}
                 alt=""
@@ -84,7 +148,10 @@ const TalentFeedNavbar: FC = () => {
                       offers.
                     </p>
                   </div>
-                  <Link to={"/talent/profile"} className=" font-Jakarta text-base cursor-pointer hover:underline hover:underline-offset-1 font-semibold text-center text-dark_green ">
+                  <Link
+                    to={"/talent/profile"}
+                    className=" font-Jakarta text-base cursor-pointer hover:underline hover:underline-offset-1 font-semibold text-center text-dark_green "
+                  >
                     View my profile
                   </Link>
                 </div>
@@ -119,25 +186,22 @@ const TalentFeedNavbar: FC = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {
-            path === "jobs" && (
-              <Sheet>
-                <SheetTrigger className=" lg:hidden">
-                  <ListFilter className="h-6 w-6 text-dark_green" />
-                </SheetTrigger>
-                <SheetOverlay>
-                  <SheetContent className="flex flex-col gap-5 bg-accent_blue">
-                    <SheetHeader className=" w-full bg-white p-3 text-center font-Jakarta font-medium text-[25px] leading-9 text-dark_green">
-                      Filter
-                    </SheetHeader>
-                    <Separator />
-                    <Filter className="flex flex-col gap-5 justify-start items-start" />
-                    
-                  </SheetContent>
-                </SheetOverlay>
-              </Sheet>
-            )
-          }
+          {path === "jobs" && (
+            <Sheet>
+              <SheetTrigger className=" lg:hidden">
+                <ListFilter className="h-6 w-6 text-dark_green" />
+              </SheetTrigger>
+              <SheetOverlay>
+                <SheetContent className="flex flex-col gap-5 bg-accent_blue">
+                  <SheetHeader className=" w-full bg-white p-3 text-center font-Jakarta font-medium text-[25px] leading-9 text-dark_green">
+                    Filter
+                  </SheetHeader>
+                  <Separator />
+                  <Filter className="flex flex-col gap-5 justify-start items-start" />
+                </SheetContent>
+              </SheetOverlay>
+            </Sheet>
+          )}
         </div>
       </div>
     </div>
