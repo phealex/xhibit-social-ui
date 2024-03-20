@@ -450,3 +450,38 @@ export interface BlogType {
   date: string;
   content: string;
 }
+
+
+export interface ServiceType {
+  desc: string;
+  images: string[];
+  price: string;
+  duration: string;
+  accepted: boolean | null;
+  userType : "sender" | "receiver"; 
+}
+
+export interface MessageType {
+  time: string;
+  message: string;
+  userType : "sender" | "receiver"; 
+}
+
+
+export interface ChatType {
+  id: string;
+  user: string;
+  userImage: string;
+  type: string | null;
+  lastMessage: string;
+  lastMessageTime: string;
+  messages: (MessageType | ServiceType)[];
+}
+
+
+export const ReportMessageSchema = z.object({
+  reason: z.enum(["spam", "adult content", "misinformation/disinformation", "fraud/scam", "others"], {
+    required_error: "You need to select a reason.",
+  }),
+})
+ 

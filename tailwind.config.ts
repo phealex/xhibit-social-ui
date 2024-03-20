@@ -62,7 +62,8 @@ module.exports = {
         dark_green: "#323C45",
         home_grey: "#8E9FAA",
         light_green: "#4DBB9B",
-        accent_blue: "#F2F9FF"
+        accent_blue: "#F2F9FF",
+        accent_red: "#E75F51"
       },
       backgroundImage: {
         "noise-background": "url('./assets/noiseBackground.svg')",

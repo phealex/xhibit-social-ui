@@ -6,6 +6,7 @@ import {
   Customize,
   Devon,
   Diversity,
+  Dmitry,
   HelpingHands,
   Kayla,
   MaskAd,
@@ -20,11 +21,13 @@ import {
   XhibitAd,
   aisight,
   blogImage,
+  coinbaseProject,
   peopleai,
   soundhound,
 } from "@/assets";
 import {
   BlogType,
+  ChatType,
   HiringCompanyType,
   JobType,
   RegisterDataType,
@@ -1240,3 +1243,66 @@ export const blogPosts: BlogType[] = [
   },
 
 ];
+
+
+
+export const chatData: ChatType[] = [
+  {
+    id: "7484493839",
+    user: "Chris Hodger",
+    userImage: Dmitry,
+    type: "Service request",
+    lastMessage: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
+    lastMessageTime: "2h",
+    messages: [
+      {
+        desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
+        images: [
+          coinbaseProject,
+          coinbaseProject,
+          coinbaseProject,
+          coinbaseProject
+        ],
+        price: "4000",
+        duration: "2 weeks",
+        accepted: null,
+        userType: "sender"
+      }, 
+      {
+        time: "2h",
+        message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
+        userType: "receiver",
+      }
+    ]
+
+  },
+  {
+    id: "7484493839",
+    user: "Chris Hodger",
+    userImage: Dmitry,
+    type: "Service request",
+    lastMessage: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
+    lastMessageTime: "2h",
+    messages: [
+      {
+        desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
+        images: [
+          coinbaseProject,
+          coinbaseProject,
+          coinbaseProject,
+          coinbaseProject
+        ],
+        price: "4000",
+        duration: "2 weeks",
+        accepted: null,
+        userType: "sender"
+      }, 
+      {
+        time: "2h",
+        message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
+        userType: "receiver",
+      }
+    ]
+
+  }
+]
