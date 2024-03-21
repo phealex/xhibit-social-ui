@@ -1,8 +1,9 @@
-import { MessageCard } from "@/components";
+import { ChatCard, MessageCard, ServiceCard } from "@/components";
 import { Separator } from "@/components/ui/separator";
 import { chatData } from "@/constants";
 import { cn } from "@/lib/utils";
 import { useMessagesDisplay } from "@/store";
+import { MessageType, ServiceType } from "@/types";
 import { ChevronLeftSquare } from "lucide-react";
 import { FC } from "react";
 
@@ -13,10 +14,10 @@ const Messages: FC = () => {
   );
   return (
     <div className=" w-full bg-accent_blue min-h-screen ">
-      <div className="flex container w-full md:gap-4 lg:gap-10 bg-white h-full  lg:py-10 ">
+      <div className="flex container w-full md:gap-4 lg:gap-10 bg-white min-h-full  lg:py-10 ">
         <div
           className={cn(
-            " w-full md:w-full lg:w-[20%] flex gap-10 flex-col h-full  ",
+            " w-full md:w-full lg:w-fit flex gap-10 flex-col h-full ",
             chatToShow && " hidden md:flex"
           )}
         >
@@ -71,7 +72,7 @@ const Messages: FC = () => {
           </div>
 
           {chatToShow && chatCategoryToShow === "message" && (
-            <div className="flex flex-1 flex-col bg-white">
+            <div className="flex flex-1 gap-2 flex-col bg-white w-full h-full">
               <div
                 className={cn(
                   "flex gap-4 flex-col items-center w-full justify-center",
@@ -88,7 +89,25 @@ const Messages: FC = () => {
                 </div>
                 <Separator className="w-full bg-dark_green/10" />
               </div>
-              message
+             <div className=" w-full h-full flex gap-5 flex-col ">
+                {
+                    chatData.filter((chat) => chat.id === chatToShow).map((chat) => (
+
+                        chat.messages.map((message, index) => (
+                            <div key={index} className={cn( message.content.userType === "sender" ? " mr-auto" : "ml-auto")}>
+                                {
+                                    message.type === "service" ? (
+                                       <ServiceCard  service={message.content as ServiceType} />
+                                    ): (
+                                        <ChatCard  chat={message.content as MessageType}  />
+                                    )
+                                }
+                            </div>
+                            ))
+                            )
+                    )
+                }
+             </div>
             </div>
           )}
         </div>

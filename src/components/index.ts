@@ -62,3 +62,5 @@ export { default as Industry } from "./talentJobs/Industry";
 export { default as BlogCard } from "./talentJobs/BlogCard";
 export { default as Blogs } from "./talentJobs/Blogs";
 export {default as MessageCard} from "./message/MessageCard"
+export {default as ChatCard} from "./message/ChatCard"
+export {default as ServiceCard} from "./message/ServiceCard"

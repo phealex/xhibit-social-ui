@@ -1256,6 +1256,8 @@ export const chatData: ChatType[] = [
     lastMessageTime: "2h",
     messages: [
       {
+        type: "service",
+        content: {
         id: "18272892",
         time: "20 hours ago",
         title: "Brand indentity design",
@@ -1270,11 +1272,16 @@ export const chatData: ChatType[] = [
         duration: "2 weeks",
         accepted: null,
         userType: "sender"
+      }
       }, 
       {
-        time: "2h",
-        message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
-        userType: "receiver",
+        type: "message",
+        content: {
+
+          time: "2h",
+          message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
+          userType: "receiver",
+        }
       }
     ]
 
@@ -1288,7 +1295,9 @@ export const chatData: ChatType[] = [
     lastMessageTime: "2h",
     messages: [
       {
-        id: "9383938393",
+        type: "service",
+        content: {
+        id: "18272892",
         time: "20 hours ago",
         title: "Brand indentity design",
         desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
@@ -1302,13 +1311,17 @@ export const chatData: ChatType[] = [
         duration: "2 weeks",
         accepted: null,
         userType: "sender"
+      }
       }, 
       {
-        time: "2h",
-        message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
-        userType: "receiver",
+        type: "message",
+        content: {
+
+          time: "2h",
+          message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
+          userType: "receiver",
+        }
       }
     ]
-
   }
 ]

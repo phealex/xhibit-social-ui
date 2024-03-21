@@ -23,7 +23,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
 
   const [selectedReasons, setSelectedReasons] = useState<string[]>([]);
   return (
-    <div className=" bg-dark_green/5 flex flex-col gap-[10px] w-full ">
+    <div className=" bg-dark_green/5 flex flex-col gap-[10px] w-[260px] ">
       <div className=" bg-primary_blue h-11 rounded-t-md flex items-center justify-center text-white font-Jakarta font-medium text-base text-center w-full">
         Service request
       </div>
@@ -48,7 +48,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
 
           <div className="flex items-start gap-1 text-primary_blue">
             <p className=" font-Jakarta font-medium text-base ">From</p>
-            <span className=" font-Jakarta font-medium text-base">NGN</span>
+            <span className=" font-Jakarta font-medium text-[8px]">NGN</span>
             <p className=" font-Jakarta font-semibold text-base">
               {service.price}
             </p>
@@ -67,7 +67,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                   Accept request
                 </Button>
               </DialogTrigger>
-              <DialogContent className="flex flex-col gap-10">
+              <DialogContent className="flex flex-col gap-10  overflow-y-scroll">
                 <div className=" flex flex-col gap-[10px]">
                   <p className=" font-Jakarta font-semibold text-2xl text-dark_green">
                     New service request
@@ -94,7 +94,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                     <Textarea
                       value={service.desc}
                       disabled
-                      className=" bg-dark_green/5 w-full font-Jakarta text-base font-normal"
+                      className=" bg-dark_green/5 w-full font-Jakarta text-base font-normal min-h-[100px]"
                     />
                   </div>
                   <div className="flex flex-col gap-[10px] ">
@@ -123,7 +123,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                         Client pays
                       </p>
                       <div className="flex items-start gap-1">
-                        <span className=" font-Jakarta font-medium text-base text-dark_green/70">
+                        <span className=" font-Jakarta font-medium text-[8px] text-dark_green/70">
                           NGN
                         </span>
                         <p className=" font-Jakarta font-semibold text-base text-dark_green/70">
@@ -136,7 +136,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                         Platform fees
                       </p>
                       <div className="flex items-start gap-1">
-                        <span className=" font-Jakarta font-medium text-base text-dark_green/70">
+                        <span className=" font-Jakarta font-medium text-[8px] text-dark_green/70">
                           NGN
                         </span>
                         <p className=" font-Jakarta font-semibold text-base text-dark_green/70">
@@ -149,7 +149,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                         At service completion, you get{" "}
                       </p>
                       <div className="flex items-start gap-1">
-                        <span className=" font-Jakarta font-medium text-base text-dark_green/70">
+                        <span className=" font-Jakarta font-medium text-[8px] text-dark_green/70">
                           NGN
                         </span>
                         <p className=" font-Jakarta font-semibold text-base text-dark_green/70">
@@ -194,12 +194,12 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                     the reason for your decline? Your feedback helps us improve
                   </p>
                 </div>
-                <div className=" w-[330px] h-[300px] justify-evenly items-center bg-dark_green/10">
+                <div className=" w-[330px] h-[300px] flex flex-col rounded-md justify-evenly items-center bg-dark_green/10">
                   {declineReasons.map((reason, index) => (
                     <div
                       key={index}
                       className={cn(
-                        " p-3 font-Jakarta font-medium text-base text-dark_green/70 border rounded-md bg-transparent ",
+                        " p-3 font-Jakarta text-center font-medium cursor-pointer text-base text-dark_green/70 border rounded-md bg-transparent ",
                         selectedReasons.includes(reason) &&
                           "border-primary_blue text-primary_blue"
                       )}
@@ -220,7 +220,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                 <div className="flex items-center gap-[50px]">
                         <Button
                           type="submit"
-                          className=" w-[77px] h-10 bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
+                          className=" w-fit h-10 bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
                         >
                           Decline request
                         </Button>

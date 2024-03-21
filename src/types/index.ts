@@ -478,7 +478,10 @@ export interface ChatType {
   type: string | null;
   lastMessage: string;
   lastMessageTime: string;
-  messages: (MessageType | ServiceType)[];
+  messages: {
+    type: "message" | "service";
+    content : MessageType | ServiceType;
+  }[];
 }
 
 
