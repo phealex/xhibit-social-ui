@@ -453,6 +453,9 @@ export interface BlogType {
 
 
 export interface ServiceType {
+  id: string;
+  time: string;
+  title: string;
   desc: string;
   images: string[];
   price: string;

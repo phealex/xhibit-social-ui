@@ -1256,6 +1256,9 @@ export const chatData: ChatType[] = [
     lastMessageTime: "2h",
     messages: [
       {
+        id: "18272892",
+        time: "20 hours ago",
+        title: "Brand indentity design",
         desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
         images: [
           coinbaseProject,
@@ -1285,6 +1288,9 @@ export const chatData: ChatType[] = [
     lastMessageTime: "2h",
     messages: [
       {
+        id: "9383938393",
+        time: "20 hours ago",
+        title: "Brand indentity design",
         desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
         images: [
           coinbaseProject,
