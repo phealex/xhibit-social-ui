@@ -1271,7 +1271,7 @@ export const chatData: ChatType[] = [
         price: "4000",
         duration: "2 weeks",
         accepted: null,
-        userType: "sender"
+        userType: "receiver"
       }
       }, 
       {
@@ -1280,7 +1280,7 @@ export const chatData: ChatType[] = [
 
           time: "2h",
           message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
-          userType: "receiver",
+          userType: "sender",
         }
       }
     ]
@@ -1310,7 +1310,7 @@ export const chatData: ChatType[] = [
         price: "4000",
         duration: "2 weeks",
         accepted: null,
-        userType: "sender"
+        userType: "receiver"
       }
       }, 
       {
@@ -1319,7 +1319,7 @@ export const chatData: ChatType[] = [
 
           time: "2h",
           message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
-          userType: "receiver",
+          userType: "sender",
         }
       }
     ]

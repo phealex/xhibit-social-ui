@@ -1,7 +1,12 @@
 import { ServiceType } from "@/types";
 import { FC, useState } from "react";
 import { Button } from "../ui/button";
-import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+} from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Avatar, AvatarImage } from "../ui/avatar";
@@ -22,6 +27,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
   ];
 
   const [selectedReasons, setSelectedReasons] = useState<string[]>([]);
+
   return (
     <div className=" bg-dark_green/5 flex flex-col gap-[10px] w-[260px] ">
       <div className=" bg-primary_blue h-11 rounded-t-md flex items-center justify-center text-white font-Jakarta font-medium text-base text-center w-full">
@@ -63,11 +69,16 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
           <div className=" flex justify-between items-center">
             <Dialog>
               <DialogTrigger>
-                <Button className=" bg-primary_blue hover:bg-primary_blue text-white hover:text-white px-[10px] rounded-md outline-none">
+                <Button
+                //   onClick={() => {
+                //     window.innerWidth <= 768 && setShowAccept(true)
+                //   }}
+                  className=" bg-primary_blue hover:bg-primary_blue text-white hover:text-white px-[10px] rounded-md outline-none"
+                >
                   Accept request
                 </Button>
               </DialogTrigger>
-              <DialogContent className="flex flex-col gap-10  overflow-y-scroll">
+              <DialogContent className=" flex flex-col gap-10 max-h-[80%] lg:max-h-full top-[45%]  overflow-y-scroll hide-scrollbar hide-scrollbar::-webkit-scrollbar h-fit">
                 <div className=" flex flex-col gap-[10px]">
                   <p className=" font-Jakarta font-semibold text-2xl text-dark_green">
                     New service request
@@ -170,7 +181,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                   Decline
                 </Button>
               </DialogTrigger>
-              <DialogContent className="flex flex-col gap-[35px] items-center justify-center">
+              <DialogContent className="flex flex-col gap-[35px] items-center justify-center max-h-[80%] lg:max-h-full top-[45%]  overflow-y-scroll hide-scrollbar hide-scrollbar::-webkit-scrollbar h-fit">
                 <div className="flex items-center justify-center gap-[10px] ">
                   <Avatar>
                     <AvatarImage src={Dmitry} alt="avatar" />
@@ -213,31 +224,32 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                         }
                       }}
                     >
-                        {reason}
+                      {reason}
                     </div>
                   ))}
                 </div>
                 <div className="flex items-center gap-[50px]">
-                        <Button
-                          type="submit"
-                          className=" w-fit h-10 bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
-                        >
-                          Decline request
-                        </Button>
-                        <DialogClose>
-                          <Button
-                            type="submit"
-                            className=" w-[77px] h-10 bg-transparent hover:bg-transparent font-Jakarta text-base text-dark_green/70 font-medium "
-                          >
-                            Cancel
-                          </Button>
-                        </DialogClose>
-                      </div>
+                  <Button
+                    type="submit"
+                    className=" w-fit h-10 bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
+                  >
+                    Decline request
+                  </Button>
+                  <DialogClose>
+                    <Button
+                      type="submit"
+                      className=" w-[77px] h-10 bg-transparent hover:bg-transparent font-Jakarta text-base text-dark_green/70 font-medium "
+                    >
+                      Cancel
+                    </Button>
+                  </DialogClose>
+                </div>
               </DialogContent>
             </Dialog>
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

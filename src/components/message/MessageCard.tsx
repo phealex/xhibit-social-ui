@@ -40,14 +40,16 @@ const MessageCard: FC<Props> = ({ chat, showMore = false }) => {
     console.log(data);
   }
   return (
-    <div className="w-[322px] p-2 flex flex-col gap-1 bg-white cursor-pointer hover:bg-accent_blue" onClick={() => {
-      useMessagesDisplay.setState({chatToShow: chat.id})  
-    }}>
+    <div className="w-[322px] p-2 flex flex-col gap-1 bg-white cursor-pointer hover:bg-accent_blue">
       <p className=" font-Jakarta font-normal text-[10px] leading-4 text-dark_green/70  ml-auto">
         {chat.lastMessageTime}
       </p>
       <div className="flex justify-between items-center">
-        <div className="flex gap-1 items-center">
+        <div 
+         onClick={() => {
+          useMessagesDisplay.setState({chatToShow: chat.id})  
+        }}
+         className="flex gap-1 items-center">
           <img src={chat.userImage} alt="" className=" h-[30px] w-[30px]" />
           <div className="flex flex-col gap-2">
             <p className=" font-Jakarta flex items-center gap-2 font-medium text-[13px] leading-4 text-dark_green">

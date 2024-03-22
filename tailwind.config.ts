@@ -20,6 +20,9 @@ module.exports = {
       Jakarta: ["Plus Jakarta Sans", "sans-serif"],
     },
     extend: {
+      height: {
+        chatMd: "calc(100dvh - 200px)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

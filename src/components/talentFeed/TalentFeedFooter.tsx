@@ -1,4 +1,6 @@
 import { talentFeedHeaders } from "@/constants";
+import { cn } from "@/lib/utils";
+import { useMessagesDisplay } from "@/store";
 import { FC } from "react";
 import { FaEnvelope } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
@@ -6,8 +8,9 @@ import { Link, useLocation } from "react-router-dom";
 const TalentFeedFooter: FC = () => {
   const path = useLocation().pathname.split("/")[2];
 
+  const chatToShow = useMessagesDisplay((state) => state.chatToShow);
   return (
-    <div className=" bg-white p-5 md:px-10 z-[99]  flex justify-between items-center lg:hidden sticky bottom-0 left-0 right-0 ">
+    <div className={cn(" bg-white p-5 md:px-10 z-[99]  flex justify-between items-center lg:hidden sticky bottom-0 left-0 right-0 ", chatToShow && "hidden")}>
       {talentFeedHeaders.map((header, index) => (
         <Link
           to={`/talent/${header.link}`}
