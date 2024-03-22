@@ -11,7 +11,7 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { Dmitry } from "@/assets";
-import { MapPin } from "lucide-react";
+import { CheckCircle, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ServiceCardProps {
@@ -26,20 +26,22 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
     "Others",
   ];
 
+  const [serviceState, setServiceState] = useState<ServiceType>(service)
+
   const [selectedReasons, setSelectedReasons] = useState<string[]>([]);
 
   return (
     <div className=" bg-dark_green/5 flex flex-col gap-[10px] w-[260px] ">
       <div className=" bg-primary_blue h-11 rounded-t-md flex items-center justify-center text-white font-Jakarta font-medium text-base text-center w-full">
-        Service request
+        serviceState request
       </div>
       <div className="flex flex-col p-3 gap-4">
         <p className=" font-Jakarta font-normal text-[10px] leading-3 text-center">
-          {service.time}
+          {serviceState.time}
         </p>
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
-            {service.images.map((image, index) => (
+            {serviceState.images.map((image, index) => (
               <img
                 src={image}
                 alt=""
@@ -49,24 +51,27 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
             ))}
           </div>
           <p className=" font-Jakarta font-medium text-xl text-dark_green">
-            {service.title}
+            {serviceState.title}
           </p>
 
           <div className="flex items-start gap-1 text-primary_blue">
             <p className=" font-Jakarta font-medium text-base ">From</p>
             <span className=" font-Jakarta font-medium text-[8px]">NGN</span>
             <p className=" font-Jakarta font-semibold text-base">
-              {service.price}
+              {serviceState.price}
             </p>
           </div>
           <p className=" font-Jakarta font-normal text-xs text-dark_green/70">
-            {service.desc}
+            {serviceState.desc}
           </p>
           <p className=" font-Jakarta font-normal text-xs text-dark_green">
             Delivery timeline: {""}{" "}
-            <span className=" font-medium">{service.duration}</span>
+            <span className=" font-medium">{serviceState.duration}</span>
           </p>
           <div className=" flex justify-between items-center">
+            {
+                serviceState.accepted === null ? (
+                    <>
             <Dialog>
               <DialogTrigger>
                 <Button
@@ -81,7 +86,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
               <DialogContent className=" flex flex-col gap-10 max-h-[80%] lg:max-h-full top-[45%]  overflow-y-scroll hide-scrollbar hide-scrollbar::-webkit-scrollbar h-fit">
                 <div className=" flex flex-col gap-[10px]">
                   <p className=" font-Jakarta font-semibold text-2xl text-dark_green">
-                    New service request
+                    New serviceState request
                   </p>
                   <p className=" font-Jakarta font-normal text-xs text-dark_green/70">
                     Payment description
@@ -90,20 +95,20 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                 <div className=" flex flex-col gap-5 w-full">
                   <div className="flex flex-col gap-[10px] ">
                     <p className=" font-Jakarta font-medium text-base text-dark_green">
-                      Service title
+                      serviceState title
                     </p>
                     <Input
-                      value={service.title}
+                      value={serviceState.title}
                       disabled
                       className=" bg-dark_green/5 w-full font-Jakarta text-base font-normal"
                     />
                   </div>
                   <div className="flex flex-col gap-[10px] ">
                     <p className=" font-Jakarta font-medium text-base text-dark_green">
-                      Service description
+                      serviceState description
                     </p>
                     <Textarea
-                      value={service.desc}
+                      value={serviceState.desc}
                       disabled
                       className=" bg-dark_green/5 w-full font-Jakarta text-base font-normal min-h-[100px]"
                     />
@@ -114,14 +119,14 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                     </p>
                     <div className="flex flex-col gap-1">
                       <Input
-                        value={`NGN ${service.price}`}
+                        value={`NGN ${serviceState.price}`}
                         disabled
                         className=" bg-dark_green/5 w-full font-Jakarta text-base font-normal"
                       />
                       <p className="font-Jakarta text-base font-normal">
                         Note your fee will be deducted from this amount, and
                         payment will be sent to your wallet on completing
-                        service.
+                        serviceState.
                       </p>
                     </div>
                   </div>
@@ -138,7 +143,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                           NGN
                         </span>
                         <p className=" font-Jakarta font-semibold text-base text-dark_green/70">
-                          {service.price}
+                          {serviceState.price}
                         </p>
                       </div>
                     </div>
@@ -151,26 +156,33 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                           NGN
                         </span>
                         <p className=" font-Jakarta font-semibold text-base text-dark_green/70">
-                          {Number(service.price) * 0.1}
+                          {Number(serviceState.price) * 0.1}
                         </p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between w-full">
                       <p className=" font-Jakarta font-medium text-xs text-dark_green/70">
-                        At service completion, you get{" "}
+                        At serviceState completion, you get{" "}
                       </p>
                       <div className="flex items-start gap-1">
                         <span className=" font-Jakarta font-medium text-[8px] text-dark_green/70">
                           NGN
                         </span>
                         <p className=" font-Jakarta font-semibold text-base text-dark_green/70">
-                          {Number(service.price) - Number(service.price) * 0.1}
+                          {Number(serviceState.price) - Number(serviceState.price) * 0.1}
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <Button className=" bg-primary_blue hover:bg-primary_blue text-white hover:text-white px-[10px] rounded-md outline-none">
+                <Button onClick={() => {
+                    setServiceState(prevState => ({
+                        ...prevState,
+                        accepted: true
+                    }))
+
+
+                }} className=" bg-primary_blue hover:bg-primary_blue text-white hover:text-white px-[10px] rounded-md outline-none">
                   Accept request
                 </Button>
               </DialogContent>
@@ -198,7 +210,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                 </div>
                 <div className="flex flex-col gap-1 items-center">
                   <h1 className=" font-Jakarta font-bold text-xl text-center text-dark_green">
-                    Decline service request
+                    Decline serviceState request
                   </h1>
                   <p className=" font-Jakarta font-normal text-xs text-center text-dark_green/70">
                     To enhance user experience on XHIBIT, could you kindly share
@@ -231,6 +243,12 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                 <div className="flex items-center gap-[50px]">
                   <Button
                     type="submit"
+                    onClick={() => {
+                        setServiceState(prevState => ({
+                            ...prevState,
+                            accepted: false
+                          }));
+                        }}
                     className=" w-fit h-10 bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
                   >
                     Decline request
@@ -246,6 +264,26 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
                 </div>
               </DialogContent>
             </Dialog>
+                    </>
+
+                ) : (
+                    serviceState.accepted ? (
+                        <Button className=" bg-primary_blue flex items-center gap-2 hover:bg-primary_blue text-white hover:text-white px-[10px] rounded-md outline-none">
+                        Request Accepted 
+                        <CheckCircle className=" h-3 w-3 " />
+                      </Button>
+                    ) : (
+                        <Button
+                        type="submit"
+                        className=" w-fit h-10 bg-accent_red hover:bg-accent_red font-Jakarta text-base text-white font-medium "
+                      >
+                        Declined
+                      </Button>
+
+                    )
+
+                )
+            }
           </div>
         </div>
       </div>
