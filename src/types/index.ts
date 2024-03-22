@@ -325,7 +325,7 @@ export const projectFormSchema = z.object({
     required_error: "Title must be provided"
   }),
   url: z.string({
-    required_error: "Description must be provided"
+    required_error: "URL must be provided"
   }).url(),
   technologies: z.array(z.object({
     label: z.string(),
@@ -497,3 +497,20 @@ export interface MessageDisplayState {
   chatToShow: string | null;
   chatCategoryToShow: chatCategory
 }
+
+
+export const SubmitServiceSchema =  z.object({
+  url: z.string({
+    required_error: "URL must be provided"
+  }).url(),
+  file: z.object({
+    type: z.string().nonempty('A file is required'),
+    size: z.number().max(2000000, 'File size should be less than 2MB'),
+    name: z.string().nonempty(),
+  }),
+  note: z.string({
+    required_error: "Note must be provided"
+  }).max(1000, {
+    message: "Note must not exceed 1000 characters"
+  }),
+})

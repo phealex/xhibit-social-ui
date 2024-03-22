@@ -1,4 +1,4 @@
-import { ChatCard, MessageCard, NewMessage, ServiceCard } from "@/components";
+import { ChatActions, ChatCard, MessageCard, ServiceCard } from "@/components";
 import { Separator } from "@/components/ui/separator";
 import { chatData } from "@/constants";
 import { cn } from "@/lib/utils";
@@ -136,7 +136,7 @@ const Messages: FC = () => {
                     ))
                   )}
               </div>
-              <NewMessage  onSend={(newMessage) => addMessage(chatToShow, newMessage)} />
+              <ChatActions  onSend={(newMessage) => addMessage(chatToShow, newMessage)} showServiceButton={true} />
             </div>
           )}
         </div>

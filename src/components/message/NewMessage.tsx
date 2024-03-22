@@ -16,7 +16,7 @@ const NewMessage: FC<NewMessageProps> = ({
  
   return (
     // <div className="bg-white p-5 z-[99]  flex items-center gap-2 md:gap-5 sticky bottom-0 left-0 right-0 ">
-    <div className="fixed bottom-0 left-0 right-0 flex gap-1 items-center p-4 bg-white container">
+    <div className="flex gap-1 w-full">
       <Link className=" h-4 w-4 md:h-6 md:w-6 text-dark_green/70" />
       <Input
         placeholder="Write a message..."

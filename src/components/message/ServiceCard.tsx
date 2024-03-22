@@ -33,7 +33,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
   return (
     <div className=" bg-dark_green/5 flex flex-col gap-[10px] w-[260px] ">
       <div className=" bg-primary_blue h-11 rounded-t-md flex items-center justify-center text-white font-Jakarta font-medium text-base text-center w-full">
-        serviceState request
+        Service request
       </div>
       <div className="flex flex-col p-3 gap-4">
         <p className=" font-Jakarta font-normal text-[10px] leading-3 text-center">
