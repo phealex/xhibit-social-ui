@@ -19,11 +19,13 @@ import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
 import { MdOutlineCloudUpload } from "react-icons/md";
 import { cn } from "@/lib/utils";
-import { FileCheck } from "lucide-react";
+import { Check, FileCheck } from "lucide-react";
 
 
 const SubmitService: FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const [isSuccessful, setIsSuccessful] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof SubmitServiceSchema>>({
     resolver: zodResolver(SubmitServiceSchema),
@@ -31,6 +33,7 @@ const SubmitService: FC = () => {
 
   function onSubmit(data: z.infer<typeof SubmitServiceSchema>) {
     console.log(data);
+    setIsSuccessful(true);
   }
   return (
     <div className=" w-full py-5 flex justify-center items-center">
@@ -40,7 +43,10 @@ const SubmitService: FC = () => {
             Submit Service
           </Button>
         </DialogTrigger>
-        <DialogContent className=" flex flex-col gap-[30px]">
+        <DialogContent className=" ">
+            {
+                !isSuccessful ? (
+                    <div className="flex flex-col gap-[30px]">
           <p className=" font-Jakarta font-semibold text-xl">Submit service</p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
@@ -170,6 +176,16 @@ const SubmitService: FC = () => {
               </Button>
             </form>
           </Form>
+                    </div>
+                ) : (
+                    <div className="flex flex-col items-center justify-center gap-5">
+                        <Check className=" w-[90px] h-[90px]  bg-[#4DBB9B] p-2 rounded-full text-white" />
+                        <p className=" font-Jakarta text-[16px] font-normal text-dark_green text-center">
+                        Congratulations! 🎉 You've successfully completed and submitted your service to the client. Great job! Now, await their feedback and keep up the excellent work.
+                        </p>
+                    </div>
+                )
+            }
 
         </DialogContent>
       </Dialog>
