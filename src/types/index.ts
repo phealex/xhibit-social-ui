@@ -523,3 +523,11 @@ export interface ProjectDisplayState {
   projectToShowId: string | null;
   setProjectToShowId: (value: string | null) => void;
 }
+
+
+
+export interface ProjectCategoryType {
+  name: string;
+  icon: string;
+  images: string[];
+}

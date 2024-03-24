@@ -27,7 +27,7 @@ const ProjectsHeader: FC = () => {
           snapshot of our work below.
         </p>
       </div>
-      <div className=" container w-full  bg-white rounded-[10px] h-[50px] flex items-center justify-between p-2 w-full lg:w-[60%]">
+      <div className=" container w-full  bg-white rounded-[10px] h-[50px] flex items-center justify-between p-2 lg:w-[60%]">
         <div className="flex gap-1 items-center w-full">
           <Search className=" h-6 w-6  text-home_grey" />
           <Input

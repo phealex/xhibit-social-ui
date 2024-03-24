@@ -4,16 +4,22 @@ import {
   Chris,
   Coinbase,
   Customize,
+  Design,
+  Development,
   Devon,
   Diversity,
   Dmitry,
+  Finance,
   HelpingHands,
   Kayla,
+  Marketing,
   MaskAd,
   Nguyen,
+  Photography,
   Project,
   Skills,
   Software,
+  Softwares,
   Solar,
   Sparkle,
   Star,
@@ -30,6 +36,7 @@ import {
   ChatType,
   HiringCompanyType,
   JobType,
+  ProjectCategoryType,
   RegisterDataType,
   StartupProfile,
   TalentFeedPost,
@@ -1200,7 +1207,8 @@ export const blogPosts: BlogType[] = [
     date: "Dec 17, 2023",
     content:
       "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
-  },  {
+  },
+  {
     id: "1352144",
     title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
     author: "Stephen Jones",
@@ -1208,7 +1216,8 @@ export const blogPosts: BlogType[] = [
     date: "Dec 17, 2023",
     content:
       "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
-  },  {
+  },
+  {
     id: "3687077",
     title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
     author: "Stephen Jones",
@@ -1216,7 +1225,8 @@ export const blogPosts: BlogType[] = [
     date: "Dec 17, 2023",
     content:
       "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
-  },  {
+  },
+  {
     id: "665566",
     title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
     author: "Stephen Jones",
@@ -1224,7 +1234,8 @@ export const blogPosts: BlogType[] = [
     date: "Dec 17, 2023",
     content:
       "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
-  },  {
+  },
+  {
     id: "9297381",
     title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
     author: "Stephen Jones",
@@ -1232,7 +1243,8 @@ export const blogPosts: BlogType[] = [
     date: "Dec 17, 2023",
     content:
       "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
-  },  {
+  },
+  {
     id: "1897350",
     title: "AI vs. iPhone: Sam Altman is re-inventing the phone | Article",
     author: "Stephen Jones",
@@ -1241,10 +1253,7 @@ export const blogPosts: BlogType[] = [
     content:
       "The iPhone is a marvel of modern technology. It’s a device that has changed the way we communicate, work, and play. But what if it could do more? What if it could think for itself? That’s the question that Sam Altman, the CEO of OpenAI, is asking. Altman is working on a new project that aims to create an AI-powered iPhone. The device would be able to understand and respond to natural language, learn from its user, and even anticipate their needs. It’s a bold vision, but Altman is confident that it’s possible. In a recent interview, he said, “I think we’re at the point where we can start to build things that are genuinely intelligent.” Study: AI helps low performers most Wharton researchers found that generative AI tools significantly enhanced consultants' performance across various tasks, acting as a skill-leveler especially for lower performers. The study aligns with previous findings, hinting at potential workforce restructuring in which highly skilled workers tackle specialized tasks. Startups pioneer ‘algorithmic perfumery’ Beauty brands are merging AI and brain science to create fragrances designed to trigger specific emotional responses such as calm, euphoria, or sleepiness. “My interest in algorithmic perfumery is the access it provides to people to engage with scent directly,” says EveryHuman co-founder Anahita Mekanik. Creators cash in on … xeets? The company formerly known as Twitter has paid out nearly $20M to creators since it began sharing ad revenue for verified users who meet certain metrics with their xeets. ‘Non-human’ creations. Théâtre d’Opéra Spatial, an AI-generated image that won first place at the 2022 Colorado state fair annual art competition, was stripped of its title after a court ruled that copyright protection “excludes works produced by non-humans.",
   },
-
 ];
-
-
 
 export const chatData: ChatType[] = [
   {
@@ -1252,76 +1261,115 @@ export const chatData: ChatType[] = [
     user: "Chris Hodger",
     userImage: Dmitry,
     type: "Service request",
-    lastMessage: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
+    lastMessage:
+      "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
     lastMessageTime: "2h",
     messages: [
       {
         type: "service",
         content: {
-        id: "18272892",
-        time: "20 hours ago",
-        title: "Brand indentity design",
-        desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
-        images: [
-          coinbaseProject,
-          coinbaseProject,
-          coinbaseProject,
-          coinbaseProject
-        ],
-        price: "4000",
-        duration: "2 weeks",
-        accepted: null,
-        userType: "receiver"
-      }
-      }, 
+          id: "18272892",
+          time: "20 hours ago",
+          title: "Brand indentity design",
+          desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
+          images: [
+            coinbaseProject,
+            coinbaseProject,
+            coinbaseProject,
+            coinbaseProject,
+          ],
+          price: "4000",
+          duration: "2 weeks",
+          accepted: null,
+          userType: "receiver",
+        },
+      },
       {
         type: "message",
         content: {
-
           time: "2h",
-          message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
+          message:
+            "Mark: It was great, thanks! I went hiking with some friends. How about you?",
           userType: "sender",
-        }
-      }
-    ]
-
+        },
+      },
+    ],
   },
   {
     id: "8393739383",
     user: "Chris Hodger",
     userImage: Dmitry,
     type: "Service request",
-    lastMessage: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
+    lastMessage:
+      "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
     lastMessageTime: "2h",
     messages: [
       {
         type: "service",
         content: {
-        id: "18272892",
-        time: "20 hours ago",
-        title: "Brand indentity design",
-        desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
-        images: [
-          coinbaseProject,
-          coinbaseProject,
-          coinbaseProject,
-          coinbaseProject
-        ],
-        price: "4000",
-        duration: "2 weeks",
-        accepted: null,
-        userType: "receiver"
-      }
-      }, 
+          id: "18272892",
+          time: "20 hours ago",
+          title: "Brand indentity design",
+          desc: "Hey, I saw your profile and I think you'd be a great fit for a project I'm working on. Would you be interested in discussing further?",
+          images: [
+            coinbaseProject,
+            coinbaseProject,
+            coinbaseProject,
+            coinbaseProject,
+          ],
+          price: "4000",
+          duration: "2 weeks",
+          accepted: null,
+          userType: "receiver",
+        },
+      },
       {
         type: "message",
         content: {
-
           time: "2h",
-          message: "Mark: It was great, thanks! I went hiking with some friends. How about you?",
+          message:
+            "Mark: It was great, thanks! I went hiking with some friends. How about you?",
           userType: "sender",
-        }
-      }
-    ]
-  }
-]
+        },
+      },
+    ],
+  },
+];
+
+export const projectCategory: ProjectCategoryType[] = [
+  {
+    name: "Design",
+    icon: Design,
+    images: [coinbaseProject, coinbaseProject, coinbaseProject],
+  },
+  {
+    name: "Marketing",
+    icon: Marketing,
+    images: [coinbaseProject, coinbaseProject, coinbaseProject],
+  },
+  {
+    name: "Software's",
+    icon: Softwares,
+    images: [coinbaseProject, coinbaseProject, coinbaseProject],
+  },
+  {
+    name: "Development",
+    icon: Development,
+    images: [coinbaseProject, coinbaseProject, coinbaseProject],
+  },
+  {
+    name: "Finance",
+    icon: Finance,
+    images: [coinbaseProject, coinbaseProject, coinbaseProject],
+  },
+  {
+    name: "Photography",
+    icon: Photography,
+    images: [coinbaseProject, coinbaseProject, coinbaseProject],
+  },
+  {
+    name: "Design",
+    icon: Design,
+    images: [coinbaseProject, coinbaseProject, coinbaseProject],
+  },
+];

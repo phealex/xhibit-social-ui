@@ -73,6 +73,13 @@ import blog from "./blog.svg";
 import blogImage from "./blogImg.svg";
 import ProjectBanner from "./ProjectBanner.svg";
 import ServiceBanner from "./ServiceBanner.svg";
+import Design from "./Design.svg";
+import Development from "./Development.svg";
+import Marketing from "./Marketing.svg";
+import Finance from "./Finance.svg";
+import Photography from "./Photograph.svg";
+import Softwares from "./Software.svg";
+
 
 export {
   Logo,
@@ -150,4 +157,10 @@ export {
   blogImage,
   ProjectBanner,
   ServiceBanner,
+  Design,
+  Development,
+  Marketing,
+  Finance,
+  Photography,
+  Softwares,
 };
