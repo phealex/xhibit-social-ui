@@ -1,4 +1,4 @@
-import { JobsDisplayState, MessageDisplayState } from '@/types'
+import { JobsDisplayState, MessageDisplayState, ProjectDisplayState } from '@/types'
 import { create } from 'zustand'
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     // showBrowseJobs: true,
@@ -27,4 +27,13 @@ export const useMessagesDisplay = create<MessageDisplayState>()((set) => ({
     chatToShow: null,
     setChatToShow: (chatToShow) => set({chatToShow}),
     chatCategoryToShow: "message"
+}))
+
+
+export const useProjectDisplay = create<ProjectDisplayState>()((set) => ({
+    view: "projects",
+    showProjectDetails: false,
+    projectToShowId: null,
+    setProjectToShowId: (projectToShowId) => set({projectToShowId}),
+
 }))

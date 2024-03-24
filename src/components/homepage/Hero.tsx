@@ -32,13 +32,13 @@ const Hero: FC = () => {
                   <div className="relative p-0.5 rounded-[60px]">
                     <div className="absolute inset-0 bg-gradient-to-r from-home_border_gradient_color_1 to-home_border_gradient_color_2  rounded-[60px]"></div>
                     <div className="flex w-full relative gap-2 justify-between p-3 md:p-5 bg-home_gradient items-center rounded-[60px]">
-                      <Search className="w-[18px] h-[18px] flex flex-shrink-0 text-white/70" />
+                      <Search className=" hidden sm:flex md:w-[18px] md:h-[18px] p-0 m-0  flex-shrink-0 text-white/70" />
                       <input
                         type="text"
                         placeholder="Try Java Developer, React..."
                         className="bg-transparent text-[13px] lg:text-[18px] font-medium flex-shrink flex-1 text-white/70 placeholder-white/70 outline-none"
                       />
-                      <Button className=" font-Jakarta text-center gap-1 text-[13px] lg:text-[15px] font-semibold text-[#323C45]  bg-white px-3 py-[6px] rounded-[60px] ">
+                      <Button className=" font-Jakarta text-center gap-1 text-[10px] md:text-[13px] lg:text-[15px] font-semibold text-[#323C45]  bg-white px-2 md:px-3 py-[6px] rounded-[60px] ">
                         <Sparkles className="text-[#7559E5] h-[16px] w-[16px] " />
                         HIRE TALENT
                       </Button>

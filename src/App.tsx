@@ -29,6 +29,7 @@ import TalentFeed from "./pages/talentFeed/TalentFeed";
 import TalentProfile from "./pages/talentProfile/TalentProfile";
 import TalentJobs from "./pages/talentJobs/TalentJobs";
 import Messages from "./pages/messages/Messages";
+import TalentProjects from "./pages/talentProjects/TalentProjects";
 
 function App() {
   const HomeLayout = () => {
@@ -157,6 +158,10 @@ function App() {
         {
           path: "messages",
           element: <Messages />,
+        },
+        {
+          path: "projects",
+          element: <TalentProjects />,
         }
 
       ],

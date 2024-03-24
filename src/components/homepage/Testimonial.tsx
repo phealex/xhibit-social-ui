@@ -24,15 +24,15 @@ const Testimonial: FC = () => {
         <div className="  w-full">
           <div className="relative p-0.5  ">
             <div className="absolute inset-0 bg-gradient-to-r from-home_border_gradient_color_1 to-home_border_gradient_color_2  rounded-[10px]"></div>
-            <div className=" relative bg-home_gradient/95 backdrop-blur rounded-[10px]  px-5 py-[84px] md:py-[70px]  ">
+            <div className=" relative bg-home_gradient/95 backdrop-blur rounded-[10px] px-0  sm:px-5 py-[84px] md:py-[70px]  ">
               <div className="flex gap-2 items-center border border-white p-2 rounded-[60px]">
-                <Search className="w-[18px] h-[18px] flex flex-shrink-0 text-white/70" />
+                <Search className="hidden sm:flex w-[18px] h-[18px] flex-shrink-0 text-white/70" />
                 <input
                   type="text"
                   placeholder="Try Java Developer, React..."
                   className="bg-transparent text-[13px] lg:text-[18px] font-medium flex-shrink flex-1 text-white/70 placeholder-white/70 outline-none"
                 />
-                <Button className=" font-Jakarta text-center gap-1 text-[13px] lg:text-[15px] font-semibold text-[#323C45]  bg-white px-3 py-[6px] rounded-[60px] ">
+                <Button className=" font-Jakarta text-center gap-1 text-[10px] sm:text-[13px] lg:text-[15px] font-semibold text-[#323C45]  bg-white px-3 py-[6px] rounded-[60px] ">
                   <Sparkles className="text-[#7559E5] h-[16px] w-[16px] " />
                   HIRE TALENT
                 </Button>

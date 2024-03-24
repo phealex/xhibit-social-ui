@@ -514,3 +514,12 @@ export const SubmitServiceSchema =  z.object({
     message: "Note must not exceed 1000 characters"
   }),
 })
+
+export type ProjectView = "projects" | "services"
+
+export interface ProjectDisplayState {
+  view: ProjectView;
+  showProjectDetails: boolean;
+  projectToShowId: string | null;
+  setProjectToShowId: (value: string | null) => void;
+}

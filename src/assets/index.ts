@@ -71,6 +71,8 @@ import soundhound from "./soundhound.svg";
 import peopleai from "./peopleai.svg";
 import blog from "./blog.svg";
 import blogImage from "./blogImg.svg";
+import ProjectBanner from "./ProjectBanner.svg";
+import ServiceBanner from "./ServiceBanner.svg";
 
 export {
   Logo,
@@ -146,4 +148,6 @@ export {
   peopleai,
   blog,
   blogImage,
+  ProjectBanner,
+  ServiceBanner,
 };

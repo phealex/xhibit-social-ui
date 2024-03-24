@@ -60,7 +60,7 @@ const TalentFeed: FC = () => {
             }
           </div>
           <div className="bg-white  flex flex-col gap-5 py-[30px]">
-            <div className="flex justify-between items-center  px-[30px]">
+            <div className="flex flex-col md:flex-row gap-5 items-start md:items-center  px-[30px]">
               <p className=" font-Jakarta font-medium text-[16px] text-dark_green">
                 Find your next gig
               </p>
