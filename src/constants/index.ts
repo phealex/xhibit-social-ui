@@ -1377,7 +1377,7 @@ export const projectCategory: ProjectCategoryType[] = [
   },
 ];
 
-export const ServicesData: ServiceCardType[] = [
+export const servicesData: ServiceCardType[] = [
   {
     id: "10396707",
     title: "Brand identity design",

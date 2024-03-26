@@ -9,9 +9,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { projects } from "@/constants";
+import { projects, servicesData } from "@/constants";
 import { ProjectCard } from "..";
 import { Button } from "../ui/button";
+import ServiceProjectsDisplay from "./ServiceProjectsDisplay";
 
 const ProjectsDisplay: FC = () => {
   const view = useProjectDisplay((state) => state.view);
@@ -73,9 +74,9 @@ const ProjectsDisplay: FC = () => {
             projects: projects.map((project, index) => (
               <ProjectCard key={index} project={project} />
             )),
-            // services: services.slice(0, cardToShow).map((service, index) => (
-            //     <ServiceCard key={index} service={service} />
-            // )),
+            services: servicesData.map((service, index) => (
+                <ServiceProjectsDisplay key={index} service={service} />
+            )),
           }[view]
         }
       </div>
