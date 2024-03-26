@@ -531,3 +531,17 @@ export interface ProjectCategoryType {
   icon: string;
   images: string[];
 }
+
+
+export interface UserType {
+  name: string;
+  img: string;
+  location: string;
+}
+
+export interface ServiceCardType extends Omit<ServiceType, "userType" | "accepted" | "time" >, UserType {
+  rating: number;
+  ratingCount: number;
+  iterations: number;
+  bookmarks: number;
+} 

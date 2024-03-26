@@ -1,4 +1,4 @@
-import { ProjectCategories, ProjectHeader } from "@/components"
+import { ProjectCategories, ProjectHeader, ProjectsDisplay } from "@/components"
 import { FC } from "react"
 
 const TalentProjects: FC = () => {
@@ -6,6 +6,7 @@ const TalentProjects: FC = () => {
     <div className=" min-h-screen bg-accent_blue flex flex-col gap-[50px]">
         <ProjectHeader />
         <ProjectCategories />
+        <ProjectsDisplay />
 
     </div>
   )
