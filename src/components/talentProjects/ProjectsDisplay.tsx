@@ -51,21 +51,45 @@ const ProjectsDisplay: FC = () => {
             </p>
           </div>
         <Separator className=" flex md:hidden w-full bg-dark_green/10" />
-          <Select>
-            <SelectTrigger className="!p-0 !h-fit  justify-end bg-transparent border-none outline-none ring-transparent font-Jakarta text-[13px] placeholder:text-primary_blue text-primary_blue font-medium  ">
-              <SelectValue
-                placeholder="All projects"
-                className=" whitespace-nowrap"
-              />
-            </SelectTrigger>
-            <SelectContent className=" bg-white">
-              <SelectItem value="sale">Projects for sale</SelectItem>
-              <SelectItem value="downloadable">
-                Downloadable projects
-              </SelectItem>
-              <SelectItem value="view">View only projects </SelectItem>
-            </SelectContent>
-          </Select>
+         {
+            {
+                projects: (
+                    <Select>
+                    <SelectTrigger className="!p-0 !h-fit  justify-end bg-transparent border-none outline-none ring-transparent font-Jakarta text-[13px] placeholder:text-primary_blue text-primary_blue font-medium  ">
+                      <SelectValue
+                        placeholder="All projects"
+                        className=" whitespace-nowrap"
+                      />
+                    </SelectTrigger>
+                    <SelectContent className=" bg-white">
+                      <SelectItem value="sale">Projects for sale</SelectItem>
+                      <SelectItem value="downloadable">
+                        Downloadable projects
+                      </SelectItem>
+                      <SelectItem value="view">View only projects </SelectItem>
+                    </SelectContent>
+                  </Select>
+                ),
+                services: (
+                    <Select>
+                    <SelectTrigger className="!p-0 !h-fit  justify-end bg-transparent border-none outline-none ring-transparent font-Jakarta text-[13px] placeholder:text-primary_blue text-primary_blue font-medium  ">
+                      <SelectValue
+                        placeholder="All services"
+                        className=" whitespace-nowrap"
+                      />
+                    </SelectTrigger>
+                    <SelectContent className=" bg-white">
+                      <SelectItem value="sale">Services for sale</SelectItem>
+                      <SelectItem value="downloadable">
+                        Downloadable services
+                      </SelectItem>
+                      <SelectItem value="view">View only services </SelectItem>
+                    </SelectContent>
+                  </Select>
+                )
+
+            }[view]
+         }
         </div>
         <Separator className=" hidden md:flex w-full bg-dark_green/10" />
       </div>

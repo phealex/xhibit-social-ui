@@ -517,11 +517,13 @@ export const SubmitServiceSchema =  z.object({
 
 export type ProjectView = "projects" | "services"
 
+
 export interface ProjectDisplayState {
   view: ProjectView;
   showProjectDetails: boolean;
   projectToShowId: string | null;
   setProjectToShowId: (value: string | null) => void;
+  addNew: ProjectView | null
 }
 
 

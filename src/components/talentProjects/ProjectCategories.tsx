@@ -3,6 +3,9 @@ import { useProjectDisplay } from "@/store";
 import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import { FC, useRef } from "react";
 import { Button } from "../ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import { BiSolidBriefcase } from "react-icons/bi";
+import { Separator } from "../ui/separator";
 
 const ProjectCategories: FC = () => {
   const view = useProjectDisplay((state) => state.view);
@@ -34,12 +37,54 @@ const ProjectCategories: FC = () => {
         className="flex gap-5 items-center max-w-[80%] mx-auto overflow-x-auto hide-scrollbar hide-scrollbar::-webkit-scrollbar "
         ref={containerRef}
       >
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
         <div className="flex flex-col gap-2 items-center">
           <Plus className=" h-10 w-10 text-white p-2 bg-primary_blue rounded-full" />
           <p className=" font-Jakarta font-normal text-base text-dark_green whitespace-nowrap">
             Add new
           </p>
         </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className=" max-w-[344px] rounded-[10px] bg-white py-[27px] px-[10px] flex  flex-col gap-5 ">
+          <div onClick={() => useProjectDisplay.setState({
+            addNew: "projects"
+          })} className=" w-full justify-between gap-5 items-center flex px-4 py-2 bg-dark_green/10 border border-dark_green/10 rounded-md cursor-pointer">
+            <div className="flex gap-[10px] items-center h-fit">
+              <BiSolidBriefcase className=" h-6 w-6 text-dark_green/70" />
+              <Separator orientation="vertical" className="h-[30px] bg-dark_green/70" />
+              <div className="flex flex-col gap-1">
+                <p className=" font-Jakarta font-semibold text-xs text-dark_green/70">
+                  Project
+                </p>
+                <span className=" font-Jakarta font-normal text-xs text-dark_green/70">
+                  Showcase your personal projects
+                </span>
+              </div>
+            </div>
+            <ArrowRight className="h-6 w-6 text-dark_green/70 "/>
+          </div>
+
+          <div onClick={() => useProjectDisplay.setState({
+            addNew: "services"
+          })} className=" w-full justify-between items-center flex px-4 py-2  bg-dark_green/10 border border-dark_green/10 rounded-md cursor-pointer">
+            <div className="flex gap-[10px] items-center h-full">
+              <BiSolidBriefcase className=" h-6 w-6 text-dark_green/70" />
+              <Separator orientation="vertical" className="h-[30px] bg-dark_green/70" />
+              <div className="flex flex-col gap-1">
+                <p className=" font-Jakarta font-semibold text-xs text-dark_green/70">
+                  Services
+                </p>
+                <span className=" font-Jakarta font-normal text-xs text-dark_green/70">
+                  Showcase your services and 
+                </span>
+              </div>
+            </div>
+            <ArrowRight className="h-6 w-6 text-dark_green/70 "/>
+          </div>
+
+        </DropdownMenuContent>
+        </DropdownMenu>
         {
           {
             projects: 
