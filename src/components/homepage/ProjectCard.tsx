@@ -22,7 +22,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 }) => {
   return (
     <Card
-    className="w-[280px] mx-auto bg-dark_green/70 rounded-[17px] flex flex-col shrink-0 grow-0   gap-[10px] border-none p-4"
+    className="w-[280px] bg-dark_green/70 rounded-[17px] flex flex-col shrink-0 grow-0   gap-[10px] border-none p-4"
   >
     <CardHeader className="flex flex-row gap-2 items-center !p-0">
       <Avatar>

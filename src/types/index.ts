@@ -532,6 +532,10 @@ export interface ProjectCategoryType {
   images: string[];
 }
 
+export interface ServiceCategoryType {
+  image: string;
+  name: string
+}
 
 export interface UserType {
   name: string;

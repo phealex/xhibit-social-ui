@@ -41,6 +41,7 @@ import {
   ProjectCategoryType,
   RegisterDataType,
   ServiceCardType,
+  ServiceCategoryType,
   StartupProfile,
   TalentFeedPost,
 } from "@/types";
@@ -1374,6 +1375,33 @@ export const projectCategory: ProjectCategoryType[] = [
     name: "Design",
     icon: Design,
     images: [coinbaseProject, coinbaseProject, coinbaseProject],
+  },
+];
+
+export const serviceCategory: ServiceCategoryType[] = [
+  {
+    image: coinbaseProject,
+    name: "Photography",
+  },
+  {
+    image: coinbaseProject,
+    name: "Branding",
+  },
+  {
+    image: coinbaseProject,
+    name: "Mobile app",
+  },
+  {
+    image: coinbaseProject,
+    name: "UI/UX design",
+  },
+  {
+    image: coinbaseProject,
+    name: "Graphics design",
+  },
+  {
+    image: coinbaseProject,
+    name: "animation",
   },
 ];
 

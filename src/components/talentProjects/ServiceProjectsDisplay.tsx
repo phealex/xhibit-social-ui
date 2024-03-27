@@ -13,7 +13,7 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
 }) => {
   return (
     <Card>
-      <CardContent className="p-5 w-[380px] rounded-[10px] bg-white border border-dark_green/10 flex flex-col gap-3">
+      <CardContent className="p-5 w-[330px] lg:w-[380px] rounded-[10px] bg-white border border-dark_green/10 flex flex-col gap-3">
         <section className="flex items-center gap-[5px]">
           <img src={service.img} alt="" className=" h-9 w-9 object-cover" />
           <div className="flex flex-col gap-1 h-full">

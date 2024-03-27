@@ -22,9 +22,9 @@ const ImageSlider: FC<ImageSliderProps> = ({ images, className }) => {
       <img
         src={images[activeImageIndex]}
         alt=""
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover rounded-[10px]"
       />
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2">
+      <div className="absolute bottom-0 left-0 right-0 flex pb-2 justify-center gap-2">
         {images.map((_, index) => (
           <button
             type="button"
