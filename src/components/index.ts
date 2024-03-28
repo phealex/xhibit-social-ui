@@ -61,14 +61,15 @@ export { default as EmergingStartup } from "./talentJobs/EmergingStartup";
 export { default as Industry } from "./talentJobs/Industry";
 export { default as BlogCard } from "./talentJobs/BlogCard";
 export { default as Blogs } from "./talentJobs/Blogs";
-export {default as MessageCard} from "./message/MessageCard"
-export {default as ChatCard} from "./message/ChatCard"
-export {default as ServiceCard} from "./message/ServiceCard"
-export {default as NewMessage} from "./message/NewMessage"
-export {default as ChatActions} from "./message/ChatActions"
-export {default as SubmitService} from "./message/SubmitService"
-export {default as ProjectHeader} from "./talentProjects/ProjectsHeader"
-export {default as ProjectCategories} from "./talentProjects/ProjectCategories"
-export {default as ProjectsDisplay} from "./talentProjects/ProjectsDisplay"
-export {default as ImageSlider} from "./imageSlider/ImageSlider"
-export {default as AddProject} from "./talentProjects/AddProject"
+export { default as MessageCard } from "./message/MessageCard";
+export { default as ChatCard } from "./message/ChatCard";
+export { default as ServiceCard } from "./message/ServiceCard";
+export { default as NewMessage } from "./message/NewMessage";
+export { default as ChatActions } from "./message/ChatActions";
+export { default as SubmitService } from "./message/SubmitService";
+export { default as ProjectHeader } from "./talentProjects/ProjectsHeader";
+export { default as ProjectCategories } from "./talentProjects/ProjectCategories";
+export { default as ProjectsDisplay } from "./talentProjects/ProjectsDisplay";
+export { default as ImageSlider } from "./imageSlider/ImageSlider";
+export { default as AddProject } from "./talentProjects/AddProject";
+export {default as Step1} from "./addProject/Step1"

@@ -108,8 +108,6 @@ export const userDetailsRegisterSchema = z.object({
     }),
 });
 
-
-
 export const verifyEmailSchema = z.object({
   emailOtp: z
     .string({
@@ -147,27 +145,25 @@ export const resetPasswordSchema = z.object({
   }),
   otp: z.array(z.string()).nonempty(),
   newPassword: z.string(),
-  confirmPassword: z.string()
-  // newPassword:z.string().refine(value => 
+  confirmPassword: z.string(),
+  // newPassword:z.string().refine(value =>
   //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value),
   //   {
   //     message: "Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long",
   //   }
   // ),
-  // confirmPassword: z.string().refine(value => 
+  // confirmPassword: z.string().refine(value =>
   //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value),
   //   {
   //     message: "Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long",
   //   }
   // ),
-
-})
+});
 
 export interface handleNextProps {
   handleNext: () => void;
   type?: RegisterDataType["userType"] | undefined;
 }
-
 
 export interface TalentFeedPost {
   user: string;
@@ -200,7 +196,6 @@ export interface TalentFeedPost {
   }[];
 }
 
-
 export const CommentFormSchema = z.object({
   comment: z
     .string()
@@ -210,8 +205,7 @@ export const CommentFormSchema = z.object({
     .max(160, {
       message: "Comment must not be longer than 300 characters.",
     }),
-})
-
+});
 
 export interface JobType {
   id: string;
@@ -230,7 +224,6 @@ export interface JobType {
   goodMatch: boolean;
 }
 
-
 export const SetAvailabilitySchema = z.object({
   status: z.enum(["open", "not open"], {
     required_error: "Select an option to continue",
@@ -240,170 +233,204 @@ export const SetAvailabilitySchema = z.object({
   }),
 });
 
-
 export const bioFormSchema = z.object({
   firstName: z.string(),
   lastName: z.string(),
   city: z.string(),
   website: z.string().url(),
-})
+});
 
 export const headlineFormScheme = z.object({
-  headline: z.string({
-    required_error: "Headline must be provided"
-  }).max(50, {
-    message: "Maximum character length exceeded" 
-  }),
-  bio: z.string({
-    required_error: "Bio must be provided"
-  }).max(1000, {
-    message: "Maximum character length exceeded" 
-  }), 
-
-})
+  headline: z
+    .string({
+      required_error: "Headline must be provided",
+    })
+    .max(50, {
+      message: "Maximum character length exceeded",
+    }),
+  bio: z
+    .string({
+      required_error: "Bio must be provided",
+    })
+    .max(1000, {
+      message: "Maximum character length exceeded",
+    }),
+});
 
 export const roleFormSchema = z.object({
   title: z.object({
     label: z.string(),
-    value: z.string()
+    value: z.string(),
   }),
   roles: z.array(z.string()).optional(),
   experience: z.string({
-    required_error: "Experience must be provided"
+    required_error: "Experience must be provided",
   }),
-})
-
+});
 
 export const experienceFormSchema = z.object({
   company: z.string({
-    required_error: "Company must be provided"
+    required_error: "Company must be provided",
   }),
   title: z.string({
-    required_error: "Job title must be provided"
+    required_error: "Job title must be provided",
   }),
   // technologies: z.array(z.string()).optional(),
   // technologies: z.string().nonempty('A technology must be selected'),
-  technologies: z.array(z.object({
-    label: z.string(),
-    value: z.string()
-  })).optional(),
+  technologies: z
+    .array(
+      z.object({
+        label: z.string(),
+        value: z.string(),
+      })
+    )
+    .optional(),
   startMonth: z.string({
-    required_error: "Start month must be provided"
+    required_error: "Start month must be provided",
   }),
   startYear: z.string({
-    required_error: "Start month must be provided"
+    required_error: "Start month must be provided",
   }),
-  endMonth: z.string({
-    required_error: "End month must be provided"
-  }).optional(),
-  endYear: z.string({
-    required_error: "End month must be provided"
-  }).optional(),
+  endMonth: z
+    .string({
+      required_error: "End month must be provided",
+    })
+    .optional(),
+  endYear: z
+    .string({
+      required_error: "End month must be provided",
+    })
+    .optional(),
   current: z.boolean().default(false),
   description: z.string({
-    required_error: "Description must be provided"
-  })
-})
+    required_error: "Description must be provided",
+  }),
+});
 
 export const skillFormSchema = z.object({
-  skills: z.array(z.object({
-    label: z.string(),
-    value: z.string()
-  })).min(5, {
-    message: "Minimum of 5 skills must be selected"
-  }),
- highlighted: z.array(z.object({
-    label: z.string(),
-    value: z.string()
-  })).min(3, {
-    message: "Minimum of 3 skills must be highlighted"
-  }),
-})
+  skills: z
+    .array(
+      z.object({
+        label: z.string(),
+        value: z.string(),
+      })
+    )
+    .min(5, {
+      message: "Minimum of 5 skills must be selected",
+    }),
+  highlighted: z
+    .array(
+      z.object({
+        label: z.string(),
+        value: z.string(),
+      })
+    )
+    .min(3, {
+      message: "Minimum of 3 skills must be highlighted",
+    }),
+});
 
 export const projectFormSchema = z.object({
   name: z.string({
-    required_error: "Title must be provided"
+    required_error: "Title must be provided",
   }),
-  url: z.string({
-    required_error: "URL must be provided"
-  }).url(),
-  technologies: z.array(z.object({
-    label: z.string(),
-    value: z.string()
-  })),
+  url: z
+    .string({
+      required_error: "URL must be provided",
+    })
+    .url(),
+  technologies: z.array(
+    z.object({
+      label: z.string(),
+      value: z.string(),
+    })
+  ),
   image: z.object({
-    type: z.string().nonempty('A file is required'),
-    size: z.number().max(2000000, 'File size should be less than 2MB'),
+    type: z.string().nonempty("A file is required"),
+    size: z.number().max(2000000, "File size should be less than 2MB"),
     name: z.string().nonempty(),
   }),
   description: z.string({
-    required_error: "Description must be provided"
+    required_error: "Description must be provided",
   }),
-})
-
+});
 
 export const certificationFormSchema = z.object({
   name: z.string({
-    required_error: "Title must be provided"
+    required_error: "Title must be provided",
   }),
   issuer: z.string({
-    required_error: "Issuer must be provided"
+    required_error: "Issuer must be provided",
   }),
-  url: z.string({
-    required_error: "URL must be provided"
-  }).url(),
-  year: z.string({
-    required_error: "Year must be provided"
-  }).min(4, {
-    message: "Year must be valid"
-  }).max(4, {
-    message: "Year must be valid"
-  }),
-})
-
+  url: z
+    .string({
+      required_error: "URL must be provided",
+    })
+    .url(),
+  year: z
+    .string({
+      required_error: "Year must be provided",
+    })
+    .min(4, {
+      message: "Year must be valid",
+    })
+    .max(4, {
+      message: "Year must be valid",
+    }),
+});
 
 export const educationFormSchema = z.object({
   school: z.string({
-    required_error: "School must be provided"
+    required_error: "School must be provided",
   }),
   degree: z.string({
-    required_error: "Degree must be provided"
+    required_error: "Degree must be provided",
   }),
   field: z.string({
-    required_error: "Field of study must be provided"
+    required_error: "Field of study must be provided",
   }),
-  year: z.string({
-    required_error: "Year must be provided"
-  }).min(4, {
-    message: "Year must be valid"
-  }).max(4, {
-    message: "Year must be valid"
-  }),
-})
-
+  year: z
+    .string({
+      required_error: "Year must be provided",
+    })
+    .min(4, {
+      message: "Year must be valid",
+    })
+    .max(4, {
+      message: "Year must be valid",
+    }),
+});
 
 export const toolsFormSchema = z.object({
   tool: z.object({
     label: z.string(),
-    value: z.string()
+    value: z.string(),
   }),
   level: z.enum(["basic", "intermediate", "advanced", "master"], {
     required_error: "Select an option to continue",
-  })
-})
+  }),
+});
 
-type views=  "browse" | "applied" | "saved" | "resume" | "interview" | "startup" | "industries" | "blog";
-type JobDetailsView = "info" | "details" | "company"
+type views =
+  | "browse"
+  | "applied"
+  | "saved"
+  | "resume"
+  | "interview"
+  | "startup"
+  | "industries"
+  | "blog";
+type JobDetailsView = "info" | "details" | "company";
 
 export interface JobsDisplayState {
   // showBrowseJobs: boolean;
   // setShowBrowseJobs: (value: boolean) => void;
-  viewToShow: views
+  viewToShow: views;
   setViewToShow: (value: views) => void;
   showJobDetails: boolean;
   setShowJobDetails: (value: boolean) => void;
   jobToShowId: string | null;
-  setJobToShowId: (value: string | null) => void; 
+  setJobToShowId: (value: string | null) => void;
   detailsToShow: JobDetailsView;
   setDetailsToShow: (value: JobDetailsView) => void;
   isApplying: boolean;
@@ -413,11 +440,8 @@ export interface JobsDisplayState {
   showStartupProfile: boolean;
   startupProfileId: string | null;
   showBlogDetails: boolean;
-  blogToShowId: number | null; 
-
-
+  blogToShowId: number | null;
 }
-
 
 export interface HiringCompanyType {
   id: string;
@@ -428,7 +452,6 @@ export interface HiringCompanyType {
   companySize: string;
   openJobs: number;
 }
-
 
 export interface StartupProfile {
   id: string;
@@ -441,7 +464,6 @@ export interface StartupProfile {
   url: string;
 }
 
-
 export interface BlogType {
   id: string;
   title: string;
@@ -450,7 +472,6 @@ export interface BlogType {
   date: string;
   content: string;
 }
-
 
 export interface ServiceType {
   id: string;
@@ -461,15 +482,14 @@ export interface ServiceType {
   price: string;
   duration: string;
   accepted: boolean | null;
-  userType : "sender" | "receiver"; 
+  userType: "sender" | "receiver";
 }
 
 export interface MessageType {
   time: string;
   message: string;
-  userType : "sender" | "receiver"; 
+  userType: "sender" | "receiver";
 }
-
 
 export interface ChatType {
   id: string;
@@ -480,53 +500,61 @@ export interface ChatType {
   lastMessageTime: string;
   messages: {
     type: "message" | "service";
-    content : MessageType | ServiceType;
+    content: MessageType | ServiceType;
   }[];
 }
 
-
 export const ReportMessageSchema = z.object({
-  reason: z.enum(["spam", "adult content", "misinformation/disinformation", "fraud/scam", "others"], {
-    required_error: "You need to select a reason.",
-  }),
-})
- 
-type chatCategory = "message" | "archived"
+  reason: z.enum(
+    [
+      "spam",
+      "adult content",
+      "misinformation/disinformation",
+      "fraud/scam",
+      "others",
+    ],
+    {
+      required_error: "You need to select a reason.",
+    }
+  ),
+});
+
+type chatCategory = "message" | "archived";
 
 export interface MessageDisplayState {
   chatToShow: string | null;
-  chatCategoryToShow: chatCategory
+  chatCategoryToShow: chatCategory;
 }
 
-
-export const SubmitServiceSchema =  z.object({
-  url: z.string({
-    required_error: "URL must be provided"
-  }).url(),
+export const SubmitServiceSchema = z.object({
+  url: z
+    .string({
+      required_error: "URL must be provided",
+    })
+    .url(),
   file: z.object({
-    type: z.string().nonempty('A file is required'),
-    size: z.number().max(2000000, 'File size should be less than 2MB'),
+    type: z.string().nonempty("A file is required"),
+    size: z.number().max(2000000, "File size should be less than 2MB"),
     name: z.string().nonempty(),
   }),
-  note: z.string({
-    required_error: "Note must be provided"
-  }).max(1000, {
-    message: "Note must not exceed 1000 characters"
-  }),
-})
+  note: z
+    .string({
+      required_error: "Note must be provided",
+    })
+    .max(1000, {
+      message: "Note must not exceed 1000 characters",
+    }),
+});
 
-export type ProjectView = "projects" | "services"
-
+export type ProjectView = "projects" | "services";
 
 export interface ProjectDisplayState {
   view: ProjectView;
   showProjectDetails: boolean;
   projectToShowId: string | null;
   setProjectToShowId: (value: string | null) => void;
-  addNew: ProjectView | null
+  addNew: ProjectView | null;
 }
-
-
 
 export interface ProjectCategoryType {
   name: string;
@@ -536,7 +564,7 @@ export interface ProjectCategoryType {
 
 export interface ServiceCategoryType {
   image: string;
-  name: string
+  name: string;
 }
 
 export interface UserType {
@@ -545,9 +573,68 @@ export interface UserType {
   location: string;
 }
 
-export interface ServiceCardType extends Omit<ServiceType, "userType" | "accepted" | "time" >, UserType {
+export interface ServiceCardType
+  extends Omit<ServiceType, "userType" | "accepted" | "time">,
+    UserType {
   rating: number;
   ratingCount: number;
   iterations: number;
   bookmarks: number;
-} 
+}
+
+export const AddProjectFormSchema = z.object({
+  title: z.string().min(3, {
+    message: "Title must be at least 3 characters long",
+  }),
+  category: z.string(),
+  duration: z
+    .object({
+      startDate: z.date(),
+      endDate: z
+        .date()
+        .refine(
+          (endDate) => endDate >= new Date(),
+          "End date must be in the future"
+        ),
+    })
+    .refine(({ startDate, endDate }) => startDate <= endDate, {
+      message: "Start date must be before end date",
+    }),
+  description: z
+    .string()
+    .min(100, {
+      message: "Description must be at least 10 characters long",
+    })
+    .max(1000, {
+      message: "Description must not be longer than 1000 characters",
+    }),
+  role: z.string().min(3, {
+    message: "Role must be at least 3 characters long",
+  }),
+  technologies: z.array(z.string()).min(1, {
+    message: "Must select at least one technology",
+  }),
+  skills: z.array(z.string()).min(1, {
+    message: "Must select at least one skill",
+  }),
+  url: z.string().url(),
+  image: z.object({
+    type: z.string(),
+    size: z.number().max(2000000, "File size should be less than 2MB"),
+    name: z.string().nonempty(),
+  }),
+  file: z.object({
+    type: z.string(),
+    size: z.number().max(2000000, "File size should be less than 2MB"),
+    name: z.string().nonempty(),
+  }),
+  access: z.string(),
+});
+
+
+
+
+export interface MultiStepProps {
+  handleNext: () => void;
+  handlePrev: () => void;
+}

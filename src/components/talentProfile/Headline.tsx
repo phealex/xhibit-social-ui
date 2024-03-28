@@ -14,7 +14,14 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { headlineFormScheme } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
@@ -60,63 +67,74 @@ const Headline: FC = () => {
               </DialogDescription>
             </DialogHeader>
             <Form {...form}>
-            <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="flex flex-col gap-[20px] overflow-y-scroll hide-scrollbar hide-scrollbar::-webkit-scrollbar "
-                  >
-<FormField
-control={form.control}
-name="headline"
-render={({field}) => (
-    <FormItem>
-      <FormLabel className=" flex items-center justify-between">
-        <p className=" font-Jakarta text-[16px] leading-5 text-dark_green font-medium">
-        Headline
-        </p>
-        <p className={` font-Jakarta font-normal text-[16px] leading-5 text-dark_green/70 ${
-            field?.value?.length > 50 ? " text-red-600" : ""
-        }`}>
-            {field?.value?.length}/50
-        </p>
-      </FormLabel>
-      <FormControl>
-        <Input placeholder="Ex. Senior software Developer" className="focus-visible:ring-transparent outline-none" {...field} />
-      </FormControl>
-      <FormMessage />
-    </FormItem>
-)}
-/>
-<FormField
-control={form.control}
-name="bio"
-render={({field}) => (
-    <FormItem>
-      <FormLabel className=" flex items-center justify-between">
-        <p className=" font-Jakarta text-[16px] leading-5 text-dark_green font-medium">
-        Your bio
-        </p>
-        <p className={` font-Jakarta font-normal text-[16px] leading-5 text-dark_green/70 ${
-            field?.value?.length > 1000 ? " text-red-600" : ""
-        }`}>
-            {field?.value?.length}/1000
-        </p>
-      </FormLabel>
-      <FormControl>
-        <Textarea placeholder="Add a short bio to showcase yourself to your potential employers" className=" focus-visible:ring-transparent min-h-[200px]" {...field} />
-      </FormControl>
-      <FormMessage />
-    </FormItem>
-)}
-/>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="flex flex-col gap-[20px] overflow-y-scroll hide-scrollbar hide-scrollbar::-webkit-scrollbar "
+              >
+                <FormField
+                  control={form.control}
+                  name="headline"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className=" flex items-center justify-between">
+                        <p className=" font-Jakarta text-[16px] leading-5 text-dark_green font-medium">
+                          Headline
+                        </p>
+                        <p
+                          className={` font-Jakarta font-normal text-[16px] leading-5 text-dark_green/70 ${
+                            field?.value?.length > 50 ? " text-red-600" : ""
+                          }`}
+                        >
+                          {field?.value?.length}/50
+                        </p>
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Ex. Senior software Developer"
+                          className="focus-visible:ring-transparent outline-none"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="bio"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className=" flex items-center justify-between">
+                        <p className=" font-Jakarta text-[16px] leading-5 text-dark_green font-medium">
+                          Your bio
+                        </p>
+                        <p
+                          className={` font-Jakarta font-normal text-[16px] leading-5 text-dark_green/70 ${
+                            field?.value?.length > 1000 ? " text-red-600" : ""
+                          }`}
+                        >
+                          {field?.value?.length}/1000
+                        </p>
+                      </FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Add a short bio to showcase yourself to your potential employers"
+                          className=" focus-visible:ring-transparent min-h-[200px]"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-
-<Button type="submit" className=" font-Jakarta text-[16px] ml-auto font-medium text-white bg-primary_blue hover:bg-primary_blue p-3 w-fit">
-                      Save
-                    </Button>
-
-
-
-                </form>
+                <Button
+                  type="submit"
+                  className=" font-Jakarta text-[16px] ml-auto font-medium text-white bg-primary_blue hover:bg-primary_blue p-3 w-fit"
+                >
+                  Save
+                </Button>
+              </form>
             </Form>
           </DialogContent>
         </Dialog>
