@@ -34,7 +34,7 @@ const AddProject: FC = () => {
     <Step1 handlePrev={handlePrev} handleNext={handleNext} />,
   ])
   return (
-    <div className=" container flex gap-10">
+    <div className=" container flex gap-10 mb-20">
       <div className="hidden  md:flex flex-col gap-5 items-start md:w-[261px] lg:w-[342px] h-[678px] bg-dark_green/5 p-2 lg:pl-5 border border-dark_green/5 justify-center  rounded-[2px] rounded-tr-[82px]  ">
         {addProjectHeader.map((header, index) => (
           <div className="flex gap-2 items-start" key={index}>
@@ -78,7 +78,7 @@ const AddProject: FC = () => {
           </div>
         ))}
       </div>
-      <div className="flex flex-1 flex-col w-full gap-[30px] ">
+      <div className="flex flex-1 flex-col w-full gap-[30px] max-w-[500px] ">
         <h1 className=" font-Jakarta font-semibold text-xl text-dark_green">
             {
                 activeHeader.length === 1 ? "Add project" : activeHeader.length === 2 ? "Add project details" : activeHeader.length === 3 ? "Preview project" : "Add project"

@@ -589,15 +589,15 @@ export const AddProjectFormSchema = z.object({
   category: z.string(),
   duration: z
     .object({
-      startDate: z.date(),
-      endDate: z
+      from: z.date(),
+      to: z
         .date()
         .refine(
           (endDate) => endDate >= new Date(),
           "End date must be in the future"
         ),
     })
-    .refine(({ startDate, endDate }) => startDate <= endDate, {
+    .refine(({ from, to }) => from <= to, {
       message: "Start date must be before end date",
     }),
   description: z
