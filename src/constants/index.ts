@@ -1497,3 +1497,23 @@ export const servicesData: ServiceCardType[] = [
     location: "Lagos, NG",
   },
 ];
+
+
+
+export const addProjectHeader: {
+  title: string;
+  desc: string;
+}[] = [
+  {
+    title: "Verify your details",
+    desc: "Add your project"
+  },
+  {
+    title: "Add project details",
+    desc: "Filling in the relevant information related to your project"
+  },
+  {
+    title: "Preview project",
+    desc: "Preview your project to make sure details presented is accurate"
+  }
+]

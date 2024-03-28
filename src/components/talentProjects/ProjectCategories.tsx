@@ -39,7 +39,7 @@ const ProjectCategories: FC = () => {
       >
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-        <div className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col gap-2 items-center cursor-pointer">
           <Plus className=" h-10 w-10 text-white p-2 bg-primary_blue rounded-full" />
           <p className=" font-Jakarta font-normal text-base text-dark_green whitespace-nowrap">
             Add new
