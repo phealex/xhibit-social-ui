@@ -39,6 +39,7 @@ import {
   HiringCompanyType,
   JobType,
   ProjectCategoryType,
+  ProjectType,
   RegisterDataType,
   ServiceCardType,
   ServiceCategoryType,
@@ -107,16 +108,10 @@ export const features: {
   },
 ];
 
-export const projects: {
-  username: string;
-  userImage: string;
-  projectCategory: string;
-  projectImage: string;
-  rating: string;
-  projectTitle: string;
-  projectDescription: string;
-}[] = [
+export const projects: ProjectType[] = [
   {
+     
+    id: "140352",
     username: "Nguyen, Shane",
     userImage: Nguyen,
     projectCategory: "JS",
@@ -126,7 +121,8 @@ export const projects: {
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
   },
-  {
+  { 
+    id: "580220",
     username: "Nguyen, Shane",
     userImage: Nguyen,
     projectCategory: "JS",
@@ -136,7 +132,8 @@ export const projects: {
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
   },
-  {
+  { 
+    id: "949838",
     username: "Nguyen, Shane",
     userImage: Nguyen,
     projectCategory: "JS",
@@ -146,7 +143,8 @@ export const projects: {
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
   },
-  {
+  { 
+    id: "641870",
     username: "Nguyen, Shane",
     userImage: Nguyen,
     projectCategory: "JS",
@@ -156,7 +154,8 @@ export const projects: {
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
   },
-  {
+  { 
+    id: "712023",
     username: "Nguyen, Shane",
     userImage: Nguyen,
     projectCategory: "JS",
@@ -166,7 +165,8 @@ export const projects: {
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
   },
-  {
+  { 
+    id: "502342",
     username: "Nguyen, Shane",
     userImage: Nguyen,
     projectCategory: "JS",
@@ -176,7 +176,8 @@ export const projects: {
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
   },
-  {
+  { 
+    id: "690998",
     username: "Nguyen, Shane",
     userImage: Nguyen,
     projectCategory: "JS",
@@ -186,7 +187,8 @@ export const projects: {
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
   },
-  {
+  { 
+    id: "564252",
     username: "Nguyen, Shane",
     userImage: Nguyen,
     projectCategory: "JS",

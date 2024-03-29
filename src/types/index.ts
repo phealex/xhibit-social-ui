@@ -673,6 +673,18 @@ export interface ProjectFormType {
 }
 
 
+export interface ProjectType {
+  id: string;
+  username: string;
+  userImage: string;
+  projectCategory: string;
+  projectImage: string;
+  rating: string;
+  projectTitle: string;
+  projectDescription: string;
+}
+
+
 
 export interface ProjectFormState {
   projectForm: ProjectFormType;

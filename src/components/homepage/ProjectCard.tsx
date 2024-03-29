@@ -3,19 +3,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { ArrowRight, Star } from 'lucide-react'
 import { Button } from '../ui/button'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useProjectDisplay } from '@/store'
+import { ProjectType } from '@/types'
 
 
 interface ProjectCardProps {
-    project: {
-        username: string
-        userImage: string
-        projectImage: string
-        rating: string
-        projectCategory: string
-        projectTitle: string
-        projectDescription: string
-    }
+    project: ProjectType
 
 }
 const ProjectCard: FC<ProjectCardProps> = ({
@@ -23,6 +17,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
 }) => {
 
   const path = useLocation().pathname.split('/')[2]
+  const navigate = useNavigate()
+
+  
   return (
     <Card
     className="w-[280px] bg-dark_green/70 rounded-[17px] flex flex-col shrink-0 grow-0   gap-[10px] border-none p-4"
@@ -85,7 +82,16 @@ const ProjectCard: FC<ProjectCardProps> = ({
     </CardContent>
     <CardFooter className=" border-t-[2px] border-dark_green/70 !p-0">
       <Button onClick={() => {
-        console.log(path)
+        useProjectDisplay.setState({
+          showProjectDetails: true,
+          projectToShowId: project.id
+        })
+        if (path !== "projects") {
+          navigate("/talent/projects")
+          return
+        }
+
+       
       }} className="font-Jakarta font-semibold flex flex-row gap-2 text-[16px] leading-normal mx-auto border-none outline-none  text-white hover:text-white px-4 pt-3 bg-transparent hover:bg-transparent border border-white rounded-[5px]">
         View more
         <ArrowRight className="text-white text-[20px]" />
