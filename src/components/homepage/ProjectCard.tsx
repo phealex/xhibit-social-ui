@@ -80,7 +80,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
         {project.projectDescription}
       </CardDescription>
     </CardContent>
-    <CardFooter className=" border-t-[2px] border-dark_green/70 !p-0">
+    <CardFooter className=" border-t-[1px] border-dark_green/70 !p-0">
       <Button onClick={() => {
         useProjectDisplay.setState({
           showProjectDetails: true,
