@@ -98,7 +98,7 @@ const Projects: FC = () => {
                 View All
               </Button>
             </div>
-            <div className="flex flex-col md:flex-row md:flex-wrap gap-5 lg:gap-10  ">
+            <div className="flex flex-col justify-center md:flex-row md:flex-wrap gap-5 lg:gap-10  ">
               {projects.slice(0, cardToShow).map((project, index) => (
                 <ProjectCard key={index} project={project} />
               ))}

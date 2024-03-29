@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { ArrowRight, Star } from 'lucide-react'
 import { Button } from '../ui/button'
+import { useLocation } from 'react-router-dom'
 
 
 interface ProjectCardProps {
@@ -20,6 +21,8 @@ interface ProjectCardProps {
 const ProjectCard: FC<ProjectCardProps> = ({
     project
 }) => {
+
+  const path = useLocation().pathname.split('/')[2]
   return (
     <Card
     className="w-[280px] bg-dark_green/70 rounded-[17px] flex flex-col shrink-0 grow-0   gap-[10px] border-none p-4"
@@ -81,7 +84,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
       </CardDescription>
     </CardContent>
     <CardFooter className=" border-t-[2px] border-dark_green/70 !p-0">
-      <Button className="font-Jakarta font-semibold flex flex-row gap-2 text-[16px] leading-normal mx-auto border-none outline-none  text-white hover:text-white px-4 pt-3 bg-transparent hover:bg-transparent border border-white rounded-[5px]">
+      <Button onClick={() => {
+        console.log(path)
+      }} className="font-Jakarta font-semibold flex flex-row gap-2 text-[16px] leading-normal mx-auto border-none outline-none  text-white hover:text-white px-4 pt-3 bg-transparent hover:bg-transparent border border-white rounded-[5px]">
         View more
         <ArrowRight className="text-white text-[20px]" />
       </Button>
