@@ -31,6 +31,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Textarea } from "../ui/textarea";
 import { DateRange } from "react-day-picker";
+import { useProjectFormState } from "@/store";
 
 const Step1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
   const schema = AddProjectFormSchema.pick({
@@ -40,33 +41,47 @@ const Step1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
     description: true,
   });
 
+   const projectForm = useProjectFormState((state) => state.projectForm);
+
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
-        duration: {
-            from: new Date(),
-            to: addDays(new Date(), 7),
-        }
-    }
+        title: projectForm.title,
+        category: projectForm.category,
+        duration: projectForm.duration,
+        description: projectForm.description,
+
+
+    //   duration: {
+    //     from: new Date(),
+    //     to: addDays(new Date(), 7),
+    //   },
+    },
   });
 
   function onSubmit(data: z.infer<typeof schema>) {
     console.log(data);
+    useProjectFormState.setState({ projectForm: {
+        ...projectForm,
+        title: data.title,
+        category: data.category,
+        duration: data.duration,
+        description: data.description,
+    }});
     handleNext();
   }
 
   const [date, setDate] = useState<DateRange | undefined>({
     from: new Date(),
     to: addDays(new Date(), 20),
-  })
+  });
 
-  function handleSetDate (date: DateRange) {
-    setDate(date)
-    form.setValue('duration', {
-        from: date?.from as Date,
-        to: date?.to as Date,
-    })
-    
+  function handleSetDate(date: DateRange) {
+    setDate(date);
+    form.setValue("duration", {
+      from: date?.from as Date,
+      to: date?.to as Date,
+    });
   }
   return (
     <Form {...form}>
@@ -127,17 +142,17 @@ const Step1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                 Project category
               </FormLabel>
               <Popover>
-        <PopoverTrigger asChild>
-          <Button
-            id="date"
-            variant={"outline"}
-            className={cn(
-              "w-full justify-start text-left font-normal",
-              !date && "text-muted-foreground"
-            )}
-          >
-            <CalendarIcon className="mr-2 h-4 w-4" />
-            {/* {date?.from ? (
+                <PopoverTrigger asChild>
+                  <Button
+                    id="date"
+                    variant={"outline"}
+                    className={cn(
+                      "w-full justify-start text-left font-normal",
+                      !date && "text-muted-foreground"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {/* {date?.from ? (
               date.to ? (
                 <>
                   {format(date.from, "LLL dd, y")} -{" "}
@@ -149,34 +164,32 @@ const Step1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
             ) : (
               <span>Pick a date</span>
             )} */}
-            { field.value.from ? (
-              field.value.to ? (
-                <>
-                  {format(field.value.from, "LLL dd, y")} -{" "}
-                  {format(field.value.to, "LLL dd, y")}
-                </>
-              ) : (
-                format(field.value.from, "LLL dd, y")
-              )
-            ) : (
-              <span>Pick a date</span>
-            )}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
-          <Calendar
-            initialFocus
-            mode="range"
-            defaultMonth={date?.from}
-            selected={date}
-            onSelect={(date) => handleSetDate(date as DateRange) }
-            disabled={(date) =>
-                date < new Date()
-              }
-            numberOfMonths={1}
-          />
-        </PopoverContent>
-      </Popover>
+                    {field.value.from ? (
+                      field.value.to ? (
+                        <>
+                          {format(field.value.from, "LLL dd, y")} -{" "}
+                          {format(field.value.to, "LLL dd, y")}
+                        </>
+                      ) : (
+                        format(field.value.from, "LLL dd, y")
+                      )
+                    ) : (
+                      <span>Pick a date</span>
+                    )}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    initialFocus
+                    mode="range"
+                    defaultMonth={date?.from}
+                    selected={date}
+                    onSelect={(date) => handleSetDate(date as DateRange)}
+                    disabled={(date) => date < new Date()}
+                    numberOfMonths={1}
+                  />
+                </PopoverContent>
+              </Popover>
               <FormMessage />
             </FormItem>
           )}
@@ -216,13 +229,13 @@ const Step1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
             onClick={handlePrev}
             className="w-[160px] font-Jakarta font-medium text-base bg-transparent hover:bg-transparent border border-dark_green/70 rounded-md text-dark_green/70"
           >
-            Next
+            Cancel
           </Button>
           <Button
             type="submit"
             className="w-[160px] font-Jakarta font-medium text-base bg-primary_blue hover:bg-primary_blue border-none rounded-md text-white"
           >
-            Next
+            Continue
           </Button>
         </div>
       </form>

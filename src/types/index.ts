@@ -603,7 +603,7 @@ export const AddProjectFormSchema = z.object({
   description: z
     .string()
     .min(100, {
-      message: "Description must be at least 10 characters long",
+      message: "Description must be at least 100 characters long",
     })
     .max(1000, {
       message: "Description must not be longer than 1000 characters",
@@ -611,12 +611,20 @@ export const AddProjectFormSchema = z.object({
   role: z.string().min(3, {
     message: "Role must be at least 3 characters long",
   }),
-  technologies: z.array(z.string()).min(1, {
-    message: "Must select at least one technology",
-  }),
-  skills: z.array(z.string()).min(1, {
-    message: "Must select at least one skill",
-  }),
+  technologies: z
+  .array(
+    z.object({
+      label: z.string(),
+      value: z.string(),
+    })
+  ),
+  skills: z
+  .array(
+    z.object({
+      label: z.string(),
+      value: z.string(),
+    })
+  ),
   url: z.string().url(),
   image: z.object({
     type: z.string(),
@@ -637,4 +645,36 @@ export const AddProjectFormSchema = z.object({
 export interface MultiStepProps {
   handleNext: () => void;
   handlePrev: () => void;
+}
+
+export interface ProjectFormType {
+  title: string;
+  category: string;
+  duration: {
+    from: Date;
+    to: Date;
+  };
+  description: string;
+  role: string;
+  technologies: { label: string; value: string }[];
+  skills: { label: string; value: string }[];
+  url: string;
+  image: {
+    type: string;
+    size: number;
+    name: string;
+  };
+  file: {
+    type: string;
+    size: number;
+    name: string;
+  };
+  access: string;
+}
+
+
+
+export interface ProjectFormState {
+  projectForm: ProjectFormType;
+  setProjectForm: (form: ProjectFormType) => void;
 }

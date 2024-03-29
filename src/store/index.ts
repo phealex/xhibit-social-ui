@@ -1,4 +1,4 @@
-import { JobsDisplayState, MessageDisplayState, ProjectDisplayState } from '@/types'
+import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState } from '@/types'
 import { create } from 'zustand'
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     // showBrowseJobs: true,
@@ -38,3 +38,31 @@ export const useProjectDisplay = create<ProjectDisplayState>()((set) => ({
     addNew: null,
 
 }))
+
+export const useProjectFormState = create<ProjectFormState>((set) => ({
+    projectForm: {
+      title: '',
+      category: '',
+      duration: {
+        from: new Date(),
+        to: new Date(),
+      },
+      description: '',
+      role: '',
+      technologies:  [],
+      skills: [],
+      url: '',
+      image: {
+        type: '',
+        size: 0,
+        name: '',
+      },
+      file: {
+        type: '',
+        size: 0,
+        name: '',
+      },
+      access: '',
+    },
+    setProjectForm: (form) => set({ projectForm: form }),
+  }));
