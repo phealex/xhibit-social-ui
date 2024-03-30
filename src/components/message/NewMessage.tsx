@@ -1,5 +1,5 @@
 import { Link } from "lucide-react";
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { MessageType } from "@/types";
