@@ -78,11 +78,11 @@ const Projects: FC = () => {
             Explore highly skilled and inspiring diverse pool of projects
           </h1>
           <div className=" border border-[#8E9FAA]/50 rounded-[25px] py-5 space-y-5  ">
-            <div className="flex gap-4 items-center mx-auto ">
+            <div className="flex gap-4 justify-center items-center mx-auto ">
               <Button className="font-Jakarta font-semibold text-[16px] leading-normal text-dark_green hover:text-dark_green px-4 py-3 bg-home_grey hover:bg-home_grey rounded-[5px]">
                 Design
               </Button>
-              <Button className=" sm font-Jakarta font-semibold text-[16px] leading-normal text-dark_green hover:text-dark_green px-4 py-3 bg-home_grey hover:bg-home_grey rounded-[5px]">
+              <Button className=" hidden sm:flex  font-Jakarta font-semibold text-[16px] leading-normal text-dark_green hover:text-dark_green px-4 py-3 bg-home_grey hover:bg-home_grey rounded-[5px]">
                 Development
               </Button>
               <Button className=" hidden md:flex font-Jakarta font-semibold text-[16px] leading-normal text-dark_green hover:text-dark_green px-4 py-3 bg-home_grey hover:bg-home_grey rounded-[5px]">
@@ -98,7 +98,7 @@ const Projects: FC = () => {
                 View All
               </Button>
             </div>
-            <div className="flex flex-col justify-center md:flex-row md:flex-wrap gap-5 lg:gap-10  ">
+            <div className="flex justify-center flex-wrap gap-5 lg:gap-10  ">
               {projects.slice(0, cardToShow).map((project, index) => (
                 <ProjectCard key={index} project={project} />
               ))}
