@@ -39,7 +39,7 @@ function App() {
       window.scrollTo(0, 0);
     }, [path]);
     return (
-      <div className="">
+      <div className=" overflow-hidden">
         <Navbar />
         <Outlet />
         <Footer />
@@ -54,7 +54,7 @@ function App() {
       window.scrollTo(0, 0);
     }, [path]);
     return (
-      <div className="w-full flex  bg-white lg:min-h-screen">
+      <div className="w-full flex  bg-white lg:min-h-screen overflow-hidden">
         <AuthLayoutSider />
         <Outlet />
       </div>
@@ -68,7 +68,7 @@ function App() {
       window.scrollTo(0, 0);
     }, [path]);
     return (
-      <div className="">
+      <div className="overflow-hidden">
 
         <TalentFeedNavbar />
         <Outlet />
