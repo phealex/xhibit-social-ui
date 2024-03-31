@@ -104,7 +104,7 @@ const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
             </div>
 
             <div className="flex gap-1 items-center">
-              <Button className=" text-primary_blue bg-transparent hover:bg-transparent outline-none border-none flex gap-2 ">
+              <Button className=" hidden md:flex text-primary_blue bg-transparent hover:bg-transparent outline-none border-none gap-2 ">
                 {/* <img src={Sparkle} alt="" className=" h-[18px]  w-[18px] " /> */}
                 <SparkleIcon
                   fill="rgba(117,89,229,1)"

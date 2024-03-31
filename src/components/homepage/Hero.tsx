@@ -38,7 +38,7 @@ const Hero: FC = () => {
                         placeholder="Try Java Developer, React..."
                         className="bg-transparent text-[13px] lg:text-[18px] font-medium text-white/70 placeholder-white/70 outline-none"
                       />
-                      <Button className=" font-Jakarta text-center gap-1 text-[10px] md:text-[13px] lg:text-[15px] font-semibold text-[#323C45]  bg-white px-2 md:px-3 py-[6px] rounded-[60px] ">
+                      <Button className=" font-Jakarta text-center gap-1 text-[10px] md:text-[13px] lg:text-[15px] font-semibold text-[#323C45]  bg-white hover:bg-white hover:text-dark_green px-2 md:px-3 py-[6px] rounded-[60px] ">
                         <Sparkles className="text-[#7559E5] h-[16px] w-[16px] " />
                         HIRE TALENT
                       </Button>

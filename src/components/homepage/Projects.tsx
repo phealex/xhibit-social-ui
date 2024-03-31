@@ -45,7 +45,7 @@ const Projects: FC = () => {
             View All
           </Button>
         </div>
-        <div className="flex flex-col md:flex-row md:flex-wrap gap-5 lg:gap-10  ">
+        <div className="flex justify-center flex-wrap gap-5 lg:gap-10  ">
           {projects.map((project, index) => (
            <ProjectCard key={index} project={project} />
           ))}

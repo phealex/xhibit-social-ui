@@ -14,7 +14,7 @@ const Categories: FC = () => {
           {findingTopTalents.map((item, index) => (
             <div
               key={index}
-              className="flex gap-2 font-Jakarta text-white text-[16px] font-semibold leading-normal  text-center lg:w-[40%] lg:text-justify"
+              className="flex gap-1 font-Jakarta text-white text-xs md:text-[16px] font-semibold leading-normal  text-center lg:w-[40%] lg:text-justify"
             >
               <img src={Thunderbolt} alt="" className="" />
               {item}

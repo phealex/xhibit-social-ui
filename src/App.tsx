@@ -68,7 +68,7 @@ function App() {
       window.scrollTo(0, 0);
     }, [path]);
     return (
-      <div className="overflow-hidden">
+      <div className="">
 
         <TalentFeedNavbar />
         <Outlet />

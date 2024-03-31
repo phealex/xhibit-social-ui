@@ -22,6 +22,7 @@ const HiringCompany: FC<Props> = ({company}) => {
   return (
     <Card
 onClick={() => {
+  if(window.innerWidth < 768) return
     useJobsDisplay.setState({showStartupProfile: true, startupProfileId: company.id})
     if(path !== "jobs"){
         useJobsDisplay.setState({viewToShow: "startup"})
