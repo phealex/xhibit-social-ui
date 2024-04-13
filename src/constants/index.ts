@@ -41,6 +41,7 @@ import {
   ProjectCategoryType,
   ProjectType,
   RegisterDataType,
+  ReviewType,
   ServiceCardType,
   ServiceCategoryType,
   StartupProfile,
@@ -1518,4 +1519,27 @@ export const addProjectHeader: {
     title: "Preview project",
     desc: "Preview your project to make sure details presented is accurate"
   }
+]
+
+
+export const ReviewData: ReviewType[] =[
+  {
+    id: "34815553",
+    user: "Bertha Lynch",
+    userImage: Theresa,
+    userLocation: "Lagos, NG",
+    rating: 4,
+    review: "Ultrae was excellent. The initial design had some different ideas, and we quickly narrowed in on a logo I liked. With a couple of tweaks, I had a great logo, letterhead, and favicon for my new business. Thanks ultrae.",
+    time: "3 months"
+  },
+  {
+    id: "66444832",
+    user: "Emily Morris",
+    userImage: Theresa,
+    userLocation: "Lagos, NG",
+    rating: 4,
+    review: "Ultrae was excellent. The initial design had some different ideas, and we quickly narrowed in on a logo I liked. With a couple of tweaks, I had a great logo, letterhead, and favicon for my new business. Thanks ultrae.",
+    time: "3 months"
+  },
+
 ]

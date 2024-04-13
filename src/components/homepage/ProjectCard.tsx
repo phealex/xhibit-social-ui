@@ -10,10 +10,11 @@ import { ProjectType } from '@/types'
 
 interface ProjectCardProps {
     project: ProjectType
+    showMore?: boolean
 
 }
 const ProjectCard: FC<ProjectCardProps> = ({
-    project
+    project, showMore = true
 }) => {
 
   const path = useLocation().pathname.split('/')[2]
@@ -80,7 +81,10 @@ const ProjectCard: FC<ProjectCardProps> = ({
         {project.projectDescription}
       </CardDescription>
     </CardContent>
-    <CardFooter className=" border-t-[1px] border-dark_green/70 !p-0">
+    {
+      showMore && (
+
+        <CardFooter className=" border-t-[1px] border-dark_green/70 !p-0">
       <Button onClick={() => {
         useProjectDisplay.setState({
           showProjectDetails: true,
@@ -90,13 +94,15 @@ const ProjectCard: FC<ProjectCardProps> = ({
           navigate("/talent/projects")
           return
         }
-
-       
+        
+        
       }} className="font-Jakarta font-semibold flex flex-row gap-2 text-[16px] leading-normal mx-auto border-none outline-none  text-white hover:text-white px-4 pt-3 bg-transparent hover:bg-transparent border border-white rounded-[5px]">
         View more
         <ArrowRight className="text-white text-[20px]" />
       </Button>
     </CardFooter>
+      )
+    }
   </Card>
   )
 }

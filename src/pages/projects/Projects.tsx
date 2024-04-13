@@ -29,7 +29,6 @@ const Projects: FC = () => {
               exceptional talents
             </h1>
           <div className="flex flex-col md:flex-row-reverse gap-5 items-center md:items-start">
-           
             <img
               src={ProjectGear}
               alt=""

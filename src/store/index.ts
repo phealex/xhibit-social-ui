@@ -36,6 +36,7 @@ export const useProjectDisplay = create<ProjectDisplayState>()((set) => ({
     projectToShowId: null,
     setProjectToShowId: (projectToShowId) => set({projectToShowId}),
     addNew: null,
+    projectModalActive: "projects"
 
 }))
 

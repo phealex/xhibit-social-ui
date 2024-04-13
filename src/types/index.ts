@@ -554,6 +554,7 @@ export interface ProjectDisplayState {
   projectToShowId: string | null;
   setProjectToShowId: (value: string | null) => void;
   addNew: ProjectView | null;
+  projectModalActive: "projects" | "reviews"
 }
 
 export interface ProjectCategoryType {
@@ -689,4 +690,14 @@ export interface ProjectType {
 export interface ProjectFormState {
   projectForm: ProjectFormType;
   setProjectForm: (form: ProjectFormType) => void;
+}
+
+export interface ReviewType {
+  id: string;
+  user: string;
+  userImage: string;
+  userLocation: string;
+  rating: number;
+  review: string;
+  time: string; 
 }
