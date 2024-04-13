@@ -717,7 +717,5 @@ export const HireTalentFormSchema = z.object({
   budget: z.string({
     required_error: "Budget is required",
   }),
-  terms: z.boolean().refine((value) => value === true, {
-    message: "You must agree to the terms and conditions",
-  }),
+  terms: z.boolean().optional(),
  });

@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { Dialog, DialogContent } from "../ui/dialog";
 import { useProjectDisplay } from "@/store";
 import { ReviewData, projects } from "@/constants";
-import { Mail, MapPin, Newspaper } from "lucide-react";
+import { Check, Mail, MapPin, Newspaper } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { Separator } from "../ui/separator";
@@ -41,6 +41,7 @@ const ProjectDetailsModal: FC = () => {
   );
 
   const [isHire, setIsHire] = useState<boolean>(false);
+  const [isHireSent, setIsHireSent] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof HireTalentFormSchema>>({
     resolver: zodResolver(HireTalentFormSchema),
@@ -48,6 +49,7 @@ const ProjectDetailsModal: FC = () => {
 
   function onSubmit(data: z.infer<typeof HireTalentFormSchema>) {
     console.log(data);
+    setIsHireSent(true);
   }
   return (
     <div className="">
@@ -58,6 +60,34 @@ const ProjectDetailsModal: FC = () => {
             useProjectDisplay.setState({ showProjectDetails: false });
           }}
         >
+          {
+            isHireSent ? (
+              <DialogContent className="p-10 flex flex-col gap-[10px] items-center max-h-[80%] max-w-[700px] overflow-y-auto">
+                <div className="flex items-center flex-col gap-[10px]">
+                  <Check className="h-10 w-10 bg-primary_blue text-white p-2 rounded-full" />
+                  <h1 className=" font-Jakarta font-semibold text-[31px]  leading-10 text-dark_green text-center">
+                    Hire request sent
+                  </h1>
+                <span className=" font-Jakarta font-normal text-base text-center">
+                  To
+                </span>
+
+                </div>
+                <div className=" flex flex-col items-center justify-center gap-2">
+                  <img src={project.userImage} alt="" className=" h-8 w-8" />
+                  <div className="flex flex-col gap-[10px]">
+                    <p className=" font-Jakarta font-medium text-xs text-dark_green">
+                      {project.username}
+                    </p>
+                    <p className="flex gap-2 items-center font-Jakarta font-normal text-xs text-dark_green/70">
+                      <MapPin className="h-4 w-4 text-home_grey " />
+                      Lagos, NG
+                    </p>
+                  </div>
+                </div>
+                
+              </DialogContent>
+          ) : (
           <DialogContent className="p-10 flex flex-col gap-[30px] items-center max-h-[80%] max-w-[700px] overflow-y-auto">
             <div className="flex gap-5 flex-col items-center">
               <div className="flex flex-col gap-5 items-center">
@@ -163,7 +193,7 @@ const ProjectDetailsModal: FC = () => {
                           Your budget
                         </FormLabel>
                         <FormControl>
-                          <div className="flex w-full justify-between items-center border border-home_grey rounded">
+                          <div className="flex w-full justify-between items-center border border-home_grey rounded px-3">
                             <Input
                               {...field}
                               placeholder="0"
@@ -183,7 +213,7 @@ const ProjectDetailsModal: FC = () => {
                     control={form.control}
                     name="terms"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className=" flex items-center gap-2">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
@@ -191,14 +221,21 @@ const ProjectDetailsModal: FC = () => {
                           />
                         </FormControl>
 
-                        <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
-                          Your budget
+                        <FormLabel className=" font-Jakarta font-medium text-base text-dark_green cursor-pointer space-y-0">
+                        Allow XHIBIT to provide you a support and project manager. Learn More
                         </FormLabel>
 
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  <Button
+                    type="submit"
+                    className="bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90"
+                  >
+                    Send inquiry
+                  </Button>
                 </form>
               </Form>
             ) : (
@@ -263,6 +300,8 @@ const ProjectDetailsModal: FC = () => {
               </div>
             )}
           </DialogContent>
+            )
+          }
         </Dialog>
       ) : null}
     </div>
