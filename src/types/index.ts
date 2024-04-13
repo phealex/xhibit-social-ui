@@ -701,3 +701,23 @@ export interface ReviewType {
   review: string;
   time: string; 
 }
+
+
+export const HireTalentFormSchema = z.object({
+  message:  z.string(
+    {
+      required_error: "Message is required",
+    }
+  ).min(10, {
+    message: "Message must be at least 10 characters",
+  }),
+  duration: z.string({
+    required_error: "Duration is required",
+  }),
+  budget: z.string({
+    required_error: "Budget is required",
+  }),
+  terms: z.boolean().refine((value) => value === true, {
+    message: "You must agree to the terms and conditions",
+  }),
+ });
