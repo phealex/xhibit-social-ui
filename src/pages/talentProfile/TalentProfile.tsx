@@ -22,7 +22,7 @@ import { FC } from "react";
 const TalentProfile: FC = () => {
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
-      <div className="w-[90%] lg:w-[80%] mx-auto flex gap-5">
+      <div className="container mx-auto flex gap-5">
         <section className="w-[20%] hidden lg:flex flex-col gap-5">
           <UserCard />
           <UserProjects />
