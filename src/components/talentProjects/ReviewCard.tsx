@@ -11,9 +11,9 @@ const ReviewCard: FC<ReviewCardProps> = ({
     review
 }) => {
   return (
-    <Card className='w-[293px] '>
-        <CardContent className='flex gap-1'>
-            <img src={review.userImage} alt="" className="" />
+    <Card className='w-[300px] border-none outline-none  '>
+        <CardContent className='flex gap-1 w-full !p-2 items-start '>
+            <img src={review.userImage} alt="" className=" h-5 w-5" />
             <div className="flex flex-col gap-3">
                 <div className="flex gap-2 flex-col">
                     <p className="font-Jakarta font-medium text-[13px] leading-4 text-dark_green">{review.user}</p>

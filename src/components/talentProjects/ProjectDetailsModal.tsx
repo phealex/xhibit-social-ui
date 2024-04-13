@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { Dialog, DialogContent } from "../ui/dialog";
 import { useProjectDisplay } from "@/store";
-import { projects } from "@/constants";
+import { ReviewData, projects } from "@/constants";
 import { Mail, MapPin, Newspaper } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { Separator } from "../ui/separator";
-import { ProjectCard } from "..";
+import { ProjectCard, ReviewCard } from "..";
 
 const ProjectDetailsModal: FC = () => {
   const showProjectDetails = useProjectDisplay(
@@ -86,7 +86,7 @@ const ProjectDetailsModal: FC = () => {
                         "text-primary_blue underline underline-offset-4"
                     )}
                   >
-                    Reviews (2)
+                    Reviews ({ReviewData.length})
                   </p>
                 </div>
                 <Separator />
@@ -96,14 +96,22 @@ const ProjectDetailsModal: FC = () => {
                   {
                     projects: (
                       <div className="flex gap-5 flex-wrap items-center mx-auto">
-                        {
-                          projects.slice(0,3).map((project, index) => (
-                            <ProjectCard key={index} project={project} showMore={false} />
-                          ))
-                        }
+                        {projects.slice(0, 3).map((project, index) => (
+                          <ProjectCard
+                            key={index}
+                            project={project}
+                            showMore={false}
+                          />
+                        ))}
                       </div>
                     ),
-                    reviews: <div className=""></div>,
+                    reviews: (
+                      <div className="flex gap-5 flex-wrap items-center mx-auto">
+                        {ReviewData.map((review, index) => (
+                          <ReviewCard key={index} review={review} />
+                        ))}
+                      </div>
+                    ),
                   }[projectModalActive]
                 }
               </div>
