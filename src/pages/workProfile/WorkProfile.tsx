@@ -8,6 +8,7 @@ import {
   HireTalent,
   Links,
   ProfileBanner,
+  ProjectCard,
   Projects,
   Role,
   ServiceCard,
@@ -25,7 +26,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { useWorkProfileState } from "@/store";
 import { cn } from "@/lib/utils";
-import { servicesData } from "@/constants";
+import { projects, servicesData } from "@/constants";
 
 const WorkProfile: FC = () => {
   const activeTab = useWorkProfileState((state) => state.activeTab);
@@ -40,6 +41,9 @@ const WorkProfile: FC = () => {
           <UserTools />
         </section>
         <section className="flex flex-1 flex-col gap-10 w-full mt-10">
+          <div className="flex md:hidden -mt-28">
+          <UserCard />
+          </div>
           <div className="flex flex-col gap-1">
             <div className="flex gap-10 items-center">
               <p
@@ -81,32 +85,37 @@ const WorkProfile: FC = () => {
             </div>
             <Separator orientation="horizontal" className="w-full" />
           </div>
-          {{
-            about: (
-              <div className=" flex flex-col gap-10">
-                <Headline />
-                <Role />
-                <Experience />
-                <Skills />
-                <Projects />
-                <Certification />
-                <Education />
-                <Socials />
-                <Tools />
-              </div>
-            ),
-            service: (
-              <div className="flex items-center gap-10 flex-wrap">
-                {
-                  servicesData.map((service, index) => (
+          {
+            {
+              about: (
+                <div className=" flex flex-col gap-10">
+                  <Headline />
+                  <Role />
+                  <Experience />
+                  <Skills />
+                  <Projects />
+                  <Certification />
+                  <Education />
+                  <Socials />
+                  <Tools />
+                </div>
+              ),
+              service: (
+                <div className="flex items-center gap-10 flex-wrap">
+                  {servicesData.map((service, index) => (
                     <ServiceProjectsDisplay service={service} key={index} />
-                  ))
-                }
-              </div>
-            ),
-            project: <UserProjects />,
-
-          }[activeTab]}
+                  ))}
+                </div>
+              ),
+              project: (
+                <div className="flex items-center gap-10 flex-wrap">
+                  {projects.map((project, index) => (
+                    <ProjectCard key={index} project={project} />
+                  ))}
+                </div>
+              ),
+            }[activeTab]
+          }
         </section>
       </div>
     </div>
