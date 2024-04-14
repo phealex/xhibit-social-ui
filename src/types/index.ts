@@ -719,3 +719,9 @@ export const HireTalentFormSchema = z.object({
   }),
   terms: z.boolean().optional(),
  });
+
+
+
+ export interface WorkProfileState {
+  activeTab: "about" | "project" | "service";
+ }

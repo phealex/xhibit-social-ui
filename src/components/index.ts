@@ -72,8 +72,9 @@ export { default as ProjectCategories } from "./talentProjects/ProjectCategories
 export { default as ProjectsDisplay } from "./talentProjects/ProjectsDisplay";
 export { default as ImageSlider } from "./imageSlider/ImageSlider";
 export { default as AddProject } from "./talentProjects/AddProject";
+export { default as ServiceProjectsDisplay } from "./talentProjects/ServiceProjectsDisplay";
 export {default as Step1} from "./addProject/Step1"
 export {default as Step2} from "./addProject/Step2"
 export {default as ProjectDetailsModal} from "./talentProjects/ProjectDetailsModal"
 export {default as ReviewCard} from "./talentProjects/ReviewCard"
-
+export {default as HireTalent} from "./workProfile/HireTalent"

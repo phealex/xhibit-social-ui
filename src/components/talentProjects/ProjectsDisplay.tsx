@@ -10,9 +10,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { projects, servicesData } from "@/constants";
-import { ProjectCard } from "..";
+import { ProjectCard, ServiceProjectsDisplay } from "..";
 import { Button } from "../ui/button";
-import ServiceProjectsDisplay from "./ServiceProjectsDisplay";
 
 const ProjectsDisplay: FC = () => {
   const view = useProjectDisplay((state) => state.view);

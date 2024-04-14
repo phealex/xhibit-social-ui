@@ -1,4 +1,4 @@
-import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState } from '@/types'
+import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState, WorkProfileState } from '@/types'
 import { create } from 'zustand'
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     // showBrowseJobs: true,
@@ -67,3 +67,8 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
     },
     setProjectForm: (form) => set({ projectForm: form }),
   }));
+
+
+  export const useWorkProfileState = create<WorkProfileState>()((set) => ({
+    activeTab: "about"
+  }))
