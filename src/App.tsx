@@ -31,6 +31,7 @@ import TalentJobs from "./pages/talentJobs/TalentJobs";
 import Messages from "./pages/messages/Messages";
 import TalentProjects from "./pages/talentProjects/TalentProjects";
 import WorkProfile from "./pages/workProfile/WorkProfile";
+import Wallet from "./pages/wallet/Wallet";
 
 function App() {
   const HomeLayout = () => {
@@ -167,6 +168,10 @@ function App() {
         {
           path: "view/:id",
           element: <WorkProfile />,
+        },
+        {
+          path: "wallet",
+          element: <Wallet />,
         }
 
       ],

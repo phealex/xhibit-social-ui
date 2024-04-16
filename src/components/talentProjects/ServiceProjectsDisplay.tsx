@@ -5,6 +5,7 @@ import { BookmarkCheck, Clock3, MapPin, Repeat2, Star } from "lucide-react";
 import { ImageSlider } from "..";
 import { Dialog, DialogContent, DialogFooter } from "../ui/dialog";
 import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
 
 interface ServiceProjectsDisplayProps {
   service: ServiceCardType;
@@ -208,7 +209,8 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
               </div>
             </div>
           </div>
-          <DialogFooter className=" w-full h-[100px] shadow-lg shadow-white bg-white rounded-md">
+          <Separator />
+          <DialogFooter className=" w-full  shadow-lg shadow-white bg-white rounded-md">
             <Button className=" bg-primary_blue hover:bg-primary_blue text-white font-Jakarta font-medium text-base ml-auto ">
               Request service
             </Button>

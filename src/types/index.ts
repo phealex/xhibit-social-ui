@@ -725,3 +725,20 @@ export const HireTalentFormSchema = z.object({
  export interface WorkProfileState {
   activeTab: "about" | "project" | "service";
  }
+
+
+ 
+export const AddCardFormSchema = z.object({
+  name:  z.string(
+    {
+      required_error: "Card holder name is required",
+    }
+  ),
+  number: z.string({
+    required_error: "Card number is required",
+  }),
+  expiry: z.string({
+    required_error: "Card expiry date is required",
+  }),
+  terms: z.boolean().optional(),
+ });

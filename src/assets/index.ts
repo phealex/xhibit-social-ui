@@ -79,7 +79,7 @@ import Marketing from "./Marketing.svg";
 import Finance from "./Finance.svg";
 import Photography from "./Photograph.svg";
 import Softwares from "./Software.svg";
-
+import CreditCard from "./CreditCard.svg"
 
 export {
   Logo,
@@ -163,4 +163,5 @@ export {
   Finance,
   Photography,
   Softwares,
+  CreditCard
 };
