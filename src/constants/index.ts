@@ -1582,3 +1582,8 @@ export const TransactionRecords: TransactionType[] = [
 
 
 ]
+
+
+export const WalletFAQData: string[] = [
+  "How to withdraw from my XHIBIT wallet?", "How to verify my wallet?", "How do i fund my wallet?", "Are there any withdrawal fee?", "Is my wallet deposit information secure?"
+]

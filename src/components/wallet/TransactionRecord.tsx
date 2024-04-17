@@ -18,7 +18,7 @@ const TransactionRecord: FC = () => {
         </p>
       
       </div>
-      <div className=" w-full rounded-md h-[162px]">
+      <div className=" w-full rounded-md">
         {!hasTransaction ? (
           <div className=" w-full h-full flex flex-col gap-4 justify-center items-center bg-white/30  rounded-md">
             <img src={EmptyRecord} alt="" className=" W-[80px] h-[90px] object-cover" />
@@ -31,10 +31,10 @@ const TransactionRecord: FC = () => {
           <div className="flex flex-col gap-5 w-full">
             {
                 TransactionRecords.map((tx, index) => (
-                    <div className="flex flex-col gap-5 w-full">
+                    <div className="flex flex-col gap-5 w-full" key={index}>
                         <div className="flex justify-between items-center">
                             <div className="flex items-center gap-2">
-                                <CreditCardIcon className=" h-3 w-3 text-dark_green/15" />
+                                <CreditCardIcon className=" h-4 w-4 text-dark_green/15" />
                                 <p className=" font-Jakarta font-medium text-xs text-dark_green">
                                     {tx.type}
                                 </p>

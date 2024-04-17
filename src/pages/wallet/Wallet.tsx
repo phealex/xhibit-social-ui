@@ -1,4 +1,4 @@
-import { CardRecord, TransactionRecord } from "@/components"
+import { CardRecord, TransactionRecord, WalletFaq } from "@/components"
 import { FC } from "react"
 
 const Wallet: FC = () => {
@@ -8,7 +8,7 @@ const Wallet: FC = () => {
       <section className="w-[20%] hidden lg:flex flex-col py-10 px-4 rounded-lg  bg-white gap-8">
       <CardRecord />
       <TransactionRecord />
-      
+      <WalletFaq />
       </section>
       <section className="flex flex-1 flex-col gap-10  w-full">
        
