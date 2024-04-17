@@ -742,3 +742,14 @@ export const AddCardFormSchema = z.object({
   }),
   terms: z.boolean().optional(),
  });
+
+
+
+ export interface TransactionType {
+  details: string;
+  date: string;
+  time: string;
+  type: "Bank deposit" | "Card deposit" | "Crypto deposit" | "Withdrawal" | "Payment" | "Transfer" | "Refund" | "Others" ;
+  status: "Successful" | "Pending";
+  amount: string;
+ }

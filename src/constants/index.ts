@@ -46,6 +46,7 @@ import {
   ServiceCategoryType,
   StartupProfile,
   TalentFeedPost,
+  TransactionType,
 } from "@/types";
 import {
   Cpu,
@@ -1541,5 +1542,43 @@ export const ReviewData: ReviewType[] =[
     review: "Ultrae was excellent. The initial design had some different ideas, and we quickly narrowed in on a logo I liked. With a couple of tweaks, I had a great logo, letterhead, and favicon for my new business. Thanks ultrae.",
     time: "3 months"
   },
+
+]
+
+
+
+export const TransactionRecords: TransactionType[] = [
+  {
+   details: "Transfer from Abraham ED...(7CGB12389)",
+   date: "Jan 12-24",
+   time: "12:24 PM",
+   type: "Bank deposit",
+   status: "Successful",
+   amount: "NGN 40, 233"
+  },
+  {
+    details: "Transfer from Abraham ED...(7CGB12389)",
+    date: "Jan 12-24",
+    time: "12:24 PM",
+    type: "Bank deposit",
+    status: "Successful",
+    amount: "NGN 40, 233"
+   },
+   {
+    details: "Transfer from Abraham ED...(7CGB12389)",
+    date: "Jan 12-24",
+    time: "12:24 PM",
+    type: "Withdrawal",
+    status:"Pending",
+    amount: "NGN 90, 233"
+   }, {
+    details: "Transfer from Abraham ED...(7CGB12389)",
+    date: "Jan 12-24",
+    time: "12:24 PM",
+    type: "Bank deposit",
+    status: "Successful",
+    amount: "NGN 40, 233"
+   },
+
 
 ]
