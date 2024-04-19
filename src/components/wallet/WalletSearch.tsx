@@ -8,14 +8,15 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
+import { cn } from "@/lib/utils";
 
 const WalletSearch: FC = () => {
   const [isTyping, setIsTyping] = useState(false);
 
   return (
-    <Command>
+    <Command className={cn(" bg-transparent border border-dark_green ", isTyping && "border-hidden" )}>
       <CommandInput
-      className=" bg-transparent"
+      className=" "
         placeholder="Type a command or search..."
         onFocus={() => setIsTyping(true)}
         onBlur={() => setIsTyping(false)}
