@@ -96,7 +96,7 @@ const Register: FC = () => {
                       } ${
                         index === pageTitles.length - 1 &&
                         completed &&
-                        " text-light_green"
+                        " text-accent_green"
                       } `}
                     >
                       {title}
@@ -106,7 +106,7 @@ const Register: FC = () => {
                     ) : (
                       <CheckCircle2
                         className={` ${
-                          completed ? "text-light_green" : "text-home_grey"
+                          completed ? "text-accent_green" : "text-home_grey"
                         }`}
                       />
                     )}

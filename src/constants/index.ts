@@ -1587,3 +1587,26 @@ export const TransactionRecords: TransactionType[] = [
 export const WalletFAQData: string[] = [
   "How to withdraw from my XHIBIT wallet?", "How to verify my wallet?", "How do i fund my wallet?", "Are there any withdrawal fee?", "Is my wallet deposit information secure?"
 ]
+
+
+export const CryptoBalance: {
+  name: string;
+  balance: string
+}[] = [
+  {
+    name: "Bitcoin",
+    balance: "0.00"
+  },
+  {
+    name: "USDT",
+    balance: "0.00"
+  },
+  {
+    name: "Ethereum",
+    balance: "0.00"
+  },
+  {
+    name: "USDC",
+    balance: "0.00"
+  },
+]
