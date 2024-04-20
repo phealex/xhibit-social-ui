@@ -1649,3 +1649,27 @@ export const paymentDetailsData : {
   },
 
 ]
+
+
+export const bankTransferData : {
+  title: string;
+  value: string;
+  isCopy: boolean
+}[] =[
+  {
+    title: "Bank",
+    value: "Guarantee trust bank",
+    isCopy: false
+  },
+  {
+    title: "Account name",
+    value: "Abraham/Xhibit",
+    isCopy: false
+  },
+  {
+    title: "Account number",
+    value: "26311476",
+    isCopy: true
+  },
+]
+

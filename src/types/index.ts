@@ -754,9 +754,13 @@ export const AddCardFormSchema = z.object({
   amount: string;
  }
 
+export type PaymentType = "transfer" | "online" | "crypto" 
 
  export interface WalletState {
   isFundWallet: boolean;
   amountToFund: number;
+  paymentOption: PaymentType | undefined;
+  setPaymentOption: (option: PaymentType) => void;
+
 
  }

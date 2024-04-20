@@ -83,6 +83,7 @@ import CreditCard from "./CreditCard.svg"
 import EmptyRecord from "./EmptyRecord.svg"
 import EmptyTx from "./emptyTx.svg"
 import FundWallet from "./FundWallet.svg"
+import Bitcoin from "./bitcoin.svg"
 
 export {
   Logo,
@@ -169,5 +170,6 @@ export {
   CreditCard,
   EmptyRecord,
   EmptyTx,
-  FundWallet
+  FundWallet,
+  Bitcoin
 };

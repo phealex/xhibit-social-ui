@@ -5,7 +5,8 @@ import {
   WalletDetails,
   WalletFaq,
   WalletSearch,
-  PaymentDetails
+  PaymentDetails,
+  Payment,
 } from "@/components";
 import { cn } from "@/lib/utils";
 import { useWalletState } from "@/store";
@@ -16,9 +17,14 @@ const Wallet: FC = () => {
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
       <div className="container mx-auto flex gap-5">
-        <section className={cn("w-[20%] hidden lg:flex flex-col py-10 px-4 rounded-lg  bg-white gap-8 ", isFundWallet && "p-0 h-fit")}>
+        <section
+          className={cn(
+            "w-[20%] hidden lg:flex flex-col py-10 px-4 rounded-lg  bg-white gap-8 ",
+            isFundWallet && "p-0 h-fit"
+          )}
+        >
           {isFundWallet ? (
-       <PaymentDetails />
+            <PaymentDetails />
           ) : (
             <div className="flex flex-col gap-8  w-full">
               <CardRecord />
@@ -28,9 +34,17 @@ const Wallet: FC = () => {
           )}
         </section>
         <section className="flex flex-1 flex-col gap-10  w-full">
-          <WalletDetails />
-          <WalletSearch />
-          <TransactionTable />
+          {!isFundWallet ? (
+            <>
+              <WalletDetails />
+              <WalletSearch />
+              <TransactionTable />
+            </>
+          ) : (
+            <div className="">
+              <Payment />
+            </div>
+          )}
         </section>
       </div>
     </div>
