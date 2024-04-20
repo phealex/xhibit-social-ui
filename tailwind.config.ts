@@ -18,6 +18,7 @@ module.exports = {
     },
     fontFamily: {
       Jakarta: ["Plus Jakarta Sans", "sans-serif"],
+      Philosopher: ["Philosopher", "sans-serif"],
     },
     extend: {
       height: {

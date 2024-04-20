@@ -5,7 +5,9 @@ import {
   WalletDetails,
   WalletFaq,
   WalletSearch,
+  PaymentDetails
 } from "@/components";
+import { cn } from "@/lib/utils";
 import { useWalletState } from "@/store";
 import { FC } from "react";
 
@@ -14,9 +16,9 @@ const Wallet: FC = () => {
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
       <div className="container mx-auto flex gap-5">
-        <section className="w-[20%] hidden lg:flex flex-col py-10 px-4 rounded-lg  bg-white gap-8">
+        <section className={cn("w-[20%] hidden lg:flex flex-col py-10 px-4 rounded-lg  bg-white gap-8 ", isFundWallet && "p-0 h-fit")}>
           {isFundWallet ? (
-            <div className=""></div>
+       <PaymentDetails />
           ) : (
             <div className="flex flex-col gap-8  w-full">
               <CardRecord />

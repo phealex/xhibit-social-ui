@@ -1610,3 +1610,42 @@ export const CryptoBalance: {
     balance: "0.00"
   },
 ]
+
+
+export const paymentDetailsData : {
+  title: string;
+  value: string;
+  isCopy: boolean
+}[] =[
+  {
+    title: "Payment type",
+    value: "Fund wallet",
+    isCopy: false
+  },
+  {
+    title: "Amount to fund wallet",
+    value: "NGN7,000",
+    isCopy: false
+  },
+  {
+    title: "Wallet ID",
+    value: "26311476",
+    isCopy: true
+  },
+  {
+    title: "XHIBIT pay invpice number",
+    value: "19800498",
+    isCopy: true
+  },
+  {
+    title: "Platform charges",
+    value: "NGN100",
+    isCopy: false
+  },
+  {
+    title: "Total amount to pay",
+    value: "NGN7,100",
+    isCopy: false
+  },
+
+]
