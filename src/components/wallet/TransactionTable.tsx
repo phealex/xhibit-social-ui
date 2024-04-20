@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { EmptyTx } from "@/assets";
 
-const TransactionTable = () => {
+const TransactionTable: FC = () => {
   return (
     <Tabs defaultValue="all" className="w-full">
       <TabsList className=" h-[60px] bg-dark_green/10 flex items-center gap-10 w-fit">

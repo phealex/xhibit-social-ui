@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { Button } from "../ui/button";
 import { Eye, EyeOff, Plus } from "lucide-react";
 import { CryptoBalance } from "@/constants";
+import { AddMoney } from "..";
 
 const WalletDetails: FC = () => {
   const [showBalance, setShowBalance] = useState<boolean>(false);
@@ -33,10 +34,7 @@ const WalletDetails: FC = () => {
         </div>
         <div className="flex flex-col gap-[32px] ">
             <div className="flex items-center gap-6">
-                <Button className=" bg-primary_blue hover:bg-primary_blue text-white flex gap-2 px-[10px] py-5 rounded-[5px] font-Jakarta font-medium text-xs text-center ">
-                    <Plus className=" h-4 w-4 text-white" />
-                    Fund my wallet
-                </Button>
+                <AddMoney />
                 <Button className=" bg-accent_green hover:bg-accent_green text-white px-[10px] py-5 rounded-[5px] font-Jakarta font-medium text-xs text-center ">
                     Withdraw
                 </Button>
