@@ -753,3 +753,10 @@ export const AddCardFormSchema = z.object({
   status: "Successful" | "Pending";
   amount: string;
  }
+
+
+ export interface WalletState {
+  isFundWallet: boolean;
+  amountToFund: number;
+
+ }

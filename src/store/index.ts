@@ -1,4 +1,4 @@
-import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState, WorkProfileState } from '@/types'
+import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState, WalletState, WorkProfileState } from '@/types'
 import { create } from 'zustand'
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     // showBrowseJobs: true,
@@ -71,4 +71,10 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
 
   export const useWorkProfileState = create<WorkProfileState>()((set) => ({
     activeTab: "about"
+  }))
+
+
+  export const useWalletState = create<WalletState>()((set) => ({
+    isFundWallet: false,
+    amountToFund: 0
   }))
