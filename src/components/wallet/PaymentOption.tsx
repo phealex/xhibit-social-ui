@@ -52,7 +52,7 @@ const PaymentOption: FC = () => {
                 Crypto
               </p>
               <p className="text-left font-Jakarta font-normal text-xs text-dark_green/70">
-                Func wallet using stable coin
+                Fund wallet using stable coin
               </p>
             </div>
           </SelectItem>

@@ -22,12 +22,12 @@ const BankTransfer: FC = () => {
           {bankTransferData.map((data, index) => (
             <div
               key={index}
-              className=" h-6 w-full bg-dark_green/5 rounded-md flex items-center justify-between"
+              className=" h-14 px-2 w-full bg-dark_green/5 rounded-md flex items-center justify-between"
             >
               <p className=" font-Jakarta font-normal text-base text-dark_green">
                 {data.title}
               </p>
-              <div className="">
+              <div className="flex gap-1">
                 <p className=" font-Jakarta font-normal text-base text-primary_blue">
                   {data.value}
                 </p>
@@ -42,7 +42,7 @@ const BankTransfer: FC = () => {
                     }}
                   >
                     <div className="flex gap-2 w-fit cursor-pointer group">
-                      <Copy className=" h-5 w-5 text-dark_green/70 group-hover:text-primary_blue" />
+                      <Copy className=" h-5 w-5 text-primary_blue/70 group-hover:text-primary_blue" />
                     </div>
                   </CopyToClipboard>
                 )}
@@ -72,10 +72,12 @@ const BankTransfer: FC = () => {
             amountToFund: 0,
           });
         }}
-        className="flex items-center gap-2"
+        className="flex items-center gap-1 cursor-pointer"
       >
-        <RiArrowLeftSFill className=" text-xs text-primary_blue" />
-        <p className=" font-Jakarta font-medium text-xs text-primary_blue"></p>
+        <RiArrowLeftSFill className=" text-base text-primary_blue" />
+        <p className=" font-Jakarta font-medium text-xs text-primary_blue">
+            Return to wallet
+        </p>
       </div>
     </div>
   );
