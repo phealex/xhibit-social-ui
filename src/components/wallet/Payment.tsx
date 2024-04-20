@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { BankTransfer, PaymentOption } from "..";
+import { BankTransfer, PaymentOption, OnlinePayment } from "..";
 import { useWalletState } from "@/store";
 
 const Payment: FC = () => {
@@ -13,11 +13,9 @@ const Payment: FC = () => {
         <div className="">
 
             { paymentOption && (
-
                 {
                     transfer: <BankTransfer />,
-                    
-                    
+                    online: <OnlinePayment />,
                 }[paymentOption ]
             )
             }

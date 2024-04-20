@@ -12,8 +12,10 @@ import {
   Finance,
   HelpingHands,
   Kayla,
+  Maestro,
   Marketing,
   MaskAd,
+  Mastercard,
   Nguyen,
   Photography,
   Project,
@@ -26,6 +28,7 @@ import {
   Sparkle,
   Star,
   Theresa,
+  Visa,
   XhibitAd,
   aisight,
   blogImage,
@@ -1673,3 +1676,8 @@ export const bankTransferData : {
   },
 ]
 
+
+
+export const onlinePaymentOptions : string[] = [
+  Visa, Mastercard, Maestro
+]

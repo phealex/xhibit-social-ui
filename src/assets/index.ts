@@ -84,6 +84,9 @@ import EmptyRecord from "./EmptyRecord.svg"
 import EmptyTx from "./emptyTx.svg"
 import FundWallet from "./FundWallet.svg"
 import Bitcoin from "./bitcoin.svg"
+import Visa from "./Visa.svg"
+import Mastercard from "./Mastercard.svg"
+import Maestro from "./Maestro.svg"
 
 export {
   Logo,
@@ -171,5 +174,8 @@ export {
   EmptyRecord,
   EmptyTx,
   FundWallet,
-  Bitcoin
+  Bitcoin,
+  Visa,
+  Mastercard,
+  Maestro
 };
