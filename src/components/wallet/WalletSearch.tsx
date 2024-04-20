@@ -14,7 +14,7 @@ const WalletSearch: FC = () => {
   const [isTyping, setIsTyping] = useState(false);
 
   return (
-    <Command className={cn(" bg-transparent border border-dark_green ", isTyping && "border-hidden" )}>
+    <Command className={cn(" bg-transparent border h-fit border-dark_green ", isTyping && "border-hidden" )}>
       <CommandInput
       className=" "
         placeholder="Type a command or search..."

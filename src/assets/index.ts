@@ -81,6 +81,7 @@ import Photography from "./Photograph.svg";
 import Softwares from "./Software.svg";
 import CreditCard from "./CreditCard.svg"
 import EmptyRecord from "./EmptyRecord.svg"
+import EmptyTx from "./emptyTx.svg"
 
 export {
   Logo,
@@ -166,4 +167,5 @@ export {
   Softwares,
   CreditCard,
   EmptyRecord,
+  EmptyTx
 };

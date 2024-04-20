@@ -1,4 +1,4 @@
-import { CardRecord, TransactionRecord, WalletDetails, WalletFaq, WalletSearch } from "@/components"
+import { CardRecord, TransactionRecord, TransactionTable, WalletDetails, WalletFaq, WalletSearch } from "@/components"
 import { FC } from "react"
 
 const Wallet: FC = () => {
@@ -13,6 +13,7 @@ const Wallet: FC = () => {
       <section className="flex flex-1 flex-col gap-10  w-full">
        <WalletDetails />
        <WalletSearch />
+       <TransactionTable />
       </section>
     </div>
   </div>
