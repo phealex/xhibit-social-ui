@@ -19,9 +19,9 @@ const PaymentOption: FC = () => {
       <p className=" font-Jakarta font-medium text-xs text-dark_green">
         Payment method
       </p>
-      <div className="flex gap-5 flex-wrap">
+      <div className="flex gap-5 flex-row flex-wrap">
         <Select value={paymentOption} onValueChange={setPaymentOption}>
-          <SelectTrigger className="w-full h-fit border-primary_blue border-2">
+          <SelectTrigger className="w-fit h-fit border-primary_blue border-2">
             <SelectValue
               defaultValue="transfer"
               placeholder="Select a payment option"

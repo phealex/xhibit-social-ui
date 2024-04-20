@@ -79,4 +79,5 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
     amountToFund: 0,
     paymentOption: undefined,
     setPaymentOption: (paymentOption) => set({paymentOption}),
+    isConfirmTransaction: false
   }))

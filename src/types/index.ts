@@ -761,6 +761,7 @@ export type PaymentType = "transfer" | "online" | "crypto"
   amountToFund: number;
   paymentOption: PaymentType | undefined;
   setPaymentOption: (option: PaymentType) => void;
+  isConfirmTransaction: boolean
 
 
  }

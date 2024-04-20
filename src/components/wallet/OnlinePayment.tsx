@@ -14,6 +14,8 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
+import { useWalletState } from '@/store';
+import { RiArrowLeftSFill } from 'react-icons/ri';
 
 
 const OnlinePayment: FC = () => {
@@ -23,6 +25,9 @@ const OnlinePayment: FC = () => {
     
       function onSubmit(data: z.infer<typeof AddCardFormSchema>) {
         console.log(data);
+        useWalletState.setState({
+          isConfirmTransaction: true,
+        });
       }
   return (
     <div className=' flex flex-col gap-[50px]'>
@@ -36,7 +41,7 @@ const OnlinePayment: FC = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                  <FormLabel className=" font-Jakarta font-normal text-base text-dark_green">
                     CARD HOLDER NAME
                   </FormLabel>
                   <FormControl>
@@ -56,7 +61,7 @@ const OnlinePayment: FC = () => {
               name="number"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                  <FormLabel className=" font-Jakarta font-normal text-base text-dark_green">
                     CARD NUMBER
                   </FormLabel>
                   <FormControl>
@@ -76,7 +81,7 @@ const OnlinePayment: FC = () => {
               name="expiry"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                  <FormLabel className=" font-Jakarta font-normal text-base text-dark_green">
                     CARD EXPIRY
                   </FormLabel>
                   <FormControl>
@@ -103,7 +108,7 @@ const OnlinePayment: FC = () => {
                     />
                   </FormControl>
 
-                  <FormLabel className=" font-Jakarta font-medium text-base text-dark_green cursor-pointer space-y-0">
+                  <FormLabel className=" font-Jakarta font-normal text-base text-dark_green cursor-pointer space-y-0">
                     For quick and hassle-free deposits to your wallet, Saved
                     your card details.
                   </FormLabel>
@@ -115,12 +120,27 @@ const OnlinePayment: FC = () => {
 
             <Button
               type="submit"
-              className="bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90"
+              className="bg-primary_blue py-3 px-5 font-Jakarta font-normal text-base text-white rounded-md hover:bg-primary_blue/90"
             >
-              Save card
+              Pay
             </Button>
           </form>
         </Form>
+        <div
+        onClick={() => {
+          useWalletState.setState({
+            isFundWallet: false,
+            paymentOption: undefined,
+            amountToFund: 0,
+          });
+        }}
+        className="flex items-center gap-1 cursor-pointer"
+      >
+        <RiArrowLeftSFill className=" text-base text-primary_blue" />
+        <p className=" font-Jakarta font-medium text-xs text-primary_blue">
+            Return to wallet
+        </p>
+      </div>
 
     </div>
   )
