@@ -2,6 +2,8 @@ import React, { FC, useState } from "react";
 import { OTP, TransactionSuccessful } from "..";
 import { useWalletState } from "@/store";
 import { RiArrowLeftSFill } from "react-icons/ri";
+import {BackToWallet} from '..';
+
 
 const TransactionConfirmation: FC = () => {
 
@@ -19,21 +21,7 @@ const handleOtp = () => {
           <OTP handleSubmit={handleOtp} />
         )
       }
-      <div
-        onClick={() => {
-          useWalletState.setState({
-            isFundWallet: false,
-            paymentOption: undefined,
-            amountToFund: 0,
-          });
-        }}
-        className="flex items-center gap-1 cursor-pointer"
-      >
-        <RiArrowLeftSFill className=" text-base text-primary_blue" />
-        <p className=" font-Jakarta font-medium text-xs text-primary_blue">
-          Return to wallet
-        </p>
-      </div>
+   <BackToWallet />
     </div>
   );
 };

@@ -94,3 +94,6 @@ export {default as OnlinePayment} from "./wallet/OnlinePayment"
 export {default as OTP} from "./OTP/OTP"
 export {default as TransactionConfirmation} from "./wallet/TransactionConfirmation"
 export {default as TransactionSuccessful} from "./wallet/TransactionSuccessful"
+export {default as BackToWallet} from "./wallet/BackToWallet"
+
+

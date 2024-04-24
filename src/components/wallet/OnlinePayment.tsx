@@ -16,6 +16,7 @@ import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
 import { useWalletState } from '@/store';
 import { RiArrowLeftSFill } from 'react-icons/ri';
+import {BackToWallet} from '..';
 
 
 const OnlinePayment: FC = () => {
@@ -126,21 +127,7 @@ const OnlinePayment: FC = () => {
             </Button>
           </form>
         </Form>
-        <div
-        onClick={() => {
-          useWalletState.setState({
-            isFundWallet: false,
-            paymentOption: undefined,
-            amountToFund: 0,
-          });
-        }}
-        className="flex items-center gap-1 cursor-pointer"
-      >
-        <RiArrowLeftSFill className=" text-base text-primary_blue" />
-        <p className=" font-Jakarta font-medium text-xs text-primary_blue">
-            Return to wallet
-        </p>
-      </div>
+       <BackToWallet />
 
     </div>
   )

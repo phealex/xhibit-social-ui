@@ -1653,6 +1653,49 @@ export const paymentDetailsData : {
 
 ]
 
+export const cryptoPaymentDetailsData : {
+  title: string;
+  value: string;
+  isCopy: boolean
+}[] =[
+  {
+    title: "Payment type",
+    value: "Fund wallet",
+    isCopy: false
+  },
+  {
+    title: "Amount to fund wallet",
+    value: "0.00010 USDT",
+    isCopy: false
+  },
+  {
+    title: "Amount in Naiara",
+    value: "70,000",
+    isCopy: false
+  },
+  {
+    title: "XHIBIT pay invpice number",
+    value: "19800498",
+    isCopy: true
+  },
+  {
+    title: "Network type",
+    value: "TRC20",
+    isCopy: false
+  },
+  {
+    title: "Platform charges",
+    value: "0.010 USDT",
+    isCopy: false
+  },
+  {
+    title: "Total amount to pay",
+    value: "0.00012 USDT",
+    isCopy: false
+  },
+
+]
+
 
 export const bankTransferData : {
   title: string;
