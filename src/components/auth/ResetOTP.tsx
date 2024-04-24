@@ -56,6 +56,7 @@ const ResetOTP: FC<handleNextProps> = ({ handleNext }) => {
                   arr[index] =
                     value === undefined ? "" : value ? value : arr[index];
                   if (index !== 3 && arr[index] !== "") {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     (refs[index + 1] as any).current.focus();
                   }
 
@@ -73,6 +74,7 @@ const ResetOTP: FC<handleNextProps> = ({ handleNext }) => {
                     // If this is not the first input
                     if (index > 0) {
                       // Shift focus to the previous input
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       (refs[index - 1] as any)?.current?.focus();
                     }
                   }

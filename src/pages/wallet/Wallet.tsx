@@ -7,6 +7,7 @@ import {
   WalletSearch,
   PaymentDetails,
   Payment,
+  TransactionConfirmation,
 } from "@/components";
 import { cn } from "@/lib/utils";
 import { useWalletState } from "@/store";
@@ -14,6 +15,9 @@ import { FC } from "react";
 
 const Wallet: FC = () => {
   const isFundWallet = useWalletState((state) => state.isFundWallet);
+  const isConfirmTransaction = useWalletState(
+    (state) => state.isConfirmTransaction
+  );
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
       <div className="container mx-auto flex gap-5">
@@ -33,8 +37,12 @@ const Wallet: FC = () => {
             </div>
           )}
         </section>
-        <section className="flex flex-1 flex-col gap-10  w-full">
-          {!isFundWallet ? (
+        <section className="flex flex-1 flex-col gap-10  w-full bg-white">
+          {isFundWallet && isConfirmTransaction ? (
+            <div className="">
+              <TransactionConfirmation />
+            </div>
+          ) : !isFundWallet ? (
             <>
               <WalletDetails />
               <WalletSearch />
