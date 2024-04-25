@@ -91,6 +91,7 @@ import BitcoinLogo from "./BitcoinLogo.svg"
 import EthereumLogo from "./EthereumLogo.svg"
 import UsdtLogo from "./USDTLogo.svg"
 import UsdcLogo from "./USDCLogo.svg"
+import Qrcode from "./Qrcode.svg"
 
 
 export {
@@ -187,5 +188,6 @@ export {
   EthereumLogo,
   UsdtLogo,
   UsdcLogo,
+  Qrcode
 
 };

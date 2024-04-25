@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { OTP, TransactionSuccessful } from "..";
+import { OTP, TransactionSuccessful, CryptoTransfer } from "..";
 import { useWalletState } from "@/store";
 import { RiArrowLeftSFill } from "react-icons/ri";
 import {BackToWallet} from '..';
@@ -15,14 +15,15 @@ const handleOtp = () => {
     setIsOtpSuccess(true);
 }
   return (
-    <div className=" justify-center h-full flex flex-col gap-[50px] pt-20 ">
+    <div className=" h-full flex flex-col gap-[50px] pt-20 ">
       {
         isOtpSuccess ? (
           <TransactionSuccessful/>
         ) : paymentOption ?  (
           
             {
-              online: <OTP handleSubmit={handleOtp} />
+              online: <OTP handleSubmit={handleOtp} />,
+              crypto: <CryptoTransfer />
 
             }[paymentOption]
         ) : null

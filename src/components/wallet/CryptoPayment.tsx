@@ -23,6 +23,7 @@ import {
 import { CryptoDepositFormSchema } from "@/types";
 import { cryptoCurrencyOptions, cryptoNetworkOption } from "@/constants";
 import { Input } from "../ui/input";
+import { useWalletState } from "@/store";
 
 const CryptoPayment: FC = () => {
   const form = useForm<z.infer<typeof CryptoDepositFormSchema>>({
@@ -31,6 +32,9 @@ const CryptoPayment: FC = () => {
 
   function onSubmit(data: z.infer<typeof CryptoDepositFormSchema>) {
     console.log(data);
+    useWalletState.setState({
+        isConfirmTransaction: true,
+    })
   }
   return (
     <Form {...form}>
