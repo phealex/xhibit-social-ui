@@ -87,6 +87,11 @@ import Bitcoin from "./bitcoin.svg"
 import Visa from "./Visa.svg"
 import Mastercard from "./Mastercard.svg"
 import Maestro from "./Maestro.svg"
+import BitcoinLogo from "./BitcoinLogo.svg"
+import EthereumLogo from "./EthereumLogo.svg"
+import UsdtLogo from "./UsdtLogo.svg"
+import UsdcLogo from "./UsdcLogo.svg"
+
 
 export {
   Logo,
@@ -177,5 +182,10 @@ export {
   Bitcoin,
   Visa,
   Mastercard,
-  Maestro
+  Maestro,
+  BitcoinLogo,
+  EthereumLogo,
+  UsdtLogo,
+  UsdcLogo,
+
 };

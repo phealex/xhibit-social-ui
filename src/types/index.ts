@@ -554,7 +554,7 @@ export interface ProjectDisplayState {
   projectToShowId: string | null;
   setProjectToShowId: (value: string | null) => void;
   addNew: ProjectView | null;
-  projectModalActive: "projects" | "reviews"
+  projectModalActive: "projects" | "reviews";
 }
 
 export interface ProjectCategoryType {
@@ -612,15 +612,13 @@ export const AddProjectFormSchema = z.object({
   role: z.string().min(3, {
     message: "Role must be at least 3 characters long",
   }),
-  technologies: z
-  .array(
+  technologies: z.array(
     z.object({
       label: z.string(),
       value: z.string(),
     })
   ),
-  skills: z
-  .array(
+  skills: z.array(
     z.object({
       label: z.string(),
       value: z.string(),
@@ -639,9 +637,6 @@ export const AddProjectFormSchema = z.object({
   }),
   access: z.string(),
 });
-
-
-
 
 export interface MultiStepProps {
   handleNext: () => void;
@@ -673,7 +668,6 @@ export interface ProjectFormType {
   access: string;
 }
 
-
 export interface ProjectType {
   id: string;
   username: string;
@@ -684,8 +678,6 @@ export interface ProjectType {
   projectTitle: string;
   projectDescription: string;
 }
-
-
 
 export interface ProjectFormState {
   projectForm: ProjectFormType;
@@ -699,18 +691,17 @@ export interface ReviewType {
   userLocation: string;
   rating: number;
   review: string;
-  time: string; 
+  time: string;
 }
 
-
 export const HireTalentFormSchema = z.object({
-  message:  z.string(
-    {
+  message: z
+    .string({
       required_error: "Message is required",
-    }
-  ).min(10, {
-    message: "Message must be at least 10 characters",
-  }),
+    })
+    .min(10, {
+      message: "Message must be at least 10 characters",
+    }),
   duration: z.string({
     required_error: "Duration is required",
   }),
@@ -718,22 +709,16 @@ export const HireTalentFormSchema = z.object({
     required_error: "Budget is required",
   }),
   terms: z.boolean().optional(),
- });
+});
 
-
-
- export interface WorkProfileState {
+export interface WorkProfileState {
   activeTab: "about" | "project" | "service";
- }
+}
 
-
- 
 export const AddCardFormSchema = z.object({
-  name:  z.string(
-    {
-      required_error: "Card holder name is required",
-    }
-  ),
+  name: z.string({
+    required_error: "Card holder name is required",
+  }),
   number: z.string({
     required_error: "Card number is required",
   }),
@@ -741,33 +726,52 @@ export const AddCardFormSchema = z.object({
     required_error: "Card expiry date is required",
   }),
   terms: z.boolean().optional(),
- });
+});
 
-
-
- export interface TransactionType {
+export interface TransactionType {
   details: string;
   date: string;
   time: string;
-  type: "Bank deposit" | "Card deposit" | "Crypto deposit" | "Withdrawal" | "Payment" | "Transfer" | "Refund" | "Others" ;
+  type:
+    | "Bank deposit"
+    | "Card deposit"
+    | "Crypto deposit"
+    | "Withdrawal"
+    | "Payment"
+    | "Transfer"
+    | "Refund"
+    | "Others";
   status: "Successful" | "Pending";
   amount: string;
- }
+}
 
-export type PaymentType = "transfer" | "online" | "crypto" 
+export type PaymentType = "transfer" | "online" | "crypto";
 
- export interface WalletState {
+export interface WalletState {
   isFundWallet: boolean;
   amountToFund: number;
   paymentOption: PaymentType | undefined;
   setPaymentOption: (option: PaymentType) => void;
-  isConfirmTransaction: boolean
+  isConfirmTransaction: boolean;
+}
 
-
- }
-
- export const OTPFormSchema = z.object({
+export const OTPFormSchema = z.object({
   pin: z.string().min(4, {
     message: "Your one-time password must be 4 characters.",
   }),
-})
+});
+
+export const CryptoDepositFormSchema = z.object({
+  currency: z.string({
+    required_error: "Currency is required",
+  }),
+  network: z.string({
+    required_error: "Network is required",
+  }),
+  ngn: z.string({
+    required_error: "Amount is required",
+  }),
+  crypto: z.string({
+    required_error: "Amount is required",
+  }),
+});

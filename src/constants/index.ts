@@ -1,4 +1,5 @@
 import {
+  BitcoinLogo,
   BrainCircuit,
   Brainstorm,
   Chris,
@@ -9,6 +10,7 @@ import {
   Devon,
   Diversity,
   Dmitry,
+  EthereumLogo,
   Finance,
   HelpingHands,
   Kayla,
@@ -28,6 +30,8 @@ import {
   Sparkle,
   Star,
   Theresa,
+  UsdcLogo,
+  UsdtLogo,
   Visa,
   XhibitAd,
   aisight,
@@ -1724,3 +1728,32 @@ export const bankTransferData : {
 export const onlinePaymentOptions : string[] = [
   Visa, Mastercard, Maestro
 ]
+
+export const cryptoCurrencyOptions: {
+  name: string;
+  symbol: string;
+  icon: string
+}[] = [
+  {
+    name: "Bitcoin",
+    symbol: "BTC",
+    icon: BitcoinLogo
+  },
+  {
+    name: "USDT",
+    symbol: "USDT",
+    icon: UsdtLogo
+
+  },
+  {
+    name: "Ethereum",
+    symbol: "ETH",
+    icon: EthereumLogo,
+
+  },
+  {
+    name: "USDC",
+    symbol: "USDC",
+    icon: UsdcLogo
+
+  },]
