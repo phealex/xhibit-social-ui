@@ -89,8 +89,8 @@ import Mastercard from "./Mastercard.svg"
 import Maestro from "./Maestro.svg"
 import BitcoinLogo from "./BitcoinLogo.svg"
 import EthereumLogo from "./EthereumLogo.svg"
-import UsdtLogo from "./UsdtLogo.svg"
-import UsdcLogo from "./UsdcLogo.svg"
+import UsdtLogo from "./USDTLogo.svg"
+import UsdcLogo from "./USDCLogo.svg"
 
 
 export {

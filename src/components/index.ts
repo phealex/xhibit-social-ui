@@ -95,5 +95,6 @@ export {default as OTP} from "./OTP/OTP"
 export {default as TransactionConfirmation} from "./wallet/TransactionConfirmation"
 export {default as TransactionSuccessful} from "./wallet/TransactionSuccessful"
 export {default as BackToWallet} from "./wallet/BackToWallet"
+export {default as CryptoPayment} from "./wallet/CryptoPayment"
 
 

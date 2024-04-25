@@ -1,9 +1,9 @@
-import  { FC } from 'react'
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
- 
-import { Button } from "@/components/ui/button"
+import { FC } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -12,65 +12,156 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
+} from "@/components/ui/form";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
-import { CryptoDepositFormSchema } from '@/types'
-import { cryptoCurrencyOptions } from '@/constants'
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { CryptoDepositFormSchema } from "@/types";
+import { cryptoCurrencyOptions, cryptoNetworkOption } from "@/constants";
+import { Input } from "../ui/input";
 
 const CryptoPayment: FC = () => {
-    const form = useForm<z.infer<typeof CryptoDepositFormSchema>>({
-        resolver: zodResolver(CryptoDepositFormSchema),
-      })
+  const form = useForm<z.infer<typeof CryptoDepositFormSchema>>({
+    resolver: zodResolver(CryptoDepositFormSchema),
+  });
 
-      function onSubmit(data: z.infer<typeof CryptoDepositFormSchema>) {
-        console.log(data)
-      }
+  function onSubmit(data: z.infer<typeof CryptoDepositFormSchema>) {
+    console.log(data);
+  }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex flex-col gap-5">
         <FormField
           control={form.control}
           name="currency"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className=" font-Jakarta font-normal text-base text-dark_green">Select currency</FormLabel>
+              <FormLabel className=" font-Jakarta font-normal text-base text-dark_green">
+                Select currency
+              </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a cryptocurrency" />
+                <FormControl className=" w-full">
+                  <SelectTrigger className=" h-fit w-ull">
+                    <SelectValue className=" h-fit w-full" placeholder="Select a cryptocurrency" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                    {
-                        cryptoCurrencyOptions.map((option, index) => (
-                            <SelectItem key={index} value={option.name} className=" flex gap-1 items-center">
-                                <img src={option.icon} alt="" className=" h-2 w-2" />
-                                <p className=" font-Jakarta font-medium text-base text-dark_green">
-                                    {option.symbol}
-                                </p>
-                                <p className=" font-Jakarta font-normal text-xs text-dark_green">
-                                    {option.name}
-                                </p>
-                                
-                            </SelectItem>
-                        ))
-                    }
+                  {cryptoCurrencyOptions.map((option, index) => (
+                    <SelectItem
+                      key={index}
+                      value={option.name}
+                      className=" flex gap-1 items-center w-full h-fit"
+                    >
+                      <img src={option.icon} alt="" className=" h-5 w-5" />
+                      <p className=" font-Jakarta text-left font-medium text-base text-dark_green">
+                        {option.symbol}
+                      </p>
+                      <p className=" font-Jakarta text-left font-normal text-xs text-dark_green">
+                        {option.name}
+                      </p>
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+
+        <FormField
+          control={form.control}
+          name="network"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className=" font-Jakarta font-normal text-base text-dark_green">
+                Select network
+              </FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                <SelectTrigger className=" h-fit w-ull">
+                    <SelectValue className=" h-fit w-full" placeholder="Select a network" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {cryptoNetworkOption.map((option, index) => (
+                    <SelectItem
+                      key={index}
+                      value={option.name}
+                      className=" flex gap-1 items-center"
+                    >
+                      <p className=" font-Jakarta text-left font-normal text-xs text-dark_green">
+                        {option.icon}
+                      </p>
+                      <p className=" font-Jakarta text-left font-medium text-base text-dark_green">
+                        {option.name} ({option.symbol})
+                      </p>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="ngn"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <div className="flex justify-between items-center pb-2 border-b  ">
+                  <FormLabel className=" font-Jakarta font-normal text-base text-dark_green">
+                    Amount in NGN:
+                  </FormLabel>
+                  <Input
+                    placeholder="0"
+                    type="number"
+                    className=" flex-1 text-right"
+                    {...field}
+                  />
+                </div>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="ngn"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <div className="flex justify-between items-center pb-2 border-b  ">
+                  <FormLabel className=" font-Jakarta font-normal text-base text-dark_green">
+                    Amount in crypto:
+                  </FormLabel>
+                  <Input
+                    placeholder="0"
+                    type="number"
+                    className=" flex-1 text-right"
+                    {...field}
+                  />
+                </div>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button
+          type="submit"
+          className="bg-primary_blue py-3 px-5 font-Jakarta font-normal text-base text-white rounded-md hover:bg-primary_blue/90"
+        >
+          Pay
+        </Button>
       </form>
     </Form>
-  )
-}
+  );
+};
 
-export default CryptoPayment
+export default CryptoPayment;

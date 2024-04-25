@@ -1757,3 +1757,31 @@ export const cryptoCurrencyOptions: {
     icon: UsdcLogo
 
   },]
+
+
+  export const cryptoNetworkOption: {
+    symbol: string;
+    name: string;
+    icon: string;
+  }[] =[
+    {
+      symbol: "ERC20",
+      name: "Ethereum",
+      icon: "ETH"
+    },
+    {
+      symbol: "TRC20",
+      name: "Tron",
+      icon: "TRX"
+    },
+    {
+      symbol: "BEP20",
+      name: "Binance",
+      icon: "BDC",
+    }, 
+    {
+      symbol: "SOL",
+      name: "Solana",
+      icon: "SOL"
+    }
+  ]

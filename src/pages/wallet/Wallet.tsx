@@ -38,21 +38,30 @@ const Wallet: FC = () => {
           )}
         </section>
         <section className="flex flex-1 flex-col gap-10  w-full bg-white min-h-screen md:min-h-[calc(100vh-80px)]">
-          {isFundWallet && isConfirmTransaction ? (
-            <div className="">
-              <TransactionConfirmation />
-            </div>
-          ) : !isFundWallet ? (
-            <>
+          {
+            !isFundWallet ? (
+              <>
               <WalletDetails />
               <WalletSearch />
               <TransactionTable />
             </>
+            ) : isConfirmTransaction ? (
+              <TransactionConfirmation />
+            ) : (
+              <Payment />
+            )
+          }
+          {/* {isFundWallet && isConfirmTransaction ? (
+            <div className="">
+              <TransactionConfirmation />
+            </div>
+          ) : !isFundWallet ? (
+           
           ) : (
             <div className="">
               <Payment />
             </div>
-          )}
+          )} */}
         </section>
       </div>
     </div>
