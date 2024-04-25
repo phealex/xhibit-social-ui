@@ -8,6 +8,8 @@ import {BackToWallet} from '..';
 const TransactionConfirmation: FC = () => {
 
 const [isOtpSuccess, setIsOtpSuccess] = useState(false);
+const paymentOption = useWalletState((state) => state.paymentOption);
+
 
 const handleOtp = () => {
     setIsOtpSuccess(true);
@@ -17,9 +19,13 @@ const handleOtp = () => {
       {
         isOtpSuccess ? (
           <TransactionSuccessful/>
-        ) : (
-          <OTP handleSubmit={handleOtp} />
-        )
+        ) : paymentOption ?  (
+          
+            {
+              online: <OTP handleSubmit={handleOtp} />
+
+            }[paymentOption]
+        ) : null
       }
    <BackToWallet />
     </div>

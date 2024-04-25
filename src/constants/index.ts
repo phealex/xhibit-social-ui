@@ -1728,6 +1728,9 @@ export const bankTransferData : {
 export const onlinePaymentOptions : string[] = [
   Visa, Mastercard, Maestro
 ]
+export const cryptoPaymentOptions : string[] = [
+  BitcoinLogo,EthereumLogo, UsdtLogo, UsdcLogo
+]
 
 export const cryptoCurrencyOptions: {
   name: string;

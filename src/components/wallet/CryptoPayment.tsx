@@ -34,7 +34,10 @@ const CryptoPayment: FC = () => {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex flex-col gap-5">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full flex flex-col gap-5"
+      >
         <FormField
           control={form.control}
           name="currency"
@@ -44,9 +47,12 @@ const CryptoPayment: FC = () => {
                 Select currency
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl className=" w-full">
-                  <SelectTrigger className=" h-fit w-ull">
-                    <SelectValue className=" h-fit w-full" placeholder="Select a cryptocurrency" />
+                <FormControl className=" ">
+                  <SelectTrigger className=" h-fit w-full">
+                    <SelectValue
+                      className=" h-fit w-full "
+                      placeholder="Select a cryptocurrency"
+                    />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -54,15 +60,17 @@ const CryptoPayment: FC = () => {
                     <SelectItem
                       key={index}
                       value={option.name}
-                      className=" flex gap-1 items-center w-full h-fit"
+                      className=" !flex !flex-row gap-2"
                     >
                       <img src={option.icon} alt="" className=" h-5 w-5" />
-                      <p className=" font-Jakarta text-left font-medium text-base text-dark_green">
-                        {option.symbol}
-                      </p>
-                      <p className=" font-Jakarta text-left font-normal text-xs text-dark_green">
-                        {option.name}
-                      </p>
+                      <div className="flex flex-col gap-1">
+                        <p className=" font-Jakarta text-nowrap whitespace-nowrap text-left font-medium text-base text-dark_green">
+                          {option.symbol}
+                        </p>
+                        <p className=" font-Jakarta text-nowrap whitespace-nowrap text-left font-normal text-xs text-dark_green">
+                          {option.name}
+                        </p>
+                      </div>
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -82,8 +90,11 @@ const CryptoPayment: FC = () => {
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                <SelectTrigger className=" h-fit w-ull">
-                    <SelectValue className=" h-fit w-full" placeholder="Select a network" />
+                  <SelectTrigger className=" h-fit w-full">
+                    <SelectValue
+                      className=" h-fit w-full"
+                      placeholder="Select a network"
+                    />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -93,12 +104,14 @@ const CryptoPayment: FC = () => {
                       value={option.name}
                       className=" flex gap-1 items-center"
                     >
-                      <p className=" font-Jakarta text-left font-normal text-xs text-dark_green">
-                        {option.icon}
-                      </p>
-                      <p className=" font-Jakarta text-left font-medium text-base text-dark_green">
-                        {option.name} ({option.symbol})
-                      </p>
+                      <div className="flex flex-col gap-1">
+                        <p className=" font-Jakarta text-left font-normal text-xs text-dark_green">
+                          {option.icon}
+                        </p>
+                        <p className=" font-Jakarta text-left font-medium text-base text-dark_green">
+                          {option.name} ({option.symbol})
+                        </p>
+                      </div>
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -121,7 +134,7 @@ const CryptoPayment: FC = () => {
                   <Input
                     placeholder="0"
                     type="number"
-                    className=" flex-1 text-right"
+                    className=" flex-1 text-right border-none outline-none focus-visible:ring-transparent"
                     {...field}
                   />
                 </div>
@@ -133,7 +146,7 @@ const CryptoPayment: FC = () => {
 
         <FormField
           control={form.control}
-          name="ngn"
+          name="crypto"
           render={({ field }) => (
             <FormItem>
               <FormControl>
@@ -144,7 +157,7 @@ const CryptoPayment: FC = () => {
                   <Input
                     placeholder="0"
                     type="number"
-                    className=" flex-1 text-right"
+                    className=" flex-1 text-right border-none outline-none focus-visible:ring-transparent"
                     {...field}
                   />
                 </div>

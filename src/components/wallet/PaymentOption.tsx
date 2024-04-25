@@ -9,7 +9,7 @@ import {
 import { CreditCard, Landmark } from "lucide-react";
 import { Bitcoin } from "@/assets";
 import { useWalletState } from "@/store";
-import { onlinePaymentOptions } from "@/constants";
+import { cryptoPaymentOptions, onlinePaymentOptions } from "@/constants";
 
 const PaymentOption: FC = () => {
   const paymentOption = useWalletState((state) => state.paymentOption);
@@ -79,6 +79,18 @@ const PaymentOption: FC = () => {
                     src={option}
                     alt=""
                     className=" h-[30px] w-[46px] object-cover"
+                  />
+                ))}
+              </div>
+            ),
+            crypto: (
+              <div className="flex items-center gap-4">
+                {cryptoPaymentOptions.map((option, index) => (
+                  <img
+                    key={index}
+                    src={option}
+                    alt=""
+                    className=" h-[30px] w-[46px] object-contain"
                   />
                 ))}
               </div>
