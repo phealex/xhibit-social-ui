@@ -1,8 +1,7 @@
 import { FC, useState } from "react";
-import { Button } from "../ui/button";
 import { Eye, EyeOff, Plus } from "lucide-react";
 import { CryptoBalance } from "@/constants";
-import { AddMoney } from "..";
+import { AddMoney,  Withdraw } from "..";
 
 const WalletDetails: FC = () => {
   const [showBalance, setShowBalance] = useState<boolean>(false);
@@ -35,9 +34,7 @@ const WalletDetails: FC = () => {
         <div className="flex flex-col gap-[32px] ">
             <div className="flex items-center gap-6">
                 <AddMoney />
-                <Button className=" bg-accent_green hover:bg-accent_green text-white px-[10px] py-5 rounded-[5px] font-Jakarta font-medium text-xs text-center ">
-                    Withdraw
-                </Button>
+               <Withdraw />
             </div>
             <div className="flex items-center gap-6">
                 {

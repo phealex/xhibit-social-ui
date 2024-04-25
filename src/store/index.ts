@@ -75,9 +75,9 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
 
 
   export const useWalletState = create<WalletState>()((set) => ({
-    isFundWallet: true,
+    isFundWallet: false,
     amountToFund: 0,
-    paymentOption: "crypto",
+    paymentOption: undefined,
     setPaymentOption: (paymentOption) => set({paymentOption}),
-    isConfirmTransaction: true
+    isConfirmTransaction: false
   }))

@@ -97,5 +97,6 @@ export {default as TransactionSuccessful} from "./wallet/TransactionSuccessful"
 export {default as BackToWallet} from "./wallet/BackToWallet"
 export {default as CryptoPayment} from "./wallet/CryptoPayment"
 export {default as CryptoTransfer} from "./wallet/CryptoTransfer"
+export {default as Withdraw} from "./wallet/Withdraw"
 
 
