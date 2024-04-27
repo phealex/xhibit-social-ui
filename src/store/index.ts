@@ -87,7 +87,7 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
       accountNumber: "",
       bvn: "",
       idType: "",
-      isNumber: "",
+      idNumber: "",
       image: {
         type: "",
         size: 0,

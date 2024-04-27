@@ -760,7 +760,7 @@ export interface WalletState {
     accountNumber: string;
     bvn: string;
     idType: string;
-    isNumber: string;
+    idNumber: string;
     image: {
       type: string;
       size: number;

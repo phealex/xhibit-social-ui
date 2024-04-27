@@ -195,7 +195,7 @@ const Step2: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                       htmlFor="file"
                       className={cn(
                         " w-[240px] h-[140px] rounded cursor-pointer flex items-center justify-center flex-col gap-2",
-                        !selectedImage ? " border border-dashed" : ""
+                        !selectedFile ? " border border-dashed" : ""
                       )}
                     >
                       {selectedFile ? (
