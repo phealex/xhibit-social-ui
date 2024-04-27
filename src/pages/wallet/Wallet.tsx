@@ -25,6 +25,7 @@ const Wallet: FC = () => {
     (state) => state.isShowWalletVerification
   );
   const isShowWithdrawal = useWalletState((state) => state.isShowWithdrawal);
+  const withdrawalType = useWalletState((state) => state.withdrawalType);
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
       {
@@ -52,7 +53,13 @@ const Wallet: FC = () => {
         </section>
         <section className="flex flex-1 flex-col gap-10  w-full overflow-y-auto hide-scrollbar::-webkit-scrollbar hide-scrollbar max-h-[calc(100vh-80px)]">
           { isShowWithdrawal ? (
-          <BankWithdrawal />
+            
+              {
+                bank: <BankWithdrawal />,
+                crypto: <BankWithdrawal />,
+
+              }[withdrawalType]
+            
           ) :
             !isFundWallet ? (
               <>

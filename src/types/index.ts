@@ -768,7 +768,8 @@ export interface WalletState {
     };
     imageFile: File | undefined
   };
-  isShowWithdrawal: boolean
+  isShowWithdrawal: boolean;
+  withdrawalType: "bank" | "crypto";
 }
 
 export const OTPFormSchema = z.object({
