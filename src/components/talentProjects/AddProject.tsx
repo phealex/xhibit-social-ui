@@ -4,9 +4,8 @@ import { FC, useState } from "react";
 import { Separator } from "../ui/separator";
 import { Check } from "lucide-react";
 import { useMultiStepForm } from "@/hooks";
-import { Step1, Step2 } from "..";
+import { Step1, Step2, Step3 } from "..";
 import { useProjectDisplay } from "@/store";
-import Step3 from "../addProject/Step3";
 
 const AddProject: FC = () => {
   const [activeHeader, setActiveHeader] = useState<string[]>([

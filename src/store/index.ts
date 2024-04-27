@@ -79,5 +79,19 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
     amountToFund: 0,
     paymentOption: undefined,
     setPaymentOption: (paymentOption) => set({paymentOption}),
-    isConfirmTransaction: false
+    isConfirmTransaction: false,
+    isShowWalletVerification: false,
+    setShowWalletVerification: (isShowWalletVerification) => set({isShowWalletVerification}),
+    verificationData: {
+      bankName: "",
+      accountNumber: "",
+      bvn: "",
+      idType: "",
+      isNumber: "",
+      image: {
+        type: "",
+        size: 0,
+        name: "",
+      },
+    },
   }))

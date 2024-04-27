@@ -1788,3 +1788,24 @@ export const cryptoCurrencyOptions: {
       icon: "SOL"
     }
   ]
+
+
+
+  export const verifyWalletHeaders: {
+    title: string;
+    desc: string[];
+  }[] = [
+    {
+      title: "Bank details",
+      desc: ["Bank name", "Bank account number", "Bank verification number (BVN)"]
+    },
+    {
+      title: "Identification documents",
+      desc: ["Identification documents", "Identification number"]
+    },
+    {
+      title: "Preview project",
+      desc: []
+    }
+  ]
+  

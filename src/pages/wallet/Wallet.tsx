@@ -8,6 +8,7 @@ import {
   PaymentDetails,
   Payment,
   TransactionConfirmation,
+  WalletVerification,
 } from "@/components";
 import { cn } from "@/lib/utils";
 import { useWalletState } from "@/store";
@@ -18,8 +19,15 @@ const Wallet: FC = () => {
   const isConfirmTransaction = useWalletState(
     (state) => state.isConfirmTransaction
   );
+  const isShowWalletVerification = useWalletState(
+    (state) => state.isShowWalletVerification
+  );
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
+      {
+        isShowWalletVerification ? (
+         <WalletVerification />
+        ) : (
       <div className="container mx-auto flex gap-5">
         <section
           className={cn(
@@ -51,19 +59,10 @@ const Wallet: FC = () => {
               <Payment />
             )
           }
-          {/* {isFundWallet && isConfirmTransaction ? (
-            <div className="">
-              <TransactionConfirmation />
-            </div>
-          ) : !isFundWallet ? (
-           
-          ) : (
-            <div className="">
-              <Payment />
-            </div>
-          )} */}
         </section>
       </div>
+        )
+      }
     </div>
   );
 };
