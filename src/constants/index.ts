@@ -1556,7 +1556,7 @@ export const ReviewData: ReviewType[] =[
 
 export const TransactionRecords: TransactionType[] = [
   {
-   details: "Transfer from Abraham ED...(7CGB12389)",
+   details: "Transfer from Janie McCoy...(81688578)",
    date: "Jan 12-24",
    time: "12:24 PM",
    type: "Bank deposit",
@@ -1564,7 +1564,7 @@ export const TransactionRecords: TransactionType[] = [
    amount: "NGN 40, 233"
   },
   {
-    details: "Transfer from Abraham ED...(7CGB12389)",
+    details: "Transfer from Nathan Richards...(21859713)",
     date: "Jan 12-24",
     time: "12:24 PM",
     type: "Bank deposit",
@@ -1572,14 +1572,14 @@ export const TransactionRecords: TransactionType[] = [
     amount: "NGN 40, 233"
    },
    {
-    details: "Transfer from Abraham ED...(7CGB12389)",
+    details: "Transfer from Lina Rice...(13248128)",
     date: "Jan 12-24",
     time: "12:24 PM",
     type: "Withdrawal",
     status:"Pending",
     amount: "NGN 90, 233"
    }, {
-    details: "Transfer from Abraham ED...(7CGB12389)",
+    details: "Transfer from Noah Sanchez...(98562620)",
     date: "Jan 12-24",
     time: "12:24 PM",
     type: "Bank deposit",
