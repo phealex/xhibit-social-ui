@@ -104,5 +104,6 @@ export {default as VerificationStep1} from "./WalletVerificationForm/Step1"
 export {default as VerificationStep2} from "./WalletVerificationForm/Step2"
 export {default as VerificationStep3} from "./WalletVerificationForm/Step3"
 export {default as WithdrawalDetails} from "./wallet/WithdrawalDetails"
+export {default as BankWithdrawal} from "./wallet/BankWithdrawal"
 
 

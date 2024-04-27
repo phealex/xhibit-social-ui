@@ -25,7 +25,7 @@ const OnlinePayment: FC = () => {
       });
     
       function onSubmit(data: z.infer<typeof AddCardFormSchema>) {
-        // console.log(data);
+        console.log(data);
         useWalletState.setState({
           isConfirmTransaction: true,
         });

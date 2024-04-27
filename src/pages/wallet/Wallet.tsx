@@ -10,6 +10,7 @@ import {
   TransactionConfirmation,
   WalletVerification,
   WithdrawalDetails,
+  BankWithdrawal,
 } from "@/components";
 import { cn } from "@/lib/utils";
 import { useWalletState } from "@/store";
@@ -49,9 +50,9 @@ const Wallet: FC = () => {
             </div>
           )}
         </section>
-        <section className="flex flex-1 flex-col gap-10  w-full bg-white min-h-screen md:min-h-[calc(100vh-80px)]">
+        <section className="flex flex-1 flex-col gap-10  w-full overflow-y-auto hide-scrollbar::-webkit-scrollbar hide-scrollbar max-h-[calc(100vh-80px)]">
           { isShowWithdrawal ? (
-            <div className=""></div>
+          <BankWithdrawal />
           ) :
             !isFundWallet ? (
               <>

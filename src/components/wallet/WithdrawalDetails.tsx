@@ -11,7 +11,6 @@ import { useWalletState } from "@/store";
 const WithdrawalDetails: FC = () => {
 
     const { toast } = useToast();
-    const paymentOption = useWalletState((state) => state.paymentOption);
   return (
     <Card className=" border-dashed outline-none bg-white rounded-lg !m-0">
       <CardContent className=" flex flex-col gap-[30px] p-4">
