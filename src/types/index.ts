@@ -815,3 +815,22 @@ export const WalletVerificationFormSchema = z.object({
     name: z.string().nonempty(),
   }),
 });
+
+
+export const CryptoWithdrawFormSchema = z.object({
+  currency: z.string({
+    required_error: "Currency is required",
+  }),
+  network: z.string({
+    required_error: "Network is required",
+  }),
+  wallet: z.string({
+    required_error: "Wallet address is required",
+  }),
+  ngn: z.string({
+    required_error: "Amount is required",
+  }),
+  crypto: z.string({
+    required_error: "Amount is required",
+  }),
+})

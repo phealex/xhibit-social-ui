@@ -11,6 +11,7 @@ import {
   WalletVerification,
   WithdrawalDetails,
   BankWithdrawal,
+  CryptoWithdrawal
 } from "@/components";
 import { cn } from "@/lib/utils";
 import { useWalletState } from "@/store";
@@ -56,7 +57,7 @@ const Wallet: FC = () => {
             
               {
                 bank: <BankWithdrawal />,
-                crypto: <BankWithdrawal />,
+                crypto: <CryptoWithdrawal />,
 
               }[withdrawalType]
             
