@@ -768,6 +768,7 @@ export interface WalletState {
     };
     imageFile: File | undefined
   };
+  isShowWithdrawal: boolean
 }
 
 export const OTPFormSchema = z.object({

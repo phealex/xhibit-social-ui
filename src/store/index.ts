@@ -95,4 +95,5 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
       },
       imageFile: undefined
     },
+    isShowWithdrawal: false
   }))

@@ -8,7 +8,11 @@ const Withdraw: FC = () => {
   return (
     <div className="">
 
-        <Button className=" bg-accent_green hover:bg-accent_green text-white px-[10px] py-5 rounded-[5px] font-Jakarta font-medium text-xs text-center ">
+        <Button onClick={() => {
+          useWalletState.setState({
+            isShowWithdrawal: true
+          })
+        }} className=" bg-accent_green hover:bg-accent_green text-white px-[10px] py-5 rounded-[5px] font-Jakarta font-medium text-xs text-center ">
           Withdraw
         </Button>
     <Dialog open={isShowVerification} onOpenChange={setIsShowVerification}>

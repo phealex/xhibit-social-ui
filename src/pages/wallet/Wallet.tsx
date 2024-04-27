@@ -22,6 +22,7 @@ const Wallet: FC = () => {
   const isShowWalletVerification = useWalletState(
     (state) => state.isShowWalletVerification
   );
+  const isShowWithdrawal = useWalletState((state) => state.isShowWithdrawal);
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
       {
@@ -37,6 +38,10 @@ const Wallet: FC = () => {
         >
           {isFundWallet ? (
             <PaymentDetails />
+          ) : isShowWithdrawal ? (
+            <div className="">
+              
+            </div>
           ) : (
             <div className="flex flex-col gap-8  w-full">
               <CardRecord />
@@ -46,7 +51,9 @@ const Wallet: FC = () => {
           )}
         </section>
         <section className="flex flex-1 flex-col gap-10  w-full bg-white min-h-screen md:min-h-[calc(100vh-80px)]">
-          {
+          { isShowWithdrawal ? (
+            <div className=""></div>
+          ) :
             !isFundWallet ? (
               <>
               <WalletDetails />
