@@ -67,6 +67,7 @@ module.exports = {
         home_grey: "#8E9FAA",
         accent_green: "#4DBB9B",
         accent_blue: "#F2F9FF",
+        accent_yellow: "#FFC107",
         accent_red: "#E75F51",
       },
       backgroundImage: {

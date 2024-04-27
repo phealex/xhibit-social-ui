@@ -1,3 +1,4 @@
+import { TransactionRecords } from '@/constants'
 import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState, WalletState, WorkProfileState } from '@/types'
 import { create } from 'zustand'
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
@@ -97,4 +98,6 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
     },
     isShowWithdrawal: false,
     withdrawalType: "bank",
+    transactionRecords: TransactionRecords,
+    setTransactionRecords: (transactionRecords) => set({transactionRecords}),
   }))

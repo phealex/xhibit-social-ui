@@ -770,6 +770,7 @@ export interface WalletState {
   };
   isShowWithdrawal: boolean;
   withdrawalType: "bank" | "crypto";
+  transactionRecords: TransactionType[];
 }
 
 export const OTPFormSchema = z.object({
