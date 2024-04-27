@@ -9,6 +9,7 @@ import {
   Payment,
   TransactionConfirmation,
   WalletVerification,
+  WithdrawalDetails,
 } from "@/components";
 import { cn } from "@/lib/utils";
 import { useWalletState } from "@/store";
@@ -39,9 +40,7 @@ const Wallet: FC = () => {
           {isFundWallet ? (
             <PaymentDetails />
           ) : isShowWithdrawal ? (
-            <div className="">
-              
-            </div>
+           <WithdrawalDetails />
           ) : (
             <div className="flex flex-col gap-8  w-full">
               <CardRecord />
