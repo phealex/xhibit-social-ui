@@ -93,5 +93,6 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
         size: 0,
         name: "",
       },
+      imageFile: undefined
     },
   }))

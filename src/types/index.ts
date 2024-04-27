@@ -766,6 +766,7 @@ export interface WalletState {
       size: number;
       name: string;
     };
+    imageFile: File | undefined
   };
 }
 
@@ -791,11 +792,21 @@ export const CryptoDepositFormSchema = z.object({
 });
 
 export const WalletVerificationFormSchema = z.object({
-  bankName: z.string(),
-  accountNumber: z.string(),
-  bvn: z.string(),
-  idType: z.string(),
-  idNumber: z.string(),
+  bankName: z.string().min(3, {
+    message: "Bank name is required",
+  }),
+  accountNumber: z.string().min(10, {
+    message: "Account number is required",
+  }),
+  bvn: z.string().min(11, {
+    message: "BVN is required",
+  }),
+  idType: z.string().min(3, {
+    message: "ID type is required",
+  }),
+  idNumber: z.string().min(10, {
+    message: "ID number is required",
+  }),
   image: z.object({
     type: z.string(),
     size: z.number().max(2000000, "File size should be less than 2MB"),

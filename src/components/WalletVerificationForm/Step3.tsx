@@ -1,4 +1,7 @@
-import { WalletVerificationFormSchema, MultiStepProps } from "@/types";
+import {
+  MultiStepProps,
+  WalletVerificationFormSchema,
+} from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -28,26 +31,24 @@ import { Plus, File } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Step1: FC<MultiStepProps> = ({ handleNext }) => {
-  const schema = WalletVerificationFormSchema.pick({
-    idType: true,
-    idNumber: true,
-    image: true,
-  });
+  const selectedFile = useWalletState((state) => state.verificationData.imageFile);
 
 
   const verificationData = useWalletState((state) => state.verificationData);
-  const selectedFile = useWalletState((state) => state.verificationData.imageFile);
 
-  const form = useForm<z.infer<typeof schema>>({
-    resolver: zodResolver(schema),
+  const form = useForm<z.infer<typeof WalletVerificationFormSchema>>({
+    resolver: zodResolver(WalletVerificationFormSchema),
     defaultValues: {
+      bankName: verificationData.bankName,
+      accountNumber: verificationData.accountNumber,
+      bvn: verificationData.bvn,
       idType: verificationData.idType,
       idNumber: verificationData.idNumber,
       image: verificationData.image,
     },
   });
 
-  function onSubmit(data: z.infer<typeof schema>) {
+  function onSubmit(data: z.infer<typeof WalletVerificationFormSchema>) {
     console.log(data);
     useWalletState.setState({
       verificationData: {
@@ -55,6 +56,9 @@ const Step1: FC<MultiStepProps> = ({ handleNext }) => {
         idType: data.idType,
         idNumber: data.idNumber,
         image: data.image,
+        bankName: verificationData.bankName,
+        accountNumber: verificationData.accountNumber,
+        bvn: verificationData.bvn,
       },
     });
     handleNext();
@@ -66,6 +70,71 @@ const Step1: FC<MultiStepProps> = ({ handleNext }) => {
         onSubmit={form.handleSubmit(onSubmit)}
         className=" flex flex-col gap-5"
       >
+        <FormField
+          control={form.control}
+          name="bankName"
+          render={({ field }) => (
+            <FormItem className=" w-full flex flex-col gap-[2px]">
+              <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                Bank name
+              </FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Bank name" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="grb">GTB</SelectItem>
+                  <SelectItem value="kuda">Kuda MFB</SelectItem>
+                  <SelectItem value="access">Access Bank</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="accountNumber"
+          render={({ field }) => (
+            <FormItem className=" w-full flex flex-col gap-[2px]">
+              <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                Bank account Number
+              </FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Bank account number"
+                  className=" font-Jakarta font-normal text-base"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="bvn"
+          render={({ field }) => (
+            <FormItem className=" w-full flex flex-col gap-[2px]">
+              <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                Bank verification number (BVN)
+              </FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Bank verification number (BVN)"
+                  className=" font-Jakarta font-normal text-base"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <FormField
           control={form.control}
           name="idType"
@@ -136,7 +205,7 @@ const Step1: FC<MultiStepProps> = ({ handleNext }) => {
                       <Label
                         htmlFor="file"
                         className={cn(
-                          " w-full h-[40px] rounded cursor-pointer flex items-center justify-center flex-col gap-2",
+                          " w-full h-[54px] rounded cursor-pointer flex items-center justify-center flex-col gap-2",
                           !selectedFile ? " border border-dashed" : ""
                         )}
                       >
@@ -149,11 +218,11 @@ const Step1: FC<MultiStepProps> = ({ handleNext }) => {
                           </div>
                         ) : (
                           <div className="flex gap-1 items-center rounded-md">
-                            <Plus className=" w-[20px] h-[20px] " />
-                            <h1 className=" font-Jakarta text-[16px] font-normal text-dark_green text-center">
-                              Choose File
-                            </h1>
-                          </div>
+                          <Plus className=" w-[20px] h-[20px] " />
+                          <h1 className=" font-Jakarta text-[16px] font-normal text-dark_green text-center">
+                            Choose File
+                          </h1>
+                        </div>
                         )}
                       </Label>
                       <Input
@@ -165,7 +234,6 @@ const Step1: FC<MultiStepProps> = ({ handleNext }) => {
                         onChange={(e) => {
                           const file = e.target.files?.[0];
                           if (file) {
-                            // setSelectedFile(file);
                             useWalletState.setState({
                               verificationData: {
                                 ...verificationData,

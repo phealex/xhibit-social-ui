@@ -31,28 +31,29 @@ const Step1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
     bvn: true,
   });
 
-const verificationData = useWalletState((state) => state.verificationData);
+  const verificationData = useWalletState((state) => state.verificationData);
 
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
-        bankName: verificationData.bankName,
-        accountNumber: verificationData.accountNumber,
-        bvn: verificationData.bvn,
-  },
-    });
+      bankName: verificationData.bankName,
+      accountNumber: verificationData.accountNumber,
+      bvn: verificationData.bvn,
+    },
+  });
 
   function onSubmit(data: z.infer<typeof schema>) {
     console.log(data);
-    useWalletState.setState({ verificationData: {
+    useWalletState.setState({
+      verificationData: {
         ...verificationData,
         bankName: data.bankName,
         accountNumber: data.accountNumber,
         bvn: data.bvn,
-    }});
+      },
+    });
     handleNext();
   }
-
 
   return (
     <Form {...form}>
@@ -60,7 +61,6 @@ const verificationData = useWalletState((state) => state.verificationData);
         onSubmit={form.handleSubmit(onSubmit)}
         className=" flex flex-col gap-5"
       >
-      
         <FormField
           control={form.control}
           name="bankName"
@@ -86,7 +86,7 @@ const verificationData = useWalletState((state) => state.verificationData);
           )}
         />
 
-<FormField
+        <FormField
           control={form.control}
           name="accountNumber"
           render={({ field }) => (
@@ -106,7 +106,7 @@ const verificationData = useWalletState((state) => state.verificationData);
           )}
         />
 
-<FormField
+        <FormField
           control={form.control}
           name="bvn"
           render={({ field }) => (

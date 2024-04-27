@@ -4,9 +4,10 @@ import { RiArrowLeftSFill } from "react-icons/ri";
 
 interface BackToWalletProps {
   handleBack?: () => void
+  title?: string
 }
 const BackToWallet: FC<BackToWalletProps> = ({
-  handleBack
+  handleBack, title
 }) => {
   return (
     <div
@@ -23,7 +24,7 @@ const BackToWallet: FC<BackToWalletProps> = ({
       >
         <RiArrowLeftSFill className=" text-base text-primary_blue" />
         <p className=" font-Jakarta font-medium text-xs text-primary_blue">
-            Return to wallet
+            { title ? title : "Return to wallet"}
         </p>
       </div>
   )

@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { useWalletState } from "@/store";
 
 const Withdraw: FC = () => {
-    const [isShowVerification, setIsShowVerification] = useState<boolean>(true)
+    const [isShowVerification, setIsShowVerification] = useState<boolean>(false)
   return (
     <div className="">
 

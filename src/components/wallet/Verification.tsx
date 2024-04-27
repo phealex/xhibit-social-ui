@@ -6,6 +6,7 @@ import { useWalletState } from "@/store";
 import { cn } from "@/lib/utils";
 import { Separator } from "../ui/separator";
 import { Check } from "lucide-react";
+import { VerificationStep1, VerificationStep2, VerificationStep3 } from "@/components";
 
 const Verification: FC = () => {
   const [activeHeader, setActiveHeader] = useState<string[]>([
@@ -40,16 +41,16 @@ const Verification: FC = () => {
 
   const { step, isLastStep, isFirstStep, currentStep, prev, next } =
     useMultiStepForm([
-      //   <Step1 handlePrev={handlePrev} handleNext={handleNext} />,
-      //   <Step2 handlePrev={handlePrev} handleNext={handleNext} />,
-      //   <Step3 handlePrev={handlePrev} handleNext={handleNext} />,
+        <VerificationStep1 handlePrev={handlePrev} handleNext={handleNext} />,
+        <VerificationStep2 handlePrev={handlePrev} handleNext={handleNext} />,
+        <VerificationStep3 handlePrev={handlePrev} handleNext={handleNext} />,
     ]);
 
   return (
-    <div className="bg-white p-4 rounded-lg w-full container mx-auto">
+    <div className="bg-white p-4 pt-10 rounded-lg w-full container mx-auto">
       <div className="flex flex-col justify-between gap-5">
         <div className="flex items-start justify-between">
-          <div className="hidden  md:flex flex-col gap-5 items-start md:w-[261px] lg:w-[342px] h-[678px] bg-dark_green/5 p-2 lg:pl-5 border border-dark_green/5 justify-center  rounded-[2px] rounded-tr-[82px]  ">
+          <div className="hidden  md:flex flex-col gap-5 items-start md:w-[261px] lg:w-[342px] p-2 lg:pl-5   ">
             {verifyWalletHeaders.map((header, index) => (
               <div className="flex gap-2 items-start" key={index}>
                 <div className="flex flex-col gap-1  items-center">
@@ -102,11 +103,12 @@ const Verification: FC = () => {
               </div>
             ))}
           </div>
-          <div className="">
+          <div className=" w-full max-w-[430px] p-5">
             {step}
           </div>
         </div>
-        <BackToWallet handleBack={() => {
+        <BackToWallet title={"Back"} handleBack={() => {
+          if(!isFirstStep) return prev()
             useWalletState.setState({
                 isShowWalletVerification: false,
             })
