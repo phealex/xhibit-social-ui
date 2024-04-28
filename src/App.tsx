@@ -12,6 +12,8 @@ import {
   Navbar,
   TalentFeedFooter,
   TalentFeedNavbar,
+  RecruiterFeedNavbar,
+  RecruiterFeedFooter
 } from "@/components";
 import Home from "./pages/home/Home";
 import Projects from "./pages/projects/Projects";
@@ -115,9 +117,9 @@ function App() {
     return (
       <div className="">
 
-        <TalentFeedNavbar />
+        <RecruiterFeedNavbar />
         <Outlet />
-        <TalentFeedFooter />
+        <RecruiterFeedFooter />
       </div>
       
     );
