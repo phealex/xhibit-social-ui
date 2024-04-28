@@ -35,7 +35,7 @@ const Wallet: FC = () => {
         <div className="flex flex-col gap-5">
           {
             !isFundWallet && !isShowWithdrawal && (
-          <div className="hidden md:flex lg:hidden container">
+          <div className="flex lg:hidden container">
             <WalletDetails />
           </div>
             )
@@ -51,7 +51,7 @@ const Wallet: FC = () => {
             <section
               className={cn(
                 "w-[290px] hidden md:flex flex-col py-10 px-4 rounded-lg  bg-white gap-8 ",
-                (isFundWallet || isShowWithdrawal)  && "p-0 h-fit w-full"
+                (isFundWallet || isShowWithdrawal)  && "p-0 h-fit w-full lg:w-[290px]"
               )}
             >
               {isFundWallet ? (

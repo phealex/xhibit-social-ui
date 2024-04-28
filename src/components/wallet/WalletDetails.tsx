@@ -10,7 +10,7 @@ const WalletDetails: FC = () => {
       <h1 className=" font-Jakarta font-medium text-[31px] leading-[44px] text-dark_green">
         My wallet
       </h1>
-      <div className=" bg-primary_blue/10 w-full rounded-[10px] min-h-[180px] px-5 pt-[42px] flex justify-between ">
+      <div className=" bg-primary_blue/10 w-full rounded-[10px] min-h-[180px] px-5 py-5 md:pt-[42px] flex flex-col gap-4 md:flex-row justify-between ">
         <div className="flex flex-col gap-[10px]">
           <div className="flex items-center gap-5">
             <div className="flex items-start gap-1">
@@ -31,7 +31,7 @@ const WalletDetails: FC = () => {
             XHIBIT wallet balance
           </p>
         </div>
-        <div className="flex flex-col gap-[32px] ">
+        <div className="flex flex-col-reverse md:flex-col gap-[32px] ">
             <div className="flex items-center gap-6">
                 <AddMoney />
                <Withdraw />

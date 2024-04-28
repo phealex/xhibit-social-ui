@@ -53,7 +53,7 @@ const BankWithdrawal: FC = () => {
         <TransactionSuccessful />
       ) : (
         <div className=" flex-1 flex flex-col gap-[60px] ">
-          <div className="flex flex-col md:flex-row gap-5">
+          <div className="flex flex-col items-center lg:flex-row gap-5 mr-auto">
             <div className="flex flex-col gap-[10px]">
               <p className=" font-Jakarta font-medium text-xs text-dark_green">
                 My XHIBIT Wallet
