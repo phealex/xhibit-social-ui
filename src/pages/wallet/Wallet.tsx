@@ -43,14 +43,14 @@ const Wallet: FC = () => {
 
           <div
             className={cn(
-              "container mx-auto flex gap-5",
+              "container mx-auto flex flex-col md:flex-row gap-5",
               (isFundWallet || isShowWithdrawal) &&
                 "flex-col-reverse lg:flex-row"
             )}
           >
             <section
               className={cn(
-                "w-[290px] hidden md:flex flex-col py-10 px-4 rounded-lg  bg-white gap-8 ",
+                " w-full md:w-[290px] flex flex-col py-10 px-4 rounded-lg  bg-white gap-8 ",
                 (isFundWallet || isShowWithdrawal)  && "p-0 h-fit w-full lg:w-[290px]"
               )}
             >
@@ -61,8 +61,10 @@ const Wallet: FC = () => {
               ) : (
                 <div className="flex flex-col gap-8  w-full">
                   <CardRecord />
+                  <div className="hidden md:flex">
                   <TransactionRecord />
                   <WalletFaq />
+                  </div>
                 </div>
               )}
             </section>
