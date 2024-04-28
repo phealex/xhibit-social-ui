@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
+import { useUserState } from "@/store";
 import { loginFromSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
@@ -27,6 +28,9 @@ const Login: FC = () => {
 
   const {toast} = useToast()
 
+  const userType = useUserState((state) => state.userType);
+  const setUserType = useUserState((state) => state.setUserType);
+
   const form = useForm<z.infer<typeof loginFromSchema>>({
     resolver: zodResolver(loginFromSchema),
     defaultValues: {
@@ -34,15 +38,21 @@ const Login: FC = () => {
       password: "",
     },
   });
+  
 
   function onSubmit(values: z.infer<typeof loginFromSchema>) {
     console.log(values);
+
+    //TODO: set user type based on login response 
+    setUserType("recruiter");
+    
+
     toast({
       title: "Login Successful",
-      description: "Redirecting to Talent Feed"
+      description: `Redirecting to ${userType} Feed`
     })
     setTimeout(() => {  
-    navigate("/talent")
+    navigate(`/${userType}`)
     },2000)
   }
 

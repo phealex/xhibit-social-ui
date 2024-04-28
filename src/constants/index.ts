@@ -65,14 +65,14 @@ import {
   NotebookPen,
 } from "lucide-react";
 import { IconType } from "react-icons";
-import { FaCode, FaFacebook, FaGlobe } from "react-icons/fa";
+import { FaCode, FaFacebook, FaGlobe, FaRegLightbulb } from "react-icons/fa";
 import { FaDiscord, FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { FiPenTool } from "react-icons/fi";
 import { HiSparkles } from "react-icons/hi";
 import { IoLogoAngular, IoLogoApple } from "react-icons/io";
 import { MdRssFeed } from "react-icons/md";
 import { BiBriefcase } from "react-icons/bi";
-import { RiBriefcase3Line, RiWalletLine } from "react-icons/ri";
+import { RiBriefcase3Line, RiMenuSearchLine, RiWalletLine } from "react-icons/ri";
 
 export const features: {
   img: string;
@@ -975,6 +975,33 @@ export const talentFeedHeaders: {
     title: "Projects",
     icon: RiBriefcase3Line,
     link: "projects",
+  },
+  {
+    title: "Wallet",
+    icon: RiWalletLine,
+    link: "wallet",
+  },
+];
+
+export const recruiterFeedHeaders: {
+  title: string;
+  icon: IconType;
+  link: string;
+}[] = [
+  {
+    title: "Feeds",
+    icon: MdRssFeed,
+    link: "",
+  },
+  {
+    title: "Talents",
+    icon: FaRegLightbulb,
+    link: "talents",
+  },
+  {
+    title: "Discover",
+    icon: RiMenuSearchLine,
+    link: "discover",
   },
   {
     title: "Wallet",

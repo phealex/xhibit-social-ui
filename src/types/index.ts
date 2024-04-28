@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+
 export const jobSearchFormSchema = z.object({
   title: z
     .string()
@@ -835,3 +836,9 @@ export const CryptoWithdrawFormSchema = z.object({
     required_error: "Amount is required",
   }),
 })
+
+
+export interface UserState {
+  userType: RegisterDataType["userType"];
+  setUserType: (value: RegisterDataType["userType"]) => void;
+}

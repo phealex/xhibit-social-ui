@@ -1,6 +1,12 @@
 import { TransactionRecords } from '@/constants'
-import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState, WalletState, WorkProfileState } from '@/types'
+import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState, UserState, WalletState, WorkProfileState } from '@/types'
 import { create } from 'zustand'
+
+
+export const useUserState = create<UserState>()((set) => ({
+  userType: "talent",
+  setUserType: (userType) => set({userType}),
+}))
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
     // showBrowseJobs: true,
     // setShowBrowseJobs: (showBrowseJobs) => set({ showBrowseJobs }),

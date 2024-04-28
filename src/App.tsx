@@ -3,6 +3,7 @@ import {
   RouterProvider,
   createBrowserRouter,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import "./App.css";
 import {
@@ -32,6 +33,7 @@ import Messages from "./pages/messages/Messages";
 import TalentProjects from "./pages/talentProjects/TalentProjects";
 import WorkProfile from "./pages/workProfile/WorkProfile";
 import Wallet from "./pages/wallet/Wallet";
+import { useUserState } from "./store";
 
 function App() {
   const HomeLayout = () => {
@@ -66,9 +68,50 @@ function App() {
   const TalentFeedLayout = () => {
     const path = useLocation().pathname;
 
+    const navigate = useNavigate();
+  const userType = useUserState((state) => state.userType);
+
+
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [path]);
+
+    useEffect(() => {
+      if (userType !== "talent") {
+         navigate("login")
+      }
+    }, [userType, navigate]);
+
+  
+    return (
+      <div className="">
+
+        <TalentFeedNavbar />
+        <Outlet />
+        <TalentFeedFooter />
+      </div>
+      
+    );
+  };
+
+  const RecruiterFeedLayout = () => {
+    const path = useLocation().pathname;
+
+    const navigate = useNavigate();
+  const userType = useUserState((state) => state.userType);
+
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [path]);
+
+    useEffect(() => {
+      if (userType !== "recruiter") {
+         navigate("login")
+      }
+    }, [userType, navigate]);
+
+  
     return (
       <div className="">
 
@@ -144,6 +187,41 @@ function App() {
     {
       path: "/talent",
       element: <TalentFeedLayout />,
+      children: [
+        {
+          path: "",
+          element: <TalentFeed />,
+        },
+        {
+          path: "profile",
+          element: <TalentProfile />,
+        },
+        {
+          path: "jobs/:id?",
+          element: <TalentJobs />,
+        },
+        {
+          path: "messages",
+          element: <Messages />,
+        },
+        {
+          path: "projects",
+          element: <TalentProjects />,
+        },
+        {
+          path: "view/:id",
+          element: <WorkProfile />,
+        },
+        {
+          path: "wallet",
+          element: <Wallet />,
+        }
+
+      ],
+    },
+    {
+      path: "/recruiter",
+      element: <RecruiterFeedLayout />,
       children: [
         {
           path: "",
