@@ -80,7 +80,7 @@ function App() {
 
     useEffect(() => {
       if (userType !== "talent") {
-         navigate("login")
+         navigate("auth/login")
       }
     }, [userType, navigate]);
 
@@ -109,7 +109,7 @@ function App() {
 
     useEffect(() => {
       if (userType !== "recruiter") {
-         navigate("login")
+         navigate("auth/login")
       }
     }, [userType, navigate]);
 
@@ -234,7 +234,7 @@ function App() {
           element: <TalentProfile />,
         },
         {
-          path: "jobs/:id?",
+          path: "talents/:id?",
           element: <TalentJobs />,
         },
         {
@@ -242,7 +242,7 @@ function App() {
           element: <Messages />,
         },
         {
-          path: "projects",
+          path: "discover",
           element: <TalentProjects />,
         },
         {

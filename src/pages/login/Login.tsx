@@ -49,7 +49,7 @@ const Login: FC = () => {
 
     toast({
       title: "Login Successful",
-      description: `Redirecting to ${userType} Feed`
+      description: `Redirecting to your feed`
     })
     setTimeout(() => {  
     navigate(`/${userType}`)

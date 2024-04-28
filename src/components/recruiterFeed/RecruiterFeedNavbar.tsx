@@ -32,7 +32,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 const RecruiterFeedNavbar: FC = () => {
   const path = useLocation().pathname.split("/")[2];
 
-  // console.log(path);
+  console.log(path);
 
   const navigate = useNavigate();
   return (
@@ -52,6 +52,8 @@ const RecruiterFeedNavbar: FC = () => {
                 header.link === path
                   ? " text-primary_blue border-b-2 border-b-primary_blue pb-1  "
                   : "text-dark_green/70"
+              } ${
+                !path && index === 0 &&  " text-primary_blue border-b-2 border-b-primary_blue pb-1  "
               }`}
             >
               <header.icon className=" w-6 h-6" />

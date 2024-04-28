@@ -61,7 +61,7 @@ const Wallet: FC = () => {
               ) : (
                 <div className="flex flex-col gap-8  w-full">
                   <CardRecord />
-                  <div className="hidden md:flex">
+                  <div className="hidden md:flex flex-col gap-8">
                   <TransactionRecord />
                   <WalletFaq />
                   </div>
