@@ -6,11 +6,11 @@ import { AddMoney,  Withdraw } from "..";
 const WalletDetails: FC = () => {
   const [showBalance, setShowBalance] = useState<boolean>(false);
   return (
-    <div className=" flex flex-col gap-10">
+    <div className=" flex flex-col gap-10 w-full">
       <h1 className=" font-Jakarta font-medium text-[31px] leading-[44px] text-dark_green">
         My wallet
       </h1>
-      <div className=" bg-primary_blue/10 w-full rounded-[10px] min-h-[180px] px-5 pt-[42px] flex justify-between  ">
+      <div className=" bg-primary_blue/10 w-full rounded-[10px] min-h-[180px] px-5 pt-[42px] flex justify-between ">
         <div className="flex flex-col gap-[10px]">
           <div className="flex items-center gap-5">
             <div className="flex items-start gap-1">

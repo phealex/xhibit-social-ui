@@ -9,9 +9,10 @@ const Withdraw: FC = () => {
     <div className="">
       <Button
         onClick={() => {
+          // setIsShowVerification(true);
           useWalletState.setState({
             isShowWithdrawal: true,
-            withdrawalType: "crypto",
+            withdrawalType: "bank",
           });
         }}
         className=" bg-accent_green hover:bg-accent_green text-white px-[10px] py-5 rounded-[5px] font-Jakarta font-medium text-xs text-center "
