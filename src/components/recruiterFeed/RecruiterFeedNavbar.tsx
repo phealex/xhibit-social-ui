@@ -32,7 +32,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 const RecruiterFeedNavbar: FC = () => {
   const path = useLocation().pathname.split("/")[2];
 
-  console.log(path);
+//   console.log(path);
 
   const navigate = useNavigate();
   return (

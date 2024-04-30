@@ -36,6 +36,7 @@ import TalentProjects from "./pages/talentProjects/TalentProjects";
 import WorkProfile from "./pages/workProfile/WorkProfile";
 import Wallet from "./pages/wallet/Wallet";
 import { useUserState } from "./store";
+import RecruiterFeed from "./pages/recruiterFeed/RecruiterFeed";
 
 function App() {
   const HomeLayout = () => {
@@ -227,7 +228,7 @@ function App() {
       children: [
         {
           path: "",
-          element: <TalentFeed />,
+          element: <RecruiterFeed />,
         },
         {
           path: "profile",

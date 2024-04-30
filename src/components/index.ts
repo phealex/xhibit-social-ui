@@ -108,5 +108,5 @@ export {default as BankWithdrawal} from "./wallet/BankWithdrawal"
 export {default as CryptoWithdrawal} from "./wallet/CryptoWithdrawal"
 export {default as RecruiterFeedFooter} from "./recruiterFeed/RecruiterFeedFooter"
 export {default as RecruiterFeedNavbar} from "./recruiterFeed/RecruiterFeedNavbar"
-
+export {default as RecruiterCard} from "./recruiterFeed/RecruiterCard"
 
