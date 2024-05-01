@@ -20,8 +20,8 @@ const TopRated: FC = () => {
               .fill(0)
               .map((_, i) => (
                 <div className="flex items-center gap-1" key={i}>
-                  <Checkbox id={`${i}`} />
-                  <Label htmlFor={`${i}`} className="flex items-center gap-1 cursor-pointer">
+                  <Checkbox id={`${i}star`} />
+                  <Label htmlFor={`${i}star`} className="flex items-center gap-1 cursor-pointer">
                     {Array(5)
                       .fill(0)
                       .map((_, starIndex) => (

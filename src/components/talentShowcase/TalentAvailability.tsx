@@ -17,9 +17,9 @@ const TalentAvailability: FC = () => {
           <div className="flex flex-col gap-6 w-[90%]">
             {talentAvailability.map((ava, i) => (
               <div className="flex items-center gap-1" key={i}>
-                <Checkbox id={`${i}`} />
+                <Checkbox id={ava} />
                 <Label
-                  htmlFor={`${i}`}
+                  htmlFor={ava}
                   className="flex items-center gap-1 cursor-pointer"
                 >
                   {ava}

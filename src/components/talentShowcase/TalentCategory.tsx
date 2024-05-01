@@ -18,8 +18,8 @@ const TalentCategory: FC = () => {
             {talentIndustries
               .map((industry, i) => (
                 <div className="flex items-center gap-1" key={i}>
-                  <Checkbox id={`${i}`} />
-                  <Label htmlFor={`${i}`} className="flex items-center gap-1 cursor-pointer">
+                  <Checkbox id={industry} />
+                  <Label htmlFor={industry} className="flex items-center gap-1 cursor-pointer">
                     {industry}
                   </Label>
                 </div>

@@ -18,8 +18,8 @@ const TalentExperience: FC = () => {
             {talentExperience
               .map((exp, i) => (
                 <div className="flex items-center gap-1" key={i}>
-                  <Checkbox id={`${i}`} />
-                  <Label htmlFor={`${i}`} className="flex items-center gap-1 cursor-pointer">
+                  <Checkbox id={exp} />
+                  <Label htmlFor={exp} className="flex items-center gap-1 cursor-pointer">
                     {exp} {""} yrs
                   </Label>
                 </div>

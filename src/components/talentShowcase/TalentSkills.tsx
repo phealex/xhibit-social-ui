@@ -18,8 +18,8 @@ const TalentSkills: FC = () => {
             {talentSkills
               .map((skill, i) => (
                 <div className="flex items-center gap-1" key={i}>
-                  <Checkbox id={`${i}`} />
-                  <Label htmlFor={`${i}`} className="flex items-center gap-1 cursor-pointer">
+                  <Checkbox id={skill} />
+                  <Label htmlFor={skill} className="flex items-center gap-1 cursor-pointer">
                     {skill}
                   </Label>
                 </div>

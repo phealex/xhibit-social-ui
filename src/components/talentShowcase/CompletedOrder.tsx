@@ -18,8 +18,8 @@ const CompletedOrder: FC = () => {
             {completedOrders
               .map((order, i) => (
                 <div className="flex items-center gap-1" key={i}>
-                  <Checkbox id={`${i}`} />
-                  <Label htmlFor={`${i}`} className="flex items-center gap-1 cursor-pointer">
+                  <Checkbox id={order} />
+                  <Label htmlFor={order} className="flex items-center gap-1 cursor-pointer">
                     {order}
                   </Label>
                 </div>
