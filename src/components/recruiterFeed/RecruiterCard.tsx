@@ -3,8 +3,11 @@ import { Card, CardContent } from "../ui/card";
 import { Dmitry, UserBanner } from "@/assets";
 import { MapPin } from "lucide-react";
 import { Button } from "../ui/button";
+import { useRecruiterState } from "@/store";
 
 const RecruiterCard: FC = () => {
+
+  const setIsProfileSetup = useRecruiterState((state) => state.setIsProfileSetup);
   return (
     <Card>
       <CardContent className="!p-0 bg-white rounded-[10px] !pb-5">
@@ -30,7 +33,9 @@ const RecruiterCard: FC = () => {
             Lagos,NG
           </p>
           </div>
-         <Button className=" bg-primary_blue hover:bg-primary_blue text-base text-white w-fit ">
+         <Button onClick={() => {
+          setIsProfileSetup(true);
+         }} className=" bg-primary_blue hover:bg-primary_blue text-base text-white w-fit ">
             Set up my profile
          </Button>
         </div>

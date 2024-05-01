@@ -842,3 +842,9 @@ export interface UserState {
   userType: RegisterDataType["userType"];
   setUserType: (value: RegisterDataType["userType"]) => void;
 }
+
+
+export interface RecruiterState {
+  isProfileSetup: boolean;
+  setIsProfileSetup: (value: boolean) => void;
+}

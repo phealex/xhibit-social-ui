@@ -113,8 +113,5 @@ export {default as PostedJobs} from "./recruiterFeed/PostedJobs"
 export {default as RequestedServices} from "./recruiterFeed/RequestedServices"
 export {default as ViewedTalent} from "./recruiterFeed/ViewedTalent"
 export {default as ExploreTalentPool} from "./recruiterFeed/ExploreTalentPool"
-
-
-
-
-
+export {default as ExploreServices} from "./recruiterFeed/ExploreServices"
+export {default as ExploreProject} from "./recruiterFeed/ExploreProject"

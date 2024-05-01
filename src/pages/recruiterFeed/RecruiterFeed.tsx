@@ -1,4 +1,14 @@
-import { JobCard, Links, NewPost, RecruiterCard, PostedJobs, RequestedServices, ViewedTalent, ExploreTalentPool } from "@/components";
+import {
+  Links,
+  NewPost,
+  RecruiterCard,
+  PostedJobs,
+  RequestedServices,
+  ViewedTalent,
+  ExploreTalentPool,
+  ExploreProject,
+  ExploreServices,
+} from "@/components";
 import { Separator } from "@/components/ui/separator";
 import { FC } from "react";
 import {
@@ -8,23 +18,45 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { foundJobs, talentFeedPosts } from "@/constants";
+import { talentFeedPosts } from "@/constants";
 import Feed from "@/components/talentFeed/Feed";
 import { Button } from "@/components/ui/button";
+import { useRecruiterState } from "@/store";
+import { cn } from "@/lib/utils";
+import { Organization } from "@/assets";
 
 const RecruiterFeed: FC = () => {
+
+  const isProfileSetup = useRecruiterState((state) => state.isProfileSetup);
   return (
-    <div className=" bg-accent_blue min-h-screen w-full py-10">
+    <div className={cn(" bg-accent_blue min-h-screen w-full py-10", isProfileSetup && "py-0")}>
       <div className="w-[90%] lg:w-[80%] mx-auto flex gap-5">
         <section className="w-[20%] hidden lg:flex flex-col gap-5">
+          {
+            isProfileSetup ? (
+              <div className=" bg-dark_green/5 flex flex-col gap-5 py-10 p-5 h-full min-h-screen">
+                <div className="flex flex-col gap-3">
+                  <p className=" font-Jakarta font-semibold text-xl text-dark_green">
+                    Organizational info
+                  </p>
+                  <Separator className="w-full bg-dark_green/10" />
+                </div>
+           <img src={Organization} alt="" className=" h-[200px] w-[200px] object-cover mx-auto" />
+
+
+              </div>
+            ) : (
+              <>
           <RecruiterCard />
           <PostedJobs />
           <RequestedServices />
           <ViewedTalent />
           <Links />
-
+              </>
+            )
+          }
         </section>
-        <section className="flex flex-1 flex-col gap-10 w-full">
+        <section className="flex lg:max-w-[80%] flex-1 flex-col gap-10 w-full">
           <NewPost />
           <div className=" w-full flex gap-5 flex-col ">
             <div className="flex w-full items-center">
@@ -47,15 +79,14 @@ const RecruiterFeed: FC = () => {
 
               <Separator className="flex flex-1 flex-shrink w-full bg-dark_green/10" />
             </div>
-            {
-              talentFeedPosts.map((feed, index) => (
-                <Feed key={index} feed={feed} />
-              ))
-            }
+            {talentFeedPosts.map((feed, index) => (
+              <Feed key={index} feed={feed} />
+            ))}
             <div className="w-full">
-          <ExploreTalentPool />
+              <ExploreTalentPool />
+              <ExploreProject />
+              <ExploreServices />
             </div>
-      
           </div>
         </section>
       </div>

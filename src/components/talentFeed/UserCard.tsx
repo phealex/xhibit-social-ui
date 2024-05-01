@@ -5,7 +5,7 @@ import { MapPin } from "lucide-react";
 
 const UserCard: FC = () => {
   return (
-    <Card className="w-full">
+    <Card className=" w-[290px] flex-shrink-0">
       <CardContent className="!p-0 bg-white rounded-[10px] !pb-5 w-full">
         <img
           src={UserBanner}
