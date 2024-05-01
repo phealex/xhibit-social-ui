@@ -93,6 +93,7 @@ import UsdtLogo from "./USDTLogo.svg"
 import UsdcLogo from "./USDCLogo.svg"
 import Qrcode from "./Qrcode.svg"
 import Organization from "./Organization.svg"
+import ProfileNote from "./ProfileNote.svg"
 
 export {
   Logo,
@@ -189,6 +190,7 @@ export {
   UsdtLogo,
   UsdcLogo,
   Qrcode,
-  Organization
+  Organization,
+  ProfileNote
 
 };

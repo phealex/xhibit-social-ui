@@ -4,9 +4,11 @@ import { Dmitry, UserBanner } from "@/assets";
 import { MapPin } from "lucide-react";
 import { Button } from "../ui/button";
 import { useRecruiterState } from "@/store";
+import { useNavigate } from "react-router-dom";
 
 const RecruiterCard: FC = () => {
 
+  const navigate = useNavigate()
   const setIsProfileSetup = useRecruiterState((state) => state.setIsProfileSetup);
   return (
     <Card>
@@ -35,6 +37,7 @@ const RecruiterCard: FC = () => {
           </div>
          <Button onClick={() => {
           setIsProfileSetup(true);
+          navigate("/recruiter/profile")
          }} className=" bg-primary_blue hover:bg-primary_blue text-base text-white w-fit ">
             Set up my profile
          </Button>
