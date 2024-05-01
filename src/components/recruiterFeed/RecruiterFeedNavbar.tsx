@@ -132,7 +132,7 @@ const RecruiterFeedNavbar: FC = () => {
               />
               <ChevronDown className="text-dark_green/70 text-[25px]  " />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="max-w-[290px] bg-white rounded !p-0  flex flex-col gap-5">
+            <DropdownMenuContent className="w-[290px] bg-white rounded !p-0  flex flex-col gap-5">
               <DropdownMenuItem className="  !focus:bg-transparent flex flex-col gap-5 p-5">
                 <div className="flex items-center gap-[10px] flex-col">
                   <img
@@ -144,11 +144,6 @@ const RecruiterFeedNavbar: FC = () => {
                     <h1 className=" font-Jakarta text-base font-semibold text-center text-dark_green ">
                       Dmirty Kargaev
                     </h1>
-                    <p className=" font-Jakarta text-sm text-center text-dark_green/70">
-                      Freelance UX/UI designer, 80+ projects in web design,
-                      mobile apps (iOS & android) and creative projects. Open to
-                      offers.
-                    </p>
                   </div>
                   <Link
                     to={"/recruiter/profile"}

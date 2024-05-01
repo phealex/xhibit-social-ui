@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
+import { useRecruiterState } from "@/store";
 
 
 const OrganizationInfo: FC = () => {
@@ -30,6 +31,9 @@ const OrganizationInfo: FC = () => {
 
   function onSubmit(data: z.infer<typeof schema>) {
     console.log(data);
+    useRecruiterState.setState({
+        isProfileSetup: false
+    })
     
   }
 

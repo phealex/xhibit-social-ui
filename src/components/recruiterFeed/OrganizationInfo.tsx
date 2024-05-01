@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
+import { useRecruiterState } from "@/store";
 
 const OrganizationInfo: FC = () => {
   const schema = RecruiterProfileSetupSchema.pick({
@@ -33,6 +34,9 @@ const OrganizationInfo: FC = () => {
 
   function onSubmit(data: z.infer<typeof schema>) {
     console.log(data);
+    useRecruiterState.setState({
+        isProfileSetup: false
+    })
   }
 
   return (

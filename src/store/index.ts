@@ -112,5 +112,7 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
   export const useRecruiterState =  create<RecruiterState>()((set) => ({
     isProfileSetup: false,
     setIsProfileSetup: (isProfileSetup) => set({isProfileSetup}),
+    profileSetupTab: "organization"
+    
 
   }))
