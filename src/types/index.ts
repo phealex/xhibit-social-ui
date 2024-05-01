@@ -847,4 +847,48 @@ export interface UserState {
 export interface RecruiterState {
   isProfileSetup: boolean;
   setIsProfileSetup: (value: boolean) => void;
+  profileSetupTab: "organization" | "personal"
 }
+
+
+export const RecruiterProfileSetupSchema = z.object({
+  organization: z.object({
+    size: z.string({
+      required_error: "Organization size is required",
+    }),
+    name: z.string({
+      required_error: "Organization name is required",
+    }).min(3, {
+      message: "Organization name must be at least 3 characters",
+    }),
+    industry: z.string({
+      required_error: "Industry is required",
+    }),
+    bio: z.string({
+      required_error: "Bio is required",
+    }).min(100, {
+      message: "Bio must be at least 100 characters",
+    }).max(1000, {
+      message: "Bio must not be longer than 1000 characters",
+    }),
+  }),
+  personal: z.object({
+    firstName: z.string({
+      required_error: "First name is required",
+    }).min(3, {
+      message: "First name must be at least 3 characters",
+    }),
+    lastName: z.string({
+      required_error: "Last name is required",
+    }).min(3, {
+      message: "Last name must be at least 3 characters",
+    }),
+    bio: z.string({
+      required_error: "Bio is required",
+    }).min(100, {
+      message: "Bio must be at least 100 characters",
+    }).max(1000, {
+      message: "Bio must not be longer than 1000 characters",
+    }),
+  })
+})

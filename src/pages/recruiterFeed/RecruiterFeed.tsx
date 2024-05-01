@@ -28,6 +28,7 @@ import { Organization } from "@/assets";
 const RecruiterFeed: FC = () => {
 
   const isProfileSetup = useRecruiterState((state) => state.isProfileSetup);
+  const profileSetupTab = useRecruiterState((state) => state.profileSetupTab);
   return (
     <div className={cn(" bg-accent_blue min-h-screen w-full py-10", isProfileSetup && "py-0")}>
       <div className="w-[90%] lg:w-[80%] mx-auto flex gap-5">
@@ -57,6 +58,36 @@ const RecruiterFeed: FC = () => {
           }
         </section>
         <section className="flex lg:max-w-[80%] flex-1 flex-col gap-10 w-full">
+        {
+            isProfileSetup ? (
+              <div className=" bg-dark_green/5 flex flex-col gap-5 py-10 p-5 h-full ">
+                <div className="flex flex-col gap-2 ">
+                  <div className="flex items-center gap-[50px]">
+                    <p className={cn(" font-Jakarta font-semibold text-xl text-dark_green", profileSetupTab === "organization" && " text-primary_blue underline underline-offset-auto")}>
+                      Organizational Info
+                    </p>
+                    <p className={cn(" font-Jakarta font-semibold text-xl text-dark_green", profileSetupTab === "personal" && " text-primary_blue underline underline-offset-auto")}>
+                      Personal Info
+                    </p>
+                  </div>
+                  <Separator className="w-full bg-dark_green/10" />
+                </div>
+                <div className=" bg-white w-full">
+                  <div className=" w-full max-w-[500px]">
+                    {
+                      // {
+                      //   organization: 
+                      //   personal: 
+
+                      // }[profileSetupTab]
+                    }
+                  </div>
+                </div>
+          
+
+              </div>
+            ) : (
+              <>
           <NewPost />
           <div className=" w-full flex gap-5 flex-col ">
             <div className="flex w-full items-center">
@@ -88,6 +119,11 @@ const RecruiterFeed: FC = () => {
               <ExploreServices />
             </div>
           </div>
+              </>
+            )
+          }
+
+       
         </section>
       </div>
     </div>
