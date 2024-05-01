@@ -2,10 +2,10 @@ import {
   OrganizationInfo,
   PersonalInfo,
   RecruiterProfileSider,
+  RecruiterProfileDetails
 } from "@/components";
 import { Separator } from "@/components/ui/separator";
 import { FC } from "react";
-import { Button } from "@/components/ui/button";
 import { useRecruiterState } from "@/store";
 import { cn } from "@/lib/utils";
 import { Organization } from "@/assets";
@@ -121,7 +121,7 @@ const RecruiterProfile: FC = () => {
                 <Separator className="w-full bg-dark_green/10" />
               </div>
               <div className=" bg-white w-full p-10 rounded-lg ">
-                
+                <RecruiterProfileDetails />
               </div>
             </div>
           )}
