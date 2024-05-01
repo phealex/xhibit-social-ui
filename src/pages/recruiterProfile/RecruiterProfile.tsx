@@ -120,7 +120,9 @@ const RecruiterProfile: FC = () => {
                 </div>
                 <Separator className="w-full bg-dark_green/10" />
               </div>
-              <div className=" bg-white w-full p-10 rounded-lg "></div>
+              <div className=" bg-white w-full p-10 rounded-lg ">
+                
+              </div>
             </div>
           )}
         </section>
