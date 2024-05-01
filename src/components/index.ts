@@ -122,5 +122,11 @@ export {default as RecruiterProfileDetails} from "./recruiterProfile/RecruiterPr
 export {default as TalentShowcaseHeader} from "./talentShowcase/TalentShowcaseHeader"
 export {default as TopRated} from "./talentShowcase/TopRated"
 export {default as TalentSkills} from "./talentShowcase/TalentSkills"
+export {default as TalentCategory} from "./talentShowcase/TalentCategory"
+export {default as CompletedOrder} from "./talentShowcase/CompletedOrder"
+export {default as TalentExperience} from "./talentShowcase/TalentExperience"
+export {default as TalentAvailability} from "./talentShowcase/TalentAvailability"
+
+
 
 // export {default as TalentShowcaseCard} from "./talentShowcase/TalentShowcaseCard"

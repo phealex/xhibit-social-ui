@@ -1,4 +1,4 @@
-import { TalentShowcaseHeader, TopRated } from '@/components'
+import { TalentShowcaseHeader, TopRated, TalentSkills, TalentCategory, CompletedOrder, TalentExperience, TalentAvailability } from '@/components'
 import {FC} from 'react'
 
 const TalentShowcase:FC = () => {
@@ -8,6 +8,11 @@ const TalentShowcase:FC = () => {
         <div className=" container flex gap-10">
             <div className="w-[290px] flex flex-col gap-5">
                 <TopRated />
+                <TalentSkills />
+                <TalentCategory />
+                <CompletedOrder />
+                <TalentExperience />
+                <TalentAvailability />
             </div>
             <div className=""></div>
         </div>
