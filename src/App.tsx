@@ -81,11 +81,11 @@ function App() {
       window.scrollTo(0, 0);
     }, [path]);
 
-    useEffect(() => {
-      if (userType !== "talent") {
-         navigate("auth/login")
-      }
-    }, [userType, navigate]);
+    // useEffect(() => {
+    //   if (userType !== "talent") {
+    //      navigate("auth/login")
+    //   }
+    // }, [userType, navigate]);
 
   
     return (

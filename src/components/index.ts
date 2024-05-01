@@ -126,7 +126,4 @@ export {default as TalentCategory} from "./talentShowcase/TalentCategory"
 export {default as CompletedOrder} from "./talentShowcase/CompletedOrder"
 export {default as TalentExperience} from "./talentShowcase/TalentExperience"
 export {default as TalentAvailability} from "./talentShowcase/TalentAvailability"
-
-
-
-// export {default as TalentShowcaseCard} from "./talentShowcase/TalentShowcaseCard"
+export {default as TalentShowcaseCard} from "./talentShowcase/TalentShowcaseCard"
