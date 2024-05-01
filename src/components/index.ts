@@ -119,4 +119,7 @@ export {default as OrganizationInfo} from "./recruiterFeed/OrganizationInfo"
 export {default as PersonalInfo} from "./recruiterFeed/PersonalInfo"
 export {default as RecruiterProfileSider} from "./recruiterProfile/RecruiterProfileSider"
 export {default as RecruiterProfileDetails} from "./recruiterProfile/RecruiterProfileDetails"
+export {default as TalentShowcaseHeader} from "./talentShowcase/TalentShowcaseHeader"
+export {default as TopRated} from "./talentShowcase/TopRated"
 
+// export {default as TalentShowcaseCard} from "./talentShowcase/TalentShowcaseCard"

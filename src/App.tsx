@@ -38,6 +38,7 @@ import Wallet from "./pages/wallet/Wallet";
 import { useUserState } from "./store";
 import RecruiterFeed from "./pages/recruiterFeed/RecruiterFeed";
 import RecruiterProfile from "./pages/recruiterProfile/RecruiterProfile";
+import TalentShowcase from "./pages/talentShowcase/TalentShowcase";
 
 function App() {
   const HomeLayout = () => {
@@ -109,11 +110,11 @@ function App() {
       window.scrollTo(0, 0);
     }, [path]);
 
-    useEffect(() => {
-      if (userType !== "recruiter") {
-         navigate("auth/login")
-      }
-    }, [userType, navigate]);
+    // useEffect(() => {
+    //   if (userType !== "recruiter") {
+    //      navigate("auth/login")
+    //   }
+    // }, [userType, navigate]);
 
   
     return (
@@ -236,8 +237,8 @@ function App() {
           element: <RecruiterProfile />,
         },
         {
-          path: "talents/:id?",
-          element: <TalentJobs />,
+          path: "talents",
+          element: <TalentShowcase />,
         },
         {
           path: "messages",
