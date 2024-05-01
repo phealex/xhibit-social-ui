@@ -1836,3 +1836,15 @@ export const cryptoCurrencyOptions: {
     }
   ]
   
+
+
+
+export  const talentSkills = ["Web Developer", "Software Engineer", "Data Scientist", "Frontend Developer", "Backend Developer", "Full Stack Developer", "DevOps Engineer", "Mobile Developer"];
+
+export const talentIndustries = ["Technology", "Healthcare", "Finance", "Education", "Manufacturing", "Retail", "Real Estate", "Transportation"];
+
+export const completedOrders= ["5", "10", "15", "20+", "30+"]
+
+export const talentExperience = ["2", "4", "5", "7", "10+"]
+
+export const talentAvailability =["Full-time positions", "Part-time positions", "Contract-based positions", "Internship"]
