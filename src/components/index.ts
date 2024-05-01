@@ -109,4 +109,12 @@ export {default as CryptoWithdrawal} from "./wallet/CryptoWithdrawal"
 export {default as RecruiterFeedFooter} from "./recruiterFeed/RecruiterFeedFooter"
 export {default as RecruiterFeedNavbar} from "./recruiterFeed/RecruiterFeedNavbar"
 export {default as RecruiterCard} from "./recruiterFeed/RecruiterCard"
+export {default as PostedJobs} from "./recruiterFeed/PostedJobs"
+export {default as RequestedServices} from "./recruiterFeed/RequestedServices"
+export {default as ViewedTalent} from "./recruiterFeed/ViewedTalent"
+export {default as ExploreTalentPool} from "./recruiterFeed/ExploreTalentPool"
+
+
+
+
 

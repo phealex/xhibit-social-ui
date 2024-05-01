@@ -1,4 +1,4 @@
-import { JobCard, Links, NewPost, RecruiterCard, UserExperience, UserPosts, UserProjects, UserSkills, UserTools } from "@/components";
+import { JobCard, Links, NewPost, RecruiterCard, PostedJobs, RequestedServices, ViewedTalent, ExploreTalentPool } from "@/components";
 import { Separator } from "@/components/ui/separator";
 import { FC } from "react";
 import {
@@ -18,12 +18,11 @@ const RecruiterFeed: FC = () => {
       <div className="w-[90%] lg:w-[80%] mx-auto flex gap-5">
         <section className="w-[20%] hidden lg:flex flex-col gap-5">
           <RecruiterCard />
-          <UserProjects />
-          <UserSkills />
-          <UserTools />
-          <UserExperience />
-          <UserPosts />
+          <PostedJobs />
+          <RequestedServices />
+          <ViewedTalent />
           <Links />
+
         </section>
         <section className="flex flex-1 flex-col gap-10 w-full">
           <NewPost />
@@ -53,29 +52,10 @@ const RecruiterFeed: FC = () => {
                 <Feed key={index} feed={feed} />
               ))
             }
-          </div>
-          <div className="bg-white  flex flex-col gap-5 py-[30px]">
-            <div className="flex flex-col md:flex-row gap-5 items-start md:items-center  px-[30px]">
-              <p className=" font-Jakarta font-medium text-[16px] text-dark_green">
-                Find your next gig
-              </p>
-              <button type="button" className=" w-[230px] h-[32px] bg-primary_blue uppercase rounded-[5px] text-white font-Jakarta text-[13px] font-medium leading-6">
-                browse all jobs
-              </button>
+            <div className="w-full">
+          <ExploreTalentPool />
             </div>
-            <div className="flex gap-2 items-center ">
-              <Separator className="flex flex-1 flex-shrink w-full bg-dark_green/10" />
-              <p className=" font-Jakarta text-[13px] text-dark_green font-medium  ">
-                Jobs for you
-                </p>
-              <Separator className="flex flex-1 flex-shrink w-full bg-dark_green/10" />
-            </div>
-            <div className="flex gap-5 flex-col p-6 ">
-            {foundJobs.map((job, index) => (
-              <JobCard key={index} job={job} showSignIn={false} />
-           
-            ))}
-          </div>
+      
           </div>
         </section>
       </div>
