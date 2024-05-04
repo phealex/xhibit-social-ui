@@ -129,11 +129,11 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
       description: '',
       hours: 0,
       location: [],
-      jobType: '',
+      jobType: undefined,
       experience: '',
       skills: [],
       rateType: '',
       rate: 0,
-      questions: null,
+      questions: undefined,
     },
   }))

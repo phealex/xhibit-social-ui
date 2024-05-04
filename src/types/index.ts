@@ -902,12 +902,12 @@ export interface JobForm {
   description: string;
   hours: number;
   location: string[];
-  jobType: string;
+  jobType: "on-site" | "hybrid" | "remote" | undefined ;
   experience: string;
   skills: string[];
   rateType: string;
   rate: number;
-  questions: string | null;
+  questions: string | undefined;
 }
 
 export interface MyJobsState {
@@ -951,10 +951,8 @@ export const JobFormSchema = z.object({
   }).max(10, {
     message: "Location must not exceed 10",
   }),
-  jobType:  z.string({
-    required_error: "Job type is required",
-  }).min(3, {
-    message: "Job type must be at least 3 characters",
+  jobType: z.enum(["on-site", "hybrid", "remote"], {
+    required_error: "You need to select a type.",
   }),
   experience :  z.string({
     required_error: "Experience is required",

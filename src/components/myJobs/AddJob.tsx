@@ -3,7 +3,7 @@ import {FC} from 'react'
 
 const AddJob: FC = () => {
     const { step, isLastStep, isFirstStep, currentStep, prev, next } =
-    useMultsiStepForm([
+    useMultiStepForm([
    
     ]);
   return (

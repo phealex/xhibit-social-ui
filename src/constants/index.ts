@@ -1848,3 +1848,22 @@ export const completedOrders= ["5", "10", "15", "20+", "30+"]
 export const talentExperience = ["2", "4", "5", "7", "10+"]
 
 export const talentAvailability =["Full-time positions", "Part-time positions", "Contract-based positions", "Internship"]
+
+export const rateTypes =  ["Hourly rate", "Fixed/Monthly rate", "Annual rate"]
+
+
+export const quillModules = {
+  toolbar: [
+    ['bold', 'italic', 'underline'], // toggled buttons
+    ['blockquote', 'code-block'],
+
+    [{ 'header': 1 }, { 'header': 2 }], // custom button values
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'indent': '-1'}, { 'indent': '+1' }], // outdent/indent
+
+    [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
+    [{ 'align': [] }],
+
+    ['clean'] // remove formatting button
+  ],
+};

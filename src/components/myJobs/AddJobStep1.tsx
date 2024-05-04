@@ -162,7 +162,10 @@ const AddJobStep1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                     label: value,
                     value,
                   }))}
-                  options={talentIndustries}
+                  options={talentIndustries.map((item) => ({
+                    label: item,
+                    value: item,
+                  }))}
                   onChange={(selected) => {
                     field.onChange(selected.map((item) => item.value));
                   }}
