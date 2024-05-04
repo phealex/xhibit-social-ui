@@ -128,6 +128,35 @@ function App() {
     );
   };
 
+  const PublicProfileLayout = () => {
+    const path = useLocation().pathname;
+
+  const userType = useUserState((state) => state.userType);
+
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [path]);
+
+
+  
+    return (
+      <div className="">
+
+        {
+          userType === "talent" ? <TalentFeedNavbar /> : <RecruiterFeedNavbar />
+        }
+
+        <Outlet />
+
+        {
+          userType === "talent" ? <TalentFeedFooter /> : <RecruiterFeedFooter />
+        }
+      </div>
+      
+    );
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -214,10 +243,6 @@ function App() {
           element: <TalentProjects />,
         },
         {
-          path: "view/:id",
-          element: <WorkProfile />,
-        },
-        {
           path: "wallet",
           element: <Wallet />,
         }
@@ -249,16 +274,22 @@ function App() {
           element: <TalentProjects />,
         },
         {
-          path: "view/:id",
-          element: <WorkProfile />,
-        },
-        {
           path: "wallet",
           element: <Wallet />,
         }
 
       ],
     },
+    {
+      path: "/public-profile/:id",
+      element: <PublicProfileLayout />,
+      children: [
+        {
+          path: "",
+          element: <WorkProfile />,
+        },
+      ],
+    }
   ]);
 
   return <RouterProvider router={router} />;

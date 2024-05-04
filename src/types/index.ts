@@ -547,7 +547,7 @@ export const SubmitServiceSchema = z.object({
     }),
 });
 
-export type ProjectView = "projects" | "services";
+export type ProjectView = "projects" | "services" | "jobs";
 
 export interface ProjectDisplayState {
   view: ProjectView;

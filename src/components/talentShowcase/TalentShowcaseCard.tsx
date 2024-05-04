@@ -5,8 +5,12 @@ import { Dmitry } from "@/assets";
 import { FaBolt } from "react-icons/fa";
 import { Bookmark, MapPinIcon, Star } from "lucide-react";
 import { Badge } from "../ui/badge";
+import { useNavigate } from "react-router-dom";
+
 
 const TalentShowcaseCard: FC = () => {
+  const navigate = useNavigate()
+
   return (
     <Card>
       <CardContent className=" bg-white flex flex-col justify-between p-6 rounded-[10px] min-h-[240px]">
@@ -77,7 +81,11 @@ const TalentShowcaseCard: FC = () => {
               </div>
             </div>
           </div>
-          <Button className=" bg-dark_green/5 hover:bg-dark_green/5 font-Jakarta font-semibold text-xs text-dark_green ">
+          <Button 
+          onClick={() => {
+            navigate("/public-profile/2")
+          }}
+          className=" bg-dark_green/5 hover:bg-dark_green/5 font-Jakarta font-semibold text-xs text-dark_green ">
             View profile
           </Button>
         </div>

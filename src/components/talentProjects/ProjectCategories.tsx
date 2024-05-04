@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { BiSolidBriefcase } from "react-icons/bi";
 import { Separator } from "../ui/separator";
+import { cn } from "@/lib/utils";
 
 const ProjectCategories: FC = () => {
   const view = useProjectDisplay((state) => state.view);
@@ -19,7 +20,7 @@ const ProjectCategories: FC = () => {
   };
 
   return (
-    <div className="   relative">
+    <div className={cn("   relative", view === "jobs" && "hidden")}>
       <Button
         className=" hidden md:flex lg:hidden absolute left-0 top-1/2 transform -translate-y-1/2 bg-white hover:bg-white rounded-full p-2 ml-5"
         onClick={() => handleScroll("left")}

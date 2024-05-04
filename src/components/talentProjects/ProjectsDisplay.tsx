@@ -1,4 +1,4 @@
-import { useProjectDisplay } from "@/store";
+import { useProjectDisplay, useUserState } from "@/store";
 import { FC } from "react";
 import { Separator } from "../ui/separator";
 import { cn } from "@/lib/utils";
@@ -10,11 +10,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { projects, servicesData } from "@/constants";
-import { ProjectCard, ServiceProjectsDisplay } from "..";
+import { MyJobs, ProjectCard, ServiceProjectsDisplay } from "..";
 import { Button } from "../ui/button";
 
 const ProjectsDisplay: FC = () => {
   const view = useProjectDisplay((state) => state.view);
+  const userType = useUserState((state) => state.userType);
   return (
     <div className=" w-full container flex flex-col gap-[50px] mb-20">
       <div className="flex flex-col w-full">
@@ -24,7 +25,7 @@ const ProjectsDisplay: FC = () => {
               className={cn(
                 " font-Jakarta font-semibold text-base cursor-pointer text-dark_green/70",
                 view === "projects" &&
-                  "text-primary_blue underline underline-offset-4"
+                  "text-primary_blue underline underline-offset-auto"
               )}
               onClick={() => {
                 if (view === "projects") return;
@@ -38,7 +39,7 @@ const ProjectsDisplay: FC = () => {
               className={cn(
                 " font-Jakarta font-semibold text-base cursor-pointer text-dark_green/70",
                 view === "services" &&
-                  "text-primary_blue underline underline-offset-4"
+                  "text-primary_blue underline underline-offset-auto"
               )}
               onClick={() => {
                 if (view === "services") return;
@@ -48,6 +49,24 @@ const ProjectsDisplay: FC = () => {
             >
               Services
             </p>
+            {
+              userType === "recruiter" && (
+            <p
+              className={cn(
+                " font-Jakarta font-semibold text-base cursor-pointer text-dark_green/70",
+                view === "jobs" &&
+                  "text-primary_blue underline underline-offset-auto"
+              )}
+              onClick={() => {
+                if (view === "jobs") return;
+                useProjectDisplay.setState({ view: "jobs" });
+                window.scrollTo(0, 0);
+              }}
+            >
+              My jobs
+            </p>
+              )
+            }
           </div>
         <Separator className=" flex md:hidden w-full bg-dark_green/10" />
          {
@@ -101,12 +120,19 @@ const ProjectsDisplay: FC = () => {
             services: servicesData.map((service, index) => (
                 <ServiceProjectsDisplay key={index} service={service} />
             )),
+            jobs: (
+              <MyJobs />
+            )
           }[view]
         }
       </div>
-      <Button className=" bg-transparent hover:bg-transparent text-dark_green hover:text-dark_green mx-auto w-fit p-3 rounded-3xl border border-dark_green">
-        Load More
-      </Button>
+      {
+        view !== "jobs" && (
+          <Button className=" bg-transparent hover:bg-transparent text-dark_green hover:text-dark_green mx-auto w-fit p-3 rounded-3xl border border-dark_green">
+            Load More
+          </Button>
+        )
+      }
     </div>
   );
 };

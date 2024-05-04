@@ -29,6 +29,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "../ui/textarea";
 import { Input } from "../ui/input";
+import { useNavigate } from "react-router-dom";
 
 const ProjectDetailsModal: FC = () => {
   const showProjectDetails = useProjectDisplay(
@@ -42,6 +43,8 @@ const ProjectDetailsModal: FC = () => {
 
   const [isHire, setIsHire] = useState<boolean>(false);
   const [isHireSent, setIsHireSent] = useState<boolean>(false);
+
+  const navigate = useNavigate()
 
   const form = useForm<z.infer<typeof HireTalentFormSchema>>({
     resolver: zodResolver(HireTalentFormSchema),
@@ -124,7 +127,9 @@ const ProjectDetailsModal: FC = () => {
                   Hire talent
                 </Button>
 
-                <Button className=" bg-dark_green/5 py-1 h-7 px-5 flex items-center gap-1 rounded-md hover:bg-dark_green/5 font-Jakarta font-medium text-xs text-dark_green/70 ">
+                <Button onClick={() => {
+                  navigate("/public-profile/2")
+                }} className=" bg-dark_green/5 py-1 h-7 px-5 flex items-center gap-1 rounded-md hover:bg-dark_green/5 font-Jakarta font-medium text-xs text-dark_green/70 ">
                   <Newspaper className="h-4 w-4 text-dark_green/70" />
                   View work profile
                 </Button>
