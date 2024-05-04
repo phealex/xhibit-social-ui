@@ -91,13 +91,14 @@ const AddJobStep1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                 <div className="flex gap-5 items-center flex-wrap">
                   {talentAvailability.map((item, index) => (
                     <Button
+                    type="button"
                       key={index}
                       onClick={() => {
                         field.onChange(item);
                       }}
                       className={cn(
-                        " bg-dark_green/10 hover:bg-dark_green/10 border border-dark_green font-Jakarta font-medium text-base",
-                        field.value === item && "border-primary_blue"
+                        " bg-dark_green/10 hover:bg-dark_green/10 border border-dark_green font-Jakarta font-medium text-base text-dark_green",
+                        field.value === item && "bg-primary_blue hover:bg-primary_blue text-white border-none"
                       )}
                     >
                       {item}
@@ -121,7 +122,7 @@ const AddJobStep1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
               <FormControl>
                 <div className="flex gap-5 items-center flex-wrap">
                   <MinusIcon
-                    className="w-5 h-5 text-dark_green"
+                    className="w-5 h-5 text-dark_green cursor-pointer"
                     onClick={() => {
                       if (field.value <= 0) return;
                       field.onChange(field.value - 1);
@@ -129,16 +130,17 @@ const AddJobStep1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                   />
 
                   <Button
+                  type="button"
                     className={cn(
-                      " bg-dark_green/10 hover:bg-dark_green/10 border border-dark_green font-Jakarta font-medium text-base"
+                      " bg-dark_green/10 hover:bg-dark_green/10 border border-dark_green font-Jakarta font-medium text-base text-dark_green"
                     )}
                   >
-                    {field.value ?? 0}
+                    {field.value}
                   </Button>
 
                   <PlusIcon
-                    className="w-5 h-5 text-dark_green"
-                    onClick={() => field.onChange(field.value ?? 0 + 1)}
+                    className="w-5 h-5 text-dark_green cursor-pointer"
+                    onClick={() => field.onChange(field.value + 1)}
                   />
                 </div>
               </FormControl>

@@ -132,3 +132,8 @@ export {default as MyJobCard} from "./myJobs/MyJobCard"
 export {default as ViewApplicants} from "./myJobs/ViewApplicants"
 export {default as ManageJobs} from "./myJobs/ManageJobs"
 export {default as ManageJobsSider} from "./myJobs/ManageJobsSider"
+export {default as AddJob} from "./myJobs/AddJob"
+export {default as AddJobStep1} from "./myJobs/AddJobStep1"
+export {default as AddJobStep2} from "./myJobs/AddJobStep2"
+export {default as EditJob} from "./myJobs/EditJob"
+

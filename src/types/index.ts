@@ -956,8 +956,6 @@ export const JobFormSchema = z.object({
   }),
   experience :  z.string({
     required_error: "Experience is required",
-  }).min(2, {
-    message: "Experience is required",
   }),
   skills: z.array(z.string()).min(1, {
     message: "Skill is required",

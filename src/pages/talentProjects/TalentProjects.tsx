@@ -1,5 +1,6 @@
 import {
     AddProject,
+  ManageJobs,
   ProjectCategories,
   ProjectDetailsModal,
   ProjectHeader,
@@ -17,7 +18,7 @@ const TalentProjects: FC = () => {
       {
         (isAddJob || isEditJob ) ? (
           <div className="">
-            
+            <ManageJobs />
           </div>
         ) : (
           <>     

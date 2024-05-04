@@ -2,7 +2,7 @@
   import { FC } from "react";
   import { useMyJobsState } from "@/store";
   import { cn } from "@/lib/utils";
-import {ManageJobsSider} from "..";
+import {AddJob, EditJob, ManageJobsSider} from "..";
 
   
   const ManageJobs: FC = () => {
@@ -40,7 +40,11 @@ import {ManageJobsSider} from "..";
                 </div>
                 <div className=" bg-white w-full p-10 rounded-lg ">
              {
-              
+              isAddJob ? (
+                <AddJob />
+              ) : isEditJob ? (
+                <EditJob />
+              ) : null
              }
                 </div>
               </div>
