@@ -893,10 +893,88 @@ export const RecruiterProfileSetupSchema = z.object({
   })
 });
 
+
+export interface JobForm { 
+  title: string;
+  contractType: string;
+  openRoles: number;
+  category: string[];
+  description: string;
+  hours: number;
+  location: string[];
+  jobType: string;
+  experience: string;
+  skills: string[];
+  rateType: string;
+  rate: number;
+  questions: string | null;
+}
+
 export interface MyJobsState {
   isAddJob: boolean;
   isEditJob: boolean;
+  jobData: JobForm;
 }
 
 
-export const AddJobSchema = z.object({})
+export const JobFormSchema = z.object({
+  title: z.string({
+    required_error: "Title is required",
+  }).min(3, {
+    message: "Title must be at least 3 characters",
+  }),
+  contractType: z.string({
+    required_error: "Job type is required",
+  }).min(3, {
+    message: "Job type must be at least 3 characters",
+  }),
+  openRoles: z.number({
+    required_error: "Open roles is required",
+  }),
+  category: z.array(z.string()).min(1, {
+    message: "Category is required",
+  }).max(10, {
+    message: "Category must not exceed 10",
+  }),
+  description: z.string({
+    required_error: "Description is required",
+  }).min(100, {
+    message: "Description must be at least 100 characters",
+  }).max(1000, {
+    message: "Description must not be longer than 1000 characters",
+  }),
+  hours: z.number({
+    required_error: "Hours is required",
+  }),
+  location: z.array(z.string()).min(1, {
+    message: "Location is required",
+  }).max(10, {
+    message: "Location must not exceed 10",
+  }),
+  jobType:  z.string({
+    required_error: "Job type is required",
+  }).min(3, {
+    message: "Job type must be at least 3 characters",
+  }),
+  experience :  z.string({
+    required_error: "Experience is required",
+  }).min(2, {
+    message: "Experience is required",
+  }),
+  skills: z.array(z.string()).min(1, {
+    message: "Skill is required",
+  }).max(10, {
+    message: "Skill must not exceed 10",
+  }),
+  rateType: z.string({
+    required_error: "Rate type is required",
+  }).min(3, {
+    message: "Rate type must be at least 3 characters",
+  }),
+  rate: z.number({
+    required_error: "Rate is required",
+  }),
+  questions: z.string().optional(),
+
+
+})

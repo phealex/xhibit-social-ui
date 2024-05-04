@@ -121,4 +121,19 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
   export const useMyJobsState = create<MyJobsState>()((set) => ({
     isAddJob: false,
     isEditJob: false,
+    jobData: {
+      title: '',
+      contractType: '',
+      openRoles: 0,
+      category: [],
+      description: '',
+      hours: 0,
+      location: [],
+      jobType: '',
+      experience: '',
+      skills: [],
+      rateType: '',
+      rate: 0,
+      questions: null,
+    },
   }))
