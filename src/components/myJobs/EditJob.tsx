@@ -22,6 +22,7 @@ import { useMyJobsState } from "@/store";
 import {
   quillModules,
   rateTypes,
+  talentAvailability,
   talentExperience,
   talentIndustries,
   talentSkills,

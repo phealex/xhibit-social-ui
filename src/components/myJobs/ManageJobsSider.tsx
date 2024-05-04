@@ -13,7 +13,7 @@ const ManageJobsSider: FC = () => {
   ]);
 
   return (
-    <div className=" bg-dark_green/5 flex flex-col gap-5 py-10 p-5 h-full min-h-screen justify-between ">
+    <div className=" bg-dark_green/5 flex flex-col gap-5 py-10 p-5 h-full min-h-screen items-start justify-between ">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">
           <p className=" font-Jakarta font-semibold text-xl text-dark_green">
@@ -28,7 +28,10 @@ const ManageJobsSider: FC = () => {
         />
       </div>
 
-      <Button className=" bg-transparent hover:bg-transparent flex items-center gap-2 font-Jakarta text-base font-semibold text-dark_green ">
+      <Button onClick={() => useMyJobsState.setState({
+        isAddJob: false,
+        isEditJob: false
+      })} className=" bg-transparent hover:bg-transparent flex items-center gap-2 font-Jakarta text-base font-semibold text-dark_green ">
         <ChevronLeftSquare size={24} />
         Back
       </Button>
