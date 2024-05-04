@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { Button } from '../ui/button'
 import {MyJobCard} from '..'
+import { useMyJobsState } from '@/store'
 
 const MyJobs: FC = () => {
   return (
@@ -14,7 +15,9 @@ const MyJobs: FC = () => {
                     Paused jobs (0)
                 </p>
             </div>
-            <Button className=" bg-primary_blue w-fit hover:bg-primary_blue font-Jakarta font-medium text-xs text-white flex items-center gap-2 ">
+            <Button onClick={() => useMyJobsState.setState({
+                isAddJob: true
+            })} className=" bg-primary_blue w-fit hover:bg-primary_blue font-Jakarta font-medium text-xs text-white flex items-center gap-2 ">
                Create a job
             </Button>
         </div>

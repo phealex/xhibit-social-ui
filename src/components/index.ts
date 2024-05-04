@@ -130,3 +130,5 @@ export {default as TalentShowcaseCard} from "./talentShowcase/TalentShowcaseCard
 export {default as MyJobs} from "./myJobs/MyJobs"
 export {default as MyJobCard} from "./myJobs/MyJobCard"
 export {default as ViewApplicants} from "./myJobs/ViewApplicants"
+export {default as ManageJobs} from "./myJobs/ManageJobs"
+export {default as ManageJobsSider} from "./myJobs/ManageJobsSider"

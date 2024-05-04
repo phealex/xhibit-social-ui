@@ -1,5 +1,5 @@
 import { TransactionRecords } from '@/constants'
-import { JobsDisplayState, MessageDisplayState, ProjectDisplayState, ProjectFormState, RecruiterState, UserState, WalletState, WorkProfileState } from '@/types'
+import { JobsDisplayState, MessageDisplayState, MyJobsState, ProjectDisplayState, ProjectFormState, RecruiterState, UserState, WalletState, WorkProfileState } from '@/types'
 import { create } from 'zustand'
 
 
@@ -115,4 +115,10 @@ export const useProjectFormState = create<ProjectFormState>((set) => ({
     profileSetupTab: "organization"
     
 
+  }))
+
+
+  export const useMyJobsState = create<MyJobsState>()((set) => ({
+    isAddJob: false,
+    isEditJob: false,
   }))

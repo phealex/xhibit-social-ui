@@ -891,4 +891,12 @@ export const RecruiterProfileSetupSchema = z.object({
       message: "Bio must not be longer than 1000 characters",
     }),
   })
-})
+});
+
+export interface MyJobsState {
+  isAddJob: boolean;
+  isEditJob: boolean;
+}
+
+
+export const AddJobSchema = z.object({})

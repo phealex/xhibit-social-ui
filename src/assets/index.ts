@@ -94,6 +94,9 @@ import UsdcLogo from "./USDCLogo.svg"
 import Qrcode from "./Qrcode.svg"
 import Organization from "./Organization.svg"
 import ProfileNote from "./ProfileNote.svg"
+import Hiring from "./Hiring.svg"
+import EditJob from "./EditJob.svg"
+
 
 export {
   Logo,
@@ -191,6 +194,8 @@ export {
   UsdcLogo,
   Qrcode,
   Organization,
-  ProfileNote
+  ProfileNote,
+  Hiring,
+  EditJob
 
 };

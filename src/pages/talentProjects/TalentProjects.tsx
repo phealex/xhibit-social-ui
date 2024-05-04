@@ -5,28 +5,39 @@ import {
   ProjectHeader,
   ProjectsDisplay,
 } from "@/components";
-import { useProjectDisplay } from "@/store";
+import { useMyJobsState, useProjectDisplay } from "@/store";
 import { ProjectView } from "@/types";
 import { FC } from "react";
 
 const TalentProjects: FC = () => {
   const addNew = useProjectDisplay((state) => state.addNew);
+  const [isAddJob, isEditJob] = useMyJobsState((state) => [state.isAddJob, state.isEditJob]);
   return (
     <div className=" min-h-screen bg-accent_blue flex flex-col gap-[50px]">
-      <ProjectHeader />
-      {!addNew && (
-        <>
-          <ProjectCategories />
-          <ProjectsDisplay />
-        </>
-      )}
       {
-        {
-          projects: <AddProject />,
-          services: <div className="">Services</div>,
-        }[addNew as ProjectView]
+        (isAddJob || isEditJob ) ? (
+          <div className="">
+            
+          </div>
+        ) : (
+          <>     
+          <ProjectHeader />
+          {!addNew && (
+            <>
+              <ProjectCategories />
+              <ProjectsDisplay />
+            </>
+          )}
+          {
+            {
+              projects: <AddProject />,
+              services: <div className="">Services</div>,
+            }[addNew as ProjectView]
+          }
+          <ProjectDetailsModal />
+          </>
+        )
       }
-      <ProjectDetailsModal />
     </div>
   );
 };
