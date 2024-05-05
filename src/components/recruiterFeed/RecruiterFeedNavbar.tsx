@@ -21,7 +21,7 @@ import {
   SheetOverlay,
   SheetTrigger,
 } from "../ui/sheet";
-import { Filter, MessageCard } from "..";
+import { Filter, MessageCard, TalentFilter } from "..";
 import {
   HoverCard,
   HoverCardContent,
@@ -39,6 +39,13 @@ const RecruiterFeedNavbar: FC = () => {
     <div className=" bg-[#F2F9FF] lg:bg-white w-full h-[100px] sticky z-50 top-0 left-0 right-0 border-b border-home_border_gradient_color_2">
       <div className="w-[90%] md:w-[80%] flex flex-row-reverse md:flex-row  justify-between gap-5 md:gap-[50px] items-center py-5 mx-auto ">
         <HiBell className="text-dark_green/70 text-[24px] cursor-pointer flex md:hidden" />
+        {
+          path === "talent" && (
+            <div className=" flex lg:hidden">
+              <TalentFilter />
+            </div>
+          )
+        }
 
         <Link to={"/"} className="hidden md:flex">
           <img src={Logo} alt="" className=" h-[50px]  w-[50px]" />

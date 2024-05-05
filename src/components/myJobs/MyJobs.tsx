@@ -8,10 +8,10 @@ const MyJobs: FC = () => {
     <div className='flex flex-col gap-10 w-full'>
         <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-5">
-                <p className=" font-Jakarta font-semibold text-base text-dark_green">
+                <p className=" font-Jakarta font-semibold text-xs md:text-base text-dark_green">
                     Active jobs (1)
                 </p>
-                <p className=" font-Jakarta font-semibold text-base text-dark_green">
+                <p className=" font-Jakarta font-semibold text-xs md:text-base text-dark_green">
                     Paused jobs (0)
                 </p>
             </div>
@@ -21,7 +21,7 @@ const MyJobs: FC = () => {
                Create a job
             </Button>
         </div>
-        <div className=" bg-white p-10 min-h-[500px] w-full flex flex-col gap-5 ">
+        <div className=" bg-white p-5 md:p-10 min-h-[500px] w-full flex flex-col gap-5 ">
         <MyJobCard />
         </div>
 

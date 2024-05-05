@@ -13,17 +13,17 @@ const TalentShowcaseCard: FC = () => {
 
   return (
     <Card>
-      <CardContent className=" bg-white flex flex-col justify-between p-6 rounded-[10px] min-h-[240px]">
-        <div className="flex gap-10 justify-between items-center">
+      <CardContent className=" bg-white flex flex-col justify-between p-3 md:p-6 rounded-[10px] min-h-[240px]">
+        <div className="flex flex-col md:flow-row gap-10 justify-between md:items-center">
           <div className="flex gap-[10px] ">
             <img
               src={Dmitry}
               alt=""
-              className="h-[60px] w-[60px] rounded-full object-cover"
+              className=" h-10 w-10 md:h-[60px] md:w-[60px] rounded-full object-cover"
             />
             <div className="flex flex-col gap-[10px]">
               <div className="flex flex-col gap-1">
-                <p className=" font-Jakarta font-semibold text-base text-dark_green">
+                <p className=" font-Jakarta font-semibold text-xs md:text-base text-dark_green">
                   Keith Hammond
                 </p>
                 <p className=" font-Jakarta font-normal text-xs text-dark_green">
@@ -34,7 +34,7 @@ const TalentShowcaseCard: FC = () => {
                 <span className="">Looking for work</span>
                 <FaBolt className="text-white h-5 w-[10px]" />
               </Button>
-              <p className=" font-Jakarta font-normal text-base text-dark_green max-w-[455px]">
+              <p className=" font-Jakarta font-normal text-xs md:text-base text-dark_green max-w-[80%] md:max-w-[455px]">
                 Forging User-Business Synergy / Bridging the UX Divide with
                 Seamless Design Solutions (USER EXPERIENCE DESIGNER)
               </p>
@@ -49,9 +49,9 @@ const TalentShowcaseCard: FC = () => {
                     20+
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <Badge
-                    className={`flex gap-3 rounded-[20px] rounded-br-[0px] text-primary_blue bg-primary_blue/5 hover:bg-primary_blue/5`}
+                    className={`flex gap-3  rounded-[20px] rounded-br-[0px] text-primary_blue bg-primary_blue/5 hover:bg-primary_blue/5`}
                   >
                     <span className="text-primary_blue">
                       <Star

@@ -23,7 +23,7 @@ const ProjectsDisplay: FC = () => {
           <div className=" flex w-full gap-10">
             <p
               className={cn(
-                " font-Jakarta font-semibold text-base cursor-pointer text-dark_green/70",
+                " font-Jakarta font-semibold text-xs md:text-base cursor-pointer text-dark_green/70",
                 view === "projects" &&
                   "text-primary_blue underline underline-offset-auto"
               )}
@@ -37,7 +37,7 @@ const ProjectsDisplay: FC = () => {
             </p>
             <p
               className={cn(
-                " font-Jakarta font-semibold text-base cursor-pointer text-dark_green/70",
+                " font-Jakarta font-semibold text-xs md:text-base cursor-pointer text-dark_green/70",
                 view === "services" &&
                   "text-primary_blue underline underline-offset-auto"
               )}
@@ -53,7 +53,7 @@ const ProjectsDisplay: FC = () => {
               userType === "recruiter" && (
             <p
               className={cn(
-                " font-Jakarta font-semibold text-base cursor-pointer text-dark_green/70",
+                " font-Jakarta font-semibold text-xs md:text-base cursor-pointer text-dark_green/70",
                 view === "jobs" &&
                   "text-primary_blue underline underline-offset-auto"
               )}

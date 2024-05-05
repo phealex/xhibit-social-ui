@@ -42,9 +42,9 @@ const MyJobCard: FC = () => {
           </HoverCardContent>
         </HoverCard>
       </div>
-      <div className="flex items-center justify-between w-full">
+      <div className="flex flex-col md:flex-row items-center gap-10 justify-between w-full">
         <div className="flex gap-3 flex-col">
-          <h1 className=" font-Jakarta font-medium text-[31px] leading-[44px] text-dark_green">
+          <h1 className=" font-Jakarta font-medium text-base lg:text-[31px] lg:leading-[44px] text-dark_green">
             Product designer
           </h1>
           <div className="flex gap-3 items-center">
@@ -63,10 +63,10 @@ const MyJobCard: FC = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <img src={Dmitry} alt="" className="h-[70px] w-[70px] rounded-full" />
           <div className="flex h-full justify-between flex-col">
-            <h1 className=" font-Jakarta font-medium text-[31px] leading-[44px] text-dark_green">
+            <h1 className=" font-Jakarta font-medium text-base lg:text-[31px] lg:leading-[44px] text-dark_green">
               Madge Montgomery
             </h1>
             <p className=" font-Jakarta font-normal text-xs text-dark_green">

@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
 import { useRecruiterState } from "@/store";
+import { BiEdit } from "react-icons/bi";
 
 
 const OrganizationInfo: FC = () => {
@@ -43,6 +44,13 @@ const OrganizationInfo: FC = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className=" flex flex-col gap-5"
       >
+           <div className=" flex lg:hidden h-[80px] w-[80px] md:h-[140px] md:w-[140px] rounded-full bg-dark_green/10  justify-center items-center">
+        <label htmlFor="profileUpload">
+          {""}
+          <BiEdit className=" w-[25px] h-[25px] p-1 text-dark_green cursor-pointer m-3 rounded-full" />
+        </label>
+        <input id="profileUpload" type="file" className="hidden" />
+      </div>
 
         <FormField
           control={form.control}

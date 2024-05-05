@@ -61,12 +61,12 @@ const RecruiterProfile: FC = () => {
         </section>
         <section className="flex lg:max-w-[80%] flex-1 flex-col gap-10 w-full">
           {isProfileSetup ? (
-            <div className="  flex flex-col gap-5 py-10 p-5 h-full ">
+            <div className="  flex flex-col gap-5 py-5 md:py-10 md:p-5 h-full ">
               <div className="flex flex-col gap-2 ">
                 <div className="flex items-center gap-[50px]">
                   <p
                     className={cn(
-                      " font-Jakarta font-semibold text-xl text-dark_green cursor-pointer",
+                      " font-Jakarta font-semibold text-base md:text-xl text-dark_green cursor-pointer",
                       profileSetupTab === "organization" &&
                         " text-primary_blue underline underline-offset-auto"
                     )}
@@ -80,7 +80,7 @@ const RecruiterProfile: FC = () => {
                   </p>
                   <p
                     className={cn(
-                      " font-Jakarta font-semibold text-xl text-dark_green cursor-pointer",
+                      " font-Jakarta font-semibold text-base md:text-xl text-dark_green cursor-pointer",
                       profileSetupTab === "personal" &&
                         " text-primary_blue underline underline-offset-auto"
                     )}
@@ -95,7 +95,7 @@ const RecruiterProfile: FC = () => {
                 </div>
                 <Separator className="w-full bg-dark_green/10" />
               </div>
-              <div className=" bg-white w-full p-10 rounded-lg ">
+              <div className=" bg-white w-full p-5 md:p-10 rounded-lg ">
                 <div className=" w-full max-w-[500px]">
                   {
                     {
@@ -107,7 +107,7 @@ const RecruiterProfile: FC = () => {
               </div>
             </div>
           ) : (
-            <div className="  flex flex-col gap-5 py-10 p-5 h-full ">
+            <div className="  flex flex-col gap-5 md:py-10 md:p-5 h-full ">
               <div className="flex flex-col gap-2 ">
                 <div className="flex items-center gap-[50px]">
                   <p
@@ -120,7 +120,7 @@ const RecruiterProfile: FC = () => {
                 </div>
                 <Separator className="w-full bg-dark_green/10" />
               </div>
-              <div className=" bg-white w-full p-10 rounded-lg ">
+              <div className=" bg-white w-full p-5 md:p-10 rounded-lg ">
                 <RecruiterProfileDetails />
               </div>
             </div>
