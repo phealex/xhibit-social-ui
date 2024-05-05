@@ -25,7 +25,7 @@ const TalentFilter: FC = () => {
       </SheetTrigger>
       <SheetContent
         side={"right"}
-        className=" h-screen max-h-screen overflow-y-auto w-fit max-w-[400px]"
+        className=" h-screen max-h-screen overflow-y-auto w-fit max-w-[500px]"
       >
         <SheetHeader>
           <SheetTitle className=" text-center font-Jakarta font-medium text-base text-dark_green p-5 bg-white shadow-lg shadow-white">

@@ -40,7 +40,7 @@ const RecruiterFeedNavbar: FC = () => {
       <div className="w-[90%] md:w-[80%] flex flex-row-reverse md:flex-row  justify-between gap-5 md:gap-[50px] items-center py-5 mx-auto ">
         <HiBell className="text-dark_green/70 text-[24px] cursor-pointer flex md:hidden" />
         {
-          path === "talent" && (
+          path === "talents" && (
             <div className=" flex lg:hidden">
               <TalentFilter />
             </div>
