@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -16,7 +16,14 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      Jakarta: ["Plus Jakarta Sans", "sans-serif"],
+      Philosopher: ["Philosopher", "sans-serif"],
+    },
     extend: {
+      height: {
+        chatMd: "calc(100dvh - 200px)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -51,7 +58,24 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        home_gradient: "#060D11",
+        home_border_gradient: "rgba(117,89,229,1),rgba(102,205,237,1)",
+        home_border_gradient_color_1: "rgba(117,89,229,1)",
+        home_border_gradient_color_2: "rgba(102,205,237,1)",
+        primary_blue: "#0085FF",
+        dark_green: "#323C45",
+        home_grey: "#8E9FAA",
+        accent_green: "#4DBB9B",
+        accent_blue: "#F2F9FF",
+        accent_yellow: "#FFC107",
+        accent_red: "#E75F51",
       },
+      backgroundImage: {
+        "noise-background": "url('./assets/noiseBackground.svg')",
+        "hero-glow": "url(./assets/heroGlow.svg)",
+        "sub-hero": "url(./assets/curveRectangle.svg)",
+      },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -66,12 +90,30 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "caret-blink": {
+          "0%,70%,100%": { opacity: "1" },
+          "20%,50%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [require("tailwindcss-animate"),
+  function({ addUtilities }) {
+    const newUtilities = {
+      '.no-scrollbar::-webkit-scrollbar': {
+        display: 'none',
+      },
+      '.no-scrollbar': {
+        '-ms-overflow-style': 'none',
+        'scrollbar-width': 'none',
+      },
+    }
+    addUtilities(newUtilities)
+  }
+  ],
+};

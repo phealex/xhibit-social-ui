@@ -1,0 +1,93 @@
+.home_gradient_border {
+  background-image: radial-gradient(
+        circle at 100% 100%,
+        0,
+        4px,
+        transparent 4px
+      )
+      0% 0%/9px 9px no-repeat,
+    radial-gradient(circle at 0 100%, 0, 4px, transparent 4px) 100% 0%/9px 9px
+      no-repeat,
+    radial-gradient(circle at 100% 0, 0, 4px, transparent 4px) 0% 100%/9px 9px
+      no-repeat,
+    radial-gradient(circle at 0 0, 0, 4px, transparent 4px) 100% 100%/9px 9px
+      no-repeat,
+    linear-gradient() 50% 50% / calc(100% - 10px) calc(100% - 18px) no-repeat,
+    linear-gradient() 50% 50% / calc(100% - 18px) calc(100% - 10px) no-repeat,
+    linear-gradient(
+      282deg,
+      rgba(117, 89, 229, 1) 0%,
+      rgba(102, 205, 237, 1) 100%
+    );
+  border-radius: 9px;
+  padding: 11px;
+  box-sizing: border-box;
+}
+
+.rectangle-upper-clip-path {
+  clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 75%, 0% 100%);
+}
+
+.rectangle-lower-clip-path {
+  clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.hexagon-clip-path {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.kite-clip-path {
+  /* clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
+  clip-path: polygon(50% 0%, 90% 50%, 50% 100%, 10% 50%);
+}
+
+.pentagon-clip-path {
+  /* clip-path: polygon(
+    50% 0%,
+    100% 38%,
+    82% 100%,
+    18% 100%,
+    0% 38%
+  ); */
+  clip-path: polygon(
+    50% 2.45%,
+    100% 38.77%,
+    80.9% 97.55%,
+    19.1% 97.55%,
+    0% 38.77%
+  );
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari and Opera */
+}
+
+
+
+
+/* For WebKit based browsers (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #060D11 /*#f1f1f1; */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #060D11; /* Color of the scrollbar thumb */
+  border-radius: 50px;
+}
+
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
