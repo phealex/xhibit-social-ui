@@ -2,14 +2,14 @@ import { FC, useState } from "react";
 import { Dialog, DialogContent } from "../ui/dialog";
 import { useProjectDisplay } from "@/store";
 import { ReviewData, projects } from "@/constants";
-import { Check, Mail, MapPin, Newspaper, Star } from "lucide-react";
+import { Check, Mail, MapPin, Newspaper, Star, Wallet } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { Separator } from "../ui/separator";
 import { ProjectCard, ReviewCard } from "..";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { HireTalentFormSchema } from "@/types";
+import { HireTalentFormSchema, BuyProjectFormSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
@@ -33,6 +33,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Label } from "../ui/label";
 
 const ProjectDetailsModal: FC = () => {
   const showProjectDetails = useProjectDisplay(
@@ -58,6 +59,14 @@ const ProjectDetailsModal: FC = () => {
   function onSubmit(data: z.infer<typeof HireTalentFormSchema>) {
     console.log(data);
     setIsHireSent(true);
+  }
+
+  const buyForm = useForm<z.infer<typeof BuyProjectFormSchema>>({
+    resolver: zodResolver(BuyProjectFormSchema),
+  })
+ 
+  function onBuySubmit(data: z.infer<typeof BuyProjectFormSchema>) {
+    console.log(data)
   }
   return (
     <div className="">
@@ -351,32 +360,62 @@ const ProjectDetailsModal: FC = () => {
                         </div>
                       )}
                     </div>
-                    <div className="">
+                    <div className=" w-full">
                       {isBuy ? (
                         <div className="flex flex-col gap-[30px]">
                           <p className=" font-Jakarta font-semibold text-xl text-dark_green">
                             Download file
                           </p>
                           <div className="flex flex-col gap-5">
-                            <Select>
-                              <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="Select a fruit" />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectGroup>
-                                  <SelectLabel>Fruits</SelectLabel>
-                                  <SelectItem value="apple">Apple</SelectItem>
-                                  <SelectItem value="banana">Banana</SelectItem>
-                                  <SelectItem value="blueberry">
-                                    Blueberry
-                                  </SelectItem>
-                                  <SelectItem value="grapes">Grapes</SelectItem>
-                                  <SelectItem value="pineapple">
-                                    Pineapple
-                                  </SelectItem>
-                                </SelectGroup>
-                              </SelectContent>
-                            </Select>
+                          <Form {...buyForm}>
+      <form onSubmit={buyForm.handleSubmit(onBuySubmit)} className="flex flex-col gap-5">
+        <FormField
+          control={buyForm.control}
+          name="account"
+          render={({ field }) => (
+            <FormItem>
+             <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                              Buy with
+                            </FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a payment method" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="xhibit">Pay with XHIBIT wallet</SelectItem>
+                  <SelectItem value="crypto">Pay with CRYPTO wallet</SelectItem>
+                </SelectContent>
+              </Select>
+           
+              <FormMessage />
+
+            </FormItem>
+          )}
+        />
+        <div className="min-h-10 p-4 border-primary_blue bg-primary_blue/10 w-full flex  justify-between  ">
+          <div className="flex gap-1 items-center">
+            <Wallet className="h-6 w-6 text-primary_blue" />
+            <p className=" font-Jakarta text-primary_blue font-medium text-base">
+              My {
+                buyForm.getValues().account === "xhibit" ? "XHIBIT" : "CRYPTO"
+              } wallet
+            </p>
+
+          </div>
+          <p className=" font-Jakarta text-primary_blue font-medium text-xs">
+            Wallet bal: NGN 10,000
+          </p>
+        </div>
+        <Separator />
+                  <Button
+                    className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90 w-fit ml-auto"
+                  >
+                    Buy - NGN 10,000
+                  </Button>
+      </form>
+    </Form>
                           </div>
                         </div>
                       ) : (
@@ -424,7 +463,7 @@ const ProjectDetailsModal: FC = () => {
                   <Separator />
                   <Button
                     onClick={() => setIsBuy(!isBuy)}
-                    className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90 w-fit ml-auto"
+                    className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90 w-full"
                   >
                     Buy now
                   </Button>

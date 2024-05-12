@@ -975,3 +975,10 @@ export const JobFormSchema = z.object({
 
 
 })
+
+
+export const BuyProjectFormSchema = z.object({
+  account: z.string({
+    required_error: "Account is required",
+  })
+})
