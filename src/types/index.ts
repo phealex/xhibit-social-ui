@@ -678,6 +678,7 @@ export interface ProjectType {
   rating: string;
   projectTitle: string;
   projectDescription: string;
+  action: "buy" | "hire"
 }
 
 export interface ProjectFormState {

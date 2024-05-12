@@ -96,9 +96,11 @@ const ProjectCard: FC<ProjectCardProps> = ({
         }
         
         
-      }} className="font-Jakarta font-semibold flex flex-row gap-2 text-[16px] leading-normal mx-auto border-none outline-none  text-white hover:text-white px-4 pt-3 bg-transparent hover:bg-transparent border border-white rounded-[5px]">
-        View more
-        <ArrowRight className="text-white text-[20px]" />
+      }} className="font-Jakarta uppercase font-semibold flex flex-row gap-2 text-[16px] leading-normal mx-auto border-none outline-none  text-white hover:text-white px-4 pt-3 bg-transparent hover:bg-transparent border border-white rounded-[5px]">
+        {
+          project.action === "buy" ? "Buy Now" : "View More"
+        }
+        {/* <ArrowRight className="text-white text-[20px]" /> */}
       </Button>
     </CardFooter>
       )

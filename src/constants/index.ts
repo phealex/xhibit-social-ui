@@ -129,6 +129,7 @@ export const projects: ProjectType[] = [
     projectTitle: "Ai chat bot & automation",
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
+    action: "buy"
   },
   { 
     id: "580220",
@@ -140,6 +141,7 @@ export const projects: ProjectType[] = [
     projectTitle: "Ai chat bot & automation",
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
+    action: "hire"
   },
   { 
     id: "949838",
@@ -151,6 +153,7 @@ export const projects: ProjectType[] = [
     projectTitle: "Ai chat bot & automation",
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
+    action: "buy"
   },
   { 
     id: "641870",
@@ -162,6 +165,7 @@ export const projects: ProjectType[] = [
     projectTitle: "Ai chat bot & automation",
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
+    action: "hire"
   },
   { 
     id: "712023",
@@ -173,6 +177,7 @@ export const projects: ProjectType[] = [
     projectTitle: "Ai chat bot & automation",
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
+    action: "buy"
   },
   { 
     id: "502342",
@@ -184,6 +189,7 @@ export const projects: ProjectType[] = [
     projectTitle: "Ai chat bot & automation",
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
+    action: "hire"
   },
   { 
     id: "690998",
@@ -195,6 +201,7 @@ export const projects: ProjectType[] = [
     projectTitle: "Ai chat bot & automation",
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
+    action: "buy"
   },
   { 
     id: "564252",
@@ -206,6 +213,7 @@ export const projects: ProjectType[] = [
     projectTitle: "Ai chat bot & automation",
     projectDescription:
       "Welcome! Seeking a top-notch AI chatbot for your business? As a seasoned developer, I’m your go-to expert for chatbots that resonate with your requirements...",
+    action: "buy"
   },
 ];
 
