@@ -85,7 +85,7 @@ const TalentJobs: FC = () => {
           <section className="flex flex-1 flex-col gap-5 w-full">
             {
               {
-                browse:  <>
+                browse:  <div className=" bg-white p-5 flex flex-col gap-5 rounded-lg ">
                 <div className="flex w-full items-center">
                   <Separator className=" flex flex-1 flex-shrink w-full bg-dark_green/10" />
                   <div className="flex gap-1 items-center">
@@ -117,7 +117,7 @@ const TalentJobs: FC = () => {
                 <Button className=" bg-transparent hover:bg-transparent text-dark_green hover:text-dark_green mx-auto w-fit p-3 rounded-3xl border border-dark_green">
                   Load More
                 </Button>
-              </>,
+              </div>,
               saved: <Records title="Saved" />,
               applied: <Records title="Applied" jobs={foundJobs.slice(0, 2)} />,
               interview: <Interview />,

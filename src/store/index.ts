@@ -4,7 +4,7 @@ import { create } from 'zustand'
 
 
 export const useUserState = create<UserState>()((set) => ({
-  userType: "recruiter",
+  userType: "talent",
   setUserType: (userType) => set({userType}),
 }))
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({

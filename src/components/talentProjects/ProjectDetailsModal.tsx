@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { Dialog, DialogContent } from "../ui/dialog";
-import { useProjectDisplay } from "@/store";
+import { useProjectDisplay, useUserState } from "@/store";
 import { ReviewData, projects } from "@/constants";
 import { Check, Mail, MapPin, Newspaper, Star, Wallet } from "lucide-react";
 import { Button } from "../ui/button";
@@ -22,7 +22,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "../ui/textarea";
 import { Input } from "../ui/input";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Dmitry } from "@/assets";
 import {
   Select,
@@ -50,6 +50,10 @@ const ProjectDetailsModal: FC = () => {
   const [isHireSent, setIsHireSent] = useState<boolean>(false);
   const [userRating, setUserRating] = useState<number>();
 
+  const path = useLocation().pathname.split("/")[2];
+
+  const userType = useUserState((state) => state.userType);
+
   const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof HireTalentFormSchema>>({
@@ -63,10 +67,10 @@ const ProjectDetailsModal: FC = () => {
 
   const buyForm = useForm<z.infer<typeof BuyProjectFormSchema>>({
     resolver: zodResolver(BuyProjectFormSchema),
-  })
- 
+  });
+
   function onBuySubmit(data: z.infer<typeof BuyProjectFormSchema>) {
-    console.log(data)
+    console.log(data);
   }
   return (
     <div className="">
@@ -76,7 +80,7 @@ const ProjectDetailsModal: FC = () => {
           onOpenChange={() => {
             useProjectDisplay.setState({ showProjectDetails: false });
             setIsHire(false);
-            setIsBuy(false)
+            setIsBuy(false);
           }}
         >
           {isHireSent ? (
@@ -336,86 +340,99 @@ const ProjectDetailsModal: FC = () => {
                         alt=""
                         className="  w-full h-full"
                       />
-                      {isBuy && (
-                        <div className="flex flex-col gap-[10px]">
-                          <p className=" text-dark_green font-Jakarta font-semibold text-xl">
-                            {project.projectTitle}
-                          </p>
-                          <p className=" text-dark_green font-Jakarta font-semibold text-xl flex gap-2">
-                            File type:{" "}
-                            <span className=" font-Jakarta font-normal text-base text-dark_green/70 ">
-                              zip
-                            </span>
-                          </p>
-                          <p className=" text-dark_green font-Jakarta font-semibold text-xl flex gap-2">
-                            File size:{" "}
-                            <span className=" font-Jakarta font-normal text-base text-dark_green/70 ">
-                              400 mb
-                            </span>
-                          </p>
-                          <Button className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base flex gap-2 items-start text-white rounded-md hover:bg-primary_blue/90 w-fit">
-                            <span className=" text-xs ">NGN</span>
-                            10,000
-                          </Button>
-                        </div>
-                      )}
+                      {isBuy &&
+                        (path === "projects" || path === "discover") && (
+                          <div className="flex flex-col gap-[10px]">
+                            <p className=" text-dark_green font-Jakarta font-semibold text-xl">
+                              {project.projectTitle}
+                            </p>
+                            <p className=" text-dark_green font-Jakarta font-semibold text-xl flex gap-2">
+                              File type:{" "}
+                              <span className=" font-Jakarta font-normal text-base text-dark_green/70 ">
+                                zip
+                              </span>
+                            </p>
+                            <p className=" text-dark_green font-Jakarta font-semibold text-xl flex gap-2">
+                              File size:{" "}
+                              <span className=" font-Jakarta font-normal text-base text-dark_green/70 ">
+                                400 mb
+                              </span>
+                            </p>
+                            <Button className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base flex gap-2 items-start text-white rounded-md hover:bg-primary_blue/90 w-fit">
+                              <span className=" text-xs ">NGN</span>
+                              10,000
+                            </Button>
+                          </div>
+                        )}
                     </div>
-                    <div className=" w-full">
+                    <div className=" w-full lg:w-[500px]">
                       {isBuy ? (
                         <div className="flex flex-col gap-[30px]">
                           <p className=" font-Jakarta font-semibold text-xl text-dark_green">
                             Download file
                           </p>
                           <div className="flex flex-col gap-5">
-                          <Form {...buyForm}>
-      <form onSubmit={buyForm.handleSubmit(onBuySubmit)} className="flex flex-col gap-5">
-        <FormField
-          control={buyForm.control}
-          name="account"
-          render={({ field }) => (
-            <FormItem>
-             <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
-                              Buy with
-                            </FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a payment method" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="xhibit">Pay with XHIBIT wallet</SelectItem>
-                  <SelectItem value="crypto">Pay with CRYPTO wallet</SelectItem>
-                </SelectContent>
-              </Select>
-           
-              <FormMessage />
+                            <Form {...buyForm}>
+                              <form
+                                onSubmit={buyForm.handleSubmit(onBuySubmit)}
+                                className="flex flex-col gap-5"
+                              >
+                                <FormField
+                                  control={buyForm.control}
+                                  name="account"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                                        Buy with
+                                      </FormLabel>
+                                      <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                      >
+                                        <FormControl>
+                                          <SelectTrigger>
+                                            <SelectValue placeholder="Select a payment method" />
+                                          </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                          <SelectItem value="xhibit">
+                                            Pay with XHIBIT wallet
+                                          </SelectItem>
+                                          <SelectItem value="crypto">
+                                            Pay with CRYPTO wallet
+                                          </SelectItem>
+                                        </SelectContent>
+                                      </Select>
 
-            </FormItem>
-          )}
-        />
-        <div className="min-h-10 p-4 border-primary_blue bg-primary_blue/10 w-full flex  justify-between  ">
-          <div className="flex gap-1 items-center">
-            <Wallet className="h-6 w-6 text-primary_blue" />
-            <p className=" font-Jakarta text-primary_blue font-medium text-base">
-              My {
-                buyForm.getValues().account === "xhibit" ? "XHIBIT" : "CRYPTO"
-              } wallet
-            </p>
-
-          </div>
-          <p className=" font-Jakarta text-primary_blue font-medium text-xs">
-            Wallet bal: NGN 10,000
-          </p>
-        </div>
-        <Separator />
-                  <Button
-                    className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90 w-fit ml-auto"
-                  >
-                    Buy - NGN 10,000
-                  </Button>
-      </form>
-    </Form>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                                {buyForm.watch().account && (
+                                  <div className="min-h-10 p-4 border-primary_blue bg-primary_blue/10 w-full flex  justify-between items-end gap-5  ">
+                                    <div className="flex gap-1 items-center flex-shrink-0 w-fit">
+                                      <Wallet className="h-6 w-6 text-primary_blue" />
+                                      <p className=" font-Jakarta text-primary_blue font-medium text-base">
+                                        My{" "}
+                                        {buyForm.watch().account === "xhibit"
+                                          ? "XHIBIT"
+                                          : buyForm.watch().account === "crypto"
+                                          ? "CRYPTO"
+                                          : null}{" "}
+                                        wallet
+                                      </p>
+                                    </div>
+                                    <p className=" font-Jakarta text-primary_blue font-medium text-xs flex-shrink-0 w-fit">
+                                      Wallet bal: NGN 10,000
+                                    </p>
+                                  </div>
+                                )}
+                                <Separator />
+                                <Button className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90 w-fit ml-auto">
+                                  Buy - NGN 10,000
+                                </Button>
+                              </form>
+                            </Form>
                           </div>
                         </div>
                       ) : (
@@ -457,19 +474,28 @@ const ProjectDetailsModal: FC = () => {
                       )}
                     </div>
                   </div>
-                  {
-                    !isBuy && (
-                      <>
-                  <Separator />
-                  <Button
-                    onClick={() => setIsBuy(!isBuy)}
-                    className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90 w-full"
-                  >
-                    Buy now
-                  </Button>
-                      </>
-                    )
-                  }
+                  {!isBuy && (
+                    <>
+                      <Separator />
+                      <Button
+                        onClick={() => {
+                          setIsBuy(!isBuy);
+                          if (path !== "projects" && path !== "discover") {
+                            if (userType === "talent") {
+                              navigate("/talent/projects");
+                            } else if (userType === "recruiter") {
+                              navigate("/recruiter/discover");
+                            } else {
+                              return;
+                            }
+                          }
+                        }}
+                        className=" bg-primary_blue py-3 px-5 font-Jakarta font-medium text-base text-white rounded-md hover:bg-primary_blue/90 w-fit ml-auto"
+                      >
+                        Buy now
+                      </Button>
+                    </>
+                  )}
                 </div>
               ) : (
                 <div className="flex gap-[20px] flex-col ">

@@ -5,6 +5,7 @@ import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
 import { RegisterDataType, handleNextProps } from "@/types";
 import { useToast } from "../ui/use-toast";
+import { useUserState } from "@/store";
 
 interface CategoryProps extends handleNextProps {
   handleType: (type: RegisterDataType["userType"]) => void;
@@ -13,6 +14,8 @@ interface CategoryProps extends handleNextProps {
 
 const Category: FC<CategoryProps> = ({ handleNext, handleType, type }) => {
   const { toast } = useToast();
+  const setUserType = useUserState((state) => state.setUserType);
+
   return (
     <div className=" w-full flex flex-col gap-[50px] ">
       <JoinBanner />
@@ -26,7 +29,11 @@ const Category: FC<CategoryProps> = ({ handleNext, handleType, type }) => {
                 : ""
             }`}
             onClick={() =>
-              handleType(category.key as RegisterDataType["userType"])
+              {
+                setUserType(category.key as RegisterDataType["userType"]);
+                handleType(category.key as RegisterDataType["userType"])
+              }
+
             }
           >
             <CardContent className="flex flex-col !p-0 h-full items-center justify-center gap-2 ">

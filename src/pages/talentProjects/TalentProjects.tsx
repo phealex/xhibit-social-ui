@@ -2,7 +2,6 @@ import {
     AddProject,
   ManageJobs,
   ProjectCategories,
-  ProjectDetailsModal,
   ProjectHeader,
   ProjectsDisplay,
 } from "@/components";
@@ -35,7 +34,6 @@ const TalentProjects: FC = () => {
               services: <div className="">Services</div>,
             }[addNew as ProjectView]
           }
-          <ProjectDetailsModal />
           </>
         )
       }

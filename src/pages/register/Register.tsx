@@ -8,6 +8,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 import { useMultiStepForm } from "@/hooks";
+import { useUserState } from "@/store";
 import { RegisterDataType } from "@/types";
 import { CheckCircle2, ChevronLeftSquare } from "lucide-react";
 import { FC, useEffect, useState } from "react";
@@ -36,6 +37,8 @@ const Register: FC = () => {
 
   const { toast } = useToast();
 
+  const userAccountType = useUserState((state) => state.userType);
+  
   const [userType, setUserType] = useState<RegisterDataType["userType"]>();
   function handleNext() {
     next();
@@ -66,7 +69,7 @@ const Register: FC = () => {
           "You have successfully registered, you will be redirected to your feeds page",
       });
       setTimeout(() => {
-        navigate("/talent");
+        navigate(`/${userAccountType}`);
       }, 2000);
     }
   }, [completed, toast]);
@@ -83,7 +86,6 @@ const Register: FC = () => {
               !isFirstStep && !completed && prev();
             }}
           />
-
           <div className="hidden lg:flex items-center gap-1 w-full justify-between flex-shrink">
             {userType === "recruiter"
               ? recruiterPageTitles.map((title, index) => (

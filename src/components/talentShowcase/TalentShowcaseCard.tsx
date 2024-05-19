@@ -14,7 +14,7 @@ const TalentShowcaseCard: FC = () => {
   return (
     <Card>
       <CardContent className=" bg-white flex flex-col justify-between p-3 md:p-6 rounded-[10px] min-h-[240px]">
-        <div className="flex flex-col md:flow-row gap-10 justify-between md:items-center">
+        <div className="flex flex-col md:flex-row gap-10 justify-between md:items-center">
           <div className="flex gap-[10px] ">
             <img
               src={Dmitry}

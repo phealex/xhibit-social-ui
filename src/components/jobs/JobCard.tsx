@@ -84,18 +84,17 @@ const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
               1 week ago
             </p>
             <div className="flex gap-5">
-              {showSignIn && (
+              {/* {showSignIn && (
                 <Link to={"/auth/login"}>
                   <Button className="hidden lg:flex bg-transparent text-dark_green/50 border border-dark_green/50 p-4 hover:bg-transparent hover:text-dark_green/50 hover:border-dark-green/50">
                     Sign in to apply
                   </Button>
                 </Link>
-              )}
+              )} */}
 
               <Button
                 onClick={() => {
                   navigate(`/talent/jobs/${job.id}`)
-                
                 }}
                 className=" bg-primary_blue text-white p-4 hover:bg-white hover:text-primary_blue border hover:border-primary_blue"
               >
