@@ -32,6 +32,7 @@ export { default as UserPosts } from "./talentFeed/UserPosts";
 export { default as Links } from "./talentFeed/Links";
 export { default as JobCard } from "./jobs/JobCard";
 export { default as HiringCompanyCard } from "./jobs/HiringCompany";
+export { default as HiringCompanyModal } from "./jobs/HiringCompanyModal";
 export { default as ProfileBanner } from "./talentProfile/ProfileBanner";
 export { default as Headline } from "./talentProfile/Headline";
 export { default as Role } from "./talentProfile/Role";

@@ -5,8 +5,9 @@ import { RiHomeOfficeLine } from 'react-icons/ri'
 import { FaPeopleGroup } from 'react-icons/fa6'
 import { PiBagSimple } from 'react-icons/pi'
 import { ChevronRightIcon } from 'lucide-react'
-import { useLocation, useNavigate } from 'react-router-dom'
 import { useJobsDisplay } from '@/store'
+import { HiringCompanyModal } from "..";
+
 
 interface Props {
     company: HiringCompanyType
@@ -15,20 +16,19 @@ interface Props {
 
 const HiringCompany: FC<Props> = ({company}) => {
 
-    const path = useLocation().pathname.split("/")[2]
-    console.log(path)
+    // console.log(path)
 
-    const navigate = useNavigate()
   return (
+    <>
     <Card
 onClick={() => {
   if(window.innerWidth < 768) return
     useJobsDisplay.setState({showStartupProfile: true, startupProfileId: company.id})
-    if(path !== "jobs"){
-        useJobsDisplay.setState({viewToShow: "startup"})
-        navigate("/talent/jobs")
+    // if(path !== "jobs"){
+    //     useJobsDisplay.setState({viewToShow: "startup"})
+    //     navigate("/talent/jobs")
 
-    }
+    // }
 }}
     className="w-[270px] cursor-pointer border-2 hover:shadow-md hover:shadow-home_border_gradient_color_2  hover:border-home_border_gradient_color_2 "
   >
@@ -86,6 +86,8 @@ onClick={() => {
       </div>
     </CardContent>
   </Card>
+  <HiringCompanyModal />
+    </>
   )
 }
 
