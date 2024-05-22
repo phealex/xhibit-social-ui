@@ -26,7 +26,7 @@ const TobRecruiters: FC = () => {
                     Lottie Austin
                   </p>
                   <p className=" font-Jakarta font-normal text-[13px] leading-4 text-dark_green/70">
-                    {"Hr-Manager, Platinum Headhunters Inc".substring(0, 25)}...
+                    {"Hr-Manager, Platinum Headhunters Inc".substring(0, 18)}...
                   </p>
                 </div>
               </div>

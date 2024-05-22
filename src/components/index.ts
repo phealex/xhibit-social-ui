@@ -43,6 +43,15 @@ export { default as Certification } from "./talentProfile/Certification";
 export { default as Education } from "./talentProfile/Education";
 export { default as Socials } from "./talentProfile/Social";
 export { default as Tools } from "./talentProfile/Tools";
+
+export { default as TopJobs } from "./talentProfile/TopJobs";
+export { default as TopCourses } from "./talentProfile/TopCourses";
+export { default as TopRecruiters } from "./talentProfile/TopRecruiters";
+export { default as InterviewQuestions } from "./talentProfile/InterviewQuestions";
+
+
+
+
 export { default as Resources } from "./talentJobs/Resources";
 export { default as RecentlyViewed } from "./talentJobs/RecentlyViewed";
 export { default as Discover } from "./talentJobs/Discover";
