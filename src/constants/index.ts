@@ -1875,3 +1875,47 @@ export const quillModules = {
     ['clean'] // remove formatting button
   ],
 };
+
+
+export const profileStatus: {
+  title: string,
+  done: boolean
+}[] = [
+  {
+    title: "Personal details",
+    done: true
+  },
+  {
+    title: "Headline and bio",
+    done: true
+  },
+  {
+    title: "Work experience",
+    done: false
+  },
+  {
+    title: "Skills",
+    done: true
+  },
+  {
+    title: "Personal projects",
+    done: false
+  },
+  {
+    title: "Role",
+    done: false
+  },
+  {
+    title: "Certifications and Awards",
+    done: false
+  },
+  {
+    title: "Education",
+    done: false
+  },
+  {
+    title: "Social precense",
+    done: false
+  },
+  
+]

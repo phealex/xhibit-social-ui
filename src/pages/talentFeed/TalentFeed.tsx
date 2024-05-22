@@ -16,7 +16,7 @@ const TalentFeed: FC = () => {
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
       <div className="w-[90%] lg:w-[80%] mx-auto flex gap-5">
-        <section className="w-[20%] hidden lg:flex flex-col gap-5">
+        <section className="w-[290px] flex-shrink-0 hidden lg:flex flex-col gap-5">
           <UserCard />
           <div className=" bg-white p-6 w-full rounded-[5px]">
             <Button className=" bg-primary_blue hover:bg-primary_blue text-white w-full h-8 text-center font-Jakarta font-medium text-[13px] leading-6 uppercase ">

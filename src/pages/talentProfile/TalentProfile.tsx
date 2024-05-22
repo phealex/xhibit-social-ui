@@ -10,7 +10,7 @@ import {
   Skills,
   Socials,
   Tools,
-  UserCard,
+  ProfileStrength,
   InterviewQuestions,
   TopJobs,
   TopRecruiters,
@@ -22,8 +22,8 @@ const TalentProfile: FC = () => {
   return (
     <div className=" bg-accent_blue min-h-screen w-full py-10">
       <div className="container mx-auto flex gap-5">
-        <section className="w-[20%] hidden lg:flex flex-col gap-5">
-          <UserCard />
+        <section className="w-[290px] flex-shrink-0 hidden lg:flex flex-col gap-5">
+          <ProfileStrength />
           <TopJobs />
           <TopRecruiters />
           <TopCourses />

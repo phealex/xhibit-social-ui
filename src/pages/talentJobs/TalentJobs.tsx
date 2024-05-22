@@ -77,7 +77,7 @@ const TalentJobs: FC = () => {
         </div>
       ) : (
         <div className=" container  mx-auto flex gap-5">
-          <section className="w-[20%] hidden lg:flex flex-col gap-5">
+          <section className="w-[290px] flex-shrink-0 hidden lg:flex flex-col gap-5">
             <Resources />
             <RecentlyViewed />
             <Discover />

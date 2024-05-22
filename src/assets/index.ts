@@ -96,6 +96,9 @@ import Organization from "./Organization.svg"
 import ProfileNote from "./ProfileNote.svg"
 import Hiring from "./Hiring.svg"
 import EditJob from "./EditJob.svg"
+import BeginnerProfile from "./BeginnerProfile.svg"
+import MidProfile from "./MidProfile.svg"
+import AdvanceProfile from "./AdvanceProfile.svg"
 
 
 export {
@@ -196,6 +199,9 @@ export {
   Organization,
   ProfileNote,
   Hiring,
-  EditJob
+  EditJob,
+  BeginnerProfile,
+  MidProfile,
+  AdvanceProfile
 
 };
