@@ -139,7 +139,7 @@ const Step1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
           render={({ field }) => (
             <FormItem className=" w-full flex flex-col gap-[2px]">
               <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
-                Project category
+                Project duration
               </FormLabel>
               <Popover>
                 <PopoverTrigger asChild>

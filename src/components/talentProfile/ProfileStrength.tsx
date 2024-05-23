@@ -84,7 +84,25 @@ const ProfileStrength: FC = () => {
                   {strength}%
                 </p>
               </div>
-              <div className=""></div>
+              <div className={cn("min-h-[65px] w-full flex justify-center p-4 rounded-[10px]",  strength <= 50
+                      ? " bg-accent_red/10"
+                      : strength <= 70
+                      ? " bg-accent_yellow/10"
+                      : strength > 70
+                      ? " bg-accent_green/10"
+                      : "")}>
+                <p className=" font-Jakarta font-normal text-[13px] leading-4 text-dark_green">
+                    {
+                         strength <= 50
+                         ? "Add more information to your profile to get 10x more profile views."
+                         : strength <= 70
+                         ? "Talents with complete profiles land 3x more interviews!"
+                         : strength > 70
+                         ? "Explore job opportunities and start applying to open roles."
+                         : ""
+                    }
+                </p>
+              </div>
             </div>
             <div className="flex flex-col gap-5">
               {profileStatus.map((status, index) => (

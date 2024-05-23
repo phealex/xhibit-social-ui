@@ -639,6 +639,31 @@ export const AddProjectFormSchema = z.object({
   access: z.string(),
 });
 
+export const AddServiceFormSchema = z.object({
+  title: z.string().min(3, {
+    message: "Title must be at least 3 characters long",
+  }),
+  category: z.string(),
+  description: z
+    .string()
+    .min(100, {
+      message: "Description must be at least 100 characters long",
+    })
+    .max(1000, {
+      message: "Description must not be longer than 1000 characters",
+    }),
+  delivery: z.string().min(3, {
+    message: "Delivery time is required",
+  }),
+  iterations: z.string().min(3, {
+    message: "Number of iterations is required",
+  }),
+  price: z.string().min(3, {
+    message: "Price is required",
+  }),
+
+});
+
 export interface MultiStepProps {
   handleNext: () => void;
   handlePrev: () => void;

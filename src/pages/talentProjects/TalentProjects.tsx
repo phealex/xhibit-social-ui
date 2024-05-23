@@ -1,5 +1,6 @@
 import {
-    AddProject,
+  AddProject,
+  AddService,
   ManageJobs,
   ProjectCategories,
   ProjectHeader,
@@ -11,16 +12,18 @@ import { FC } from "react";
 
 const TalentProjects: FC = () => {
   const addNew = useProjectDisplay((state) => state.addNew);
-  const [isAddJob, isEditJob] = useMyJobsState((state) => [state.isAddJob, state.isEditJob]);
+  const [isAddJob, isEditJob] = useMyJobsState((state) => [
+    state.isAddJob,
+    state.isEditJob,
+  ]);
   return (
     <div className=" min-h-screen bg-accent_blue flex flex-col gap-[50px]">
-      {
-        (isAddJob || isEditJob ) ? (
-          <div className="">
-            <ManageJobs />
-          </div>
-        ) : (
-          <>     
+      {isAddJob || isEditJob ? (
+        <div className="">
+          <ManageJobs />
+        </div>
+      ) : (
+        <>
           <ProjectHeader />
           {!addNew && (
             <>
@@ -31,12 +34,11 @@ const TalentProjects: FC = () => {
           {
             {
               projects: <AddProject />,
-              services: <div className="">Services</div>,
+              services: <AddService />,
             }[addNew as ProjectView]
           }
-          </>
-        )
-      }
+        </>
+      )}
     </div>
   );
 };
