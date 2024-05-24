@@ -6,7 +6,6 @@ import {
   Clock3,
   MapPin,
   Repeat2,
-  SpadeIcon,
   Star,
 } from "lucide-react";
 import { ImageSlider, ServiceCheckout } from "..";
@@ -19,7 +18,6 @@ import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
