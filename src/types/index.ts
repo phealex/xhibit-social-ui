@@ -556,6 +556,7 @@ export interface ProjectDisplayState {
   setProjectToShowId: (value: string | null) => void;
   addNew: ProjectView | null;
   projectModalActive: "projects" | "reviews";
+  isServiceCheckout: boolean;
 }
 
 export interface ProjectCategoryType {
