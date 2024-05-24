@@ -142,11 +142,11 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
         </CardContent>
       </Card>
       <Dialog open={isShowDetails} onOpenChange={() => setIsShowDetails(false)}>
-        <DialogContent className=" max-w-[1000px] flex flex-col w-full gap-10  ">
+        <DialogContent className=" max-w-[90%] lg:max-w-[1000px] top-[45%] flex flex-col w-full gap-10 overflow-x-scroll no-scrollbar max-h-[80%] ">
           <div className=" flex gap-10 w-full">
             <div
               className={cn(
-                "grid grid-cols-2 gap-5",
+                "hidden lg:grid grid-cols-2 gap-5",
                 isRequestService && "hidden"
               )}
             >
@@ -159,7 +159,7 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
                 />
               ))}
             </div>
-            <div className=" flex flex-col gap-5">
+            <div className={cn(" flex flex-col gap-5", isRequestService && "hidden lg:flex")}>
               <section className="flex items-center gap-[5px]">
                 <img
                   src={service.img}
@@ -332,7 +332,7 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
                       </FormItem>
                     )}
                   />
-                  <div className="flex w-full justify-between gap-[150px] items-center">
+                  <div className="flex w-full justify-between gap-10 items-center">
                     <Button
                       type="reset"
                       onClick={() => {
@@ -369,7 +369,7 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      <ServiceCheckout />
+      <ServiceCheckout service={service} />
     </>
   );
 };

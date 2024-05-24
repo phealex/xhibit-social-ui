@@ -18,7 +18,6 @@ import {
   MapPin,
   Repeat2,
   Check,
-  Star,
 } from "lucide-react";
 
 interface ServiceCheckoutProps {
@@ -40,15 +39,17 @@ const ServiceCheckout: FC<ServiceCheckoutProps> = ({ service }) => {
         setDisplay("payment");
       }}
     >
-      <DialogContent className="w-full max-w-[708px] bg-white rounded-lg">
+      <DialogContent className="w-full max-w-[90%] max-h-[80%] lg:max-w-[708px] bg-white rounded-lg overflow-auto no-scrollbar align-top ">
         {
           {
             payment: (
-              <div className=" flex flex-col justify-center items-center gap-[50px] container">
+              <div className=" flex flex-col justify-center items-center gap-[50px] mx-auto max-w-[360px]">
                 <p className=" font-Jakarta  font-normal text-base text-center">
                   Choose the payment method you wish to use to pay for this
                   service
                 </p>
+                <div className="flex flex-col gap-5 w-full justify-center items-center">
+
                 <Select>
                   <SelectTrigger className=" h-fit w-full">
                     <SelectValue
@@ -79,7 +80,7 @@ const ServiceCheckout: FC<ServiceCheckoutProps> = ({ service }) => {
                 <p className=" font-Jakarta font-medium text-base text-dark_green/70 uppercase">
                   OR
                 </p>
-                <div className=" h-[54px] flex items-center gap-2 bg-dark_green/5">
+                <div className=" h-[54px] w-full p-2 rounded-lg flex items-center gap-2 bg-dark_green/5">
                   <img src={Logo} alt="" className="h-full w-10" />
                   <div className="flex flex-col h-full justify-between">
                     <h1 className=" font-Jakarta font-medium text-base text-dark_green">
@@ -90,6 +91,8 @@ const ServiceCheckout: FC<ServiceCheckoutProps> = ({ service }) => {
                     </p>
                   </div>
                 </div>
+                </div>
+
                 <Button
                   className=" bg-primary_blue hover:bg-primary_blue h-[50px] text-white font-Jakarta font-medium text-base"
                   onClick={() => setDisplay("details")}
@@ -99,7 +102,7 @@ const ServiceCheckout: FC<ServiceCheckoutProps> = ({ service }) => {
               </div>
             ),
             details: (
-              <div className=" flex flex-col gap-30 w-full">
+              <div className=" flex flex-col gap-[30px] w-full">
                 <div className=" flex flex-col gap-[10px] ">
                   <h1 className=" font-Jakarta font-semibold text-2xl text-dark_green">
                     New service request
@@ -129,15 +132,6 @@ const ServiceCheckout: FC<ServiceCheckoutProps> = ({ service }) => {
                     <p className=" font-Jakarta font-medium text-xl text-dark_green">
                       {service.title}
                     </p>
-                    <div className="flex items-center gap-1">
-                      <Star fill="#FFC107" className=" h-5 w-5" />
-                      <p className=" font-Jakarta font-medium text-xs">
-                        {service.rating}
-                      </p>
-                      <p className=" font-Jakarta font-normal text-xs">
-                        ({service.rating})
-                      </p>
-                    </div>
                   </section>
                   <div className="flex items-start gap-1 text-primary_blue">
                     <p className=" font-Jakarta font-medium text-base ">From</p>
@@ -179,16 +173,16 @@ const ServiceCheckout: FC<ServiceCheckoutProps> = ({ service }) => {
                       <p className=" font-Jakarta font-medium text-xs text-dark_green">
                         Service cost:
                       </p>
-                      <p className=" font-Jakarta font-medium text-xs text-dark_green">
+                      <p className=" font-Jakarta font-medium text-base text-dark_green flex items-start gap-1">
                         <span className=" text-[8px]">NGN</span>
                         {service.price}
                       </p>
                     </div>
                     <div className=" flex justify-between items-center">
-                      <p className=" font-Jakarta font-medium text-xs text-dark_green">
+                      <p className=" font-Jakarta font-medium text-xs text-dark_green ">
                         Platform fees:
                       </p>
-                      <p className=" font-Jakarta font-medium text-xs text-dark_green">
+                      <p className=" font-Jakarta font-medium text-base text-dark_green flex items-start gap-1">
                         <span className=" text-[8px]">NGN</span>
                         {service.price}
                       </p>
@@ -197,7 +191,7 @@ const ServiceCheckout: FC<ServiceCheckoutProps> = ({ service }) => {
                       <p className=" font-Jakarta font-medium text-xs text-dark_green">
                         You pay:
                       </p>
-                      <p className=" font-Jakarta font-medium text-xs text-dark_green">
+                      <p className=" font-Jakarta font-medium text-base text-dark_green flex items-start gap-1">
                         <span className=" text-[8px]">NGN</span>
                         {service.price}
                       </p>
