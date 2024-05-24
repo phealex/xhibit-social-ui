@@ -80,6 +80,7 @@ export { default as ImageSlider } from "./imageSlider/ImageSlider";
 export { default as AddProject } from "./talentProjects/AddProject";
 export { default as AddService } from "./talentProjects/AddService";
 export { default as ServiceProjectsDisplay } from "./talentProjects/ServiceProjectsDisplay";
+export { default as ServiceCheckout } from "./talentProjects/ServiceCheckout";
 export {default as Step1} from "./addProject/Step1"
 export {default as Step2} from "./addProject/Step2"
 export {default as Step3} from "./addProject/Step3"

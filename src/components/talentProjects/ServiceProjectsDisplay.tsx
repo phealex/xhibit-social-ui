@@ -9,7 +9,7 @@ import {
   SpadeIcon,
   Star,
 } from "lucide-react";
-import { ImageSlider } from "..";
+import { ImageSlider, ServiceCheckout } from "..";
 import { Dialog, DialogContent, DialogFooter } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
@@ -29,6 +29,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useProjectDisplay } from "@/store";
 
 interface ServiceProjectsDisplayProps {
   service: ServiceCardType;
@@ -72,6 +73,9 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
 
   function onSubmit(data: z.infer<typeof RequestServiceFormSchema>) {
     console.log(data);
+    setIsRequestService(false);
+    setIsShowDetails(false);
+    useProjectDisplay.setState({ isServiceCheckout: true });
   }
 
   const totalRating = ratingData.reduce((acc, curr) => acc + curr.value, 0);
@@ -367,6 +371,7 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
           </DialogFooter>
         </DialogContent>
       </Dialog>
+      <ServiceCheckout />
     </>
   );
 };
