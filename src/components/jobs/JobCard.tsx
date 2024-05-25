@@ -6,20 +6,19 @@ import { PiBagSimple } from "react-icons/pi";
 import { Button } from "../ui/button";
 import { JobType } from "@/types";
 import { Badge } from "../ui/badge";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface JobCardProps {
   job: JobType;
-  showSignIn?: boolean;
 }
 
-const JobCard: FC<JobCardProps> = ({ job, showSignIn }) => {
+const JobCard: FC<JobCardProps> = ({ job }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex gap-0 group relative">
-      <div className="absolute inset-2.5 bg-gradient-to-b from-home_border_gradient_color_1 to-home_border_gradient_color_2 rounded-md opacity-100 group-hover:opacity-100 transition-opacity duration-200 ease-in-out z-10"></div>
-      <Card className=" min-w-fit w-full bg-white hover:border-l-home_border_gradient_color_2 hover:border-l-   z-20">
+    <div className="group relative p-0.5">
+      <div className="absolute hidden group-hover:flex w-0 group-hover:w-10 ml-[-10px] h-[98%] my-auto inset-0 bg-gradient-to-b from-home_border_gradient_color_1 to-home_border_gradient_color_2 rounded-lg  group-hover:transition-all ease-in-out group-hover:duration-1000"></div>
+      <Card className=" relative min-w-fit w-full bg-white  z-20">
         <CardContent className="p-2 flex gap-2 lg:p-6 ">
           <img
             src={job.logo}

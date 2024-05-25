@@ -77,7 +77,7 @@ const TalentFeed: FC = () => {
             </div>
             <div className="flex gap-5 flex-col p-6 ">
             {foundJobs.map((job, index) => (
-              <JobCard key={index} job={job} showSignIn={false} />
+              <JobCard key={index} job={job} />
            
             ))}
           </div>
