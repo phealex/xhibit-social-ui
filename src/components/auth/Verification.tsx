@@ -15,17 +15,17 @@ import {
 import { Input } from "../ui/input";
 
 interface VerificationProps extends handleNextProps {
-  // handleSubmit: (data: z.infer<typeof verifyEmailSchema>) => void;
-  handleSubmit: () => void;
+  // handleVerify: (data: z.infer<typeof verifyEmailSchema>) => void;
+  handleVerify: () => void;
 }
-const Verification: FC<VerificationProps> = ({ handleNext, handleSubmit }) => {
+const Verification: FC<VerificationProps> = ({ handleNext, handleVerify }) => {
   const form = useForm<z.infer<typeof verifyEmailSchema>>({
     resolver: zodResolver(verifyEmailSchema),
   });
 
   function onSubmit(data: z.infer<typeof verifyEmailSchema>) {
     console.log(data);
-    handleSubmit();
+    handleVerify();
     handleNext();
   }
   return (
