@@ -1,3 +1,4 @@
+import { LOGIN } from "@/apollo/operations";
 import { WavingHand } from "@/assets";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,6 +15,7 @@ import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 import { useUserState } from "@/store";
 import { loginFromSchema } from "@/types";
+import { useMutation } from "@apollo/client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { FC, useState } from "react";
@@ -26,10 +28,9 @@ import { z } from "zod";
 const Login: FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const {toast} = useToast()
+  const { toast } = useToast();
 
   const userType = useUserState((state) => state.userType);
-  const setUserType = useUserState((state) => state.setUserType);
 
   const form = useForm<z.infer<typeof loginFromSchema>>({
     resolver: zodResolver(loginFromSchema),
@@ -38,22 +39,42 @@ const Login: FC = () => {
       password: "",
     },
   });
-  
+
+  const [login, { loading }] = useMutation(LOGIN, {
+    onCompleted: (data) => {
+      window.localStorage.setItem(
+        "access_token",
+        data.login.accessToken as string
+      );
+      useUserState.setState({
+        user: data.login,
+        userType: data.login.roles[0],
+      });
+      toast({
+        title: "Login Successful",
+        description: `Redirecting to your feed`,
+      });
+      setTimeout(() => {
+        navigate(`/${userType}`);
+      }, 2000);
+    },
+    onError: (error) => {
+      toast({
+        title: "Login Failed",
+        description: error.message,
+      });
+    },
+  });
 
   function onSubmit(values: z.infer<typeof loginFromSchema>) {
-    console.log(values);
-
-    //TODO: set user type based on login response 
-    setUserType("recruiter");
-    
-
-    toast({
-      title: "Login Successful",
-      description: `Redirecting to your feed`
-    })
-    setTimeout(() => {  
-    navigate(`/${userType}`)
-    },2000)
+    login({
+      variables: {
+        credentials: {
+          email: values.email,
+          password: values.password,
+        },
+      },
+    });
   }
 
   const navigate = useNavigate();
