@@ -1,3 +1,4 @@
+import { EnumUserUserType } from "@/__generated__/graphql";
 import {
   Category,
   JobProfile,
@@ -8,7 +9,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 import { useMultiStepForm } from "@/hooks";
-import { useUserState } from "@/store";
+import { useAuthState, useUserState } from "@/store";
 import { RegisterDataType } from "@/types";
 import { CheckCircle2, ChevronLeftSquare } from "lucide-react";
 import { FC, useEffect, useState } from "react";
@@ -38,27 +39,20 @@ const Register: FC = () => {
   const { toast } = useToast();
 
   const userAccountType = useUserState((state) => state.userType);
-  
-  const [userType, setUserType] = useState<RegisterDataType["userType"]>();
+
   function handleNext() {
     next();
   }
 
+  const authData = useAuthState((state) => state.authData);
+
   const { step, prev, next, currentStep, isFirstStep, completed } =
     useMultiStepForm([
-      <Category
-        handleNext={handleNext}
-        handleType={setUserType}
-        type={userType}
-      />,
-      <JobProfile handleNext={handleNext} type={userType} />,
-      <TalentDetails handleNext={handleNext} type={userType} />,
-      <Verification
-        handleNext={handleNext}
-        type={userType}
-        handleSubmit={() => {}}
-      />,
-      <LinkSocials handleNext={handleNext} type={userType} />,
+      <Category handleNext={handleNext} />,
+      <JobProfile handleNext={handleNext} />,
+      <TalentDetails handleNext={handleNext} />,
+      <Verification handleNext={handleNext} handleVerify={() => {}} />,
+      <LinkSocials handleNext={handleNext} />,
     ]);
 
   useEffect(() => {
@@ -79,15 +73,17 @@ const Register: FC = () => {
       <div className=" h-full flex flex-col  gap-[50px] w-full lg:w-[80%] mx-auto ">
         <div className="flex flex-col gap-[25px] w-full ">
           <ChevronLeftSquare
-            className={`text-[24px] text-dark_green rounded-md ${
-              isFirstStep || completed ? "cursor-not-allowed" : "cursor-pointer"
+            className={`text-[24px] text-dark_green rounded-md cursor-pointer ${
+              ""
+              // isFirstStep || completed ? "cursor-not-allowed" : "cursor-pointer"
             }`}
             onClick={() => {
+              if (isFirstStep) navigate("/auth/login");
               !isFirstStep && !completed && prev();
             }}
           />
           <div className="hidden lg:flex items-center gap-1 w-full justify-between flex-shrink">
-            {userType === "recruiter"
+            {authData?.userType === EnumUserUserType.Recruiter
               ? recruiterPageTitles.map((title, index) => (
                   <div className="flex gap-1 items-center" key={index}>
                     <p
