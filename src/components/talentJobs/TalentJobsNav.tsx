@@ -16,8 +16,8 @@ const TalentJobsNav: FC = () => {
   const setDetailsToShow = useJobsDisplay((state) => state.setDetailsToShow);
   const detailsToShow = useJobsDisplay((state) => state.detailsToShow);
   return (
-    <div className="w-full bg-white sticky z-50 top-[100px] left-0 right-0 h-20">
-      <div className="container h-full hidden lg:flex  ">
+    <div className="w-full bg-white sticky z-50 top-[100px] left-0 bottom-0 right-0 min-h-20 flex justify-center">
+      <div className="container h-full hidden lg:flex my-auto  ">
         {viewToShow === "browse" ? (
           <Filter />
         ) : (
@@ -75,7 +75,7 @@ const TalentJobsNav: FC = () => {
           </Button>
           </div>
          ) : (
-          <div className="flex w-[90%] mx-auto lg:hidden h-full justify-between items-center">
+          <div className="flex w-[90%] mx-auto lg:hidden justify-between items-center">
         <Button
           onClick={() => {
             setJobToShowId(null);

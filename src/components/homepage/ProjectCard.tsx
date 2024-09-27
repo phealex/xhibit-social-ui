@@ -4,8 +4,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { ArrowRight, Star } from 'lucide-react'
 import { Button } from '../ui/button'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useProjectDisplay } from '@/store'
+import { useProjectDisplay, useUserState } from '@/store'
 import { ProjectType } from '@/types'
+import { ProjectDetailsModal } from '..'
 
 
 interface ProjectCardProps {
@@ -20,8 +21,12 @@ const ProjectCard: FC<ProjectCardProps> = ({
   const path = useLocation().pathname.split('/')[2]
   const navigate = useNavigate()
 
+  const userType = useUserState((state) => state.userType);
+
+
   
   return (
+    <>
     <Card
     className="w-[280px] bg-dark_green/70 rounded-[17px] flex flex-col shrink-0 grow-0   gap-[10px] border-none p-4"
   >
@@ -90,20 +95,31 @@ const ProjectCard: FC<ProjectCardProps> = ({
           showProjectDetails: true,
           projectToShowId: project.id
         })
-        if (path !== "projects") {
-          navigate("/talent/projects")
-          return
+        // if (path !== "projects" && path !== "discover") {
+        //   if (userType === "talent") {
+        //   navigate("/talent/projects")
+        //   return
+        //   } else if (userType === "recruiter") {
+        //     navigate("/recruiter/discover")
+        //     return
+        //   } else {
+        //     return
+        //   }
+        // }
+      }} className="font-Jakarta uppercase font-semibold flex flex-row gap-2 text-[16px] leading-normal mx-auto border-none outline-none  text-white hover:text-white px-4 pt-3 bg-transparent hover:bg-transparent border border-white rounded-[5px]">
+        {
+          project.action === "buy" ? "Buy Now" : "View More"
         }
-        
-        
-      }} className="font-Jakarta font-semibold flex flex-row gap-2 text-[16px] leading-normal mx-auto border-none outline-none  text-white hover:text-white px-4 pt-3 bg-transparent hover:bg-transparent border border-white rounded-[5px]">
-        View more
-        <ArrowRight className="text-white text-[20px]" />
+        {/* <ArrowRight className="text-white text-[20px]" /> */}
       </Button>
     </CardFooter>
       )
     }
   </Card>
+  <ProjectDetailsModal />
+
+  </>
+
   )
 }
 

@@ -111,7 +111,7 @@ const ProjectsDisplay: FC = () => {
         </div>
         <Separator className=" hidden md:flex w-full bg-dark_green/10" />
       </div>
-      <div className={cn("flex flex-wrap gap-10 justify-center items-center  ", view === "services" && "gap-4 lg:gap-10")}>
+      <div className={cn("flex flex-wrap gap-5 justify-center items-center  ", view === "services" && "gap-4 lg:gap-10")}>
         {
           {
             projects: projects.map((project, index) => (

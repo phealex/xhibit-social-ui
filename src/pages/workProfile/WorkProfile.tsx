@@ -37,7 +37,7 @@ const WorkProfile: FC = () => {
       <div className="container mx-auto flex gap-5">
         <section className="w-[20%] hidden lg:flex flex-col gap-5 -mt-28">
           <UserCard />
-          <HireTalent />
+          {/* <HireTalent /> */}
           <UserTools />
         </section>
         <section className="flex flex-1 flex-col gap-10 w-full mt-10">

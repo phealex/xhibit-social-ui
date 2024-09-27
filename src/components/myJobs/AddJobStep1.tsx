@@ -179,13 +179,13 @@ const AddJobStep1: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
         />
 
         <div className="flex w-full justify-between gap-[100px] items-center">
-          {/* <Button
+          <Button
             type="reset"
-            onClick={handlePrev}
-            className="w-[160px] font-Jakarta font-medium text-base bg-transparent hover:bg-transparent border border-dark_green/70 rounded-md text-dark_green/70"
+            onClick={() => useMyJobsState.setState({isAddJob: false})}
+            className="w-[160px] flex lg:hidden font-Jakarta font-medium text-base bg-transparent hover:bg-transparent border border-dark_green/70 rounded-md text-dark_green/70"
           >
             Cancel
-          </Button> */}
+          </Button>
           <Button
             type="submit"
             className="w-[160px] font-Jakarta font-medium text-base bg-primary_blue hover:bg-primary_blue border-none rounded-md text-white"

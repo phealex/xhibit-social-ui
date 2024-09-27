@@ -1,11 +1,33 @@
 import { FC, useState } from "react";
 import { Card, CardContent } from "../ui/card";
-import { ServiceCardType } from "@/types";
-import { BookmarkCheck, Clock3, MapPin, Repeat2, Star } from "lucide-react";
-import { ImageSlider } from "..";
+import { RequestServiceFormSchema, ServiceCardType } from "@/types";
+import {
+  BookmarkCheck,
+  Clock3,
+  MapPin,
+  Repeat2,
+  Star,
+} from "lucide-react";
+import { ImageSlider, ServiceCheckout } from "..";
 import { Dialog, DialogContent, DialogFooter } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
+import { cn } from "@/lib/utils";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "../ui/textarea";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useProjectDisplay } from "@/store";
 
 interface ServiceProjectsDisplayProps {
   service: ServiceCardType;
@@ -15,6 +37,7 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
   service,
 }) => {
   const [isShowDetails, setIsShowDetails] = useState<boolean>(false);
+  const [isRequestService, setIsRequestService] = useState<boolean>(false);
 
   const ratingData: {
     name: string;
@@ -41,6 +64,17 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
       value: 2,
     },
   ];
+
+  const form = useForm<z.infer<typeof RequestServiceFormSchema>>({
+    resolver: zodResolver(RequestServiceFormSchema),
+  });
+
+  function onSubmit(data: z.infer<typeof RequestServiceFormSchema>) {
+    console.log(data);
+    setIsRequestService(false);
+    setIsShowDetails(false);
+    useProjectDisplay.setState({ isServiceCheckout: true });
+  }
 
   const totalRating = ratingData.reduce((acc, curr) => acc + curr.value, 0);
   return (
@@ -108,9 +142,14 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
         </CardContent>
       </Card>
       <Dialog open={isShowDetails} onOpenChange={() => setIsShowDetails(false)}>
-        <DialogContent className=" max-w-[1000px] flex flex-col w-full gap-10  ">
+        <DialogContent className=" max-w-[90%] lg:max-w-[1000px] top-[45%] flex flex-col w-full gap-10 overflow-x-scroll no-scrollbar max-h-[80%] ">
           <div className=" flex gap-10 w-full">
-            <div className="grid grid-cols-2 gap-5">
+            <div
+              className={cn(
+                "hidden lg:grid grid-cols-2 gap-5",
+                isRequestService && "hidden"
+              )}
+            >
               {service.images.map((image, index) => (
                 <img
                   src={image}
@@ -120,7 +159,7 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
                 />
               ))}
             </div>
-            <div className=" flex flex-col gap-5">
+            <div className={cn(" flex flex-col gap-5", isRequestService && "hidden lg:flex")}>
               <section className="flex items-center gap-[5px]">
                 <img
                   src={service.img}
@@ -181,7 +220,12 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
                   {service.bookmarks} +
                 </p>
               </div>
-              <div className=" flex flex-col gap-5">
+              <div
+                className={cn(
+                  " flex flex-col gap-5",
+                  isRequestService && "hidden"
+                )}
+              >
                 <p className=" font-Jakarta font-medium text-base text-dark_green">
                   What do other say about this talent
                 </p>
@@ -208,15 +252,124 @@ const ServiceProjectsDisplay: FC<ServiceProjectsDisplayProps> = ({
                 </div>
               </div>
             </div>
+            <div
+              className={cn(
+                " hidden",
+                isRequestService && "flex flex-col gap-[30px]"
+              )}
+            >
+              <Form {...form}>
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className=" flex flex-col gap-5"
+                >
+                  <FormField
+                    control={form.control}
+                    name="details"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className=" flex items-center justify-between">
+                          <p className=" font-Jakarta text-[16px] leading-5 text-dark_green font-medium">
+                            Service description
+                          </p>
+                          <p
+                            className={` font-Jakarta font-normal text-[16px] leading-5 text-dark_green/70 ${
+                              field?.value?.length > 1000 ? " text-red-600" : ""
+                            }`}
+                          >
+                            {field?.value?.length}/1000
+                          </p>
+                        </FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Describe your service in detail: Explain what you offer, your unique approach, and the benefits clients can expect. Be specific and highlight what sets your service apart."
+                            className=" focus-visible:ring-transparent min-h-[260px]"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="delivery"
+                    render={({ field }) => (
+                      <FormItem className=" w-full flex flex-col gap-[2px]">
+                        <FormLabel className=" font-Jakarta font-medium text-base text-dark_green">
+                          Delivery time
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="E.g 2 weeks"
+                            className=" font-Jakarta font-normal text-base"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="terms"
+                    render={({ field }) => (
+                      <FormItem className=" w-full flex gap-[2px] items-center">
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                          />
+                        </FormControl>
+                        <FormLabel className=" font-Jakarta font-medium text-xs text-dark_green flex gap-1">
+                          Allow XHIBIT to provide you a support and project
+                          manager.{" "}
+                          <span className=" text-primary_blue">
+                            Learn More{" "}
+                          </span>
+                        </FormLabel>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <div className="flex w-full justify-between gap-10 items-center">
+                    <Button
+                      type="reset"
+                      onClick={() => {
+                        setIsRequestService(false);
+                      }}
+                      className="w-[160px] font-Jakarta font-medium text-base bg-transparent hover:bg-transparent border border-dark_green/70 rounded-md text-dark_green/70"
+                    >
+                      Back
+                    </Button>
+                    <Button
+                      type="submit"
+                      className="w-[160px] font-Jakarta font-medium text-base bg-primary_blue hover:bg-primary_blue border-none rounded-md text-white"
+                    >
+                      Continue
+                    </Button>
+                  </div>
+                </form>
+              </Form>
+            </div>
           </div>
           <Separator />
-          <DialogFooter className=" w-full  shadow-lg shadow-white bg-white rounded-md">
-            <Button className=" bg-primary_blue hover:bg-primary_blue text-white font-Jakarta font-medium text-base ml-auto ">
+          <DialogFooter
+            className={cn(
+              " w-full  shadow-lg shadow-white bg-white rounded-md",
+              isRequestService && "hidden"
+            )}
+          >
+            <Button
+              onClick={() => setIsRequestService(true)}
+              className=" bg-primary_blue hover:bg-primary_blue text-white font-Jakarta font-medium text-base ml-auto "
+            >
               Request service
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
+      <ServiceCheckout service={service} />
     </>
   );
 };

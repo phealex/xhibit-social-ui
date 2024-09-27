@@ -556,6 +556,7 @@ export interface ProjectDisplayState {
   setProjectToShowId: (value: string | null) => void;
   addNew: ProjectView | null;
   projectModalActive: "projects" | "reviews";
+  isServiceCheckout: boolean;
 }
 
 export interface ProjectCategoryType {
@@ -639,6 +640,46 @@ export const AddProjectFormSchema = z.object({
   access: z.string(),
 });
 
+export const AddServiceFormSchema = z.object({
+  title: z.string().min(3, {
+    message: "Title must be at least 3 characters long",
+  }),
+  category: z.string(),
+  description: z
+    .string()
+    .min(100, {
+      message: "Description must be at least 100 characters long",
+    })
+    .max(1000, {
+      message: "Description must not be longer than 1000 characters",
+    }),
+  delivery: z.string().min(3, {
+    message: "Delivery time is required",
+  }),
+  iterations: z.string().min(3, {
+    message: "Number of iterations is required",
+  }),
+  price: z.string().min(3, {
+    message: "Price is required",
+  }),
+});
+
+export const RequestServiceFormSchema = z.object({
+  details: z
+    .string()
+    .min(100, {
+      message: "Description must be at least 100 characters long",
+    })
+    .max(1000, {
+      message: "Description must not be longer than 1000 characters",
+    }),
+  delivery: z.string().min(3, {
+    message: "Delivery time is required",
+  }),
+  terms: z.boolean().optional(),
+ 
+});
+
 export interface MultiStepProps {
   handleNext: () => void;
   handlePrev: () => void;
@@ -678,6 +719,7 @@ export interface ProjectType {
   rating: string;
   projectTitle: string;
   projectDescription: string;
+  action: "buy" | "hire"
 }
 
 export interface ProjectFormState {
@@ -973,4 +1015,11 @@ export const JobFormSchema = z.object({
   questions: z.string().optional(),
 
 
+})
+
+
+export const BuyProjectFormSchema = z.object({
+  account: z.string({
+    required_error: "Account is required",
+  })
 })

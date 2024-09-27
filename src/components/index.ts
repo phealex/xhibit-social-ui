@@ -32,6 +32,7 @@ export { default as UserPosts } from "./talentFeed/UserPosts";
 export { default as Links } from "./talentFeed/Links";
 export { default as JobCard } from "./jobs/JobCard";
 export { default as HiringCompanyCard } from "./jobs/HiringCompany";
+export { default as HiringCompanyModal } from "./jobs/HiringCompanyModal";
 export { default as ProfileBanner } from "./talentProfile/ProfileBanner";
 export { default as Headline } from "./talentProfile/Headline";
 export { default as Role } from "./talentProfile/Role";
@@ -42,6 +43,11 @@ export { default as Certification } from "./talentProfile/Certification";
 export { default as Education } from "./talentProfile/Education";
 export { default as Socials } from "./talentProfile/Social";
 export { default as Tools } from "./talentProfile/Tools";
+export { default as ProfileStrength } from "./talentProfile/ProfileStrength";
+export { default as TopJobs } from "./talentProfile/TopJobs";
+export { default as TopCourses } from "./talentProfile/TopCourses";
+export { default as TopRecruiters } from "./talentProfile/TopRecruiters";
+export { default as InterviewQuestions } from "./talentProfile/InterviewQuestions";
 export { default as Resources } from "./talentJobs/Resources";
 export { default as RecentlyViewed } from "./talentJobs/RecentlyViewed";
 export { default as Discover } from "./talentJobs/Discover";
@@ -72,7 +78,9 @@ export { default as ProjectCategories } from "./talentProjects/ProjectCategories
 export { default as ProjectsDisplay } from "./talentProjects/ProjectsDisplay";
 export { default as ImageSlider } from "./imageSlider/ImageSlider";
 export { default as AddProject } from "./talentProjects/AddProject";
+export { default as AddService } from "./talentProjects/AddService";
 export { default as ServiceProjectsDisplay } from "./talentProjects/ServiceProjectsDisplay";
+export { default as ServiceCheckout } from "./talentProjects/ServiceCheckout";
 export {default as Step1} from "./addProject/Step1"
 export {default as Step2} from "./addProject/Step2"
 export {default as Step3} from "./addProject/Step3"

@@ -232,7 +232,7 @@ const EditJob: FC = () => {
                   type="number"
                   {...field}
                   onChange={(e) => field.onChange(parseInt(e.target.value))}
-                  placeholder="Enter a title"
+                  placeholder="Enter hours"
                   className=" font-Jakarta font-normal text-base"
                 />
               </FormControl>
@@ -417,7 +417,7 @@ const EditJob: FC = () => {
                   type="number"
                   {...field}
                   onChange={(e) => field.onChange(parseInt(e.target.value))}
-                  placeholder="Enter a title"
+                  placeholder="Enter a rate"
                   className=" font-Jakarta font-normal text-base"
                 />
               </FormControl>
@@ -438,7 +438,7 @@ const EditJob: FC = () => {
                 Talent is prompted to answer these when submitting an
                 application
               </FormDescription>
-              <FormControl>
+              <FormControl className="h-[200px]">
                 <ReactQuill {...field} modules={quillModules} theme="snow" />
               </FormControl>
               <FormMessage />

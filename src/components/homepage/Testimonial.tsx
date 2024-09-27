@@ -32,7 +32,7 @@ const Testimonial: FC = () => {
                   placeholder="Try Java Developer, React..."
                   className="bg-transparent text-[13px] flex-1 lg:text-[18px] font-medium text-white/70 placeholder-white/70 outline-none"
                 />
-                <Button className=" font-Jakarta text-center gap-1 text-[10px] sm:text-[13px] lg:text-[15px] font-semibold text-[#323C45]  bg-white px-3 py-[6px] rounded-[60px] ">
+                <Button className=" font-Jakarta text-center gap-1 text-[10px] sm:text-[13px] lg:text-[15px] font-semibold text-[#323C45]  bg-white hover:bg-white px-3 py-[6px] rounded-[60px] ">
                   <Sparkles className="text-[#7559E5] h-[16px] w-[16px] " />
                   HIRE TALENT
                 </Button>
@@ -41,7 +41,7 @@ const Testimonial: FC = () => {
           </div>
         </div>
       </div>
-      <Card className=" bg-[#DEE3E8] rounded-[14px] flex flex-col gap-10 relative md:w-[70%] md:mx-auto md:transform md:rotate-[-20deg] md:my-10 lg:w-[60%] ">
+      <Card className="bg-[#DEE3E8] rounded-[14px] flex flex-col gap-10 relative md:w-[70%] md:mx-auto md:transform md:-rotate-6 md:my-10 lg:w-[60%] transition-transform duration-500 ease-in-out hover:rotate-0">
         <div className="absolute top-0 right-0 p-2 w-[50px]  h-[50px]  shrink-0 transform rotate-[10deg]">
           <svg
             xmlns="http://www.w3.org/2000/svg"

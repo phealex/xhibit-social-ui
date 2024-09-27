@@ -88,7 +88,12 @@ const AddJobStep2: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                 Job description
               </FormLabel>
               <FormControl className="">
-                <ReactQuill {...field} modules={quillModules} theme="snow" className="" />
+                <ReactQuill
+                  {...field}
+                  modules={quillModules}
+                  theme="snow"
+                  className=""
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -107,7 +112,7 @@ const AddJobStep2: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                   type="number"
                   {...field}
                   onChange={(e) => field.onChange(parseInt(e.target.value))}
-                  placeholder="Enter a title"
+                  placeholder="Enter hours"
                   className=" font-Jakarta font-normal text-base"
                 />
               </FormControl>
@@ -193,14 +198,15 @@ const AddJobStep2: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                 <div className="flex gap-5 items-center flex-wrap">
                   {talentExperience.map((item, index) => (
                     <Button
-                    type="button"
+                      type="button"
                       key={index}
                       onClick={() => {
                         field.onChange(item);
                       }}
                       className={cn(
                         " bg-dark_green/10 hover:bg-dark_green/10 border border-dark_green text-dark_green font-Jakarta font-medium text-base",
-                        field.value === item && "bg-primary_blue hover:bg-primary_blue text-white border-none"
+                        field.value === item &&
+                          "bg-primary_blue hover:bg-primary_blue text-white border-none"
                       )}
                     >
                       {item} yrs
@@ -264,7 +270,8 @@ const AddJobStep2: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                       }}
                       className={cn(
                         " bg-dark_green/10 hover:bg-dark_green/10 border text-dark_green !h-fit w-fit border-dark_green font-Jakarta font-medium text-base",
-                        field.value === item && "bg-primary_blue hover:bg-primary_blue text-white border-none"
+                        field.value === item &&
+                          "bg-primary_blue hover:bg-primary_blue text-white border-none"
                       )}
                     >
                       {item}
@@ -290,7 +297,7 @@ const AddJobStep2: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
                   type="number"
                   {...field}
                   onChange={(e) => field.onChange(parseInt(e.target.value))}
-                  placeholder="Enter a title"
+                  placeholder="Enter a rate"
                   className=" font-Jakarta font-normal text-base"
                 />
               </FormControl>
@@ -320,18 +327,18 @@ const AddJobStep2: FC<MultiStepProps> = ({ handleNext, handlePrev }) => {
         />
 
         <div className="flex w-full justify-between gap-[100px] items-center">
-          {/* <Button
+          <Button
             type="reset"
-            onClick={handlePrev}
-            className="w-[160px] font-Jakarta font-medium text-base bg-transparent hover:bg-transparent border border-dark_green/70 rounded-md text-dark_green/70"
+            onClick={() => useMyJobsState.setState({ isAddJob: false })}
+            className="w-[160px] flex lg:hidden font-Jakarta font-medium text-base bg-transparent hover:bg-transparent border border-dark_green/70 rounded-md text-dark_green/70"
           >
             Cancel
-          </Button> */}
+          </Button>
           <Button
             type="submit"
             className="w-[160px] font-Jakarta font-medium text-base bg-primary_blue hover:bg-primary_blue border-none rounded-md text-white"
           >
-            Continue
+            Save and post
           </Button>
         </div>
       </form>
