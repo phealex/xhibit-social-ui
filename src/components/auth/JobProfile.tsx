@@ -22,8 +22,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { useAuthState } from "@/store";
+import { EnumUserUserType } from "@/__generated__/graphql";
 
-const JobProfile: FC<handleNextProps> = ({ handleNext, type }) => {
+const JobProfile: FC<handleNextProps> = ({ handleNext }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [schema, setSchema] = useState<z.ZodType<any, any>>(
     jobProfileRegisterSchema.omit({ roleType: true })
   );
@@ -31,20 +34,27 @@ const JobProfile: FC<handleNextProps> = ({ handleNext, type }) => {
     resolver: zodResolver(schema),
   });
 
+  const authData = useAuthState((state) => state.authData);
+  const setAuthData = useAuthState((state) => state.setAuthData);
+
   function onSubmit(data: z.infer<typeof schema>) {
-    console.log(data);
+    // console.log(data);
+    setAuthData({
+      ...authData,
+      ...data,
+    })
     handleNext();
   }
 
   useEffect(() => {
-    if (type) {
-      if (type === "talent") {
+    if (authData?.userType) {
+      if (authData?.userType === EnumUserUserType.Talent) {
         setSchema(jobProfileRegisterSchema.omit({ roleType: true }));
       } else {
         setSchema(jobProfileRegisterSchema.omit({ discipline: true }));
       }
     }
-  }, [type]);
+  }, [authData?.userType]);
 
   return (
     <div className="flex flex-col gap-[50px]">
@@ -54,7 +64,7 @@ const JobProfile: FC<handleNextProps> = ({ handleNext, type }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-[30px]"
         >
-          {type === "talent" ? (
+          {authData?.userType === EnumUserUserType.Talent ? (
             <FormField
               control={form.control}
               name="discipline"
