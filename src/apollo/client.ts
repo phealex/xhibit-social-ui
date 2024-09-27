@@ -16,7 +16,7 @@ const httpLink = createHttpLink({
 
 //If a WS needs to be added
 export const wsLink = new WebSocketLink({
-  uri: import.meta.env.VITE_GRAPHQL_DEV_URL, //change to websocket url
+  uri: "", //change to websocket url
   options: {
     reconnect: true,
   },
