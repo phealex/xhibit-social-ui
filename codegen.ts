@@ -5,7 +5,7 @@ dotenv()
 
 const schema = process.env.VITE_GRAPHQL_DEV_URL;
 
-console.log(schema); 
+// console.log(schema); 
 
 const config: CodegenConfig = {
   schema: schema,
