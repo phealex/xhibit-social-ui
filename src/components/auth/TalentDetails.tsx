@@ -16,15 +16,49 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Checkbox } from "../ui/checkbox";
 import { Link } from "react-router-dom";
+import { useAuthState } from "@/store";
+import { EnumUserUserType, Register } from "@/__generated__/graphql";
+import { useMutation } from "@apollo/client";
+import { REGISTER } from "@/apollo/operations";
+import { useToast } from "../ui/use-toast";
 
-const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
+const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
   const form = useForm<z.infer<typeof userDetailsRegisterSchema>>({
     resolver: zodResolver(userDetailsRegisterSchema),
   });
 
+  const { toast } = useToast();
+  const authData = useAuthState((state) => state.authData);
+  const setAuthData = useAuthState((state) => state.setAuthData);
+
+  const [register, { loading }] = useMutation(REGISTER, {
+    onCompleted: (data) => {
+      console.log(data);
+      handleNext();
+    },
+    onError: (error) => {
+      console.log(error);
+      toast({
+        title: "Registration failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
   function onSubmit(data: z.infer<typeof userDetailsRegisterSchema>) {
-    console.log(data);
-    handleNext();
+    // console.log(data);
+    setAuthData({
+      ...authData,
+      ...data,
+    });
+
+    if (!authData) return;
+    register({
+      variables: {
+        credentials: authData as Register,
+      },
+    });
   }
   return (
     <div className="flex flex-col gap-[50px]">
@@ -35,7 +69,6 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-[30px]"
         >
-         
           <FormField
             control={form.control}
             name="firstName"
@@ -87,7 +120,9 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
-                  {type === "talent" ? "Email" : "Business email ID"}
+                  {authData?.userType === EnumUserUserType.Talent
+                    ? "Email"
+                    : "Business email ID"}
                 </FormLabel>
 
                 <FormControl>
@@ -135,7 +170,7 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
-                  {type === "talent"
+                  {authData?.userType === EnumUserUserType.Talent
                     ? "   Enter your Whatsapp phone number"
                     : "Contact number"}
                 </FormLabel>
