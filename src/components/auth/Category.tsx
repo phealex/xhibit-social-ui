@@ -3,18 +3,15 @@ import JoinBanner from "./JoinBanner";
 import { registrationCategories } from "@/constants";
 import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
-import { RegisterDataType, handleNextProps } from "@/types";
+import { handleNextProps } from "@/types";
 import { useToast } from "../ui/use-toast";
-import { useUserState } from "@/store";
+import { useAuthState } from "@/store";
 
-interface CategoryProps extends handleNextProps {
-  handleType: (type: RegisterDataType["userType"]) => void;
-  type: RegisterDataType["userType"] | undefined;
-}
-
-const Category: FC<CategoryProps> = ({ handleNext, handleType, type }) => {
+const Category: FC<handleNextProps> = ({ handleNext }) => {
   const { toast } = useToast();
-  const setUserType = useUserState((state) => state.setUserType);
+
+  const authData = useAuthState((state) => state.authData);
+  const setAuthData = useAuthState((state) => state.setAuthData);
 
   return (
     <div className=" w-full flex flex-col gap-[50px] ">
@@ -24,17 +21,16 @@ const Category: FC<CategoryProps> = ({ handleNext, handleType, type }) => {
           <Card
             key={index}
             className={`h-[160px] !p-0  cursor-pointer w-[47%] rounded-[10px] bg-white border border-dark_green/70 ${
-              category.key === type
+              category.key === authData?.userType
                 ? "border-primary_blue shadow-md shadow-primary_blue"
                 : ""
             }`}
-            onClick={() =>
-              {
-                setUserType(category.key as RegisterDataType["userType"]);
-                handleType(category.key as RegisterDataType["userType"])
-              }
-
-            }
+            onClick={() => {
+              setAuthData({
+                ...authData,
+                userType: category.key,
+              });
+            }}
           >
             <CardContent className="flex flex-col !p-0 h-full items-center justify-center gap-2 ">
               <h1 className=" font-Jakarta font-semibold text-[18px] text-center text-dark_green">
@@ -49,7 +45,7 @@ const Category: FC<CategoryProps> = ({ handleNext, handleType, type }) => {
       </div>
       <Button
         onClick={() => {
-          if (!type) {
+          if (!authData?.userType) {
             toast({
               description: "Please select a category to continue",
               variant: "destructive",
