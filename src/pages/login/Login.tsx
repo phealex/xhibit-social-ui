@@ -23,6 +23,7 @@ import { useForm } from "react-hook-form";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 import { z } from "zod";
 
 const Login: FC = () => {
@@ -175,7 +176,7 @@ const Login: FC = () => {
 
               <div className="flex flex-col gap-5">
                 <Button className=" bg-primary_blue hover:bg-primary_blue py-3 md:py-6 w-full font-Jakarta text-[16px] text-center ">
-                  Log In
+                  {loading ? <ClipLoader color="white" size={20} /> : "Log In"}
                 </Button>
                 <div className="flex gap-1 mx-auto items-center">
                   <p className="text-[16px] from-dark_green font-normal ">
