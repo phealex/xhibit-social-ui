@@ -1,5 +1,7 @@
+import { Register } from "@/__generated__/graphql";
 import { TransactionRecords } from "@/constants";
 import {
+  AuthState,
   JobsDisplayState,
   MessageDisplayState,
   MyJobsState,
@@ -26,6 +28,11 @@ export const useUserState = create<UserState>()(
     }
   )
 );
+
+export const useAuthState = create<AuthState>()((set) => ({
+  authData: null,
+  setAuthData: (authData: Partial<Register>) => set({ authData }),
+}));
 export const useJobsDisplay = create<JobsDisplayState>()((set) => ({
   // showBrowseJobs: true,
   // setShowBrowseJobs: (showBrowseJobs) => set({ showBrowseJobs }),

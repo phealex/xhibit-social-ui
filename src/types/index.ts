@@ -1,6 +1,11 @@
-import { LoginMutation, User } from "@/__generated__/graphql";
+import { LoginMutation, Register } from "@/__generated__/graphql";
 import { z } from "zod";
 
+
+export interface AuthState {
+  authData: Partial<Register> | null,
+  setAuthData: (authData: Partial<Register>) => void
+}
 
 export const jobSearchFormSchema = z.object({
   title: z
@@ -164,7 +169,6 @@ export const resetPasswordSchema = z.object({
 
 export interface handleNextProps {
   handleNext: () => void;
-  type?: RegisterDataType["userType"] | undefined;
 }
 
 export interface TalentFeedPost {
