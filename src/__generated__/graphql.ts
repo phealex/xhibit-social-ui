@@ -139,10 +139,14 @@ export type Mutation = {
   deleteUser: User;
   login: UserInfo;
   register: UserInfo;
+  triggerEmailVerification: Scalars['String']['output'];
+  triggerPhoneVerification: Scalars['String']['output'];
   updateCategory: Category;
   updateProfile: Profile;
   updateProject: Project;
   updateUser: User;
+  verifyEmail: Scalars['Boolean']['output'];
+  verifyPhone: Scalars['Boolean']['output'];
 };
 
 
@@ -212,6 +216,16 @@ export type MutationUpdateProjectArgs = {
 export type MutationUpdateUserArgs = {
   data: UserUpdateInput;
   where: UserWhereUniqueInput;
+};
+
+
+export type MutationVerifyEmailArgs = {
+  otp: Scalars['String']['input'];
+};
+
+
+export type MutationVerifyPhoneArgs = {
+  otp: Scalars['String']['input'];
 };
 
 export type Profile = {
@@ -470,12 +484,12 @@ export type Register = {
   discipline?: InputMaybe<Scalars['String']['input']>;
   email: Scalars['String']['input'];
   employmentType?: InputMaybe<Scalars['String']['input']>;
-  experience: Scalars['Int']['input'];
+  experience?: InputMaybe<Scalars['String']['input']>;
   firstName: Scalars['String']['input'];
   lastName: Scalars['String']['input'];
   password: Scalars['String']['input'];
   phone: Scalars['String']['input'];
-  skills: Array<Scalars['String']['input']>;
+  skills?: InputMaybe<Array<Scalars['String']['input']>>;
   userType: EnumUserUserType;
 };
 
@@ -519,9 +533,11 @@ export type User = {
   categories: Array<Category>;
   createdAt: Scalars['DateTime']['output'];
   email: Scalars['String']['output'];
+  emailVerifiedAt?: Maybe<Scalars['DateTime']['output']>;
   firstName?: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName?: Maybe<Scalars['String']['output']>;
+  phoneVerifiedAt?: Maybe<Scalars['DateTime']['output']>;
   profile?: Maybe<Profile>;
   project: Array<Project>;
   roles: Scalars['JSON']['output'];
@@ -570,8 +586,11 @@ export type UserInfo = {
   __typename?: 'UserInfo';
   accessToken?: Maybe<Scalars['String']['output']>;
   email: Scalars['String']['output'];
+  emailVerifiedAt?: Maybe<Scalars['DateTime']['output']>;
   id: Scalars['String']['output'];
+  phoneVerifiedAt?: Maybe<Scalars['DateTime']['output']>;
   roles: Scalars['JSON']['output'];
+  type?: Maybe<EnumUserUserType>;
 };
 
 export type UserListRelationFilter = {
@@ -659,7 +678,35 @@ export type CreateUserMutationVariables = Exact<{
 
 export type CreateUserMutation = { __typename?: 'Mutation', createUser: { __typename?: 'User', createdAt: any, email: string, firstName?: string | null, id: string, lastName?: string | null, roles: any, updatedAt: any, userType?: EnumUserUserType | null, categories: Array<{ __typename?: 'Category', createdAt: any, description?: string | null, icon?: string | null, id: string, name?: string | null, updatedAt: any, user: Array<{ __typename?: 'User', id: string }> }> } };
 
+export type VerifyEmailMutationVariables = Exact<{
+  otp: Scalars['String']['input'];
+}>;
+
+
+export type VerifyEmailMutation = { __typename?: 'Mutation', verifyEmail: boolean };
+
+export type VerifyPhoneMutationVariables = Exact<{
+  otp: Scalars['String']['input'];
+}>;
+
+
+export type VerifyPhoneMutation = { __typename?: 'Mutation', verifyPhone: boolean };
+
+export type TriggerEmailVerificationMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TriggerEmailVerificationMutation = { __typename?: 'Mutation', triggerEmailVerification: string };
+
+export type TriggerPhoneVerificationMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TriggerPhoneVerificationMutation = { __typename?: 'Mutation', triggerPhoneVerification: string };
+
 
 export const LoginDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Login"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"credentials"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Credentials"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"login"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"credentials"},"value":{"kind":"Variable","name":{"kind":"Name","value":"credentials"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"accessToken"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"roles"}}]}}]}}]} as unknown as DocumentNode<LoginMutation, LoginMutationVariables>;
 export const RegisterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Register"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"credentials"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Register"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"register"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"credentials"},"value":{"kind":"Variable","name":{"kind":"Name","value":"credentials"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"accessToken"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"roles"}}]}}]}}]} as unknown as DocumentNode<RegisterMutation, RegisterMutationVariables>;
 export const CreateUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UserCreateInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"categories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"roles"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"userType"}}]}}]}}]} as unknown as DocumentNode<CreateUserMutation, CreateUserMutationVariables>;
+export const VerifyEmailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"VerifyEmail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"otp"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verifyEmail"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"otp"},"value":{"kind":"Variable","name":{"kind":"Name","value":"otp"}}}]}]}}]} as unknown as DocumentNode<VerifyEmailMutation, VerifyEmailMutationVariables>;
+export const VerifyPhoneDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"VerifyPhone"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"otp"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verifyPhone"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"otp"},"value":{"kind":"Variable","name":{"kind":"Name","value":"otp"}}}]}]}}]} as unknown as DocumentNode<VerifyPhoneMutation, VerifyPhoneMutationVariables>;
+export const TriggerEmailVerificationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"TriggerEmailVerification"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"triggerEmailVerification"}}]}}]} as unknown as DocumentNode<TriggerEmailVerificationMutation, TriggerEmailVerificationMutationVariables>;
+export const TriggerPhoneVerificationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"TriggerPhoneVerification"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"triggerPhoneVerification"}}]}}]} as unknown as DocumentNode<TriggerPhoneVerificationMutation, TriggerPhoneVerificationMutationVariables>;

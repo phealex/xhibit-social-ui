@@ -48,8 +48,6 @@ export const CREATE_USER = gql(`
     }
     `);
 
-
-
 export const VERIFY_EMAIL = gql(`
     mutation VerifyEmail($otp: String!) {
         verifyEmail(otp: $otp)
@@ -59,5 +57,17 @@ export const VERIFY_EMAIL = gql(`
 export const VERIFY_PHONE = gql(`
     mutation VerifyPhone($otp: String!) {
         verifyPhone(otp: $otp)
+    }
+    `);
+
+export const TRIGGER_EMAIL_VERIFICATION = gql(`
+    mutation TriggerEmailVerification {
+        triggerEmailVerification
+    }
+    `);
+
+export const TRIGGER_PHONE_VERIFICATION = gql(`
+    mutation TriggerPhoneVerification {
+        triggerPhoneVerification
     }
     `);
