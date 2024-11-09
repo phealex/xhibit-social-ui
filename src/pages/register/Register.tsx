@@ -51,7 +51,7 @@ const Register: FC = () => {
       <Category handleNext={handleNext} />,
       <JobProfile handleNext={handleNext} />,
       <TalentDetails handleNext={handleNext} />,
-      <Verification handleNext={handleNext} handleVerify={() => {}} />,
+      <Verification handleNext={handleNext} />,
       <LinkSocials handleNext={handleNext} />,
     ]);
 
