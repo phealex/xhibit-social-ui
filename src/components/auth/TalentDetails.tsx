@@ -21,6 +21,7 @@ import { EnumUserUserType, Register } from "@/__generated__/graphql";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "@/apollo/operations";
 import { useToast } from "../ui/use-toast";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
   const form = useForm<z.infer<typeof userDetailsRegisterSchema>>({
@@ -56,7 +57,10 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
     if (!authData) return;
     register({
       variables: {
-        credentials: authData as Register,
+        credentials: {
+          ...authData,
+          ...data,
+        } as Register,
       },
     });
   }
@@ -217,7 +221,15 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
             type="submit"
             className=" w-full  py-4 bg-primary_blue text-white hover:bg-primary_blue hover:text-white font-Jakarta text-[16px] font-medium rounded-md"
           >
-            Next
+            {
+              loading ? (
+                <ClipLoader
+                  color="#ffffff"
+                  loading={loading}
+                  size={20}
+                />
+              ) : "Next"
+            }
           </Button>
 
           <p className="flex w-full gap-1 items-center justify-center text-center font-Jakarta text-[16px] text-dark_green">
