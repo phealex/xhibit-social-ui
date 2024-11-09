@@ -1,4 +1,4 @@
-import { LoginMutation, Register } from "@/__generated__/graphql";
+import { EnumUserUserType, LoginMutation, Register } from "@/__generated__/graphql";
 import { z } from "zod";
 
 
@@ -886,8 +886,8 @@ export const CryptoWithdrawFormSchema = z.object({
 
 
 export interface UserState {
-  userType: RegisterDataType["userType"] | null;
-  setUserType: (value: RegisterDataType["userType"] | null) => void;
+  userType: EnumUserUserType | null;
+  setUserType: (value: EnumUserUserType | null) => void;
   user: LoginMutation['login'] | null;
   setUser: (value: LoginMutation['login'] | null) => void;
 }
