@@ -7,6 +7,10 @@ export const LOGIN = gql(`
             email
             id
             roles
+            emailVerifiedAt
+            phoneVerifiedAt
+            type
+
         }
     }
     `);
@@ -14,10 +18,13 @@ export const LOGIN = gql(`
 export const REGISTER = gql(`
     mutation Register($credentials: Register!) {
         register(credentials: $credentials) {
-        accessToken
-        email
-        id
-        roles
+            accessToken
+            email
+            id
+            roles
+            emailVerifiedAt
+            phoneVerifiedAt
+            type
         }
     }
     `);
