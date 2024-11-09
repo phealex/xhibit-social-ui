@@ -47,3 +47,17 @@ export const CREATE_USER = gql(`
         }
     }
     `);
+
+
+
+export const VERIFY_EMAIL = gql(`
+    mutation VerifyEmail($otp: String!) {
+        verifyEmail(otp: $otp)
+    }
+    `);
+
+export const VERIFY_PHONE = gql(`
+    mutation VerifyPhone($otp: String!) {
+        verifyPhone(otp: $otp)
+    }
+    `);
