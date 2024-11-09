@@ -13,21 +13,106 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import {
+  TRIGGER_EMAIL_VERIFICATION,
+  TRIGGER_PHONE_VERIFICATION,
+  VERIFY_EMAIL,
+  VERIFY_PHONE,
+} from "@/apollo/operations";
+import { useMutation } from "@apollo/client";
+import ClipLoader from "react-spinners/ClipLoader";
+import { CheckCircle2 } from "lucide-react";
+import { toast } from "../ui/use-toast";
+import { useAuthState } from "@/store";
 
-interface VerificationProps extends handleNextProps {
-  // handleVerify: (data: z.infer<typeof verifyEmailSchema>) => void;
-  handleVerify: () => void;
-}
-const Verification: FC<VerificationProps> = ({ handleNext, handleVerify }) => {
+const Verification: FC<handleNextProps> = ({ handleNext }) => {
+  const authData = useAuthState((state) => state.authData);
+
   const form = useForm<z.infer<typeof verifyEmailSchema>>({
     resolver: zodResolver(verifyEmailSchema),
   });
 
+  const [
+    verifyEmail,
+    {
+      data: verifyEmailData,
+      error: verifyEmailError,
+      loading: verifyEmailLoading,
+    },
+  ] = useMutation(VERIFY_EMAIL);
+
+  const [
+    verifyPhone,
+    {
+      data: verifyPhoneData,
+      error: verifyPhoneError,
+      loading: verifyPhoneLoading,
+    },
+  ] = useMutation(VERIFY_PHONE);
+
+  const [
+    triggerEmailVerification,
+    { loading: triggerEmailVerificationLoading },
+  ] = useMutation(TRIGGER_EMAIL_VERIFICATION, {
+    onCompleted: (data) => {
+      if (data.triggerEmailVerification) {
+        toast({
+          title: "Email sent successfully",
+          description: "Please check your email for the verification code",
+        });
+      }
+    },
+    onError: (error) => {
+      toast({
+        title: error.message,
+        description: error.graphQLErrors[0].message,
+      });
+    },
+  });
+
+  const [
+    triggerPhoneVerification,
+    { loading: triggerPhoneVerificationLoading },
+  ] = useMutation(TRIGGER_PHONE_VERIFICATION, {
+    onCompleted: (data) => {
+      if (data.triggerPhoneVerification) {
+        toast({
+          title: "Phone verification code sent successfully",
+          description: "Please check your phone for the verification code",
+        });
+      }
+    },
+    onError: (error) => {
+      toast({
+        title: error.message,
+        description: error.graphQLErrors[0].message,
+      });
+    },
+  });
+
   function onSubmit(data: z.infer<typeof verifyEmailSchema>) {
     console.log(data);
-    handleVerify();
-    handleNext();
+
+    if (!verifyEmailData?.verifyEmail) {
+      verifyEmail({
+        variables: {
+          otp: data.emailOtp,
+        },
+      });
+    }
+
+    if (!verifyPhoneData?.verifyPhone) {
+      verifyPhone({
+        variables: {
+          otp: data.phoneOtp,
+        },
+      });
+    }
+
+    if (verifyEmailData?.verifyEmail && verifyPhoneData?.verifyPhone)
+      return handleNext();
   }
+
   return (
     <div className="flex flex-col gap-[50px]">
       <div className=" flex flex-col gap-[10px]">
@@ -36,7 +121,7 @@ const Verification: FC<VerificationProps> = ({ handleNext, handleVerify }) => {
         </h1>
         <p className="text-[20px] font-Jakarta leading-7 text-center text-dark_green/70 ">
           Please type in the one time password (OTP) sent to your email address
-          abr*******.com and phone number.
+          {authData?.email} and phone number.
         </p>
       </div>
       <Form {...form}>
@@ -54,22 +139,51 @@ const Verification: FC<VerificationProps> = ({ handleNext, handleVerify }) => {
                     Enter the code sent to your Email
                     <span className=" text-[#E75F51]">*</span>
                   </p>
-                  <p className="font-Jakarta font-medium text--[16px] text-primary_blue cursor-pointer">
-                    Resend code
+                  <p
+                    onClick={() => {
+                      if (triggerEmailVerificationLoading) return;
+                      triggerEmailVerification();
+                    }}
+                    className="font-Jakarta font-medium text--[16px] text-primary_blue cursor-pointer"
+                  >
+                    {triggerEmailVerificationLoading ? (
+                      <ClipLoader
+                        color="#E75F51"
+                        loading={triggerEmailVerificationLoading}
+                        size={20}
+                      />
+                    ) : (
+                      "Resend code"
+                    )}
                   </p>
                 </FormLabel>
 
                 <FormControl>
-                  <Input
-                    
-                    className="h-[54px] outline-none border border-dark_green/50 active:outline-none"
-                    autoComplete="false"
-                    placeholder="0-0-0-0"
-                    {...field}
-                  />
+                  <div className=" relative">
+                    <Input
+                      className="h-[54px] outline-none border border-dark_green/50 active:outline-none"
+                      autoComplete="false"
+                      placeholder="0-0-0-0"
+                      {...field}
+                    />
+                    <div className="absolute top-1/2 right-3 transform -translate-y-1/2">
+                      {verifyEmailData?.verifyEmail ? (
+                        <CheckCircle2 className=" text-accent_green" />
+                      ) : (
+                        <ClipLoader
+                          color="#E75F51"
+                          loading={verifyEmailLoading}
+                          size={20}
+                        />
+                      )}
+                    </div>
+                  </div>
                 </FormControl>
-
                 <FormMessage className="text-[#E75F51] font-Jakarta text-[13px] font-light" />
+                <FormMessage className="text-[#E75F51] font-Jakarta text-[13px] font-light">
+                  {verifyEmailError?.graphQLErrors[0].message ||
+                    verifyEmailError?.message}
+                </FormMessage>
               </FormItem>
             )}
           />
@@ -83,20 +197,52 @@ const Verification: FC<VerificationProps> = ({ handleNext, handleVerify }) => {
                     Enter the code sent to your WhatsApp
                     <span className=" text-[#E75F51]">*</span>
                   </p>
-                  <p className="font-Jakarta font-medium text--[16px] text-primary_blue cursor-pointer">
-                    Resend code
+                  <p
+                    onClick={() => {
+                      if (triggerPhoneVerificationLoading) return;
+                      triggerPhoneVerification();
+                    }}
+                    className="font-Jakarta font-medium text--[16px] text-primary_blue cursor-pointer"
+                  >
+                    {triggerPhoneVerificationLoading ? (
+                      <ClipLoader
+                        color="#E75F51"
+                        loading={triggerPhoneVerificationLoading}
+                        size={20}
+                      />
+                    ) : (
+                      "Resend code"
+                    )}
                   </p>
                 </FormLabel>
+
                 <FormControl>
-                  <Input
-                    className="h-[54px] outline-none border border-dark_green/50 active:outline-none"
-                    autoComplete="false"
-                    placeholder="0-0-0-0"
-                    {...field}
-                  />
+                  <div className=" relative">
+                    <Input
+                      className="h-[54px] outline-none border border-dark_green/50 active:outline-none"
+                      autoComplete="false"
+                      placeholder="0-0-0-0"
+                      {...field}
+                    />
+                    <div className="absolute top-1/2 right-3 transform -translate-y-1/2">
+                      {verifyPhoneData?.verifyPhone ? (
+                        <CheckCircle2 className=" text-accent_green" />
+                      ) : (
+                        <ClipLoader
+                          color="#E75F51"
+                          loading={verifyPhoneLoading}
+                          size={20}
+                        />
+                      )}
+                    </div>
+                  </div>
                 </FormControl>
 
                 <FormMessage className="text-[#E75F51] font-Jakarta text-[13px] font-light" />
+                <FormMessage className="text-[#E75F51] font-Jakarta text-[13px] font-light">
+                  {verifyPhoneError?.graphQLErrors[0].message ||
+                    verifyPhoneError?.message}
+                </FormMessage>
               </FormItem>
             )}
           />
