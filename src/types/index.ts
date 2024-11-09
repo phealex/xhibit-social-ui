@@ -98,7 +98,7 @@ export const userDetailsRegisterSchema = z.object({
     .min(10, {
       message: "Password does not meet requirements",
     }),
-  phoneNumber: z
+  phone: z
     .string({
       required_error: "Please provide a valid phone number",
       invalid_type_error: "Please provide a valid phone number",
@@ -106,13 +106,13 @@ export const userDetailsRegisterSchema = z.object({
     .min(11, {
       message: "Phone number is required",
     }),
-  terms: z
-    .boolean({
-      required_error: "You must agree to the terms and conditions",
-    })
-    .refine((value) => value === true, {
-      message: "You must agree to the terms and conditions",
-    }),
+  // terms: z
+  //   .boolean({
+  //     required_error: "You must agree to the terms and conditions",
+  //   })
+  //   .refine((value) => value === true, {
+  //     message: "You must agree to the terms and conditions",
+  //   }),
 });
 
 export const verifyEmailSchema = z.object({
@@ -889,6 +889,7 @@ export interface UserState {
   userType: RegisterDataType["userType"] | null;
   setUserType: (value: RegisterDataType["userType"] | null) => void;
   user: LoginMutation['login'] | null;
+  setUser: (value: LoginMutation['login'] | null) => void;
 }
 
 

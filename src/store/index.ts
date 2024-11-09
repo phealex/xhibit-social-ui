@@ -21,6 +21,7 @@ export const useUserState = create<UserState>()(
       userType: null,
       setUserType: (userType) => set({ userType }),
       user: null,
+      setUser: (user) => set({ user }),
     }),
     {
       name: "user-storage",
