@@ -14,8 +14,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 const documents = {
-    "\n    mutation Login($credentials: Credentials!) {\n        login(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n        }\n    }\n    ": types.LoginDocument,
-    "\n    mutation Register($credentials: Register!) {\n        register(credentials: $credentials) {\n        accessToken\n        email\n        id\n        roles\n        }\n    }\n    ": types.RegisterDocument,
+    "\n    mutation Login($credentials: Credentials!) {\n        login(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n            emailVerifiedAt\n            phoneVerifiedAt\n            type\n\n        }\n    }\n    ": types.LoginDocument,
+    "\n    mutation Register($credentials: Register!) {\n        register(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n            emailVerifiedAt\n            phoneVerifiedAt\n            type\n        }\n    }\n    ": types.RegisterDocument,
     "\n    mutation CreateUser($data: UserCreateInput!) {\n        createUser(data: $data) {\n        categories {\n            createdAt\n            description\n            icon\n            id\n            name\n            updatedAt\n            user {\n                id\n            }\n            }\n            createdAt\n            email\n            firstName\n            id\n            lastName\n            roles\n            updatedAt\n            userType\n        }\n    }\n    ": types.CreateUserDocument,
     "\n    mutation VerifyEmail($otp: String!) {\n        verifyEmail(otp: $otp)\n    }\n    ": types.VerifyEmailDocument,
     "\n    mutation VerifyPhone($otp: String!) {\n        verifyPhone(otp: $otp)\n    }\n    ": types.VerifyPhoneDocument,
@@ -40,11 +40,11 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n    mutation Login($credentials: Credentials!) {\n        login(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n        }\n    }\n    "): (typeof documents)["\n    mutation Login($credentials: Credentials!) {\n        login(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n        }\n    }\n    "];
+export function gql(source: "\n    mutation Login($credentials: Credentials!) {\n        login(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n            emailVerifiedAt\n            phoneVerifiedAt\n            type\n\n        }\n    }\n    "): (typeof documents)["\n    mutation Login($credentials: Credentials!) {\n        login(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n            emailVerifiedAt\n            phoneVerifiedAt\n            type\n\n        }\n    }\n    "];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n    mutation Register($credentials: Register!) {\n        register(credentials: $credentials) {\n        accessToken\n        email\n        id\n        roles\n        }\n    }\n    "): (typeof documents)["\n    mutation Register($credentials: Register!) {\n        register(credentials: $credentials) {\n        accessToken\n        email\n        id\n        roles\n        }\n    }\n    "];
+export function gql(source: "\n    mutation Register($credentials: Register!) {\n        register(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n            emailVerifiedAt\n            phoneVerifiedAt\n            type\n        }\n    }\n    "): (typeof documents)["\n    mutation Register($credentials: Register!) {\n        register(credentials: $credentials) {\n            accessToken\n            email\n            id\n            roles\n            emailVerifiedAt\n            phoneVerifiedAt\n            type\n        }\n    }\n    "];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
