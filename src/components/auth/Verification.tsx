@@ -148,7 +148,7 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
                   >
                     {triggerEmailVerificationLoading ? (
                       <ClipLoader
-                        color="#E75F51"
+                        color="#0085ff"
                         loading={triggerEmailVerificationLoading}
                         size={20}
                       />
@@ -206,7 +206,7 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
                   >
                     {triggerPhoneVerificationLoading ? (
                       <ClipLoader
-                        color="#E75F51"
+                        color="#0085ff"
                         loading={triggerPhoneVerificationLoading}
                         size={20}
                       />
