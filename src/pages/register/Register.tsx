@@ -48,9 +48,9 @@ const Register: FC = () => {
 
   const { step, prev, next, currentStep, isFirstStep, completed } =
     useMultiStepForm([
-      // <Category handleNext={handleNext} />,
-      // <JobProfile handleNext={handleNext} />,
-      // <TalentDetails handleNext={handleNext} />,
+      <Category handleNext={handleNext} />,
+      <JobProfile handleNext={handleNext} />,
+      <TalentDetails handleNext={handleNext} />,
       <Verification handleNext={handleNext} />,
       <LinkSocials handleNext={handleNext} />,
     ]);
