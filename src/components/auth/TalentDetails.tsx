@@ -42,6 +42,10 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
       localStorage.setItem("token", data.register.accessToken ?? "");
       setUser(data.register);
       setUserType(data.register.type as EnumUserUserType);
+      toast({
+        title: "Account created successfully",
+        description: "Proceed to verify your account."
+      })
       handleNext();
     },
     onError: (error) => {
