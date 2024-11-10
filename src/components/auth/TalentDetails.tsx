@@ -39,7 +39,7 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
   const [register, { loading }] = useMutation(REGISTER, {
     onCompleted: (data) => {
       console.log(data);
-      localStorage.setItem("token", data.register.accessToken ?? "");
+      localStorage.setItem("x_token", data.register.accessToken ?? "");
       setUser(data.register);
       setUserType(data.register.type as EnumUserUserType);
       toast({
