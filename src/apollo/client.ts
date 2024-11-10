@@ -41,7 +41,7 @@ const splitLink = split(
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from state if it exists
-  const accessToken = localStorage.getItem("access_token");
+  const accessToken = localStorage.getItem("x_token");
 
   // return the headers to the context so httpLink can read them
   return {
@@ -72,7 +72,8 @@ const errorLink = onError(
             // return forward(operation);
             if (
               window.location.pathname !== "/" &&
-              window.location.pathname !== "/auth/login"
+              window.location.pathname !== "/auth/login" &&
+              window.location.pathname !== "/auth/register"
             ) {
               console.log("Session has expired");
               //TODO: Add toast
