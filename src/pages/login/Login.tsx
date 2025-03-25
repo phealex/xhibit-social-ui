@@ -1,4 +1,3 @@
-import { LOGIN } from "@/apollo/operations";
 import { WavingHand } from "@/assets";
 import { Button } from "@/components/ui/button";
 import {
@@ -41,41 +40,41 @@ const Login: FC = () => {
     },
   });
 
-  const [login, { loading }] = useMutation(LOGIN, {
-    onCompleted: (data) => {
-      window.localStorage.setItem(
-        "access_token",
-        data.login.accessToken as string
-      );
-      useUserState.setState({
-        user: data.login,
-        userType: data.login.roles[0],
-      });
-      toast({
-        title: "Login Successful",
-        description: `Redirecting to your feed`,
-      });
-      setTimeout(() => {
-        navigate(`/${userType}`);
-      }, 2000);
-    },
-    onError: (error) => {
-      toast({
-        title: "Login Failed",
-        description: error.message,
-      });
-    },
-  });
+  // const [login, { loading }] = useMutation(LOGIN, {
+  //   onCompleted: (data) => {
+  //     window.localStorage.setItem(
+  //       "access_token",
+  //       data.login.accessToken as string
+  //     );
+  //     useUserState.setState({
+  //       user: data.login,
+  //       userType: data.login.roles[0],
+  //     });
+  //     toast({
+  //       title: "Login Successful",
+  //       description: `Redirecting to your feed`,
+  //     });
+  //     setTimeout(() => {
+  //       navigate(`/${userType}`);
+  //     }, 2000);
+  //   },
+  //   onError: (error) => {
+  //     toast({
+  //       title: "Login Failed",
+  //       description: error.message,
+  //     });
+  //   },
+  // });
 
   function onSubmit(values: z.infer<typeof loginFromSchema>) {
-    login({
-      variables: {
-        credentials: {
-          email: values.email,
-          password: values.password,
-        },
-      },
-    });
+    // login({
+    //   variables: {
+    //     credentials: {
+    //       email: values.email,
+    //       password: values.password,
+    //     },
+    //   },
+    // });
   }
 
   const navigate = useNavigate();
@@ -84,7 +83,7 @@ const Login: FC = () => {
   }
 
   return (
-    <div className="py-[50px] md:py-[100px] w-[90%] md:w-[75%] lg:w-1/2 mx-auto">
+    <div className="py-[50px] md:py-[100px]">
       <div className=" h-full flex flex-col  gap-[50px] w-full lg:w-[80%] mx-auto ">
         <div className="flex items-center flex-col gap-[10px] w-full">
           <h1 className=" text-dark_green font-Jakarta font-bold text-[25px] md:text-[42px] leading-9 md:leading-[48px] text-center flex items-center gap-3">
@@ -176,7 +175,7 @@ const Login: FC = () => {
 
               <div className="flex flex-col gap-5">
                 <Button className=" bg-primary_blue hover:bg-primary_blue py-3 md:py-6 w-full font-Jakarta text-[16px] text-center ">
-                  {loading ? <ClipLoader color="white" size={20} /> : "Log In"}
+                  {/* {loading ? <ClipLoader color="white" size={20} /> : "Log In"} */}
                 </Button>
                 <div className="flex gap-1 mx-auto items-center">
                   <p className="text-[16px] from-dark_green font-normal ">

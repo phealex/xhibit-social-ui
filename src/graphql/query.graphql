@@ -1,0 +1,58 @@
+query User(
+  $where: UserWhereUniqueInput!
+  $orderBy: [CategoryOrderByInput!]
+  $skip: Float
+  $take: Float
+  $categoriesWhere2: CategoryWhereInput
+) {
+  user(where: $where) {
+    categories(
+      orderBy: $orderBy
+      skip: $skip
+      take: $take
+      where: $categoriesWhere2
+    ) {
+      createdAt
+      description
+      icon
+      id
+      name
+      updatedAt
+    }
+    createdAt
+    email
+    emailVerifiedAt
+    firstName
+    id
+    lastName
+    phoneVerifiedAt
+    profile {
+      aboutProfile
+      createdAt
+      gender
+      id
+      profile_category_details
+      profile_educational_qualification
+      profile_image_url
+      updatedAt
+      user_Address
+      user_social_profiles
+    }
+    project {
+      allow_negotiation
+      createdAt
+      description
+      icon
+      id
+      images
+      mark_for_sale
+      name
+      price
+      slug
+      updatedAt
+    }
+    roles
+    updatedAt
+    userType
+  }
+}

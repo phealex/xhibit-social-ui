@@ -1,0 +1,9 @@
+schema: "https://xhibit-backend-1010591944835.europe-west1.run.app/graphql"
+documents: "src/graphql/*.graphql"
+generates:
+  src/__generated__/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+verbose: true

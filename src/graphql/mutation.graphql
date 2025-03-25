@@ -1,0 +1,39 @@
+mutation Login($credentials: Credentials!) {
+  login(credentials: $credentials) {
+    accessToken
+    email
+    emailVerifiedAt
+    id
+    phoneVerifiedAt
+    roles
+    type
+  }
+}
+
+mutation Register($credentials: Register!) {
+  register(credentials: $credentials) {
+    accessToken
+    email
+    emailVerifiedAt
+    id
+    phoneVerifiedAt
+    roles
+    type
+  }
+}
+
+mutation TriggerEmailVerification {
+  triggerEmailVerification
+}
+
+mutation TriggerPhoneVerification {
+  triggerPhoneVerification
+}
+
+mutation VerifyEmail($otp: String!) {
+  verifyEmail(otp: $otp)
+}
+
+mutation VerifyPhone($otp: String!) {
+  verifyPhone(otp: $otp)
+}

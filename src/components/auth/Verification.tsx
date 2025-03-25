@@ -13,12 +13,6 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-import {
-  TRIGGER_EMAIL_VERIFICATION,
-  TRIGGER_PHONE_VERIFICATION,
-  VERIFY_EMAIL,
-  VERIFY_PHONE,
-} from "@/apollo/operations";
 import { useMutation } from "@apollo/client";
 import ClipLoader from "react-spinners/ClipLoader";
 import { CheckCircle2 } from "lucide-react";
@@ -32,85 +26,85 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
     resolver: zodResolver(verifyEmailSchema),
   });
 
-  const [
-    verifyEmail,
-    {
-      data: verifyEmailData,
-      error: verifyEmailError,
-      loading: verifyEmailLoading,
-    },
-  ] = useMutation(VERIFY_EMAIL);
+  // const [
+  //   verifyEmail,
+  //   {
+  //     data: verifyEmailData,
+  //     error: verifyEmailError,
+  //     loading: verifyEmailLoading,
+  //   },
+  // ] = useMutation(VERIFY_EMAIL);
 
-  const [
-    verifyPhone,
-    {
-      data: verifyPhoneData,
-      error: verifyPhoneError,
-      loading: verifyPhoneLoading,
-    },
-  ] = useMutation(VERIFY_PHONE);
+  // const [
+  //   verifyPhone,
+  //   {
+  //     data: verifyPhoneData,
+  //     error: verifyPhoneError,
+  //     loading: verifyPhoneLoading,
+  //   },
+  // ] = useMutation(VERIFY_PHONE);
 
-  const [
-    triggerEmailVerification,
-    { loading: triggerEmailVerificationLoading },
-  ] = useMutation(TRIGGER_EMAIL_VERIFICATION, {
-    onCompleted: (data) => {
-      if (data.triggerEmailVerification) {
-        toast({
-          title: "Email sent successfully",
-          description: "Please check your email for the verification code",
-        });
-      }
-    },
-    onError: (error) => {
-      toast({
-        title: error.message,
-        description: error.graphQLErrors[0].message,
-      });
-    },
-  });
+  // const [
+  //   triggerEmailVerification,
+  //   { loading: triggerEmailVerificationLoading },
+  // ] = useMutation(TRIGGER_EMAIL_VERIFICATION, {
+  //   onCompleted: (data) => {
+  //     if (data.triggerEmailVerification) {
+  //       toast({
+  //         title: "Email sent successfully",
+  //         description: "Please check your email for the verification code",
+  //       });
+  //     }
+  //   },
+  //   onError: (error) => {
+  //     toast({
+  //       title: error.message,
+  //       description: error.graphQLErrors[0].message,
+  //     });
+  //   },
+  // });
 
-  const [
-    triggerPhoneVerification,
-    { loading: triggerPhoneVerificationLoading },
-  ] = useMutation(TRIGGER_PHONE_VERIFICATION, {
-    onCompleted: (data) => {
-      if (data.triggerPhoneVerification) {
-        toast({
-          title: "Phone verification code sent successfully",
-          description: "Please check your phone for the verification code",
-        });
-      }
-    },
-    onError: (error) => {
-      toast({
-        title: error.message,
-        description: error.graphQLErrors[0].message,
-      });
-    },
-  });
+  // const [
+  //   triggerPhoneVerification,
+  //   { loading: triggerPhoneVerificationLoading },
+  // ] = useMutation(TRIGGER_PHONE_VERIFICATION, {
+  //   onCompleted: (data) => {
+  //     if (data.triggerPhoneVerification) {
+  //       toast({
+  //         title: "Phone verification code sent successfully",
+  //         description: "Please check your phone for the verification code",
+  //       });
+  //     }
+  //   },
+  //   onError: (error) => {
+  //     toast({
+  //       title: error.message,
+  //       description: error.graphQLErrors[0].message,
+  //     });
+  //   },
+  // });
 
   function onSubmit(data: z.infer<typeof verifyEmailSchema>) {
     console.log(data);
 
-    if (!verifyEmailData?.verifyEmail) {
-      verifyEmail({
-        variables: {
-          otp: data.emailOtp,
-        },
-      });
-    }
+    // if (!verifyEmailData?.verifyEmail) {
+    //   verifyEmail({
+    //     variables: {
+    //       otp: data.emailOtp,
+    //     },
+    //   });
+    // }
 
-    if (!verifyPhoneData?.verifyPhone) {
-      verifyPhone({
-        variables: {
-          otp: data.phoneOtp,
-        },
-      });
-    }
+    // if (!verifyPhoneData?.verifyPhone) {
+    //   verifyPhone({
+    //     variables: {
+    //       otp: data.phoneOtp,
+    //     },
+    //   });
+    // }
 
-    if (verifyEmailData?.verifyEmail && verifyPhoneData?.verifyPhone)
-      return handleNext();
+    // if (verifyEmailData?.verifyEmail && verifyPhoneData?.verifyPhone)
+    //   return handleNext();
   }
 
   return (
@@ -120,11 +114,11 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
           Verify email address
         </h1>
         <p className="text-[20px] font-Jakarta leading-7 text-center text-dark_green/70 ">
-          Please type in the one time password (OTP) sent to your email address
+          Please type in the one time password (OTP) sent to your email address {" "}
           {authData?.email} and phone number.
         </p>
       </div>
-      <Form {...form}>
+      {/* <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-[30px]"
@@ -253,7 +247,7 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
             Verify
           </Button>
         </form>
-      </Form>
+      </Form> */}
     </div>
   );
 };

@@ -4,6 +4,8 @@ import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import JoinBanner from "./JoinBanner";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import {
   Form,
   FormControl,
@@ -17,9 +19,7 @@ import { Input } from "../ui/input";
 import { Checkbox } from "../ui/checkbox";
 import { Link } from "react-router-dom";
 import { useAuthState, useUserState } from "@/store";
-import { EnumUserUserType } from "@/__generated__/graphql";
-import { useMutation } from "@apollo/client";
-import { REGISTER } from "@/apollo/operations";
+import { EnumUserUserType, useRegisterMutation } from "@/__generated__/graphql";
 import { useToast } from "../ui/use-toast";
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -36,7 +36,7 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
 
   const [terms, setTerms] = useState<boolean>(false);
 
-  const [register, { loading }] = useMutation(REGISTER, {
+  const [registerMutation, { loading }] = useRegisterMutation({
     onCompleted: (data) => {
       console.log(data);
       localStorage.setItem("x_token", data.register.accessToken ?? "");
@@ -44,8 +44,8 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
       setUserType(data.register.type as EnumUserUserType);
       toast({
         title: "Account created successfully",
-        description: "Proceed to verify your account."
-      })
+        description: "Proceed to verify your account.",
+      });
       handleNext();
     },
     onError: (error) => {
@@ -57,6 +57,10 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
       });
     },
   });
+
+  // const [register, { loading }] = useMutation(REGISTER, {
+  //
+  // });
 
   function onSubmit(data: z.infer<typeof userDetailsRegisterSchema>) {
     // console.log(data);
@@ -76,32 +80,31 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
 
     if (!authData) return;
 
-    // register({
-    //   variables: {
-    //     credentials: {
-    //       email: data.email,
-    //       firstName: data.firstName,
-    //       lastName: data.lastName,
-    //       password: data.password,
-    //       phone: data.phone,
-    //       userType: authData.userType as EnumUserUserType,
-    //       discipline: authData.discipline,
-    //       employmentType: authData.employmentType,
-    //       experience: authData.experience,
-
-    //     }
-    //   },
-    // });
-
-    register({
+    registerMutation({
       variables: {
         credentials: {
-          ...authData,
-          ...data,
+          email: data.email,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          password: data.password,
+          phone: data.phone,
           userType: authData.userType as EnumUserUserType,
+          discipline: authData.discipline,
+          employmentType: authData.employmentType,
+          experience: authData.experience,
         },
       },
     });
+
+    // register({
+    //   variables: {
+    //     credentials: {
+    //       ...authData,
+    //       ...data,
+    //       userType: authData.userType as EnumUserUserType,
+    //     },
+    //   },
+    // });
   }
   return (
     <div className="flex flex-col gap-[50px]">
@@ -219,10 +222,19 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
                 </FormLabel>
 
                 <FormControl>
-                  <Input
+                  {/* <Input
                     className="h-[54px] outline-none border border-dark_green/50 active:outline-none"
                     autoComplete="false"
                     placeholder="+234"
+                    {...field}
+                  /> */}
+
+                  <PhoneInput
+                    country={"ng"}
+                    onlyCountries={["ng"]}
+                    placeholder="+234 901 234 5678"
+                    containerClass="h-[54px] outline-none border rounded-md border-dark_green/50 active:outline-none"
+                    inputClass="!h-full !w-full !border-none !outline-none"
                     {...field}
                   />
                 </FormControl>
