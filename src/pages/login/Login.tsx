@@ -1,3 +1,4 @@
+import { useLoginMutation } from "@/__generated__/graphql";
 import { WavingHand } from "@/assets";
 import { Button } from "@/components/ui/button";
 import {
@@ -40,6 +41,29 @@ const Login: FC = () => {
     },
   });
 
+  const [loginMutation, { loading, }] = useLoginMutation({
+    onCompleted: (data) => {
+      window.localStorage.setItem("x_token", data.login.accessToken as string);
+      useUserState.setState({
+        user: data.login,
+        userType: data.login.roles[0],
+      });
+      toast({
+        title: "Login Successful",
+        description: `Redirecting to your feed`,
+      });
+      setTimeout(() => {
+        navigate(`/${userType}`);
+      }, 2000);
+    },
+    onError: (error) => {
+      toast({
+        title: "Login Failed",
+        description: error.message,
+      });
+    },
+  });
+
   // const [login, { loading }] = useMutation(LOGIN, {
   //   onCompleted: (data) => {
   //     window.localStorage.setItem(
@@ -67,14 +91,14 @@ const Login: FC = () => {
   // });
 
   function onSubmit(values: z.infer<typeof loginFromSchema>) {
-    // login({
-    //   variables: {
-    //     credentials: {
-    //       email: values.email,
-    //       password: values.password,
-    //     },
-    //   },
-    // });
+    loginMutation({
+      variables: {
+        credentials: {
+          email: values.email,
+          password: values.password,
+        },
+      },
+    });
   }
 
   const navigate = useNavigate();
@@ -175,7 +199,7 @@ const Login: FC = () => {
 
               <div className="flex flex-col gap-5">
                 <Button className=" bg-primary_blue hover:bg-primary_blue py-3 md:py-6 w-full font-Jakarta text-[16px] text-center ">
-                  {/* {loading ? <ClipLoader color="white" size={20} /> : "Log In"} */}
+                  {loading ? <ClipLoader color="white" size={20} /> : "Log In"}
                 </Button>
                 <div className="flex gap-1 mx-auto items-center">
                   <p className="text-[16px] from-dark_green font-normal ">
