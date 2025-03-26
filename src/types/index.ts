@@ -69,7 +69,7 @@ export const jobProfileRegisterSchema = z.object({
   experience: z.enum(["junior", "mid", "senior"], {
     required_error: "Select an experience level to continue",
   }),
-  roleType: z.enum(["contractor", "full-time", "any"], {
+  employmentType: z.enum(["contractor", "full-time", "any"], {
     required_error: "Select an option to continue",
   }),
   // skills: z.array(z.string()).nonempty(),

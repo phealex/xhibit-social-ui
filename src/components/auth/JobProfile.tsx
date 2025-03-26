@@ -28,7 +28,7 @@ import { EnumUserUserType } from "@/__generated__/graphql";
 const JobProfile: FC<handleNextProps> = ({ handleNext }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [schema, setSchema] = useState<z.ZodType<any, any>>(
-    jobProfileRegisterSchema.omit({ roleType: true })
+    jobProfileRegisterSchema.omit({ employmentType: true })
   );
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -40,7 +40,7 @@ const JobProfile: FC<handleNextProps> = ({ handleNext }) => {
   function onSubmit(data: z.infer<typeof schema>) {
     // console.log(data);
     setAuthData({
-      ...authData,
+      ...authData,   
       ...data,
     })
     handleNext();
@@ -49,7 +49,7 @@ const JobProfile: FC<handleNextProps> = ({ handleNext }) => {
   useEffect(() => {
     if (authData?.userType) {
       if (authData?.userType === EnumUserUserType.Talent) {
-        setSchema(jobProfileRegisterSchema.omit({ roleType: true }));
+        setSchema(jobProfileRegisterSchema.omit({ employmentType: true }));
       } else {
         setSchema(jobProfileRegisterSchema.omit({ discipline: true }));
       }
@@ -104,7 +104,7 @@ const JobProfile: FC<handleNextProps> = ({ handleNext }) => {
           ) : (
             <FormField
               control={form.control}
-              name="roleType"
+              name="employmentType"
               render={({ field }) => (
                 <FormItem className="space-y-3">
                   <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">

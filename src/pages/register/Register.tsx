@@ -69,7 +69,7 @@ const Register: FC = () => {
   }, [completed, toast]);
 
   return (
-    <div className="py-[50px] md:py-[100px] mx-auto min-h-screen">
+    <div className="py-[50px] md:py-[100px] mx-auto min-h-screen ">
       <div className=" h-full flex flex-col  gap-[50px] w-full lg:w-[80%] mx-auto ">
         <div className="flex flex-col gap-[25px] w-full ">
           <ChevronLeftSquare
@@ -134,7 +134,7 @@ const Register: FC = () => {
                 ))}
           </div>
         </div>
-        <div className="w-full">{step}</div>
+        <div className="w-full ">{step}</div>
       </div>
     </div>
   );

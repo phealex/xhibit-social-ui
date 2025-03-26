@@ -18,6 +18,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { CheckCircle2 } from "lucide-react";
 import { toast } from "../ui/use-toast";
 import { useAuthState } from "@/store";
+import {
+  useTriggerEmailVerificationMutation,
+  useTriggerPhoneVerificationMutation,
+  useVerifyEmailMutation,
+  useVerifyPhoneMutation,
+} from "@/__generated__/graphql";
 
 const Verification: FC<handleNextProps> = ({ handleNext }) => {
   const authData = useAuthState((state) => state.authData);
@@ -26,85 +32,115 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
     resolver: zodResolver(verifyEmailSchema),
   });
 
-  // const [
-  //   verifyEmail,
-  //   {
-  //     data: verifyEmailData,
-  //     error: verifyEmailError,
-  //     loading: verifyEmailLoading,
-  //   },
-  // ] = useMutation(VERIFY_EMAIL);
+  const [
+    triggerEmailVerificationMutation,
+    { loading: triggerEmailVerificationLoading },
+  ] = useTriggerEmailVerificationMutation({
+    onCompleted: (data) => {
+      console.log(data.triggerEmailVerification, "email");
+      if (data.triggerEmailVerification) {
+        toast({
+          title: "Email verification code sent successfully",
+          description: "Please check your email for the verification code",
+        });
+      }
+    },
+    onError: (error) => {
+      toast({
+        title: error.message,
+        description: error.graphQLErrors[0].message,
+      });
+    },
+  });
+  const [
+    triggerPhoneVerificationMutation,
+    { loading: triggerPhoneVerificationLoading },
+  ] = useTriggerPhoneVerificationMutation({
+    onCompleted: (data) => {
+      console.log(data.triggerPhoneVerification, "phone");
+      if (data.triggerPhoneVerification) {
+        toast({
+          title: "Phone verification code sent successfully",
+          description: "Please check your phone for the verification code",
+        });
+      }
+    },
+    onError: (error) => {
+      toast({
+        title: error.message,
+        description: error.graphQLErrors[0].message,
+      });
+    },
+  });
+  const [
+    verifyEmailMutation,
+    {
+      data: verifyEmailData,
+      error: verifyEmailError,
+      loading: verifyEmailLoading,
+    },
+  ] = useVerifyEmailMutation({
+    onCompleted: (data) => {
+      if (data.verifyEmail) {
+        toast({
+          title: "Email verification completed successfully",
+          description: "You have successfully verified your email",
+        });
+      }
+    },
+    onError: (error) => {
+      toast({
+        title: error.message,
+        description: error.graphQLErrors[0].message,
+      });
+    },
+  });
 
-  // const [
-  //   verifyPhone,
-  //   {
-  //     data: verifyPhoneData,
-  //     error: verifyPhoneError,
-  //     loading: verifyPhoneLoading,
-  //   },
-  // ] = useMutation(VERIFY_PHONE);
-
-  // const [
-  //   triggerEmailVerification,
-  //   { loading: triggerEmailVerificationLoading },
-  // ] = useMutation(TRIGGER_EMAIL_VERIFICATION, {
-  //   onCompleted: (data) => {
-  //     if (data.triggerEmailVerification) {
-  //       toast({
-  //         title: "Email sent successfully",
-  //         description: "Please check your email for the verification code",
-  //       });
-  //     }
-  //   },
-  //   onError: (error) => {
-  //     toast({
-  //       title: error.message,
-  //       description: error.graphQLErrors[0].message,
-  //     });
-  //   },
-  // });
-
-  // const [
-  //   triggerPhoneVerification,
-  //   { loading: triggerPhoneVerificationLoading },
-  // ] = useMutation(TRIGGER_PHONE_VERIFICATION, {
-  //   onCompleted: (data) => {
-  //     if (data.triggerPhoneVerification) {
-  //       toast({
-  //         title: "Phone verification code sent successfully",
-  //         description: "Please check your phone for the verification code",
-  //       });
-  //     }
-  //   },
-  //   onError: (error) => {
-  //     toast({
-  //       title: error.message,
-  //       description: error.graphQLErrors[0].message,
-  //     });
-  //   },
-  // });
+  const [
+    verifyPhoneMutation,
+    {
+      data: verifyPhoneData,
+      error: verifyPhoneError,
+      loading: verifyPhoneLoading,
+    },
+  ] = useVerifyPhoneMutation({
+    onCompleted: (data) => {
+      if (data.verifyPhone) {
+        toast({
+          title: "Phone verification completed successfully",
+          description: "You have successfully verified your phone",
+        });
+      }
+    },
+    onError: (error) => {
+      toast({
+        title: error.message,
+        description: error.graphQLErrors[0].message,
+      });
+    },
+  });
 
   function onSubmit(data: z.infer<typeof verifyEmailSchema>) {
-    console.log(data);
+    // console.log(data);
 
-    // if (!verifyEmailData?.verifyEmail) {
-    //   verifyEmail({
-    //     variables: {
-    //       otp: data.emailOtp,
-    //     },
-    //   });
-    // }
+    if (!verifyEmailData?.verifyEmail) {
+      verifyEmailMutation({
+        variables: {
+          otp: data.emailOtp,
+        },
+      });
+    }
 
-    // if (!verifyPhoneData?.verifyPhone) {
-    //   verifyPhone({
-    //     variables: {
-    //       otp: data.phoneOtp,
-    //     },
-    //   });
-    // }
+    if (!verifyPhoneData?.verifyPhone) {
+      verifyPhoneMutation({
+        variables: {
+          otp: data.phoneOtp,
+        },
+      });
+    }
 
-    // if (verifyEmailData?.verifyEmail && verifyPhoneData?.verifyPhone)
-    //   return handleNext();
+    if (verifyEmailData?.verifyEmail && verifyPhoneData?.verifyPhone)
+      return handleNext();
   }
 
   return (
@@ -114,11 +150,11 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
           Verify email address
         </h1>
         <p className="text-[20px] font-Jakarta leading-7 text-center text-dark_green/70 ">
-          Please type in the one time password (OTP) sent to your email address {" "}
+          Please type in the one time password (OTP) sent to your email address{" "}
           {authData?.email} and phone number.
         </p>
       </div>
-      {/* <Form {...form}>
+      <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-[30px]"
@@ -136,7 +172,12 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
                   <p
                     onClick={() => {
                       if (triggerEmailVerificationLoading) return;
-                      triggerEmailVerification();
+                      if (verifyEmailData?.verifyEmail)
+                        return toast({
+                          title: "Email already verified",
+                          description: "You have already verified your email",
+                        });
+                      triggerEmailVerificationMutation();
                     }}
                     className="font-Jakarta font-medium text--[16px] text-primary_blue cursor-pointer"
                   >
@@ -194,7 +235,12 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
                   <p
                     onClick={() => {
                       if (triggerPhoneVerificationLoading) return;
-                      triggerPhoneVerification();
+                      if (verifyPhoneData?.verifyPhone)
+                        return toast({
+                          title: "Phone already verified",
+                          description: "You have already verified your phone",
+                        });
+                      triggerPhoneVerificationMutation();
                     }}
                     className="font-Jakarta font-medium text--[16px] text-primary_blue cursor-pointer"
                   >
@@ -244,10 +290,12 @@ const Verification: FC<handleNextProps> = ({ handleNext }) => {
             type="submit"
             className=" w-full  py-4 bg-primary_blue text-white hover:bg-primary_blue hover:text-white font-Jakarta text-[16px] font-medium rounded-md"
           >
-            Verify
+            {verifyEmailData?.verifyEmail && verifyPhoneData?.verifyPhone
+              ? "Continue"
+              : "Verify"}
           </Button>
         </form>
-      </Form> */}
+      </Form>
     </div>
   );
 };

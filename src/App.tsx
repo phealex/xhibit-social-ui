@@ -65,7 +65,7 @@ function App() {
     return (
       <div className="w-full flex  bg-white lg:grid lg:grid-cols-2 lg:h-screen overflow-hidden">
         <AuthLayoutSider />
-        <div className=" h-full overflow-y-auto w-full">
+        <div className=" h-full overflow-y-auto w-full container">
           <Outlet />
         </div>
       </div>
