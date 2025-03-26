@@ -190,6 +190,10 @@ function App() {
       element: <AuthLayout />,
       children: [
         {
+          path: "",
+          element: <Login />,
+        },
+        {
           path: "login",
           element: <Login />,
         },

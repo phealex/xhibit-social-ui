@@ -1,18 +1,20 @@
 import { NewPassword, ResetDone, ResetForm, ResetOTP } from "@/components";
 import { useMultiStepForm } from "@/hooks";
 import { ChevronLeftSquare } from "lucide-react";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 const PasswordReset: FC = () => {
   function handleNext() {
     next();
   }
 
+  const [email, setEmail] = useState<string>("");
+
   const { step, prev, next, isFirstStep, completed } = useMultiStepForm([
-    <ResetForm handleNext={handleNext} />,
-    <ResetOTP handleNext={handleNext} />,
+    <ResetForm handleNext={handleNext} setEmail={setEmail} />,
+    <ResetOTP handleNext={handleNext} email={email} />,
     <NewPassword handleNext={handleNext} />,
-    <ResetDone />
+    <ResetDone />,
   ]);
 
   return (
