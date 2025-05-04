@@ -13,7 +13,7 @@ import {
   TalentFeedFooter,
   TalentFeedNavbar,
   RecruiterFeedNavbar,
-  RecruiterFeedFooter
+  RecruiterFeedFooter,
 } from "@/components";
 import Home from "./pages/home/Home";
 import Projects from "./pages/projects/Projects";
@@ -63,9 +63,11 @@ function App() {
       window.scrollTo(0, 0);
     }, [path]);
     return (
-      <div className="w-full flex  bg-white lg:min-h-screen overflow-hidden">
+      <div className="w-full flex  bg-white lg:grid lg:grid-cols-2 lg:h-screen overflow-hidden">
         <AuthLayoutSider />
-        <Outlet />
+        <div className=" h-full overflow-y-auto w-full container">
+          <Outlet />
+        </div>
       </div>
     );
   };
@@ -74,8 +76,7 @@ function App() {
     const path = useLocation().pathname;
 
     const navigate = useNavigate();
-  const userType = useUserState((state) => state.userType);
-
+    const userType = useUserState((state) => state.userType);
 
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -87,15 +88,12 @@ function App() {
     //   }
     // }, [userType, navigate]);
 
-  
     return (
       <div className="">
-
         <TalentFeedNavbar />
         <Outlet />
         <TalentFeedFooter />
       </div>
-      
     );
   };
 
@@ -103,8 +101,7 @@ function App() {
     const path = useLocation().pathname;
 
     const navigate = useNavigate();
-  const userType = useUserState((state) => state.userType);
-
+    const userType = useUserState((state) => state.userType);
 
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -116,44 +113,32 @@ function App() {
     //   }
     // }, [userType, navigate]);
 
-  
     return (
       <div className="">
-
         <RecruiterFeedNavbar />
         <Outlet />
         <RecruiterFeedFooter />
       </div>
-      
     );
   };
 
   const PublicProfileLayout = () => {
     const path = useLocation().pathname;
 
-  const userType = useUserState((state) => state.userType);
-
+    const userType = useUserState((state) => state.userType);
 
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [path]);
 
-
-  
     return (
       <div className="">
-
-        {
-          userType === "talent" ? <TalentFeedNavbar /> : <RecruiterFeedNavbar />
-        }
+        {userType === "talent" ? <TalentFeedNavbar /> : <RecruiterFeedNavbar />}
 
         <Outlet />
 
-        {
-          userType === "talent" ? <TalentFeedFooter /> : <RecruiterFeedFooter />
-        }
+        {userType === "talent" ? <TalentFeedFooter /> : <RecruiterFeedFooter />}
       </div>
-      
     );
   };
 
@@ -205,6 +190,10 @@ function App() {
       element: <AuthLayout />,
       children: [
         {
+          path: "",
+          element: <Login />,
+        },
+        {
           path: "login",
           element: <Login />,
         },
@@ -245,8 +234,7 @@ function App() {
         {
           path: "wallet",
           element: <Wallet />,
-        }
-
+        },
       ],
     },
     {
@@ -276,8 +264,7 @@ function App() {
         {
           path: "wallet",
           element: <Wallet />,
-        }
-
+        },
       ],
     },
     {
@@ -289,7 +276,7 @@ function App() {
           element: <WorkProfile />,
         },
       ],
-    }
+    },
   ]);
 
   return <RouterProvider router={router} />;

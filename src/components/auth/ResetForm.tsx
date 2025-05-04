@@ -15,7 +15,12 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 
-const ResetForm: FC<handleNextProps> = ({ handleNext }) => {
+
+interface ResetFormProps extends handleNextProps {
+  setEmail: (email: string) => void;
+}
+
+const ResetForm: FC<ResetFormProps> = ({ handleNext, setEmail }) => {
   const schema = resetPasswordSchema.pick({
     emailOrPhone: true,
   });
@@ -24,7 +29,8 @@ const ResetForm: FC<handleNextProps> = ({ handleNext }) => {
   });
 
   function onSubmit(data: z.infer<typeof schema>) {
-    console.log(data);
+    // console.log(data);
+    setEmail(data.emailOrPhone);
     handleNext();
   }
 

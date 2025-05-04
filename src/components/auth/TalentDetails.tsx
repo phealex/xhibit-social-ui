@@ -1,9 +1,11 @@
 import { handleNextProps, userDetailsRegisterSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import JoinBanner from "./JoinBanner";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import {
   Form,
   FormControl,
@@ -16,15 +18,93 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Checkbox } from "../ui/checkbox";
 import { Link } from "react-router-dom";
+import { useAuthState, useUserState } from "@/store";
+import { EnumUserUserType, useRegisterMutation } from "@/__generated__/graphql";
+import { useToast } from "../ui/use-toast";
+import ClipLoader from "react-spinners/ClipLoader";
 
-const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
+const TalentDetails: FC<handleNextProps> = ({ handleNext }) => {
   const form = useForm<z.infer<typeof userDetailsRegisterSchema>>({
     resolver: zodResolver(userDetailsRegisterSchema),
   });
 
+  const { toast } = useToast();
+  const authData = useAuthState((state) => state.authData);
+  const setAuthData = useAuthState((state) => state.setAuthData);
+  const setUserType = useUserState((state) => state.setUserType);
+  const setUser = useUserState((state) => state.setUser);
+
+  const [terms, setTerms] = useState<boolean>(false);
+
+  const [registerMutation, { loading }] = useRegisterMutation({
+    onCompleted: (data) => {
+      console.log(data);
+      localStorage.setItem("x_token", data.register.accessToken ?? "");
+      setUser(data.register);
+      setUserType(data.register.type as EnumUserUserType);
+      toast({
+        title: "Account created successfully",
+        description: "Proceed to verify your account.",
+      });
+      handleNext();
+    },
+    onError: (error) => {
+      console.log(error);
+      toast({
+        title: "Registration failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  // const [register, { loading }] = useMutation(REGISTER, {
+  //
+  // });
+
   function onSubmit(data: z.infer<typeof userDetailsRegisterSchema>) {
-    console.log(data);
-    handleNext();
+    // console.log(data);
+
+    if (!terms) {
+      toast({
+        title: "Terms and conditions",
+        description: "Please agree to the terms and conditions",
+        variant: "destructive",
+      });
+      return;
+    }
+    setAuthData({
+      ...authData,
+      ...data,
+    });
+
+    if (!authData) return;
+
+    registerMutation({
+      variables: {
+        credentials: {
+          email: data.email,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          password: data.password,
+          phone: data.phone,
+          userType: authData.userType as EnumUserUserType,
+          discipline: authData.discipline,
+          employmentType: authData.employmentType,
+          experience: authData.experience,
+        },
+      },
+    });
+
+    // register({
+    //   variables: {
+    //     credentials: {
+    //       ...authData,
+    //       ...data,
+    //       userType: authData.userType as EnumUserUserType,
+    //     },
+    //   },
+    // });
   }
   return (
     <div className="flex flex-col gap-[50px]">
@@ -35,7 +115,6 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-[30px]"
         >
-         
           <FormField
             control={form.control}
             name="firstName"
@@ -87,7 +166,9 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
-                  {type === "talent" ? "Email" : "Business email ID"}
+                  {authData?.userType === EnumUserUserType.Talent
+                    ? "Email"
+                    : "Business email ID"}
                 </FormLabel>
 
                 <FormControl>
@@ -131,20 +212,29 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
 
           <FormField
             control={form.control}
-            name="phoneNumber"
+            name="phone"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className=" font-Jakarta font-medium text--[16px] text-dark_green ">
-                  {type === "talent"
+                  {authData?.userType === EnumUserUserType.Talent
                     ? "   Enter your Whatsapp phone number"
                     : "Contact number"}
                 </FormLabel>
 
                 <FormControl>
-                  <Input
+                  {/* <Input
                     className="h-[54px] outline-none border border-dark_green/50 active:outline-none"
                     autoComplete="false"
                     placeholder="+234"
+                    {...field}
+                  /> */}
+
+                  <PhoneInput
+                    country={"ng"}
+                    onlyCountries={["ng"]}
+                    placeholder="+234 901 234 5678"
+                    containerClass="h-[54px] outline-none border rounded-md border-dark_green/50 active:outline-none"
+                    inputClass="!h-full !w-full !border-none !outline-none"
                     {...field}
                   />
                 </FormControl>
@@ -154,18 +244,12 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
             )}
           />
 
-          <FormField
+          {/* <FormField
             control={form.control}
             name="terms"
             render={({ field }) => (
               <FormItem>
-                <FormControl>
-                  <Checkbox
-                    className=" bg-white border border-[#8E9FAA] w-4 h-4 mr-2 data-[state=checked]:bg-white data-[state=checked]:text-primary_blue"
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
+                <FormControl></FormControl>
                 <FormLabel
                   className=" font-Jakarta text-dark_green/70 font-normal text-[13px]"
                   htmlFor="terms"
@@ -176,13 +260,34 @@ const TalentDetails: FC<handleNextProps> = ({ handleNext, type }) => {
                 <FormMessage className="text-[#E75F51] font-Jakarta text-[13px] font-light" />
               </FormItem>
             )}
-          />
+          /> */}
+          <div className="flex items-center gap-2 ">
+            <Checkbox
+              className=" bg-white border border-[#8E9FAA] w-4 h-4 mr-2 data-[state=checked]:bg-white data-[state=checked]:text-primary_blue"
+              checked={terms}
+              id="terms"
+              onCheckedChange={(checked) =>
+                setTerms(checked.valueOf() as boolean)
+              }
+            />
+            <FormLabel
+              className=" font-Jakarta text-dark_green/70 font-normal text-[13px]"
+              htmlFor="terms"
+            >
+              Agree to <span className=" text-primary_blue">Terms</span> and{" "}
+              <span className=" text-primary_blue">Policy</span>
+            </FormLabel>
+          </div>
 
           <Button
             type="submit"
             className=" w-full  py-4 bg-primary_blue text-white hover:bg-primary_blue hover:text-white font-Jakarta text-[16px] font-medium rounded-md"
           >
-            Next
+            {loading ? (
+              <ClipLoader color="#ffffff" loading={loading} size={20} />
+            ) : (
+              "Next"
+            )}
           </Button>
 
           <p className="flex w-full gap-1 items-center justify-center text-center font-Jakarta text-[16px] text-dark_green">

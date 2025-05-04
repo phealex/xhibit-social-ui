@@ -1,7 +1,11 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { handleNextProps } from "@/types";
 
-const ResetOTP: FC<handleNextProps> = ({ handleNext }) => {
+interface ResetOTPProps extends handleNextProps {
+  email: string;
+}
+
+const ResetOTP: FC<ResetOTPProps> = ({ handleNext, email }) => {
   const [otp, setOtp] = useState<string>("");
 
   const [pinNew, setPinNew] = useState<string[]>(Array(4).fill(""));
@@ -29,13 +33,13 @@ const ResetOTP: FC<handleNextProps> = ({ handleNext }) => {
         </h1>
         <p className=" font-Jakarta text-dark_green/70 text-[20px] font-normal leading-7 text-center ">
           Please type in the one time password (OTP) sent to your email address
-          abr*******.com and phone number.
+        {" "}  {email} and phone number.
         </p>
       </div>
       <div className="flex flex-col gap-5">
-          <p className=" font-Jakarta font-medium text-[16px] text-dark_green ">
-            Enter OTP <span className="text-[#E75F51]">*</span>
-          </p>
+        <p className=" font-Jakarta font-medium text-[16px] text-dark_green ">
+          Enter OTP <span className="text-[#E75F51]">*</span>
+        </p>
         <div className="flex  space-x-8 justify-center">
           {pinNew.map((digit, index) => (
             <div
@@ -74,7 +78,7 @@ const ResetOTP: FC<handleNextProps> = ({ handleNext }) => {
                     // If this is not the first input
                     if (index > 0) {
                       // Shift focus to the previous input
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       (refs[index - 1] as any)?.current?.focus();
                     }
                   }

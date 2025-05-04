@@ -1,5 +1,11 @@
+import { EnumUserUserType, LoginMutation, Register } from "@/__generated__/graphql";
 import { z } from "zod";
 
+
+export interface AuthState {
+  authData: Partial<Register> | null,
+  setAuthData: (authData: Partial<Register>) => void
+}
 
 export const jobSearchFormSchema = z.object({
   title: z
@@ -63,7 +69,7 @@ export const jobProfileRegisterSchema = z.object({
   experience: z.enum(["junior", "mid", "senior"], {
     required_error: "Select an experience level to continue",
   }),
-  roleType: z.enum(["contractor", "full-time", "any"], {
+  employmentType: z.enum(["contractor", "full-time", "any"], {
     required_error: "Select an option to continue",
   }),
   // skills: z.array(z.string()).nonempty(),
@@ -92,7 +98,7 @@ export const userDetailsRegisterSchema = z.object({
     .min(10, {
       message: "Password does not meet requirements",
     }),
-  phoneNumber: z
+  phone: z
     .string({
       required_error: "Please provide a valid phone number",
       invalid_type_error: "Please provide a valid phone number",
@@ -100,13 +106,13 @@ export const userDetailsRegisterSchema = z.object({
     .min(11, {
       message: "Phone number is required",
     }),
-  terms: z
-    .boolean({
-      required_error: "You must agree to the terms and conditions",
-    })
-    .refine((value) => value === true, {
-      message: "You must agree to the terms and conditions",
-    }),
+  // terms: z
+  //   .boolean({
+  //     required_error: "You must agree to the terms and conditions",
+  //   })
+  //   .refine((value) => value === true, {
+  //     message: "You must agree to the terms and conditions",
+  //   }),
 });
 
 export const verifyEmailSchema = z.object({
@@ -163,7 +169,6 @@ export const resetPasswordSchema = z.object({
 
 export interface handleNextProps {
   handleNext: () => void;
-  type?: RegisterDataType["userType"] | undefined;
 }
 
 export interface TalentFeedPost {
@@ -881,8 +886,10 @@ export const CryptoWithdrawFormSchema = z.object({
 
 
 export interface UserState {
-  userType: RegisterDataType["userType"];
-  setUserType: (value: RegisterDataType["userType"]) => void;
+  userType: EnumUserUserType | null;
+  setUserType: (value: EnumUserUserType | null) => void;
+  user: LoginMutation['login'] | null;
+  setUser: (value: LoginMutation['login'] | null) => void;
 }
 
 

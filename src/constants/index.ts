@@ -73,6 +73,7 @@ import { IoLogoAngular, IoLogoApple } from "react-icons/io";
 import { MdRssFeed } from "react-icons/md";
 import { BiBriefcase } from "react-icons/bi";
 import { RiBriefcase3Line, RiMenuSearchLine, RiWalletLine } from "react-icons/ri";
+import { EnumUserUserType } from "@/__generated__/graphql";
 
 export const features: {
   img: string;
@@ -846,17 +847,17 @@ export const loginQuotes: {
 ];
 
 export const registrationCategories: {
-  key: RegisterDataType["userType"];
+  key: EnumUserUserType;
   title: string;
   desc: string;
 }[] = [
   {
-    key: "talent",
+    key: EnumUserUserType.Talent,
     title: "I am a talent",
     desc: "Looking for work",
   },
   {
-    key: "recruiter",
+    key: EnumUserUserType.Recruiter,
     title: "I am a company",
     desc: "Hiring talents",
   },
