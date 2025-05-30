@@ -39,6 +39,7 @@ import { useUserState } from "./store";
 import RecruiterFeed from "./pages/recruiterFeed/RecruiterFeed";
 import RecruiterProfile from "./pages/recruiterProfile/RecruiterProfile";
 import TalentShowcase from "./pages/talentShowcase/TalentShowcase";
+import { EnumUserUserType } from "./__generated__/graphql";
 
 function App() {
   const HomeLayout = () => {
@@ -65,7 +66,7 @@ function App() {
     return (
       <div className="w-full flex  bg-white lg:grid lg:grid-cols-2 lg:h-screen overflow-hidden">
         <AuthLayoutSider />
-        <div className=" h-full overflow-y-auto w-full container">
+        <div className=" h-full lg:h-screen overflow-y-auto w-full container">
           <Outlet />
         </div>
       </div>
@@ -133,11 +134,19 @@ function App() {
 
     return (
       <div className="">
-        {userType === "talent" ? <TalentFeedNavbar /> : <RecruiterFeedNavbar />}
+        {userType === EnumUserUserType.Talent ? (
+          <TalentFeedNavbar />
+        ) : (
+          <RecruiterFeedNavbar />
+        )}
 
         <Outlet />
 
-        {userType === "talent" ? <TalentFeedFooter /> : <RecruiterFeedFooter />}
+        {userType === EnumUserUserType.Talent ? (
+          <TalentFeedFooter />
+        ) : (
+          <RecruiterFeedFooter />
+        )}
       </div>
     );
   };

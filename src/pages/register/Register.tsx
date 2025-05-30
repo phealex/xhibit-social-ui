@@ -70,7 +70,7 @@ const Register: FC = () => {
 
   return (
     <div className="py-[50px] md:py-[100px] mx-auto min-h-screen ">
-      <div className=" h-full flex flex-col  gap-[50px] w-full lg:w-[80%] mx-auto ">
+      <div className=" h-full flex flex-col  gap-[50px] w-full mx-auto ">
         <div className="flex flex-col gap-[25px] w-full ">
           <ChevronLeftSquare
             className={`text-[24px] text-dark_green rounded-md cursor-pointer ${
@@ -126,7 +126,7 @@ const Register: FC = () => {
                       {title}
                     </p>
                     {index + 1 < pageTitles.length ? (
-                      <Separator className=" text-home_grey w-[20px] h-[2px]" />
+                      <Separator className=" text-home_grey ml-2 w-[15px] h-[2px]" />
                     ) : (
                       <CheckCircle2 className=" text-home_grey" />
                     )}
